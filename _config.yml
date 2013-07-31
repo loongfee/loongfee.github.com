@@ -9,14 +9,13 @@ pygments: true
 # Themes are encouraged to use these universal variables 
 # so be sure to set them if your theme uses them.
 #
-title : Jekyll Bootstrap
+title : FlyingLoong
 tagline: Site Tagline
 author :
-  name : Name Lastname
-  email : blah@email.test
-  github : username
-  twitter : username
-  feedburner : feedname
+  name : loongfee
+  email : loongfee@gmail.com
+  github : loongfee
+  twitter : loongfee
 
 # The production_url is only used when full-domain names are needed
 # such as sitemap.txt 
@@ -56,6 +55,7 @@ JB :
   #   - When setting BASE_PATH it must be a valid url.
   #     This means always setting the protocol (http|https) or prefixing with "/"
   BASE_PATH : false
+  # BASE_PATH : loongfee.github.com
 
   # By default, the asset_path is automatically defined relative to BASE_PATH plus the enabled theme.
   # ex: [BASE_PATH]/assets/themes/[THEME-NAME]
