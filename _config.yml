@@ -4,10 +4,10 @@
 permalink: /blog/:year/:month/:day/:title 
 
 exclude: [".rvmrc", ".rbenv-version", "README.md", "Rakefile", "changelog.md"]
-auto: true
+#auto: true
 markdown: rdiscount
 pygments: true
-paginate: 6
+# paginate: 6
 
 rdiscount:
   extensions:
