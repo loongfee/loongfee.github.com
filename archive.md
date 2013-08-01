@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: index
 title : 文章列表
 ---
 
