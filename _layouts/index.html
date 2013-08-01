@@ -1,0 +1,25 @@
+---
+layout: default
+---
+
+<div class="article-list">
+	{{ content }}
+</div>
+
+<aside class="aside">
+	<div>
+		<h3>分类</h3>
+		<ul>
+			{% for category in site.categories %}
+			<li><a href="/category.html#{{category[0]}}">{{category[0]}} ({{category[1] | size}})</a></li>
+			{% endfor %}
+		</ul>
+	</div>
+	<div>
+		<h3>链接</h3>
+		<ul>
+			<li><a href="http://blog.sina.com.cn/loongfee" target="_blank">Sina</a></li>
+			<li><a href="http://www.cnblogs.com/loongfee/" target="_blank">cnBlog</a></li>
+		</ul>
+	</div>
+</aside>
