@@ -1,4 +1,3 @@
-# Jekyll+Github+Markdown+Pandoc --> Blog
-ÌåÑé·Ç³£ºÃµÄblog·½Ê½¡£
+Jekyll+Github+Markdown+Pandocï¼Œä½“éªŒéå¸¸å¥½çš„blogæ–¹å¼ã€‚
 
 <http://loongfee.github.io>
