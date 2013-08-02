@@ -4,13 +4,45 @@
  <title>FlyingLoong</title>
  <link href="http://loongfee.github.io/atom.xml" rel="self"/>
  <link href="http://loongfee.github.io"/>
- <updated>2013-08-02T17:00:13+08:00</updated>
+ <updated>2013-08-02T21:41:34+08:00</updated>
  <id>http://loongfee.github.io</id>
  <author>
    <name>loongfee</name>
    <email>loongfee@gmail.com</email>
  </author>
 
+ 
+ <entry>
+   <title>让Jekyll将Pandoc作为Markdown的渲染器</title>
+   <link href="http://loongfee.github.io/blog/2013/08/02/new-post"/>
+   <updated>2013-08-02T00:00:00+08:00</updated>
+   <id>hhttp://loongfee.github.io/blog/2013/08/02/new-post</id>
+   <content type="html">&lt;script type=&quot;text/javascript&quot; src=&quot;http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML&quot;&gt;
+&lt;/script&gt;
+
+&lt;h1 id=&quot;jekyll的渲染器&quot;&gt;Jekyll的渲染器&lt;/h1&gt;
+&lt;p&gt;Jekyll中默认的markdown渲染器是&lt;code&gt;maruku&lt;/code&gt;，但是它对Latex公式和中文支持都不太好, 通常是根据不同的需要选择其它几种渲染器（&lt;code&gt;rdiscount&lt;/code&gt;，&lt;code&gt;kramdown&lt;/code&gt;，&lt;code&gt;redcarpet&lt;/code&gt;等），它们各有利弊。Github 在后台则选用了&lt;code&gt;Redcarpet&lt;/code&gt;作为其文本渲染器，因为它安全性高且性能卓越，同时它在基本&lt;code&gt;Markdown&lt;/code&gt;语法的基础上增加了一些自己的特性。&lt;code&gt;Kramdown&lt;/code&gt;是这几个当中对基础 &lt;code&gt;Markdown&lt;/code&gt;语法拓展最多，也是最方便使用的&lt;sup&gt;&lt;a href=&quot;#fn1&quot; class=&quot;footnoteRef&quot; id=&quot;fnref1&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;（但是跟&lt;code&gt;Pandoc&lt;/code&gt;相比，还是差得很远）。之前笔者一直是使用&lt;code&gt;rdiscount&lt;/code&gt;，结果在本地编译没问题的代码在Github上就是无法通过，折腾了半天知道Github上的&lt;code&gt;rdiscount&lt;/code&gt;是1.6.8版本，而本地&lt;code&gt;rdiscount&lt;/code&gt;是2.1.6版本。下降版本后发现&lt;code&gt;rdiscount&lt;/code&gt;1.6.8版本不支持注脚语法。纠结了，使用低版本就无法使用注脚，使用高版本就无法在Github上编译通过，然后开始寻找合适的解决方案，再然后就有了这篇文章。&lt;/p&gt;
+&lt;h1 id=&quot;为什么使用pandoc&quot;&gt;为什么使用pandoc&lt;/h1&gt;
+&lt;p&gt;&lt;a href=&quot;http://johnmacfarlane.net/pandoc&quot;&gt;&lt;code&gt;Pandoc&lt;/code&gt;&lt;/a&gt;被称为格式转换的瑞士军刀，功能强大，能够在数十种文件格式（如Markdown，reStructuredText，Textilte，HTML，LaTeX，pdf，doc等）中自如的转换，几乎能做到无缝兼容，且成熟稳定。使用&lt;a href=&quot;http://johnmacfarlane.net/pandoc&quot;&gt;&lt;code&gt;Pandoc&lt;/code&gt;&lt;/a&gt;在Markdown文件中直接使用Latex公式，然后通过MathJax、jsMath 等等方式显示公式。例如使用下面一段Latex代码&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;latex&quot;&gt;&lt;span class=&quot;sb&quot;&gt;$$&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;e^{i&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;\pi&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;$$&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;就可以得到一个优美的公式： &lt;span class=&quot;math&quot;&gt;\[e^{i\pi}+1=0\]&lt;/span&gt; &lt;em&gt;为了能让公式在网页中显示，请在markdown文件头加上以下调用MathJax的代码。&lt;/em&gt;&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;html&quot;&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;script &lt;/span&gt;&lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;text/javascript&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/script&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;因此选用&lt;a href=&quot;http://johnmacfarlane.net/pandoc&quot;&gt;&lt;code&gt;Pandoc&lt;/code&gt;&lt;/a&gt;作为Jekyll中markdown的渲染器是很自然的。 但是Github并没有提供pandoc的支持，也就是说使用&lt;a href=&quot;http://johnmacfarlane.net/pandoc&quot;&gt;&lt;code&gt;Pandoc&lt;/code&gt;&lt;/a&gt;的网站代码在Github上是无法编译的，后面会谈到如何解决这个问题。下面先看看如何配置环境将&lt;a href=&quot;http://johnmacfarlane.net/pandoc&quot;&gt;&lt;code&gt;Pandoc&lt;/code&gt;&lt;/a&gt;作为Markdown的渲染器。&lt;/p&gt;
+&lt;h1 id=&quot;section&quot;&gt;&lt;/h1&gt;
+&lt;div class=&quot;footnotes&quot;&gt;
+&lt;hr /&gt;
+&lt;ol&gt;
+&lt;li id=&quot;fn1&quot;&gt;&lt;p&gt;为Jekyll装上瑞士军刀Pandoc: &lt;a href=&quot;http://yangzetian.github.io/2012/04/15/jekyll-pandoc/&quot;&gt;http://yangzetian.github.io/2012/04/15/jekyll-pandoc/&lt;/a&gt; &lt;a href=&quot;http://varunbpatil.github.io/2013/07/06/jekyll-build-fail/#.Ufune48lzRd&quot;&gt;http://varunbpatil.github.io/2013/07/06/jekyll-build-fail/#.Ufune48lzRd&lt;/a&gt;&lt;a href=&quot;#fnref1&quot;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+</content>
+ </entry>
  
  <entry>
    <title>利用Pandoc将markdown文件转化为pdf</title>

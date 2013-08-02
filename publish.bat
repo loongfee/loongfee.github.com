@@ -42,6 +42,8 @@ call git remote add origin git@github.com:!usr!/!usr!.github.com.git
 call git remote set-url origin git@github.com:!usr!/!usr!.github.com.git
 call git push origin master --force
 
-exit
+:: 返回当前目录
 cd /d %~dp0
+
+:: 删除临时编译目录
 rd /s /q !build_path!
