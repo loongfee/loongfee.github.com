@@ -26,24 +26,22 @@ if exist %build_path% (
 
 :: 编译网站
 chcp 65001
-jekyll build  %build_path%
+call jekyll build -d %build_path%
 
-echo %errorlevel%
-
-del /q/a/f/s %build_path%\publish.bat
-exit
-rd /s /q !build_path!
+:: 如果编译出错，直接跳出
+if   %errorlevel% NEQ 0  exit
 
 :: 如果编译没有错误就发布网站
-::if   %errorlevel% (
-    cd /d d:sdk %build_path%
-    git init
-    git add .
-    git commit -m "updated site %ymd%"
-    git remote add origin git@github.com:!usr!/!usr!.github.com.git
-    git push origin master --force
-::)
+cd /d %build_path%
+C:
+del /q/a/f/s %build_path%\*.bat
+call git init
+call git add .
+call git commit -m "updated site %ymd%"
+call git remote add origin git@github.com:!usr!/!usr!.github.com.git
+call git remote set-url origin git@github.com:!usr!/!usr!.github.com.git
+call git push origin master --force
 
+exit
 cd /d %~dp0
-
 rd /s /q !build_path!
