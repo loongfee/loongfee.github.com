@@ -9,10 +9,11 @@ safe: true
 pygments: true
 # paginate: 6
 
-markdown: pandoc
-pandoc:
-  format: html5
-  extensions: [smart, mathjax]
+markdown: rdiscount
+#markdown: pandoc
+#pandoc:
+#  format: html5
+#  extensions: [smart, mathjax]
 
 # Themes are encouraged to use these universal variables 
 # so be sure to set them if your theme uses them.
