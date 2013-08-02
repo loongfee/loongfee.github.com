@@ -5,9 +5,17 @@
  * description: 
  */
 
+@import url(http://fonts.googleapis.com/css?family=Marmelad:400);
 /* reset */
-body{color:#333;padding:0;margin:0;background:#fdfdfd;
-	font:15px/1.625 "Helvetica Neue", Helvetica, Arial, sans-serif;}
+/*body{color:#333;padding:0;margin:0;background:#fdfdfd;
+	font:15px/1.625 "Helvetica Neue", Helvetica, Arial, sans-serif;}*/
+body {
+  font-family:"Marmelad", "WenQuanYi ZenHei", 文泉驿正黑, "Hiragino Sans GB", "STHeiti", Helvetica, Arial, Sans-Serif;
+  font:15px/1.625;
+  line-height: 160%;
+  color:#333;
+  background:#fdfdfd;
+}
 	
 /* 选中文字的颜色*/
 ::selection {
@@ -48,9 +56,15 @@ a:hover {
 	-webkit-transition: background-color .15s ease-in-out .1;;	/* Safari and Chrome */
 	-o-transition: background-color .15s ease-in-out .1;			/* Opera */
 }
-code{font-family: Monaco, Menlo, Consolas, "Courier New", monospace;
+body {
+  font-family:"Marmelad", "WenQuanYi ZenHei", 文泉驿正黑, "Hiragino Sans GB", "STHeiti",  Helvetica, Arial, Sans-Serif;
+  font:12px;
+  padding:1px 4px;background-color:#f9f9f9;
+	border-radius:3px;-webkit-border-radius:3px;-moz-border-radius:3px;
+}
+/*code{font-family: Monaco, Menlo, Consolas, "Courier New", monospace;
 	padding:1px 4px;background-color:#f9f9f9;border:1px solid #e8e8e8;
-	border-radius:3px;-webkit-border-radius:3px;-moz-border-radius:3px;}
+	border-radius:3px;-webkit-border-radius:3px;-moz-border-radius:3px;}*/
 pre code{line-height:100%;background:none;border:none;}
 h1{font-size:2em;margin:0.8em 0;}
 h2{font-size:1.6em;margin:0.5em 0;}
@@ -71,10 +85,13 @@ ul{list-style:circle;}
 .article-list ul{list-style:none;padding:0;margin:0;}
 
 
-
+/*
 .header-info,
 #content,
-#footer{width:900px;margin:0 auto;}
+#footer{width:900px;margin:0 auto;}*/
+.header-info,
+#content,
+#footer{width:900px;margin:0.8em auto;}
 /* header */
 #header{position:relative;border-bottom:1px solid #ccc;}
 #header h1,
@@ -87,7 +104,8 @@ ul{list-style:circle;}
 #header h1 a{color:#333;text-decoration:none;}
 #header .describe{float:left;padding-left:2em;margin-top:1.6em;}
 .header-info{position:relative;}
-.navigation{position:absolute;top:1.3em;right:3px;}
+/*.navigation{position:absolute;top:1.3em;right:3px;}*/
+.navigation{position:absolute;top:0.2em;right:3px;}
 .navigation li{float:left;margin:0;padding:10px 20px;font-size:1.2em;}
 
 /* footer */
@@ -108,7 +126,7 @@ ul{list-style:circle;}
 
 /* 文章最终页 */
 #post,
-#comment{margin:0 auto;width:630px;}
+#comment{margin:0 auto;width:900px;}
 #post{
 	-webkit-box-shadow:inset 0 0 1px #fff, inset 0 0 3px #fff;
 	-moz-box-shadow:inset 0 0 1px #fff, inset 0 0 3px #fff;

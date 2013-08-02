@@ -6,15 +6,13 @@ permalink: /blog/:year/:month/:day/:title
 exclude: [".rvmrc", ".rbenv-version", "README.md", "Rakefile", "changelog.md"]
 #auto: true
 safe: true
-markdown: rdiscount
 pygments: true
 # paginate: 6
 
-rdiscount:
-  extensions:
-    - autolink      # greedily urlify links
-#    - footnotes     # footnotes
-    - smart         # typographic substitutions with SmartyPants
+markdown: pandoc
+pandoc:
+  format: html5
+  extensions: [smart, mathjax]
 
 # Themes are encouraged to use these universal variables 
 # so be sure to set them if your theme uses them.
