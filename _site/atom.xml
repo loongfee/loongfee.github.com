@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+ 
+ <title>FlyingLoong</title>
+ <link href="http://loongfee.github.io/atom.xml" rel="self"/>
+ <link href="http://loongfee.github.io"/>
+ <updated>2013-08-02T10:58:37+08:00</updated>
+ <id>http://loongfee.github.io</id>
+ <author>
+   <name>loongfee</name>
+   <email>loongfee@gmail.com</email>
+ </author>
+
+ 
+ <entry>
+   <title>利用Pandoc将markdown文件转化为pdf</title>
+   <link href="http://loongfee.github.io/blog/2013/07/31/pandoc"/>
+   <updated>2013-07-31T00:00:00+08:00</updated>
+   <id>hhttp://loongfee.github.io/blog/2013/07/31/pandoc</id>
+   <content type="html">&lt;h1 id=&quot;准备工作&quot;&gt;准备工作&lt;/h1&gt;
+&lt;h2 id=&quot;安装pandoc&quot;&gt;安装pandoc&lt;/h2&gt;
+&lt;p&gt;Windows下安装pandoc很容易，直接从&lt;a href=&quot;http://johnmacfarlane.net/pandoc/&quot;&gt;pandoc官网&lt;/a&gt;上下载&lt;a href=&quot;http://code.google.com/p/pandoc/downloads/&quot;&gt;最新安装包&lt;/a&gt;安装即可。&lt;br /&gt;Linux下的安装可以参考阳志平的博文&lt;sup&gt;&lt;a href=&quot;#fn1&quot; class=&quot;footnoteRef&quot; id=&quot;fnref1&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;。&lt;/p&gt;
+&lt;h2 id=&quot;安装miktex&quot;&gt;安装MiKTeX&lt;/h2&gt;
+&lt;p&gt;pandoc被称为格式转换的瑞士军刀&lt;sup&gt;&lt;a href=&quot;#fn2&quot; class=&quot;footnoteRef&quot; id=&quot;fnref2&quot;&gt;2&lt;/a&gt;&lt;/sup&gt;。执行程序文件只有20M左右大小，但是能够在几十种文件格式之间自如的转换，那当然是得依赖各种格式文件所需要库。转换为pdf就要用到MiKTeX，Windows下推荐使用CTeX完整版，对中文的支持很好，可以从&lt;a href=&quot;http://www.ctex.org/HomePage&quot;&gt;CTeX官网&lt;/a&gt;下载&lt;a href=&quot;http://ftp.ctex.org/pub/tex/systems/ctex/2.9/CTeX_2.9.2.164_Full.exe&quot;&gt;完整套件&lt;/a&gt;。&lt;/p&gt;
+&lt;h1 id=&quot;将markdown文件转换为pdf&quot;&gt;将markdown文件转换为pdf&lt;/h1&gt;
+&lt;p&gt;如果markdown文件中不包含中文字符，那么直接使用下面的命令就可以将markdown文件无缝转换为Latex支持的pdf文件。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;pandoc infile.md -o outfile.pdf&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;如果markdown文件中包含中文字字符，那么上段命令就无法直接转换，可能会报以下错误：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;! Package inputenc Error: Unicode char \u8:鍒?not set up for use with LaTex.
+pandoc: Error producing PDF from Tex source.    
+See the inputsnc package documentation for explanation.   
+... &lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;为了解决中文编译的问题，需要做以下的工作：&lt;/p&gt;
+&lt;h2 id=&quot;将markdown文档的编码方式改为utf-8&quot;&gt;将markdown文档的编码方式改为utf-8&lt;/h2&gt;
+&lt;p&gt;比较简单的办法就是用记事本打开该文档，然后另存为时选择编码方式为utf-8。有可能当你改变编码方式后，文档中的中文全变成乱码了。为避免这种情况，可以在改变编码方式之前先复制文档的全部内容，然后在改变编码方式之后粘贴替换文档中的全木内容，这样就不会出现乱码了。&lt;/p&gt;
+&lt;h2 id=&quot;修改latex引擎&quot;&gt;修改Latex引擎&lt;/h2&gt;
+&lt;p&gt;编译pandoc默认的latex引擎是pdflatex，是不支持中文的，因此需要手动设置编译时所用的引擎为xelatex，编译命令改为：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;pandoc infile.md -o outfile.pdf --latex-engine=xelatex&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&quot;中文字体&quot;&gt;中文字体&lt;/h2&gt;
+&lt;p&gt;这时编译可能没有错误了，但是得到的pdf文档中可能所有的中文都没有了。这是字体的问题，因为编译时默认的字体时不支持中文的，所以我们得手动设置中文字体。显然，所设的字体应该为系统中已装的字体，且字体的名字不能写错。有一个办法可以的到系统中所安装的所有字体名（见&lt;a href=&quot;http://blog.sina.com.cn/s/blog_5ee56d4501019ys8.html&quot;&gt;博文&lt;/a&gt;），即在控制台中输入命令：&lt;code&gt;fc-list &amp;gt;&amp;gt; C:\fonts.txt&lt;/code&gt;。这样，扫到的字体信息就全部被导入到C盘根目录下的fonts.txt文件中了。这里我们选择宋体，字体名称为“SimSun”，于是编译命令改为：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;pandoc infile.md -o outfile.pdf --latex-engine=xelatex -V mainfont=&amp;quot;SimSun&amp;quot; &lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;em&gt;注意：命令中的“V”是大写&lt;/em&gt;&lt;br /&gt;这里字体名也可以不加&lt;strong&gt;双&lt;/strong&gt;引号，但是如果字体名比较复杂（如包含空格）时，不加双引号就可能出错。&lt;/p&gt;
+&lt;h2 id=&quot;使用模板&quot;&gt;使用模板&lt;/h2&gt;
+&lt;p&gt;好了，中文字符应该能够显示了，但是你可能会发现很多文字已经超出了文档的边界无法显示了，这是因为pandoc对中文的支持不太好，不能自动换行。但是这并不表示pandoc就真的无法完美处理中文文档了，因为技术界那些追求完美的极客们为我们提供了无限的可能。这篇博文介绍了pandoc中文pdf转换攻略&lt;sup&gt;&lt;a href=&quot;#fn3&quot; class=&quot;footnoteRef&quot; id=&quot;fnref3&quot;&gt;3&lt;/a&gt;&lt;/sup&gt;，解决方案是使用网友编辑好的latex模板来生成pdf，这里用到的是&lt;a href=&quot;https://github.com/tzengyuxio&quot;&gt;tzengyuxio&lt;/a&gt;提供的pm-template.latex&lt;sup&gt;&lt;a href=&quot;#fn4&quot; class=&quot;footnoteRef&quot; id=&quot;fnref4&quot;&gt;4&lt;/a&gt;&lt;/sup&gt;。 下载模板后将其中的&lt;code&gt;LiHei Pro&lt;/code&gt;字体替换成系统中安装有的中文字体即可，然后编译命令改为：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;pandoc infile.md -o outfile.pdf --latex-engine=xelatex -template=pm-template.latex&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;em&gt;注意：如果安装的MiKTeX（我用的是CTex）宏包不全，编译可能会出问题，如找不到&lt;code&gt;exp13.sty&lt;/code&gt;等，因此推荐安装完整版的MiKTex。&lt;/em&gt;&lt;br /&gt;当然，你也可以使用自己定义的模板来生成tex和pdf文件。首先使用命令&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;pandoc -D latex &amp;gt; my.latex&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;生成一个默认的模板，再对这个模板进行修改，如字体、自动换行等。&lt;/p&gt;
+&lt;div class=&quot;footnotes&quot;&gt;
+&lt;hr /&gt;
+&lt;ol&gt;
+&lt;li id=&quot;fn1&quot;&gt;&lt;p&gt;Markdown写作进阶：Pandoc入门浅谈: &lt;a href=&quot;http://www.yangzhiping.com/tech/pandoc.html&quot;&gt;http://www.yangzhiping.com/tech/pandoc.html&lt;/a&gt;&lt;a href=&quot;#fnref1&quot;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li id=&quot;fn2&quot;&gt;&lt;p&gt;黑魔法利器pandoc: &lt;a href=&quot;http://yanping.me/cn/blog/2012/03/13/pandoc/&quot;&gt;http://yanping.me/cn/blog/2012/03/13/pandoc/&lt;/a&gt;&lt;a href=&quot;#fnref2&quot;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li id=&quot;fn3&quot;&gt;&lt;p&gt;pandoc中文pdf转换攻略：&lt;a href=&quot;http://afoo.me/2013-07-10-how-to-transform-chinese-pdf-with-pandoc.html&quot;&gt;http://afoo.me/2013-07-10-how-to-transform-chinese-pdf-with-pandoc.html&lt;/a&gt;&lt;a href=&quot;#fnref3&quot;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li id=&quot;fn4&quot;&gt;&lt;p&gt;pm-template GitHub: &lt;a href=&quot;https://github.com/tzengyuxio/pages/tree/gh-pages/pandoc&quot;&gt;https://github.com/tzengyuxio/pages/tree/gh-pages/pandoc&lt;/a&gt;&lt;a href=&quot;#fnref4&quot;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Jekyll上手篇</title>
+   <link href="http://loongfee.github.io/blog/2013/07/31/jekyll"/>
+   <updated>2013-07-31T00:00:00+08:00</updated>
+   <id>hhttp://loongfee.github.io/blog/2013/07/31/jekyll</id>
+   <content type="html">&lt;h2 id=&quot;启动本地jekyll服务run-jekyll-locallychengxuyuan&quot;&gt;启动本地Jekyll服务（Run Jekyll Locally）&lt;sup&gt;&lt;a href=&quot;#fn1&quot; class=&quot;footnoteRef&quot; id=&quot;fnref1&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/h2&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;USERNAME.github.com
+jekyll serve
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;其中，&lt;code&gt;USERNAME&lt;/code&gt;是你的github博客用户名，也就是说需要先定位到本地博客的根目录下。 然后，就可以通过&lt;http://localhost:4000/&gt;来访问你的博客了。&lt;/p&gt;
+&lt;h2 id=&quot;停止本地jekyll服务stop-jekyll-locally&quot;&gt;停止本地Jekyll服务（Stop Jekyll Locally）&lt;/h2&gt;
+&lt;p&gt;在控制台窗口中使用快捷键来停止服务：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;Ctrl+C&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&quot;创建一个post&quot;&gt;创建一个post&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;$ rake post title=&amp;quot;Hello World&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&quot;创建一个page&quot;&gt;创建一个page&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;$ rake page name=&amp;quot;about.md&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&quot;删除post或page&quot;&gt;删除post或page&lt;/h2&gt;
+&lt;p&gt;直接删除相应的post文件即可删除一个post&lt;sup&gt;&lt;a href=&quot;#fn2&quot; class=&quot;footnoteRef&quot; id=&quot;fnref2&quot;&gt;2&lt;/a&gt;&lt;/sup&gt;。&lt;/p&gt;
+&lt;h2 id=&quot;上传新添加的内容&quot;&gt;上传新添加的内容&lt;/h2&gt;
+&lt;p&gt;只需要将新添加的内容上传到Github，Jekyll就可以帮我们生成相应的网页了。上传内容的命令如下。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ git add .
+$ git commit -m &amp;quot;Add new content&amp;quot;
+$ git push origin master&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&quot;中文编码问题&quot;&gt;中文编码问题&lt;/h2&gt;
+&lt;p&gt;修改&lt;code&gt;convertible.rb&lt;/code&gt;文件中的以下行&lt;sup&gt;&lt;a href=&quot;#fn3&quot; class=&quot;footnoteRef&quot; id=&quot;fnref3&quot;&gt;3&lt;/a&gt;&lt;/sup&gt; &lt;sup&gt;,&lt;/sup&gt; &lt;sup&gt;&lt;a href=&quot;#fn4&quot; class=&quot;footnoteRef&quot; id=&quot;fnref4&quot;&gt;4&lt;/a&gt;&lt;/sup&gt;：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;self.content = File.read(File.join(base, name))&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;加入utf-8支持，改后为：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;self.content = File.read(File.join(base, name), :encoding =&amp;gt; &amp;#39;utf-8&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;改后即可正常处理包含中文的post。 如果编译出现如下错误&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;Liquid Exception: incompatible character encodings: UTF-8 and GBK
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;可以尝试更改控制台编码：&lt;code&gt;chcp 65001&lt;/code&gt;，改后控制台变得比较丑，但总算能解决中文编码问题。&lt;/p&gt;
+&lt;div class=&quot;footnotes&quot;&gt;
+&lt;hr /&gt;
+&lt;ol&gt;
+&lt;li id=&quot;fn1&quot;&gt;&lt;p&gt;利用Jekyll搭建个人博客:&lt;a href=&quot;http://www.mceiba.com/develop/jekyll-introduction.html&quot;&gt;http://www.mceiba.com/develop/jekyll-introduction.html&lt;/a&gt;&lt;a href=&quot;#fnref1&quot;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li id=&quot;fn2&quot;&gt;&lt;p&gt;Blogging using your favorite Text editor with Git and Jekyll: &lt;a href=&quot;http://truongtx.me/2013/05/08/blogging-using-your-favorite-text-editor-with-git-and-jekyll/&quot;&gt;http://truongtx.me/2013/05/08/blogging-using-your-favorite-text-editor-with-git-and-jekyll/&lt;/a&gt;&lt;a href=&quot;#fnref2&quot;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li id=&quot;fn3&quot;&gt;&lt;p&gt;Jekyll对中文问题的处理:&lt;a href=&quot;http://nepshi.com/2012-10-08/chinese-characters-in-jekyll/&quot;&gt;http://nepshi.com/2012-10-08/chinese-characters-in-jekyll/&lt;/a&gt;&lt;a href=&quot;#fnref3&quot;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li id=&quot;fn4&quot;&gt;&lt;p&gt;win7使用jekyll的中文编码问题: &lt;a href=&quot;http://www.oschina.net/question/195686_72215&quot;&gt;http://www.oschina.net/question/195686_72215&lt;/a&gt;&lt;a href=&quot;#fnref4&quot;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>使用GitHub管理你的工程</title>
+   <link href="http://loongfee.github.io/blog/2013/07/31/github"/>
+   <updated>2013-07-31T00:00:00+08:00</updated>
+   <id>hhttp://loongfee.github.io/blog/2013/07/31/github</id>
+   <content type="html">&lt;p&gt;无可非议，这是一个计算机的时代，也是一个代码的时代。作为一个资深码农，你一定写过无数段小代码，无数个小程序了，实际应用中需要用到的很多代码段或者小工具都可以从自己积累的程序中直接拿出来。然而事实并没有这么简单，你可能需要在不同的电脑上编写程序，你也可能根据实际使用的情况对你以前的代码进行修改，随之而来的就是&lt;strong&gt;“版本灾难”&lt;/strong&gt;，这往往是令人抓狂的。另外，现在软件项目越来越大，大多数实际项目已经不再像过去那样只需要一两个人就能完成了。不同的人在不同的终端上几乎同时地对同一个项目进行编辑，可想而知，版本的管理将是多么繁琐的一件事情。那么有没有什么方法可以高效地管理你的工程呢？这就是这篇文章要解决的问题。&lt;/p&gt;
+&lt;h2 id=&quot;github是什么&quot;&gt;GitHub是什么&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/&quot;&gt;GitHub&lt;/a&gt;是一家公司，位于旧金山，由&lt;a href=&quot;https://github.com/defunkt&quot;&gt;Chris Wanstrath&lt;/a&gt;, &lt;a href=&quot;https://github.com/pjhyett&quot;&gt;PJ Hyett&lt;/a&gt; 与&lt;a href=&quot;https://github.com/mojombo&quot;&gt;Tom Preston-Werner&lt;/a&gt;三位开发者在2008年4月创办。迄今拥有59名全职员工，主要提供基于Git的版本托管服务。GitHub是目前最流行的开源托管服务，已经成为全球最大的开源项目聚集地。GitHub的服务分为免费和收费两种。免费账号可以自由的发布项目（不过每个项目有100M的大小限制），并且所发布的项目必须是公开源码的。付费账号则可以发布私有的项目。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;对于一般的开源项目的用户而言，100M的大小是足够的。但如果你的代码是商业保密的或者你的项目非常的大，那么你就需要成为付费用户以便GitHub不公开你的源代码或者提供更大的存储空间。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;好的，下面就从注册GitHub账号开始，逐步介绍如何使用GitHub管理你的软件项目。GitHub的平台无关性表现非常好，但是本文只介绍windows下的使用方法。&lt;/p&gt;
+&lt;h2 id=&quot;注册github账号&quot;&gt;注册GitHub账号&lt;/h2&gt;
+&lt;p&gt;打开&lt;a href=&quot;https://github.com/&quot;&gt;GitHub&lt;/a&gt;网站的主页，按照提示输入待注册的用户名、邮箱和密码，然后点“Sign up for GitHub”，如下图所示。&lt;img src=&quot;/assets/images/20130801-sign_up.png&quot; alt=&quot;注册&quot; /&gt; 如果不出意外的话就注册成功了（如果你的密码设置的过于简单，可能会提示你重新设置密码）。对，就这么简单。&lt;/p&gt;
+&lt;h2 id=&quot;github工具&quot;&gt;GitHub工具&lt;/h2&gt;
+&lt;p&gt;GitHub最初是在linux下面使用的，一切操作都是用命令来实现的，对于windows用户来说还是很不方便的。好在GitHub最近发布了一个windows下的管理工具，操作简单直观，界面是metro UI 风格，推荐使用这个管理工具。相关说明和下载地址如下：&lt;/p&gt;
+&lt;table&gt;
+&lt;col width=&quot;100%&quot; /&gt;
+&lt;tbody&gt;
+&lt;tr class=&quot;odd&quot;&gt;
+&lt;td align=&quot;left&quot;&gt;&amp;gt; 官方就这个工具发布的说明：&lt;a href=&quot;https://github.com/blog/1127-github-for-windows&quot;&gt;https://github.com/blog/1127-github-for-windows&lt;/a&gt; &amp;gt; &amp;gt; 官方网址：&lt;a href=&quot;http://windows.github.com/&quot;&gt;http://windows.github.com/&lt;/a&gt; &amp;gt; &amp;gt; 点击此处下载：&lt;a href=&quot;http://github-windows.s3.amazonaws.com/setup.exe&quot;&gt;http://github-windows.s3.amazonaws.com/setup.exe&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;下载的setup.exe是一个在线安装器，运行后会开始在线安装，安装过程可能需要几分钟（需要下载安装程序）。 安装完后会出现“Git Shell”和“GitHub”两个程序，其中“Git Shell”是命令行模式，“GitHub”是图形界面模式，这里打开“GitHub”，出现登录界面，如下图所示。 &lt;img src=&quot;/assets/images/20130801-github_login.png&quot; alt=&quot;登录客户端&quot; /&gt; ## 创建一个项目（Repositories）&lt;/p&gt;
+</content>
+ </entry>
+ 
+ 
+</feed>
