@@ -7,6 +7,7 @@ http://loongfee.github.io/index.html
 http://loongfee.github.io/sitemap.txt
 http://loongfee.github.io/tags.html
 
+http://loongfee.github.io/blog/2013/08/03/Github-page-build-failure
 http://loongfee.github.io/blog/2013/08/02/new-post
 http://loongfee.github.io/blog/2013/07/31/pandoc
 http://loongfee.github.io/blog/2013/07/31/jekyll

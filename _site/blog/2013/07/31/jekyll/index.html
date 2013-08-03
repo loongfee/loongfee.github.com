@@ -53,7 +53,7 @@
 
   
      
-    	<li><a href="/tags.html#Jekyll-ref">Jekyll <span>2</span></a></li>
+    	<li><a href="/tags.html#Jekyll-ref">Jekyll <span>3</span></a></li>
      
     	<li><a href="/tags.html#Blog-ref">Blog <span>1</span></a></li>
      
@@ -67,66 +67,7 @@
 
     </ul>
 
-	<h2 id="启动本地jekyll服务run-jekyll-locallychengxuyuan">启动本地Jekyll服务（Run Jekyll Locally）<sup><a href="#fn1" class="footnoteRef" id="fnref1">1</a></sup></h2>
-<div class="highlight"><pre><code class="bash"><span class="nb">cd </span>USERNAME.github.com
-jekyll serve
-</code></pre></div>
-
-
-<p>其中，<code>USERNAME</code>是你的github博客用户名，也就是说需要先定位到本地博客的根目录下。 然后，就可以通过<http://localhost:4000/>来访问你的博客了。</p>
-<h2 id="停止本地jekyll服务stop-jekyll-locally">停止本地Jekyll服务（Stop Jekyll Locally）</h2>
-<p>在控制台窗口中使用快捷键来停止服务：</p>
-<pre><code>Ctrl+C</code></pre>
-<h2 id="创建一个post">创建一个post</h2>
-<div class="highlight"><pre><code class="bash">rake post <span class="nv">title</span><span class="o">=</span><span class="s2">&quot;Hello World&quot;</span>
- 
-</code></pre></div>
-
-
-<h2 id="创建一个page">创建一个page</h2>
-<div class="highlight"><pre><code class="bash">rake page <span class="nv">name</span><span class="o">=</span><span class="s2">&quot;about.md&quot;</span>
- 
-</code></pre></div>
-
-
-<h2 id="删除post或page">删除post或page</h2>
-<p>直接删除相应的post文件即可删除一个post<sup><a href="#fn2" class="footnoteRef" id="fnref2">2</a></sup>。</p>
-<h2 id="上传新添加的内容">上传新添加的内容</h2>
-<p>只需要将新添加的内容上传到Github，Jekyll就可以帮我们生成相应的网页了。上传内容的命令如下。</p>
-<div class="highlight"><pre><code class="bash">git add .
-git commit -m <span class="s2">&quot;Add new content&quot;</span>
-git push origin master
- 
-</code></pre></div>
-
-
-<h2 id="中文编码问题">中文编码问题</h2>
-<p>修改<code>convertible.rb</code>文件中的以下行<sup><a href="#fn3" class="footnoteRef" id="fnref3">3</a></sup> <sup>,</sup> <sup><a href="#fn4" class="footnoteRef" id="fnref4">4</a></sup>：</p>
-<div class="highlight"><pre><code class="ruby"><span class="nb">self</span><span class="o">.</span><span class="n">content</span> <span class="o">=</span> <span class="no">File</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="no">File</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">base</span><span class="p">,</span> <span class="nb">name</span><span class="p">))</span>
-</code></pre></div>
- 
-
-<p>加入utf-8支持，改后为：</p>
-<div class="highlight"><pre><code class="ruby"><span class="nb">self</span><span class="o">.</span><span class="n">content</span> <span class="o">=</span> <span class="no">File</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="no">File</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">base</span><span class="p">,</span> <span class="nb">name</span><span class="p">),</span> <span class="ss">:encoding</span> <span class="o">=&gt;</span> <span class="s1">&#39;utf-8&#39;</span><span class="p">)</span>
-</code></pre></div>
-
-
-<p>改后即可正常处理包含中文的post。 如果编译出现如下错误</p>
-<div class="highlight"><pre><code class="bash">Liquid Exception: incompatible character encodings: UTF-8 and GBK
-</code></pre></div>
-
-
-<p>可以尝试更改控制台编码：<code>chcp 65001</code>，改后控制台变得比较丑，但总算能解决中文编码问题。</p>
-<div class="footnotes">
-<hr />
-<ol>
-<li id="fn1"><p>利用Jekyll搭建个人博客:<a href="http://www.mceiba.com/develop/jekyll-introduction.html">http://www.mceiba.com/develop/jekyll-introduction.html</a><a href="#fnref1">↩</a></p></li>
-<li id="fn2"><p>Blogging using your favorite Text editor with Git and Jekyll: <a href="http://truongtx.me/2013/05/08/blogging-using-your-favorite-text-editor-with-git-and-jekyll/">http://truongtx.me/2013/05/08/blogging-using-your-favorite-text-editor-with-git-and-jekyll/</a><a href="#fnref2">↩</a></p></li>
-<li id="fn3"><p>Jekyll对中文问题的处理:<a href="http://nepshi.com/2012-10-08/chinese-characters-in-jekyll/">http://nepshi.com/2012-10-08/chinese-characters-in-jekyll/</a><a href="#fnref3">↩</a></p></li>
-<li id="fn4"><p>win7使用jekyll的中文编码问题: <a href="http://www.oschina.net/question/195686_72215">http://www.oschina.net/question/195686_72215</a><a href="#fnref4">↩</a></p></li>
-</ol>
-</div>
-
+	
 	
 
 	<hr />
