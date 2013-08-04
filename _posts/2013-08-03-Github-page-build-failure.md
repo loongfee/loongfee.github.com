@@ -103,7 +103,10 @@ cd /d %~dp0
 
 :: 删除临时编译目录
 rd /s /q !build_path!
-{%endhighlight%}
+{%endhighlight%}  
+创建一个 `windows batch` 文件（扩展名为 `bat`），将以上代码复制粘贴到这个文件中，并把代码 `set usr=anyone` 中的 `anyone` 改成你自己 `Github` 的用户名（也可以直接[下载这个`bat`文件](/assets/share/publish.bat)），然后这个文件存放在网站代码的根目录下，每次需要发布网站的时候直接运行这个`bat`文件即可。  
+命令执行过程中可能会出现警告，只要最后能执行通过就没有问题。
+
 
 [`Github Page`]: http://pages.github.com/ ""
 [^varn]: Jekyll : Handling Github page build failure and Jekyll plugins on Github:<http://varunbpatil.github.io/2013/07/06/jekyll-build-fail/#.UfumtI8lzRe>
