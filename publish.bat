@@ -24,8 +24,9 @@ if exist %build_path% (
     md %build_path%
 )
 
-:: 编译网站
+:: 支持utf-8编码
 chcp 65001
+:: 编译网站
 call jekyll build -d %build_path%
 
 :: 如果编译出错，直接跳出

@@ -10,6 +10,7 @@ pygments: true
 # paginate: 6
 
 #markdown: rdiscount
+#markdown: redcarpet-pygments
 markdown: pandoc
   
 pandoc:
@@ -17,8 +18,9 @@ pandoc:
   extensions:
     - smart
     - mathjax
-    - highlight-style zenburn
- #   - highlight-style: 'pygments'
+    - no-highlight
+    - highlight-style pygments
+   # - runhaskell pygments.hs
 
 # Themes are encouraged to use these universal variables 
 # so be sure to set them if your theme uses them.
