@@ -3,7 +3,7 @@
 # permalink: /:categories/:year/:month/:day/:title 
 permalink: /blog/:year/:month/:day/:title 
 
-exclude: [".rvmrc", ".rbenv-version", "README.md", "Rakefile", "changelog.md"]
+exclude: [".rvmrc", ".rbenv-version", "README.md", "Rakefile", "changelog.md", ".bat"]
 #auto: true
 safe: true
 pygments: true
@@ -25,10 +25,10 @@ pandoc:
 # Themes are encouraged to use these universal variables 
 # so be sure to set them if your theme uses them.
 #
-title : FlyingLoong
+title : 淡朴若水
 tagline: Site Tagline
 author :
-  name : loongfee
+  name : 土肥龙
   email : loongfee@gmail.com
   github : loongfee
   twitter : loongfee
@@ -98,6 +98,19 @@ JB :
   # Set 'provider' to the comment provider you want to use.
   # Set 'provider' to false to turn commenting off globally.
   #
+  comments :
+    provider : disqus
+    disqus :
+      short_name : dannpu
+    livefyre :
+      site_id : 123
+    intensedebate :
+      account : 123abc
+    facebook :
+      appid : 123
+      num_posts: 5
+      width: 580
+      colorscheme: light
 
    
   # Settings for analytics helper

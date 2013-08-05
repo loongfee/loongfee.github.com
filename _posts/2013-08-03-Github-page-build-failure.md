@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "利用本地编译结果替代Github Page自动生成网站"
-description: ""
+description: "利用本地编译结果替代Github Page自动生成网站"
 category: "Jekyll"
 tags: [Jekyll, Github, Plugins]
 ---
