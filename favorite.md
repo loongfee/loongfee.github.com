@@ -1,6 +1,6 @@
 ---
-layout: favorite
-title: ""
+layout: default
+title: "收藏夹"
 description: ""
 ---
 

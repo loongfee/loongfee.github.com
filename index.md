@@ -1,6 +1,6 @@
 ---
 layout: index
-title: 土肥龙
+title: 淡朴若水
 tagline: [IT, 数学, 遥感]
 ---
 
