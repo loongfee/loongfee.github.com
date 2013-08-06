@@ -18,8 +18,8 @@
 }*/
 
 body {
-  /*font-family:"Marmelad", "WenQuanYi ZenHei", 文泉驿正黑, "Hiragino Sans GB", "STHeiti",  Helvetica, Arial, Sans-Serif;*/
-  font-family:"georgia, "ヒラギノ明朝 Pro W3", "Hiragino Mincho Pro", "メイリオ", Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", \5b8b\4f53, sans-serif;"
+  font-family:"Marmelad", "WenQuanYi ZenHei", 文泉驿正黑, "Hiragino Sans GB", "STHeiti",  Helvetica, Arial, Sans-Serif;
+  /*font-family:"georgia, "ヒラギノ明朝 Pro W3", "Hiragino Mincho Pro", "メイリオ", Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", \5b8b\4f53, sans-serif;"*/
   font:12px;
   line-height: 150%;
   padding:1px 4px;background-color:#f9f9f9;
