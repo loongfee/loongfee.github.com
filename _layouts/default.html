@@ -5,6 +5,7 @@
 		<meta name="viewport" content="width=device-width,initial-scale=1">
 		<meta name="author" content="{{ site.author.name }}">
 		{% if page.description %}<meta name="description" content="{{ page.description }}">{% endif %}
+		{% if page.keywords %}<meta name="keywords" content="{{ page.keywords }}">{% endif %}
 		<title>{{ page.title }}</title>
 		<link rel="stylesheet" href="/css/main.css" />
 		<link rel="stylesheet" href="/css/pygments_native.css" />		
@@ -18,7 +19,7 @@
 		<header id="header">
 			<div class="header-info fix">
 				<h1><a href="/">淡朴若水</a></h1>				
-        <h3>『上善若水，水善利万物而不争』</h3>
+        <h3>『遥感, 软件, 数学, IT杂碎』</h3>
 				<nav class="navigation">
 					<ul>
 						<li><a href="/">Home</a></li>
@@ -49,9 +50,9 @@
 				<a href="http://github.com/{{ site.author.github }}/" target="_blank">Fork me on GitHub</a>
 			</p>
 			<p class="r">Powered by <a href="https://github.com/mojombo/jekyll" target="_blank">Jekyll</a></p>
-			<!---<p class="tac">
+			<p class="tac">
 				『上善若水，水善利万物而不争』
-			</p>-->
+			</p>
 		</footer><!--/footer end-->
 		
 		<script>

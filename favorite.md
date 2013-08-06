@@ -80,6 +80,7 @@ description: ""
 <li class="catalog"">
 <div class="list">
         <span class="title">编程</span>
+        <a href="http://fayaa.com" target="_blank">发芽网</a>
         <a href="http://www.codeproject.com/" target="_blank">Code Project</a>
         <a href="http://www.codeguru.com/" target="_blank">CodeGuru</a>
         <a href="http://www.programsalon.com/default.asp" target="_blank">程序员联合开发网</a>
