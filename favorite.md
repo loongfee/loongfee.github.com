@@ -12,7 +12,7 @@ description: ""
         <a href="http://www.hao123.com/" target="_blank">hao123</a>
         <a href="http://www.ifeng.com/" target="_blank">凤凰网</a>
         <a href="http://www.163.com/" target="_blank">网易</a>
-        <a href="http://www.qq.com/" target="_blank">腾讯</a> <br>
+        <a href="http://www.qq.com/" target="_blank">腾讯</a>
  </div> 
  </li>
  
@@ -22,7 +22,7 @@ description: ""
         <a href="http://www.whu.edu.cn/" target="_blank">Whu</a>
         <a href="http://www.gucas.ac.cn/" target="_blank">Gucas</a>
         <a href="http://www.ceode.cas.cn/" target="_blank">Ceode</a>
-        <a href="http://www.yeeyan.com/" target="_blank">译言</a> <br>
+        <a href="http://www.yeeyan.com/" target="_blank">译言</a>
 </div>
  </li>
  
@@ -34,9 +34,9 @@ description: ""
         <a href="http://scholar.google.com/schhp?hl=en" target="_blank">Google Scholar</a>
         <a href="https://duckduckgo.com" target="_blank">DuckDuckGo</a>
         <a href="http://www.scirus.com/srsapp/" target="_blank">Scirus</a>
-		<a href="http://www.bing.com" target="_blank">Bing</a>  
+		<a href="http://www.bing.com" target="_blank">Bing</a>
         <a href="http://www.yahoo.com/" target="_blank">Yahoo</a>
-		<a href="http://ask.com/" target="_blank">Ask</a> <br>
+		<a href="http://ask.com/" target="_blank">Ask</a>
 </div>
 
  <li class="catalog"">
@@ -58,7 +58,7 @@ description: ""
         <a href="http://www.360buy.com/" target="_blank">京东</a>
         <a href="http://www.dangdang.com/" target="_blank">当当</a>
         <a href="http://www.amazon.cn/" target="_blank">卓越</a>
-        <a href="http://www.yihaodian.com" target="_blank">一号店</a>        
+        <a href="http://www.yihaodian.com" target="_blank">一号店</a> 
         <a href="http://www.amazon.com/" target="_blank">amazon</a>
         <a href="http://www.vancl.com/" target="_blank">凡客</a>
  </div> 
@@ -84,7 +84,7 @@ description: ""
         <a href="http://www.codeproject.com/" target="_blank">Code Project</a>
         <a href="http://www.codeguru.com/" target="_blank">CodeGuru</a>
         <a href="http://www.programsalon.com/default.asp" target="_blank">程序员联合开发网</a>
-        <a href="http://wiki.ccw.com.cn/" target="_blank">ITWiki</a> <br>
+        <a href="http://wiki.ccw.com.cn/" target="_blank">ITWiki</a>
 </div>  
  </li>
  
@@ -100,7 +100,7 @@ description: ""
 <div class="list">
         <span class="title">英语学习</span>
         <a href="http://www.hjbbs.com/" target="_blank">沪江论坛</a>
-        <a href="http://www.englishcaster.com/" target="_blank">Englishcaster</a> 
+        <a href="http://www.englishcaster.com/" target="_blank">Englishcaster</a>
         <a href="http://www.putclub.com/" target="_blank">普特</a>
 </div>
 </li>
@@ -112,7 +112,7 @@ description: ""
         <a href="http://www.cnn.com/" target="_blank">CNN</a>
         <a href="http://www.yahoo.com/" target="_blank">Yahoo</a>
         <a href="http://www.bbc.co.uk/" target="_blank">BBC</a>
-        <a href="http://www.shortnews.com/start.cfm" target="_blank">Short News</a> <br>
+        <a href="http://www.shortnews.com/start.cfm" target="_blank">Short News</a>
 </div>
 </li>
 
@@ -147,8 +147,8 @@ description: ""
         <a href="https://ibsbjstar.ccb.com.cn/app/V5/CN/STY1/login.jsp" target="_blank">建设银行</a>
         <a href="https://www.cib.com.cn/index.jsp" target="_blank">兴业银行</a>
         <a href="http://www.bankcomm.com/BankCommSite/cn/index.html" target="_blank">交通银行</a>
-        <a href="https://pbsz.ebank.cmbchina.com/CmbBank_GenShell/UI/GenShellPC/Login/Login.aspx" target="_blank">招商银行</a> 
-        <a href="https://mybank.icbc.com.cn/icbc/perbank/index.jsp" target="_blank">工商银行</a> <br>
+        <a href="https://pbsz.ebank.cmbchina.com/CmbBank_GenShell/UI/GenShellPC/Login/Login.aspx" target="_blank">招商银行</a>
+        <a href="https://mybank.icbc.com.cn/icbc/perbank/index.jsp" target="_blank">工商银行</a>
 </div>
 </li>
 
