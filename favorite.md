@@ -66,6 +66,16 @@ description: ""
  
 <li class="catalog"">
 <div class="list">
+        <span class="title">站长</span>
+        <a href="https://www.dnspod.cn" target="_blank">DNSPod</a>
+        <a href="http://www.google.com/intl/zh-CN/analytics/" target="_blank">Google站长</a>
+        <a href="http://www.google.com/intl/zh-CN/analytics/“ target="_blank">Google分析</a>
+        <a href="http://zhanzhang.baidu.com/site/index" target="_blank">百度站长</a>
+</div>
+</li>
+ 
+<li class="catalog"">
+<div class="list">
         <span class="title">学术百科</span>
         <a href="http://en.wikipedia.org/wiki/Main_Page" target="_blank">Wikipedia</a>
         <a href="http://www.hudong.com/" target="_blank">互动百科</a>
