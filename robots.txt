@@ -3,4 +3,4 @@
 title : Sitemap
 ---
 
-Sitemap: {{site.production_url}}/sitemap.txt
+Sitemap:{{site.production_url}}/sitemap.txt
