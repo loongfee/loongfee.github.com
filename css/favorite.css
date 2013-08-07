@@ -47,8 +47,7 @@
 }
 
 #nav{
-  font-family:"Marmelad", "WenQuanYi ZenHei", 文泉驿正黑, "Hiragino Sans GB", "STHeiti",  Helvetica, Arial, Sans-Serif;
-  font:12px;
+  font-size:0.9em;
 	width:900px;
 	/*height:30px;*/
 	border-bottom:0px;

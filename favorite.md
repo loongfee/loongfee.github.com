@@ -68,8 +68,8 @@ description: ""
 <div class="list">
         <span class="title">站长</span>
         <a href="https://www.dnspod.cn" target="_blank">DNSPod</a>
-        <a href="http://www.google.com/intl/zh-CN/analytics/" target="_blank">Google站长</a>
-        <a href="http://www.google.com/intl/zh-CN/analytics/“ target="_blank">Google分析</a>
+        <a href="https://www.google.com/webmasters/tools/home?hl=zh-CN" target="_blank">Google站长</a>
+        <a href="http://www.google.com/intl/zh-CN/analytics/" target="_blank">Google分析</a>
         <a href="http://zhanzhang.baidu.com/site/index" target="_blank">百度站长</a>
 </div>
 </li>

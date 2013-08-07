@@ -92,7 +92,7 @@ Else{
 
 编译完 `AutoHotkey` 代码得到的 `exe` 程序放到 `notepad++.exe` 同目录下，执行  `cnpp安装.卸载.exe` 程序即可替换或还原系统记事本。  
 *`AutoHotkey` 代码参考了 `ccaiai` 设置VIM为默认编辑器的代码。*  
-*P.S. 在此体会到 `AutoHotkey` 的强大。*
+*P.S. 再次体会到 `AutoHotkey` 的强大。*
 
 [^portablesoft]: 通过映像劫持实现Notepad2替换记事本: <http://www.portablesoft.org/notepad2-replacement/>
 [^notepad2]: Notepad2 ― Replacing Windows Notepad: <http://www.flos-freeware.ch/doc/notepad2-Replacement.html>
