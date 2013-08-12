@@ -20,6 +20,8 @@ pandoc:
     - mathjax
     - toc
     - highlight-style pygments
+    - bibliography contrario.bib
+   # - template pm.html5
    # - runhaskell pygments.hs
 
 # Themes are encouraged to use these universal variables 
@@ -32,7 +34,7 @@ author :
   email : loongfee@gmail.com
   github : loongfee
   twitter : loongfee
-
+  
 # The production_url is only used when full-domain names are needed
 # such as sitemap.txt 
 # Most places will/should use BASE_PATH to make the urls
