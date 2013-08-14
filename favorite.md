@@ -154,12 +154,13 @@ description: ""
 
  <li class="catalog"">
 <div class="list">
-        <span class="title">银行</span>
+        <span class="title">财务</span>
         <a href="https://ibsbjstar.ccb.com.cn/app/V5/CN/STY1/login.jsp" target="_blank">建设银行</a>
         <a href="https://www.cib.com.cn/index.jsp" target="_blank">兴业银行</a>
         <a href="http://www.bankcomm.com/BankCommSite/cn/index.html" target="_blank">交通银行</a>
         <a href="https://pbsz.ebank.cmbchina.com/CmbBank_GenShell/UI/GenShellPC/Login/Login.aspx" target="_blank">招商银行</a>
         <a href="https://mybank.icbc.com.cn/icbc/perbank/index.jsp" target="_blank">工商银行</a>
+        <a href="http://www.wacai.com" target="_blank">挖财</a>
 </div>
 </li>
 

@@ -18,13 +18,29 @@
 }*/
 
 body {
-  font-family:"Marmelad", Helvetica, Arial, Sans-Serif;
-  /*font-family:"Marmelad", "WenQuanYi ZenHei", 文泉驿正黑, "Hiragino Sans GB", "STHeiti",  Helvetica, Arial, Sans-Serif;*/
+  /*font-family:"Marmelad", Helvetica, Arial, Sans-Serif;*/
+  font-family:"Marmelad", "WenQuanYi ZenHei", 文泉驿正黑, "Hiragino Sans GB", "STHeiti",  Helvetica, Arial, Sans-Serif;
   /*font-family:"georgia, "ヒラギノ明朝 Pro W3", "Hiragino Mincho Pro", "メイリオ", Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", \5b8b\4f53, sans-serif;"*/
-  font-size:.9em;
-  line-height: 150%;
-  padding:1px 4px;background-color:#f9f9f9;
+  font-size: 1em;
+  line-height: 170%;
+  padding:1px 4px;
+  /*background-color:#f9f9f9;*/
   border-radius:3px;-webkit-border-radius:3px;-moz-border-radius:3px;
+}
+
+p {
+  text-indent:2em;
+  text-align:justify;
+}
+
+#TOC{
+  background-color: #F2F2F2;
+  border: 1px solid #CCC;
+  padding: 10px;
+  width: 400px;
+  background: #F2F2F2;
+  overflow:hidden;
+  border-left: 3px solid #CCC;
 }
 	
 /* 选中文字的颜色*/
@@ -44,7 +60,7 @@ body {
 }
 
 time{font-size:13px;color:#999;}
-a, a code{color:#08c;text-decoration:none;}
+a, a code{color:#015BF1;text-decoration:none;}
 /*a:hover{color:#1982d1;text-decoration:underline;}*/
 /* 超链接颜色渐变*/
 a:hover {
@@ -68,6 +84,7 @@ a:hover {
 	-o-transition: background-color .15s ease-in-out .1;			/* Opera */
 }
 code{font-family: Monaco, Menlo, Consolas, "Courier New", monospace;
+  color: ff4c24;
 	padding:1px 4px;background-color:#f9f9f9;border:1px solid #e8e8e8;
 	border-radius:3px;-webkit-border-radius:3px;-moz-border-radius:3px;}
 pre code{line-height:100%;background:none;border:none;}
