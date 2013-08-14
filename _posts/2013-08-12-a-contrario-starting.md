@@ -16,7 +16,7 @@ tags: [Contrario, Math, Helmholtz, Gestalt Theory, Computer Vision]
 
 格式塔理论的基本假设是视觉感知过程中的主动分组原则，简单说来就是在视野范围内，当一些点（或者由点组成的组）具有一种或多种公共的特征时，它们就会被分为一组并形成一个更大的可见目标（也就是一个格式塔）。
 
-根据Gaetano Kanizsa的著作，格式塔理论基本的分组原则包括 vicinity（邻近关系）, similarity（相似性）, continuity of direction（方向的连续性）, amodal completion（补全）, closure（闭合关系）, constant width（一致的宽度）, tendency to convexity（凸包的趋势）, symmetry（对称性）, common motion（公共的运动）, past experience（过去的经验）等 \citet{desolneux2008gestalt}。
+根据Gaetano Kanizsa的著作，格式塔理论基本的分组原则包括 vicinity（邻近关系）, similarity（相似性）, continuity of direction（方向的连续性）, amodal completion（补全）, closure（闭合关系）, constant width（一致的宽度）, tendency to convexity（凸包的趋势）, symmetry（对称性）, common motion（公共的运动）, past experience（过去的经验）等 ^[@desolneux2008gestalt]。
 
 ## Helmholtz原理
 简单说来，Helmholtz原理是指在一个完全随机的图像上我们不能感知到任何的结构信息。采用另一种更强的说法，Helmholtz原理是指只要有一些现象大大偏离随机发生的几率，那么我们就可以从中感知到结构信息。通俗地讲就是“我们可以很容易地感知到那些不可能是随机发生的事物”[@desolneux2008gestalt, p39]。  

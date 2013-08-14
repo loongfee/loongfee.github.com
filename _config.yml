@@ -12,6 +12,7 @@ pygments: true
 #markdown: rdiscount
 #markdown: redcarpet-pygments
 markdown: pandoc
+#markdown: kramdown
   
 pandoc:
   format: html
@@ -19,13 +20,30 @@ pandoc:
     - smart
     - mathjax
     - toc
-    - csl ieee.csl
+    - csl elsevier.csl
     - highlight-style pygments
     - bibliography contrario.bib
    # - variable bibliography=contrario
     - template default.html5
    # - template pm.html5
    # - runhaskell pygments.hs   
+ 
+scholar:
+  style: apa
+  locale: en
+
+  sort_by: none
+  order: ascending
+
+  source: ./_bibliography
+  bibliography: contrario.bib
+  #bibliography_template: %{reference}
+
+  details_dir:    bibliography
+  details_layout: bibtex.html
+  details_link:   Details
+
+  query: "@*"  
 
 # Themes are encouraged to use these universal variables 
 # so be sure to set them if your theme uses them.
