@@ -21,7 +21,7 @@ body {
   font-family:"Marmelad", Helvetica, Arial, Sans-Serif;
   /*font-family:"Marmelad", "WenQuanYi ZenHei", 文泉驿正黑, "Hiragino Sans GB", "STHeiti",  Helvetica, Arial, Sans-Serif;*/
   /*font-family:"georgia, "ヒラギノ明朝 Pro W3", "Hiragino Mincho Pro", "メイリオ", Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", \5b8b\4f53, sans-serif;"*/
-  font-size: 1em;
+  font-size: 0.98em;
   line-height: 170%;
   padding:1px 4px;
   /*background-color:#f9f9f9;*/
@@ -97,8 +97,8 @@ blockquote{border-left:3px solid #ccc;margin:1em 0.5em;padding-left:0.3em;}
 ul{list-style:circle;}
 
 
-.l{float:left;}.r{float:right;}.c{clear:both;}
-.tac{text-align:center;}
+.l{float:left;font-size:0.9em;}.r{float:right;font-size:0.9em;}.c{clear:both;font-size:0.9em;}
+.tac{font-size:0.9em;text-align:center;}
 .fix{zoom:1;}
 .fix:after{content:"";display:block;height:0;clear:both;visibility:hidden;}
 .c9{color:#999;}
