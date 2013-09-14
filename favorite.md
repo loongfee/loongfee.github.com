@@ -149,6 +149,7 @@ description: ""
         <a href="http://note.sdo.com/" target="_blank">麦库</a>
         <a href="http://www.yinxiang.com/" target="_blank">印象笔记</a>
         <a href="http://www.xnote.cn/" target="_blank">Xnote</a>
+        <a href="https://www.rememberthemilk.com/home/loongfee/" target="_blank">Milk</a>
 </div>
 </li>
 

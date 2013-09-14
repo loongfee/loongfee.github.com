@@ -26,7 +26,6 @@ pandoc:
    # - variable bibliography=contrario
     - template default.html5
    # - template pm.html5
-   # - runhaskell pygments.hs   
 
 # Themes are encouraged to use these universal variables 
 # so be sure to set them if your theme uses them.
