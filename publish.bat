@@ -47,4 +47,4 @@ call git push origin master --force
 cd /d %~dp0
 
 :: É¾³ıÁÙÊ±±àÒëÄ¿Â¼
-rd /s /q !build_path!
+::rd /s /q !build_path!
