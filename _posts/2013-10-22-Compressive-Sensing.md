@@ -1,9 +1,9 @@
 ---
 layout: post
-title: " \"a contrario\"：一种基于概率统计的无参数决策模型"
-description: "一种基于概率统计的无参数决策模型"
+title: " \"a contrario\"：压缩感知初探"
+description: "：压缩感知初探"
 category: "Computer Vision"
-tags: [Contrario, Math, Helmholtz, Gestalt Theory, Computer Vision]
+tags: [Compressive Sensing, Math, Computer Vision]
 ---
 {% include JB/setup %}
 
