@@ -1,6 +1,6 @@
 ---
 layout: post
-title: " \"a contrario\"：压缩感知初探"
+title: " 压缩感知初探"
 description: "：压缩感知初探"
 category: "Computer Vision"
 tags: [Compressive Sensing, Math, Computer Vision]

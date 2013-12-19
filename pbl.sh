@@ -10,12 +10,13 @@ export LANG=en_US.UTF-8
 # 用户名
 usr=loongfee
 
-
+# 保存当前路径
+path=`pwd`
 # signal handler
 function cleanup
 {
-    rm -rf /tmp/jekyll_build
-    rm -rf /tmp/$usr.github.com
+    rm -rf /tmp/jekyll_build/
+    rm -rf /tmp/$usr.github.com/
     exit 0
 }
 
@@ -23,7 +24,7 @@ trap cleanup SIGHUP SIGINT SIGTERM
 
 # verify number of arguments
 #if [ $# -gt 1 ]; then
-#    echo "$(tput setaf 1)Incorrect command usage. Usage : $0 <optional_commit_sha1>$(tput sgr0)"
+#    echo "Incorrect command usage. Usage : $0 <optional_commit_sha1>$(tput sgr0)"
 #    exit 1
 #fi
 
@@ -33,7 +34,7 @@ trap cleanup SIGHUP SIGINT SIGTERM
 #else
 #    SHA1="HEAD"
 #fi
-#echo "$(tput setaf 2)Going to publish commit ${SHA1}. Press any key to continue.$(tput sgr0)"
+#echo "Going to publish commit ${SHA1}. Press any key to continue.$(tput sgr0)"
 #read
 
 # create a tmp dir into which jekyll will build the html source
@@ -61,10 +62,10 @@ if [ $? -eq 0 ]; then
     git remote add origin git@github.com:$usr/$usr.github.com.git
 	git remote set-url origin git@github.com:$usr/$usr.github.com.git
     git push origin master --force
-
-    echo "$(tput setaf 2)Successfully built and published to github...$(tput sgr0)"
+    cd $path
+    echo "Successfully built and published to github..."
 else
-    echo "$(tput setaf 1)Jekyll build failed... not publishing to github$(tput sgr0)"
+    echo "Jekyll build failed... not publishing to github"
 fi
 
 # cleanup
