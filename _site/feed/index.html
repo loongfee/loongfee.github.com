@@ -1,0 +1,658 @@
+<?xml version="1.0" encoding="utf-8"?>
+  <rss version="2.0"
+        xmlns:content="http://purl.org/rss/1.0/modules/content/"
+        xmlns:atom="http://www.w3.org/2005/Atom"
+  >
+  <channel>
+    <title>Jiye Qian</title>
+    <link href="http://jiyeqian.github.io/feed/" rel="self" />
+    <link href="http://jiyeqian.github.io" />
+    <lastBuildDate>2013-12-20T17:09:29+08:00</lastBuildDate>
+    <webMaster>ccf.developer@gmail.com</webMaster>
+    
+    <item>
+      <title> Minimum-Rank Solutions via Nuclear Norm Minimization</title>
+      <link href="http://jiyeqian.github.io/2013/12/Minimum-Rank-Solutions"/>
+      <pubDate>2013-12-20T00:00:00+08:00</pubDate>
+      <author>Jiye Qian</author>
+      <guid>http://jiyeqian.github.io/2013/12/Minimum-Rank-Solutions</guid>
+      <content:encoded><![CDATA[<h2 id="section">几个范数</h2>
+<p>矩阵 $X \in \mathbb{R}^{m \times n}$，$\sigma_i(X)$ 表示 $X$ 的第 $i$ 大奇异值（即 $XX’$ 的第 $i$ 大特征值的均方根）。$r$ 表示矩阵 $X$ 的秩（Rank），也等于 $X$ 非零奇异值的个数。对维度相同的两个矩阵 $X$ 和 $Y$，我们定义在 $\mathbb{R}^{m \times n}$上的内积为
+<script type="math/tex">
+\langle X,Y \rangle := Tr(X'Y） = \sum_{i=1}^m\sum_{j=1}^nX_{ij}Y_{ij}
+</script></p>
+
+<ol>
+  <li>Nuclear Norm </li>
+  <li></li>
+</ol>
+
+<script type="math/tex; mode=display">
+card(x) \ge \|x\|_1/\|x\|_{\infty}
+</script>
+
+<p>@article{recht2010guaranteed,
+  title={Guaranteed minimum-rank solutions of linear matrix equations via nuclear norm minimization},
+  author={Recht, Benjamin and Fazel, Maryam and Parrilo, Pablo A},
+  journal={SIAM review},
+  volume={52},
+  number={3},
+  pages={471–501},
+  year={2010},
+  publisher={SIAM}
+}</p>
+]]></content:encoded>
+    </item>
+    
+    <item>
+      <title> 压缩感知初探</title>
+      <link href="http://jiyeqian.github.io/2013/10/Compressive-Sensing"/>
+      <pubDate>2013-10-22T00:00:00+08:00</pubDate>
+      <author>Jiye Qian</author>
+      <guid>http://jiyeqian.github.io/2013/10/Compressive-Sensing</guid>
+      <content:encoded><![CDATA[<h2 id="section">关于压缩感知的有关资源网站</h2>
+<p><a href="http://dsp.rice.edu/cs">Rice University的资源</a></p>
+]]></content:encoded>
+    </item>
+    
+    <item>
+      <title> &quot;a contrario&quot;：一种基于概率统计的无参数决策模型</title>
+      <link href="http://jiyeqian.github.io/2013/08/a-contrario-starting"/>
+      <pubDate>2013-08-12T00:00:00+08:00</pubDate>
+      <author>Jiye Qian</author>
+      <guid>http://jiyeqian.github.io/2013/08/a-contrario-starting</guid>
+      <content:encoded><![CDATA[<h2 id="a-contrario">关于”a contrario”模型</h2>
+<p>虽然这个模型已经提出了十多年，应用也比较广泛了，但是笔者并没查阅到确切的中文翻译，这里姑且将其译为“悖论模型”吧。与这个模型密切相关的关键词有：<code>Gestalt</code>、<code>Helmholtz</code>、<code>NFA (Number of False Alarm)</code>、<code> ε-meaningful </code>，它们原本都是属于心理学的范畴，<a href="http://desolneux.perso.math.cnrs.fr">Agnès Desolneux</a>, <a href="http://www.math-info.univ-paris5.fr/~moisan/index.php">Lionel Moisan</a> and <a href="http://scholar.google.com/citations?user=BlEbdeEAAAAJ&amp;hl=en">Jean-Michel Morel</a>于1999年将其引入到图像分析领域 ^[@desolneux2000meaningful]，提出了一种基于概率统计的无参数决策模型——“<code>a contrario</code>”。</p>
+
+<h2 id="gestalt">格式塔（Gestalt）理论</h2>
+<p><a href="http://en.wikipedia.org/wiki/Gestalt_psychology">格式塔（Gestalt）</a>理论最早由德国心理学家Wertheimer于1912年提出。
+“格式塔”（Gestalt）一词具有两种涵义。一种涵义是指形状或形式，亦即物体的性质，例如，用“有角的”或“对称的”这样一些术语来表示物体的一般性质，以示三角形（在几何图形中）或时间序列（在曲调中）的一些特性。在这个意义上说，格式塔意即“形式”。另一种涵义是指一个具体的实体和它具有一种特殊形状或形式的特征，例如，“有角的”或“对称的”是指具体的三角形或曲调，而非第一种涵义那样意指三角形或时间序列的概念，它涉及物体本身，而不是物体的特殊形式，形式只是物体的属性之一。在这个意义上说，格式塔即任何分离的整体<sup id="fnref:zhlzw"><a href="#fn:zhlzw" class="footnote">1</a></sup>。  </p>
+
+<p>格式塔理论的基本假设是视觉感知过程中的主动分组原则，简单说来就是在视野范围内，当一些点（或者由点组成的组）具有一种或多种公共的特征时，它们就会被分为一组并形成一个更大的可见目标（也就是一个格式塔）。</p>
+
+<p>根据Gaetano Kanizsa的著作，格式塔理论基本的分组原则包括 vicinity（邻近关系）, similarity（相似性）, continuity of direction（方向的连续性）, amodal completion（补全）, closure（闭合关系）, constant width（一致的宽度）, tendency to convexity（凸包的趋势）, symmetry（对称性）, common motion（公共的运动）, past experience（过去的经验）等 ^[@desolneux2008gestalt]。</p>
+
+<h2 id="helmholtz">Helmholtz原理</h2>
+<p>简单说来，Helmholtz原理是指在一个完全随机的图像上我们不能感知到任何的结构信息。采用另一种更强的说法，Helmholtz原理是指只要有一些现象大大偏离随机发生的几率，那么我们就可以从中感知到结构信息。通俗地讲就是“我们可以很容易地感知到那些不可能是随机发生的事物”[@desolneux2008gestalt, p39]。  </p>
+
+<p>@desolneux2000meaningful 将Helmholtz原理定量化了，他们给出的Helmholtz假设检验过程包含三个要素：分组方法、悖论概率模型和决策函数。</p>
+
+<h2 id="references">References</h2>
+
+<div class="footnotes">
+  <ol>
+    <li id="fn:zhlzw">
+      <p>[德]库尔特·考夫卡《 格式塔心理学原理》: <a href="http://www.zhlzw.com/lzsj/mz/tsxl/index.htm">http://www.zhlzw.com/lzsj/mz/tsxl/index.htm</a> <a href="#fnref:zhlzw" class="reversefootnote">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>用Notepad++替换系统记事本</title>
+      <link href="http://jiyeqian.github.io/2013/08/notepad-replace-notepad"/>
+      <pubDate>2013-08-06T00:00:00+08:00</pubDate>
+      <author>Jiye Qian</author>
+      <guid>http://jiyeqian.github.io/2013/08/notepad-replace-notepad</guid>
+      <content:encoded><![CDATA[<p>本文主要介绍如何借助AutoHotkey和映像劫持结束来实现用Notepad++替换系统记事本的功能，方法具有普适性，理论上说可以支持用任意软件替换系统相应的默认程序。</p>
+
+<h2 id="section">1. 什么映像劫持技术</h2>
+<p>简单说来，<a href="http://baike.baidu.com/view/1296399.htm">映像劫持技术(Image File Execution Options)</a>就是将某个<code>程序A</code>直接映射到另一个<code>程序B</code>上去，然后在试图执行<code>程序A</code>时自动执行了<code>程序B</code>。而这一切只需要在注册表中添加一条语句即可实现，不需要修改系统中的文件和其他配置。想要恢复原有程序时，只需从注册表中删除这条语句就行了。整个过程非常绿色环保，不会对系统造成其他影响。<br />
+以使用Notepad2替换记事本<sup id="fnref:portablesoft"><a href="#fn:portablesoft" class="footnote">1</a></sup>为例，具体过程主要包括：</p>
+
+<ul>
+  <li>创建如下注册表项：<code>HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\notepad.exe</code>，如果无法修改，需要先右键取得权限  </li>
+  <li>在<code>notepad.exe</code>注册表项中，创建名为<code>Debugger</code>的字符串值(<code>REG_SZ</code>)  </li>
+  <li>修改字符串值<code>Debugger</code>的数据为<code>Notepad2.exe</code>的完整路径，最后以 <code>/z</code> 参数结尾。
+通过镜像劫持技术将记事本替换为Notepad2的方案十分非常完美了，<code>Notepad2</code>官方文档<sup id="fnref:notepad2"><a href="#fn:notepad2" class="footnote">2</a></sup>中就给出了实现方法，其中的参数 <code>/z</code> 应该就是特地为替换记事本而设计的。  </li>
+</ul>
+
+<p>平心而论，<code>Notepad2</code>已经是一款非常优秀的记事本替代品了，启动速度快，支持自定制，功能也非常丰富，尤其是<a href="http://www.portablesoft.org">精品绿色便携软件</a>提供的修改版<a href="http://www.portablesoft.org/notepad2-replacement/">Notepad2-mod</a>，功能更强大了，一般使用已经完全足够了。但是与同样开源免费的<a href="http://notepad-plus-plus.org"><code>Notepad++</code></a>相比，在对文本文件(*.txt)编码字符集的自动识别能力上差了不少，有的不能自动识别，显示乱字符。另外一个硬伤就是不支持多标签，在打开多个文件时窗口是很凌乱的。</p>
+
+<h2 id="notepad">2. 尝试用<code>Notepad++</code>替换系统记事本</h2>
+<p>首先，笔者尝试了将在<code>Notepad2</code>中得到完美应用的<code>映像劫持技术</code>直接搬到<code>Notepad++</code>中来，结果是失败的：  </p>
+
+<blockquote>
+  <p>直接使用<code>镜像劫持</code>方案修改后，运行记事本时会自动打开<code>notepad.exe</code>文件。原因是<code>notepad++.exe</code>不支持用参数 <code>/z</code> 跳过后续第一个参数。</p>
+</blockquote>
+
+<h2 id="autohotkey-">3. 万能工具 <code>AutoHotkey</code> 出马</h2>
+<p>虽然<code>Notepad++</code>本身没有提供<code>跳过后续第一个参数</code>的功能，但是并不是没有办法实现的。因为 <code>AutoHotkey</code> 的存在，几乎一切都是可以自己定制的，更何况是这么一个小小的参数。下面一段代码就是通过 <code>AutoHotkey</code>来跳过 <code>notepad.exe</code> 参数，解决自动打开<code>notepad.exe</code>的问题。</p>
+
+<div class="highlight"><pre><code class="ahk"><span class="c-Singleline">; cnpp.ahk</span>
+<span class="n">cpath</span> <span class="o">=</span>
+<span class="nb">Loop</span><span class="p">,</span> <span class="o">%</span><span class="mi">0</span><span class="o">%</span>
+<span class="p">{</span>
+    <span class="n">param</span> <span class="o">:=</span> <span class="nv">%A_Index%</span>
+    <span class="nb">If </span><span class="n">param</span> <span class="ow">not</span> <span class="n">contains</span> <span class="n">notepad</span><span class="o">.</span><span class="n">exe</span>
+    <span class="n">cpath</span> <span class="o">=</span> <span class="nv">%cpath%</span> <span class="nv">%param%</span>
+<span class="p">}</span>
+<span class="nb">Run</span> <span class="n">notepad</span><span class="o">++.</span><span class="n">exe</span> <span class="s">&quot;%cpath%&quot;</span>
+</code></pre></div>
+
+<p>编译这段 <code>AHK</code> 代码，生成一个名为<code>cnpp</code>的可执行程序。 然后通过下面的 <code>Batch</code> 命令直接添加注册表语句，实现系统记事本的映像劫持。</p>
+
+<div class="highlight"><pre><code class="bat"><span class="c">:: 替换记事本.bat</span>
+<span class="p">@</span><span class="k">echo</span> <span class="k">off</span>
+<span class="k">cd</span> <span class="n">/d</span> <span class="s2">&quot;%~dp0&quot;</span>
+reg add <span class="s2">&quot;HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\notepad.exe&quot;</span> <span class="n">/v</span> <span class="s2">&quot;Debugger&quot;</span> <span class="n">/d</span> <span class="s2">&quot;%~dp0cnpp.exe&quot;</span>
+<span class="k">cls</span>
+<span class="k">echo</span> cnpp已设为默认编辑器。
+<span class="k">pause</span>
+</code></pre></div>
+
+<p>需要回复系统记事本时，直接运行下面的 <code>Batch</code> 代码就行了。</p>
+
+<div class="highlight"><pre><code class="bat"><span class="c">:: 还原记事本.bat</span>
+<span class="p">@</span><span class="k">echo</span> <span class="k">off</span>
+<span class="k">cd</span> <span class="n">/d</span> <span class="s2">&quot;%~dp0&quot;</span>
+reg delete <span class="s2">&quot;HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\notepad.exe&quot;</span> <span class="n">/f</span>
+<span class="k">cls</span>
+<span class="k">echo</span> Notepad已还原为默认编辑器
+<span class="k">pause</span>
+</code></pre></div>
+
+<h2 id="autohotkey--1">4. 纯 <code>AutoHotkey</code> 实现</h2>
+<p>其实到上一节为止，设置<code>Notepad++</code>替换系统记事本的功能已经实现了，这一节只是将这个过程做的更方便更友好。</p>
+
+<div class="highlight"><pre><code class="ahk"><span class="c-Singleline">; cnpp安装.卸载.ahk</span>
+<span class="nb">RegRead</span><span class="p">,</span> <span class="n">Hijack</span><span class="p">,</span> <span class="n">HKLM</span><span class="p">,</span> <span class="n">SOFTWARE</span>\<span class="n">Microsoft</span>\<span class="n">Windows</span> <span class="n">NT</span>\<span class="n">CurrentVersion</span>\<span class="n">Image</span> <span class="n">File</span> <span class="n">Execution</span> <span class="n">Options</span>\<span class="n">notepad</span><span class="o">.</span><span class="n">exe</span><span class="p">,</span><span class="n">debugger</span><span class="c-Singleline"></span>
+<span class="c-Singleline">;MsgBox %hijack%</span>
+<span class="n">If</span><span class="p">(</span><span class="n">Hijack</span><span class="o">!=</span><span class="s">&quot;&quot;</span><span class="p">){</span>
+	<span class="nb">RegDelete</span> <span class="n">HKLM</span><span class="p">,</span> <span class="n">SOFTWARE</span>\<span class="n">Microsoft</span>\<span class="n">Windows</span> <span class="n">NT</span>\<span class="n">CurrentVersion</span>\<span class="n">Image</span> <span class="n">File</span> <span class="n">Execution</span> <span class="n">Options</span>\<span class="n">notepad</span><span class="o">.</span><span class="n">exe</span><span class="p">,</span><span class="n">debugger</span>
+	<span class="nb">TrayTip</span><span class="p">,,</span><span class="n">Notepad</span><span class="err">为默认编辑器</span><span class="p">,</span><span class="mi">2000</span>
+	<span class="nb">Sleep</span> <span class="p">,</span><span class="mi">1500</span>
+	<span class="p">}</span>
+<span class="nb">Else</span><span class="p">{</span>
+	<span class="nb">RegWrite</span><span class="p">,</span> <span class="n">REG_SZ</span><span class="p">,</span> <span class="n">HKEY_LOCAL_MACHINE</span><span class="p">,</span> <span class="n">SOFTWARE</span>\<span class="n">Microsoft</span>\<span class="n">Windows</span> <span class="n">NT</span>\<span class="n">CurrentVersion</span>\<span class="n">Image</span> <span class="n">File</span> <span class="n">Execution</span> <span class="n">Options</span>\<span class="n">notepad</span><span class="o">.</span><span class="n">exe</span> <span class="p">,</span> <span class="n">debugger</span><span class="p">,</span> <span class="n">ccaiai</span>
+	<span class="nb">RegRead</span><span class="p">,</span> <span class="n">Hijack</span><span class="p">,</span> <span class="n">HKLM</span><span class="p">,</span> <span class="n">SOFTWARE</span>\<span class="n">Microsoft</span>\<span class="n">Windows</span> <span class="n">NT</span>\<span class="n">CurrentVersion</span>\<span class="n">Image</span> <span class="n">File</span> <span class="n">Execution</span> <span class="n">Options</span>\<span class="n">notepad</span><span class="o">.</span><span class="n">exe</span><span class="p">,</span><span class="n">debugger</span>
+	<span class="n">If</span><span class="p">(</span><span class="n">Hijack</span><span class="o">!=</span><span class="s">&quot;ccaiai&quot;</span><span class="p">){</span>
+	<span class="nb">MsgBox</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="err">请先关闭杀毒软件后再重试</span>
+	<span class="nb">ExitApp</span>
+	<span class="p">}</span>
+	<span class="n">HijackPath</span><span class="o">=</span><span class="nv">%A_WorkingDir%</span>\<span class="n">cnpp</span><span class="o">.</span><span class="n">exe</span>
+	<span class="nb">RegWrite</span><span class="p">,</span> <span class="n">REG_SZ</span><span class="p">,</span> <span class="n">HKEY_LOCAL_MACHINE</span><span class="p">,</span> <span class="n">SOFTWARE</span>\<span class="n">Microsoft</span>\<span class="n">Windows</span> <span class="n">NT</span>\<span class="n">CurrentVersion</span>\<span class="n">Image</span> <span class="n">File</span> <span class="n">Execution</span> <span class="n">Options</span>\<span class="n">notepad</span><span class="o">.</span><span class="n">exe</span> <span class="p">,</span> <span class="n">debugger</span><span class="p">,</span> <span class="nv">%HijackPath%</span>
+	<span class="nb">TrayTip</span><span class="p">,,</span><span class="n">cnpp</span><span class="err">为默认编辑器</span><span class="p">,</span><span class="mi">2000</span>
+	<span class="nb">Sleep</span> <span class="p">,</span><span class="mi">1500</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>编译完 <code>AutoHotkey</code> 代码得到的 <code>exe</code> 程序放到 <code>notepad++.exe</code> 同目录下，执行  <code>cnpp安装.卸载.exe</code> 程序即可替换或还原系统记事本。<br />
+<em><code>AutoHotkey</code> 代码参考了 <code>ccaiai</code> 设置VIM为默认编辑器的代码。</em><br />
+<em>P.S. 再次体会到 <code>AutoHotkey</code> 的强大。</em></p>
+
+<div class="footnotes">
+  <ol>
+    <li id="fn:portablesoft">
+      <p>通过映像劫持实现Notepad2替换记事本: <a href="http://www.portablesoft.org/notepad2-replacement/">http://www.portablesoft.org/notepad2-replacement/</a> <a href="#fnref:portablesoft" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:notepad2">
+      <p>Notepad2 ― Replacing Windows Notepad: <a href="http://www.flos-freeware.ch/doc/notepad2-Replacement.html">http://www.flos-freeware.ch/doc/notepad2-Replacement.html</a> <a href="#fnref:notepad2" class="reversefootnote">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>Feedly 快捷键</title>
+      <link href="http://jiyeqian.github.io/2013/08/feedly"/>
+      <pubDate>2013-08-05T00:00:00+08:00</pubDate>
+      <author>Jiye Qian</author>
+      <guid>http://jiyeqian.github.io/2013/08/feedly</guid>
+      <content:encoded><![CDATA[<h2 id="google-reader">后Google Reader时代</h2>
+<p>Google关闭了谷歌阅读器 (Google Reader) ，这伤了无数谷粉的心。但是Google Reader的死去并不会终止RSS阅读的时代，只不过我们得寻找一个比较好的替代方案。 首先，RSS客户端阅读器显得复杂和冗余，违背了RSS阅读的初衷，因此仅考虑在线阅读器。其中国产的<a href="http://xianguo.com/">鲜果</a>、<a href="http://reader.youdao.com/">有道</a>等都是不错的选择，但是在综合体验之后，我还是选择了比较小众的[<code>Feedly</code>]： 界面简洁，兼容性好，支持快捷键，使用方便。<br />
+下面将[<code>Feedly</code>]的快捷键整理如下（主要是从网站的说明翻译过来的）：</p>
+
+<h3 id="navigation">导航（Navigation）</h3>
+<p>| 快捷键 | 中文说明 | 英文说明 |
+| ————- |————-|—-|
+| <code>gm</code> | 转到今天 | today |
+| <code>ga</code> | 所有 | all |
+| <code>gg</code> | 分类选择 | magic bar |
+| <code>gl</code> | 保存的文章 | saved article |
+| <code>shift+j</code> | 下一个feed或分类 | next feed or category |
+| <code>shift+k</code> | 上一个feed或分类 | previous feed or category  |
+| <code>a</code> | 添加内容 | add content  |
+| <code>r</code> | 刷新 | refresh|</p>
+
+<h3 id="lists">列表（Lists）</h3>
+<p>| 快捷键 | 中文说明 | 英文说明 |
+| ————- |————-|—-|
+| <code>j</code> | 展开下一篇文章 | inline next article |
+| <code>k</code> | 展开上一篇文章 | inline previous article |
+| <code>n</code> | 选择下一篇文章 | select next article |
+| <code>p</code> | 选择上一篇文章 | select previous article |
+| <code>o</code> | 展开/收起当前选中的文章 | inline/close currently selected article |
+| <code>v</code> | 打开一个新的tab查看原网页 | view original in a new tab  |
+| <code>shift+a</code> | 标记所有为已读 | mark all as read  |</p>
+
+<h3 id="selected-article">文章操作（Selected Article）</h3>
+<p>| 快捷键 | 中文说明 | 英文说明 |
+| ————- |————-|—-|
+| <code>m</code> | （取消）标记为已读 | toggle mark as read |
+| <code>x</code> | 最小化并隐藏（即从列表中删除） | minimize and hide |
+| <code>s</code> | 保存 | save for later |
+| <code>b</code> | 缓存（保存至Buffer） | buffer |
+| <code>shift+v</code> | 预览文章 | preview  |</p>
+
+<p>[<code>Feedly</code>]: http://cloud.feedly.com “”</p>
+]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>利用本地编译结果替代Github Page自动生成网站</title>
+      <link href="http://jiyeqian.github.io/2013/08/Github-page-build-failure"/>
+      <pubDate>2013-08-03T00:00:00+08:00</pubDate>
+      <author>Jiye Qian</author>
+      <guid>http://jiyeqian.github.io/2013/08/Github-page-build-failure</guid>
+      <content:encoded><![CDATA[<h2 id="section">缘起</h2>
+<p><code>Github Page</code> 提供了自动编译 <code>Jekyll</code> 网站的功能，我们只需要将 <code>Jekyll</code> 网站代码 <code>push</code> 到 <code>Github</code> 上，接下来的事情就都可以交给 <code>Github Page</code>，一般几分钟后就可以看到由 <code>Github Page</code> 重新编译生成的网站了。那末，好好的服务放弃不用，偏偏折腾着直接利用本地编译结果是要闹哪样呢？其实这么捣鼓还真不是因为DT，确实是事发有因。<code>Github Page</code> 虽然方便，但是它还是存在几个问题：</p>
+
+<ol>
+  <li>
+    <p>[<code>Github Page</code>] 不支持插件<br />
+虽然[<code>Github Page</code>] 服务器不提供插件支持，但是如果需要使用插件可以将 <code>*.rub</code> 文件放到网站根目录下的 <code>_plugins</code> 文件夹中。遗憾的是这种方式并非万能的，对于一些小巧的、相对独立的插件是可行的，但是对诸如“让Jekyll将Pandoc作为Markdown的渲染器[^loong]”的问题，这种方式就显得力不从心了。</p>
+  </li>
+  <li>
+    <p>[<code>Github Page</code>] 服务器上软件的版本偏低<br />
+[<code>Github Page</code>] 服务器提供的编译平台是一定的，出于稳定性和大用户群的体验考虑，服务器不可能频繁地更新编译平台，因此其编译平台的版本通常比较滞后。例如写作本文时，[<code>Github Page</code>] 服务器提供的 <code>Jekyll</code> 及其它依赖库的版本为</p>
+  </li>
+</ol>
+
+<div class="highlight"><pre><code class="bash">ruby <span class="s1">&#39;1.9.3&#39;</span>
+gem <span class="s1">&#39;jekyll&#39;</span>,     <span class="s1">&#39;=1.0.3&#39;</span>
+gem <span class="s1">&#39;liquid&#39;</span>,     <span class="s1">&#39;=2.5.1&#39;</span>
+gem <span class="s1">&#39;redcarpet&#39;</span>,  <span class="s1">&#39;=2.2.2&#39;</span>
+gem <span class="s1">&#39;maruku&#39;</span>,     <span class="s1">&#39;=0.6.1&#39;</span>
+gem <span class="s1">&#39;rdiscount&#39;</span>,  <span class="s1">&#39;=1.6.8&#39;</span>
+gem <span class="s1">&#39;RedCloth&#39;</span>,   <span class="s1">&#39;=4.2.9&#39;</span>
+gem <span class="s1">&#39;kramdown&#39;</span>,   <span class="s1">&#39;=1.0.2&#39;</span>
+</code></pre></div>
+
+<p>而时下的 <code>ruby</code> 最新版本为2.0.0p195, <code>rdiscount</code> 的最新版本则是2.1.6，有着不小的差距。这样就出现兼容性问题了，本地使用新版本平台能够编译通过的代码提交到 [<code>Github Page</code>] 服务器就可能 “<code>page build failed</code>” 了。最保险的办法就是将本地的编译平台按照 [<code>Github Page</code>] 服务器上地版本来配置，并且不使用插件，这样就能保证本地编译通过的代码提交到 [<code>Github Page</code>] 后不出现问题了。但是新版本的新功能和bug的修复无法享用了。</p>
+
+<ol>
+  <li>利用 [<code>Github Page</code>] 编译并发布网站相对比较耗时 <br />
+很显然，既然已经在本地生成好了网站，再将代码上传到服务器重新编译一遍是挺多余的。事实上有时候在晚上上传上去的代码到第二天才会生成好网站。当然，直接将编译好的结果文件 <code>push</code> 到 <code>Github</code> 也不是立即生效的，但至少不会担心 “<code>page build failed</code>” 的错误了。</li>
+</ol>
+
+<h2 id="section-1">解决方案</h2>
+<p>[<code>Github Page</code>] 官网上提到在网站根目录下创建一个名为 <code>.nojekyll</code> 的文件就可以关闭服务器端的 <code>Jekyll</code> 编译器，但是即使将 <code>_site</code> 文件夹上传到服务器上，网站也不会被发布。笔者找到的解决方案是在 <code>Github</code> 该网站的 <code>Repositor</code> 中创建一个新的 <code>branch</code>，然后用这两个分支分别管理源代码和生成的网站文件。下面介绍具体的实施步骤[^varn]。<br />
+1. 用 <code>Github</code> 创建一个 <code>source</code> 分支<br />
+打开 <code>git</code> 控制台，进入到网站工程目录（以后的操作均在该目录下进行）。用下面的命令将 <code>master</code> 分支中的文件移动到一个新的分支中（命名为 <code>source</code> ）。</p>
+
+<div class="highlight"><pre><code class="bash">git checkout -b <span class="nb">source </span>master
+</code></pre></div>
+
+<ol>
+  <li>将源代码上传到 <code>source</code> 分支<br />
+使用下面的命令将这个新的分支 <code>push</code> 到 <code>Github</code> 上</li>
+</ol>
+
+<div class="highlight"><pre><code class="bash">git push -u origin <span class="nb">source</span>
+</code></pre></div>
+
+<ol>
+  <li>在 <code>Github</code> 上修改 <code>source</code> 为默认分支<br />
+登录到 <code>Github</code>，在 <code>repository</code> 设置中将该工程的默认分支设置为 <code>source</code>。这样，当其他人访问你的 <code>Github</code> 是默认看到的就是你的源代码而不是生成的网站了。   </li>
+  <li>编译网站代码并上传到 <code>master</code> 分支
+这一步的原理是将 <code>source</code> 分支中的代码 <code>build</code> 到一个临时文件夹中，然后将临时文件夹中的结果文件 <code>push</code> 到 <code>master</code> 分支中去。步骤稍微有点复杂，如果每次上传网站都要重复操作的话就太麻烦了，好在我们可以将这些机械的操作写到 <code>batch</code> 批处理中自动完成。</li>
+</ol>
+
+<div class="highlight"><pre><code class="bat"><span class="c">:: 发布到github</span>
+
+<span class="p">@</span><span class="k">echo</span> <span class="k">off</span>
+
+<span class="c">:: 用户名</span>
+<span class="k">set</span> <span class="nv">usr</span><span class="o">=</span>anyone
+
+<span class="c">:: 当前日期</span>
+<span class="k">set</span> <span class="s2">&quot;Ymd=%date:~,4%%date:~5,2%%date:~8,2%&quot;</span>
+
+<span class="c">:: 临时编译目录</span>
+<span class="k">set</span> <span class="nv">build_path</span><span class="o">=</span><span class="s2">&quot;%TEMP%Jekyll_build&quot;</span>
+
+<span class="c">:: 创建临时编译目录</span>
+<span class="c">:: 如果已经存在则删除后重新创建</span>
+
+<span class="k">if</span> <span class="k">exist</span> <span class="nv">%build_path%</span> (
+    <span class="c">::echo !build_path! exist</span>
+    rd <span class="n">/s</span> <span class="n">/q</span> <span class="nv">%build_path%</span>
+    <span class="k">md</span> <span class="nv">%build_path%</span>
+    ) <span class="k">else</span> (
+    <span class="c">::echo !build_path! missing</span>
+    <span class="k">md</span> <span class="nv">%build_path%</span>
+)
+
+<span class="c">:: 支持utf-8编码</span>
+chcp <span class="m">65001</span>
+<span class="c">:: 编译网站</span>
+<span class="k">call</span> jekyll build -d <span class="nv">%build_path%</span>
+
+<span class="c">:: 如果编译出错，直接跳出</span>
+<span class="k">if</span>   <span class="nv">%errorlevel%</span> <span class="o">NEQ</span> <span class="m">0</span>  exit
+
+<span class="c">:: 如果编译没有错误就发布网站</span>
+<span class="k">cd</span> <span class="n">/d</span> <span class="nv">%build_path%</span>
+C:
+<span class="k">del</span> <span class="n">/q/a/f/s</span> <span class="nv">%build_path%</span>\*.bat
+<span class="k">call</span> git init
+<span class="k">call</span> git add .
+<span class="k">call</span> git commit -m <span class="s2">&quot;updated site %ymd%&quot;</span>
+<span class="k">call</span> git remote add origin git@github.com:!usr!<span class="n">/!usr!.github.com.git</span>
+<span class="k">call</span> git remote <span class="k">set</span>-url origin git@github.com:!usr!<span class="n">/!usr!.github.com.git</span>
+<span class="k">call</span> git push origin master --force
+
+<span class="c">:: 返回当前目录</span>
+<span class="k">cd</span> <span class="n">/d</span> <span class="nv">%~dp0</span>
+
+<span class="c">:: 删除临时编译目录</span>
+rd <span class="n">/s</span> <span class="n">/q</span> !build_path!
+</code></pre></div>
+
+<p>创建一个 <code>windows batch</code> 文件（扩展名为 <code>bat</code>），将以上代码复制粘贴到这个文件中，并把代码 <code>set usr=anyone</code> 中的 <code>anyone</code> 改成你自己 <code>Github</code> 的用户名（也可以直接<a href="/assets/share/publish.bat">下载这个<code>bat</code>文件</a>），然后这个文件存放在网站代码的根目录下，每次需要发布网站的时候直接运行这个<code>bat</code>文件即可。<br />
+命令执行过程中可能会出现警告，只要最后能执行通过就没有问题。</p>
+
+<p>[<code>Github Page</code>]: http://pages.github.com/ “”
+[^varn]: Jekyll : Handling Github page build failure and Jekyll plugins on Github:<a href="http://varunbpatil.github.io/2013/07/06/jekyll-build-fail/#.UfumtI8lzRe">http://varunbpatil.github.io/2013/07/06/jekyll-build-fail/#.UfumtI8lzRe</a>
+[^loong]:  让Jekyll将Pandoc作为Markdown的渲染器: <a href="http://loongfee.github.io/blog/2013/08/02/new-post/">http://loongfee.github.io/blog/2013/08/02/new-post/</a></p>
+]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>让Jekyll将Pandoc作为Markdown的渲染器</title>
+      <link href="http://jiyeqian.github.io/2013/08/new-post"/>
+      <pubDate>2013-08-02T00:00:00+08:00</pubDate>
+      <author>Jiye Qian</author>
+      <guid>http://jiyeqian.github.io/2013/08/new-post</guid>
+      <content:encoded><![CDATA[<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+<h1 id="jekyll">Jekyll的渲染器</h1>
+<p>Jekyll中默认的markdown渲染器是<code>maruku</code>，但是它对Latex公式和中文支持都不太好, 通常是根据不同的需要选择其它几种渲染器（<code>rdiscount</code>，<code>kramdown</code>，<code>redcarpet</code>等），它们各有利弊。Github在后台则选用了<code>Redcarpet</code>作为其文本渲染器，因为它安全性高且性能卓越，同时它在基本<code>Markdown</code>语法的基础上增加了一些自己的特性。<code>Kramdown</code>是这几个当中对基础 <code>Markdown</code>语法拓展最多，也是最方便使用的<sup id="fnref:yangzetian"><a href="#fn:yangzetian" class="footnote">1</a></sup>（但是跟<code>Pandoc</code>相比，还是差得很远）。笔者之前一直是使用<code>rdiscount</code>，结果在本地编译没问题的代码在Github上就是无法通过，折腾了半天知道Github上的<code>rdiscount</code>是1.6.8版本，而本地<code>rdiscount</code>是2.1.6版本。下降版本后发现<code>rdiscount</code>1.6.8版本不支持注脚语法。使用低版本就无法使用注脚，使用高版本就无法在Github上编译通过，纠结之余开始寻找合适的解决方案，于是就有了这篇文章。</p>
+
+<h1 id="pandoc">为什么使用pandoc</h1>
+<p><a href="http://johnmacfarlane.net/pandoc"><code>Pandoc</code></a>被称为格式转换的瑞士军刀，功能强大，能够在数十种文件格式（如Markdown，reStructuredText，Textilte，HTML，LaTeX，pdf，doc等）中自如的转换，几乎能做到无缝兼容，且成熟稳定。使用<a href="http://johnmacfarlane.net/pandoc"><code>Pandoc</code></a>在Markdown文件中直接使用Latex公式，然后通过MathJax、jsMath 等等方式显示公式。例如使用下面一段Latex代码</p>
+
+<div class="highlight"><pre><code class="latex"><span class="sb">$$</span><span class="nb">e^{i</span><span class="nv">\pi</span><span class="nb">}</span><span class="o">+</span><span class="m">1</span><span class="o">=</span><span class="m">0</span><span class="s">$$</span>
+</code></pre></div>
+
+<p>就可以得到一个优美的公式：
+<script type="math/tex">e^{i\pi}+1=0</script>
+<em>为了能让公式在网页中显示，请在markdown文件头加上以下调用MathJax的代码。</em></p>
+
+<div class="highlight"><pre><code class="html"><span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src=</span><span class="s">&quot;http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML&quot;</span><span class="nt">&gt;</span>
+<span class="nt">&lt;/script&gt;</span>
+</code></pre></div>
+
+<p>因此选用<a href="http://johnmacfarlane.net/pandoc"><code>Pandoc</code></a>作为Jekyll中markdown的渲染器是很自然的。
+但是Github Pages并没有提供pandoc的支持，也就是说使用<a href="http://johnmacfarlane.net/pandoc"><code>Pandoc</code></a>的网站代码在Github上是无法编译的，以后会谈到如何解决这个问题。下面先看看如何配置环境将<a href="http://johnmacfarlane.net/pandoc"><code>Pandoc</code></a>作为Markdown的渲染器。</p>
+
+<h2 id="pandoc-1">配置Pandoc环境</h2>
+<ol>
+  <li>
+    <p>首先当然是安装<a href="http://johnmacfarlane.net/pandoc"><code>Pandoc</code></a>：
+Windows下直接从<a href="http://johnmacfarlane.net/pandoc/">pandoc官网</a>下载<a href="http://code.google.com/p/pandoc/downloads/">最新安装包</a>安装即可。</p>
+  </li>
+  <li>
+    <p>安装Pandoc-Ruby。这里假设已经转好Ruby、Jekyll等环境了，如果还没有安装请参考&lt;&gt;。<br />
+直接使用以下命令即可安装Pandoc-Ruby</p>
+  </li>
+</ol>
+
+<div class="highlight"><pre><code class="bash">gem install pandoc-ruby
+</code></pre></div>
+
+<ol>
+  <li>
+    <p>安装Jekyll插件。直接从Github站点
+<a href="https://github.com/dsanson/jekyll-pandoc-plugin">Jekyll Plugin for Using Pandoc-Ruby</a>下载<code>pandoc_markdown.rb</code>放到网站根目录下的<code>_plugins</code>文件夹中（如果<code>_plugins</code>文件夹不存在，就创建一个），Jekyll在每次编译生成网站前都会自动加载<code>_plugins</code>文件夹中的所有<code>*.rb</code>文件。Jekyll官网<sup id="fnref:jekyll_plugins"><a href="#fn:jekyll_plugins" class="footnote">2</a></sup>上有该插件的相关介绍，同时也给出了其它的解决方案。</p>
+  </li>
+  <li>
+    <p>在网站配置文件<code>_config.yml</code>中添加设置Markdown的渲染器为<code>Pandoc</code>。添加以下配置即可</p>
+  </li>
+</ol>
+
+<div class="highlight"><pre><code class="bash">markdown: pandoc
+pandoc:
+  format: html5
+  extensions: <span class="o">[</span>smart, mathjax<span class="o">]</span>
+</code></pre></div>
+
+<h2 id="section">一些修改</h2>
+<p>理论上经过以上的配置就可以使用<code>pandoc</code>渲染<code>Markdown</code>了，可是事情似乎并没有这么简单，执行<code>jekyll server</code>命令后，出现了下面的错误</p>
+
+<div class="highlight"><pre><code class="bash">Conversion error: There was an error converting .....
+: undefined method <span class="s1">&#39;convert&#39;</span> <span class="k">for</span> <span class="o">[</span>:smart, :mathjax<span class="o">]</span>:Array. Use --trace to view backtrace
+</code></pre></div>
+
+<p>下载<a href="/assets/share/markdown.rb">文件</a>替换<code>lib/jekyll/converters/markdown.rb</code>即可，修改之处是在<code>setup</code>和<code>convert</code>中按照其它渲染器的格式增加一个<code>pandoc</code>判断。<br />
+至此，我们已经可以在本地Jekyll中使用<code>Pandoc</code>作为<code>Markdown</code>的渲染器了，至于<code>Github Page</code>不能编译通过的问题下次再讨论。</p>
+
+<div class="footnotes">
+  <ol>
+    <li id="fn:yangzetian">
+      <p>为Jekyll装上瑞士军刀Pandoc: <a href="http://yangzetian.github.io/2012/04/15/jekyll-pandoc/">http://yangzetian.github.io/2012/04/15/jekyll-pandoc/</a> <a href="#fnref:yangzetian" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:jekyll_plugins">
+      <p>Jekyll Plugins: <a href="http://jekyllrb.com/docs/plugins/">http://jekyllrb.com/docs/plugins/</a> <a href="#fnref:jekyll_plugins" class="reversefootnote">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>利用Pandoc将markdown文件转化为pdf</title>
+      <link href="http://jiyeqian.github.io/2013/07/pandoc"/>
+      <pubDate>2013-07-31T00:00:00+08:00</pubDate>
+      <author>Jiye Qian</author>
+      <guid>http://jiyeqian.github.io/2013/07/pandoc</guid>
+      <content:encoded><![CDATA[<h2 id="section">准备工作</h2>
+
+<h3 id="pandoc">安装pandoc</h3>
+<p>Windows下安装pandoc很容易，直接从<a href="http://johnmacfarlane.net/pandoc/">pandoc官网</a>上下载<a href="http://code.google.com/p/pandoc/downloads/">最新安装包</a>安装即可。<br />
+Linux下的安装可以参考阳志平的博文<sup id="fnref:yzp"><a href="#fn:yzp" class="footnote">1</a></sup>。</p>
+
+<h3 id="miktex">安装MiKTeX</h3>
+<p>pandoc被称为格式转换的瑞士军刀<sup id="fnref:yanping"><a href="#fn:yanping" class="footnote">2</a></sup>。执行程序文件只有20M左右大小，但是能够在几十种文件格式之间自如的转换，那当然是得依赖各种格式文件所需要库。转换为pdf就要用到MiKTeX，Windows下推荐使用CTeX完整版，对中文的支持很好，可以从<a href="http://www.ctex.org/HomePage">CTeX官网</a>下载<a href="http://ftp.ctex.org/pub/tex/systems/ctex/2.9/CTeX_2.9.2.164_Full.exe">完整套件</a>。</p>
+
+<h2 id="markdownpdf">将markdown文件转换为pdf</h2>
+<p>如果markdown文件中不包含中文字符，那么直接使用下面的命令就可以将markdown文件无缝转换为Latex支持的pdf文件。</p>
+
+<div class="highlight"><pre><code class="bash">pandoc infile.md -o outfile.pdf
+</code></pre></div>
+
+<p>如果markdown文件中包含中文字字符，那么上段命令就无法直接转换，可能会报以下错误：</p>
+
+<pre><code>! Package inputenc Error: Unicode char \u8:鍒?not set up for use with LaTex.
+pandoc: Error producing PDF from Tex source.    
+See the inputsnc package documentation for explanation.   
+... 
+</code></pre>
+
+<p>为了解决中文编译的问题，需要做以下的工作：</p>
+
+<h3 id="markdownutf-8">将markdown文档的编码方式改为utf-8</h3>
+<p>比较简单的办法就是用记事本打开该文档，然后另存为时选择编码方式为utf-8。有可能当你改变编码方式后，文档中的中文全变成乱码了。为避免这种情况，可以在改变编码方式之前先复制文档的全部内容，然后在改变编码方式之后粘贴替换文档中的全木内容，这样就不会出现乱码了。</p>
+
+<h3 id="latex">修改Latex引擎</h3>
+<p>编译pandoc默认的latex引擎是pdflatex，是不支持中文的，因此需要手动设置编译时所用的引擎为xelatex，编译命令改为：</p>
+
+<div class="highlight"><pre><code class="bash">pandoc infile.md -o outfile.pdf --latex-engine<span class="o">=</span>xelatex
+</code></pre></div>
+
+<h3 id="section-1">中文字体</h3>
+<p>这时编译可能没有错误了，但是得到的pdf文档中可能所有的中文都没有了。这是字体的问题，因为编译时默认的字体时不支持中文的，所以我们得手动设置中文字体。显然，所设的字体应该为系统中已装的字体，且字体的名字不能写错。有一个办法可以的到系统中所安装的所有字体名（见<a href="http://blog.sina.com.cn/s/blog_5ee56d4501019ys8.html">博文</a>），即在控制台中输入命令：<code>fc-list &gt;&gt; C:\fonts.txt</code>。这样，扫到的字体信息就全部被导入到C盘根目录下的fonts.txt文件中了。这里我们选择宋体，字体名称为”SimSun”，于是编译命令改为：  </p>
+
+<div class="highlight"><pre><code class="bash">pandoc infile.md -o outfile.pdf --latex-engine<span class="o">=</span>xelatex -V <span class="nv">mainfont</span><span class="o">=</span><span class="s2">&quot;SimSun&quot;</span> 
+</code></pre></div>
+
+<p><em>注意：命令中的”V”是大写</em><br />
+这里字体名也可以不加<strong>双</strong>引号，但是如果字体名比较复杂（如包含空格）时，不加双引号就可能出错。</p>
+
+<h3 id="section-2">使用模板</h3>
+<p>好了，中文字符应该能够显示了，但是你可能会发现很多文字已经超出了文档的边界无法显示了，这是因为pandoc对中文的支持不太好，不能自动换行。但是这并不表示pandoc就真的无法完美处理中文文档了，因为技术界那些追求完美的极客们为我们提供了无限的可能。这篇博文介绍了pandoc中文pdf转换攻略<sup id="fnref:pandoc2pdf"><a href="#fn:pandoc2pdf" class="footnote">3</a></sup>，解决方案是使用网友编辑好的latex模板来生成pdf，这里用到的是<a href="https://github.com/tzengyuxio">tzengyuxio</a>提供的pm-template.latex<sup id="fnref:pm"><a href="#fn:pm" class="footnote">4</a></sup>。
+下载模板后将其中的<code>LiHei Pro</code>字体替换成系统中安装有的中文字体即可，然后编译命令改为：  </p>
+
+<div class="highlight"><pre><code class="bash">pandoc infile.md -o outfile.pdf --latex-engine<span class="o">=</span>xelatex -template<span class="o">=</span>pm-template.latex
+ 
+</code></pre></div>
+
+<p><em>注意：如果安装的MiKTeX（我用的是CTex）宏包不全，编译可能会出问题，如找不到<code>exp13.sty</code>等，因此推荐安装完整版的MiKTex。</em>    <br />
+当然，你也可以使用自己定义的模板来生成tex和pdf文件。首先使用命令 </p>
+
+<div class="highlight"><pre><code class="bash">pandoc -D latex &gt; my.latex
+</code></pre></div>
+
+<p>生成一个默认的模板，再对这个模板进行修改，如字体、自动换行等。</p>
+
+<div class="footnotes">
+  <ol>
+    <li id="fn:yzp">
+      <p>Markdown写作进阶：Pandoc入门浅谈: <a href="http://www.yangzhiping.com/tech/pandoc.html">http://www.yangzhiping.com/tech/pandoc.html</a> <a href="#fnref:yzp" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:yanping">
+      <p>黑魔法利器pandoc: <a href="http://yanping.me/cn/blog/2012/03/13/pandoc/">http://yanping.me/cn/blog/2012/03/13/pandoc/</a> <a href="#fnref:yanping" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:pandoc2pdf">
+      <p>pandoc中文pdf转换攻略：<a href="http://afoo.me/2013-07-10-how-to-transform-chinese-pdf-with-pandoc.html">http://afoo.me/2013-07-10-how-to-transform-chinese-pdf-with-pandoc.html</a>   <a href="#fnref:pandoc2pdf" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:pm">
+      <p>pm-template GitHub: <a href="https://github.com/tzengyuxio/pages/tree/gh-pages/pandoc">https://github.com/tzengyuxio/pages/tree/gh-pages/pandoc</a> <a href="#fnref:pm" class="reversefootnote">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>Jekyll上手篇</title>
+      <link href="http://jiyeqian.github.io/2013/07/jekyll"/>
+      <pubDate>2013-07-31T00:00:00+08:00</pubDate>
+      <author>Jiye Qian</author>
+      <guid>http://jiyeqian.github.io/2013/07/jekyll</guid>
+      <content:encoded><![CDATA[<h2 id="jekyllrun-jekyll-locally">1. 启动本地Jekyll服务（Run Jekyll Locally）</h2>
+<p>输入下面的命令<sup id="fnref:chengxuyuan"><a href="#fn:chengxuyuan" class="footnote">1</a></sup>。</p>
+
+<div class="highlight"><pre><code class="bash"><span class="nb">cd </span>USERNAME.github.com
+jekyll serve
+</code></pre></div>
+
+<p>其中，<code>USERNAME</code>是你的github博客用户名，也就是说需要先定位到本地博客的根目录下。
+然后，就可以通过<a href="http://localhost:4000/">http://localhost:4000/</a>来访问你的博客了。</p>
+
+<h2 id="jekyllstop-jekyll-locally">2. 停止本地Jekyll服务（Stop Jekyll Locally）</h2>
+<p>在控制台窗口中使用快捷键来停止服务：</p>
+
+<pre><code>Ctrl+C
+</code></pre>
+
+<h2 id="post">3. 创建一个post</h2>
+
+<div class="highlight"><pre><code class="bash">rake post <span class="nv">title</span><span class="o">=</span><span class="s2">&quot;Hello World&quot;</span>
+ 
+</code></pre></div>
+
+<h2 id="page">4. 创建一个page</h2>
+
+<div class="highlight"><pre><code class="bash">rake page <span class="nv">name</span><span class="o">=</span><span class="s2">&quot;about.md&quot;</span>
+ 
+</code></pre></div>
+
+<h2 id="postpage">5. 删除post或page</h2>
+<p>直接删除相应的post文件即可删除一个post<sup id="fnref:truong"><a href="#fn:truong" class="footnote">2</a></sup>。</p>
+
+<h2 id="section">6. 上传新添加的内容</h2>
+<p>只需要将新添加的内容上传到Github，Jekyll就可以帮我们生成相应的网页了。上传内容的命令如下。</p>
+
+<div class="highlight"><pre><code class="bash">git add .
+git commit -m <span class="s2">&quot;Add new content&quot;</span>
+git push origin master
+ 
+</code></pre></div>
+
+<h2 id="section-1">7. 中文编码问题</h2>
+<p>修改<code>convertible.rb</code>文件中的以下行<sup id="fnref:Neptune"><a href="#fn:Neptune" class="footnote">3</a></sup> <sup>,</sup> <sup id="fnref:oschina"><a href="#fn:oschina" class="footnote">4</a></sup>：</p>
+
+<div class="highlight"><pre><code class="ruby"><span class="nb">self</span><span class="o">.</span><span class="n">content</span> <span class="o">=</span> <span class="no">File</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="no">File</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">base</span><span class="p">,</span> <span class="nb">name</span><span class="p">))</span>
+</code></pre></div>
+
+<p>加入utf-8支持，改后为：</p>
+
+<div class="highlight"><pre><code class="ruby"><span class="nb">self</span><span class="o">.</span><span class="n">content</span> <span class="o">=</span> <span class="no">File</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="no">File</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">base</span><span class="p">,</span> <span class="nb">name</span><span class="p">),</span> <span class="ss">:encoding</span> <span class="o">=&gt;</span> <span class="s1">&#39;utf-8&#39;</span><span class="p">)</span>
+</code></pre></div>
+
+<p>改后即可正常处理包含中文的post。
+如果编译出现如下错误</p>
+
+<div class="highlight"><pre><code class="bash">Liquid Exception: incompatible character encodings: UTF-8 and GBK
+</code></pre></div>
+
+<p>可以尝试更改控制台编码：<code>chcp 65001</code>，改后控制台变得比较丑，但总算能解决中文编码问题。</p>
+
+<div class="footnotes">
+  <ol>
+    <li id="fn:chengxuyuan">
+      <p>利用Jekyll搭建个人博客:<a href="http://www.mceiba.com/develop/jekyll-introduction.html">http://www.mceiba.com/develop/jekyll-introduction.html</a> <a href="#fnref:chengxuyuan" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:truong">
+      <p>Blogging using your favorite Text editor with Git and Jekyll: <a href="http://truongtx.me/2013/05/08/blogging-using-your-favorite-text-editor-with-git-and-jekyll/">http://truongtx.me/2013/05/08/blogging-using-your-favorite-text-editor-with-git-and-jekyll/</a> <a href="#fnref:truong" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:Neptune">
+      <p>Jekyll对中文问题的处理:<a href="http://nepshi.com/2012-10-08/chinese-characters-in-jekyll/">http://nepshi.com/2012-10-08/chinese-characters-in-jekyll/</a> <a href="#fnref:Neptune" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:oschina">
+      <p>win7使用jekyll的中文编码问题: <a href="http://www.oschina.net/question/195686_72215">http://www.oschina.net/question/195686_72215</a> <a href="#fnref:oschina" class="reversefootnote">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>使用GitHub管理你的工程</title>
+      <link href="http://jiyeqian.github.io/2013/07/github"/>
+      <pubDate>2013-07-31T00:00:00+08:00</pubDate>
+      <author>Jiye Qian</author>
+      <guid>http://jiyeqian.github.io/2013/07/github</guid>
+      <content:encoded><![CDATA[<p>无可非议，这是一个计算机的时代，也是一个代码的时代。作为一个资深码农，你一定写过无数段小代码，无数个小程序了，实际应用中需要用到的很多代码段或者小工具都可以从自己积累的程序中直接拿出来。然而事实并没有这么简单，你可能需要在不同的电脑上编写程序，你也可能根据实际使用的情况对你以前的代码进行修改，随之而来的就是<strong>“版本灾难”</strong>，这往往是令人抓狂的。另外，现在软件项目越来越大，大多数实际项目已经不再像过去那样只需要一两个人就能完成了。不同的人在不同的终端上几乎同时地对同一个项目进行编辑，可想而知，版本的管理将是多么繁琐的一件事情。那么有没有什么方法可以高效地管理你的工程呢？这就是这篇文章要解决的问题。</p>
+
+<h2 id="github">GitHub是什么</h2>
+
+<p><a href="https://github.com/">GitHub</a>是一家公司，位于旧金山，由<a href="https://github.com/defunkt">Chris Wanstrath</a>, <a href="https://github.com/pjhyett">PJ Hyett</a> 与<a href="https://github.com/mojombo">Tom Preston-Werner</a>三位开发者在2008年4月创办。迄今拥有59名全职员工，主要提供基于Git的版本托管服务。GitHub是目前最流行的开源托管服务，已经成为全球最大的开源项目聚集地。GitHub的服务分为免费和收费两种。免费账号可以自由的发布项目（不过每个项目有100M的大小限制），并且所发布的项目必须是公开源码的。付费账号则可以发布私有的项目。</p>
+
+<blockquote>
+  <p>对于一般的开源项目的用户而言，100M的大小是足够的。但如果你的代码是商业保密的或者你的项目非常的大，那么你就需要成为付费用户以便GitHub不公开你的源代码或者提供更大的存储空间。</p>
+</blockquote>
+
+<p>好的，下面就从注册GitHub账号开始，逐步介绍如何使用GitHub管理你的软件项目。GitHub的平台无关性表现非常好，但是本文只介绍windows下的使用方法。</p>
+
+<h2 id="github-1">注册GitHub账号</h2>
+
+<p>打开<a href="https://github.com/">GitHub</a>网站的主页，按照提示输入待注册的用户名、邮箱和密码，然后点“Sign up for GitHub”，如下图所示。<img src="/assets/images/20130801-sign_up.png" alt="注册" />
+如果不出意外的话就注册成功了（如果你的密码设置的过于简单，可能会提示你重新设置密码）。对，就这么简单。</p>
+
+<h2 id="github-2">GitHub工具</h2>
+
+<p>GitHub最初是在linux下面使用的，一切操作都是用命令来实现的，对于windows用户来说还是很不方便的。好在GitHub最近发布了一个windows下的管理工具，操作简单直观，界面是metro UI 风格，推荐使用这个管理工具。相关说明和下载地址如下：</p>
+
+<blockquote>
+  <p>官方就这个工具发布的说明：<a href="https://github.com/blog/1127-github-for-windows">https://github.com/blog/1127-github-for-windows</a></p>
+
+  <p>官方网址：<a href="http://windows.github.com/">http://windows.github.com/</a></p>
+
+  <p>点击此处下载：<a href="http://github-windows.s3.amazonaws.com/setup.exe">http://github-windows.s3.amazonaws.com/setup.exe</a></p>
+</blockquote>
+
+<p>下载的setup.exe是一个在线安装器，运行后会开始在线安装，安装过程可能需要几分钟（需要下载安装程序）。
+安装完后会出现”Git Shell”和”GitHub”两个程序，其中”Git Shell”是命令行模式，”GitHub”是图形界面模式，这里打开”GitHub”，出现登录界面，如下图所示。
+<img src="/assets/images/20130801-github_login.png" alt="登录客户端" />
+## 创建一个项目（Repositories）</p>
+]]></content:encoded>
+    </item>
+    
+  </channel>
+</rss>

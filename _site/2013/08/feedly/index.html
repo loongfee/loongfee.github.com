@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN" lang="zh-CN">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="author" content="Jiye Qian" />
+    <title>Feedly 快捷键</title>
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link href="/feed/" rel="alternate" title="Jiye Qian" type="application/atom+xml" />
+    <link rel="stylesheet" href="/media/css/style.css" />
+    <link rel="stylesheet" href="/media/css/pygments/emacs.css" />
+    <!--
+    <link rel="stylesheet" href="/media/css/highlight.css" />
+    -->
+    <script type="text/javascript" src="/media/js/jquery-1.7.1.min.js"></script>
+    <script type="text/javascript" src="/media/js/outliner.js"></script>
+
+    <!-- MathJax for LaTeX -->
+        <script type="text/x-mathjax-config"> 
+        MathJax.Hub.Config({
+            TeX: { equationNumbers: { autoNumber: "AMS" } }
+        }); 
+        </script>
+        <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            tex2jax: {
+                inlineMath: [ ['$','$'], ['$$$','$$$'], ["\\(","\\)"] ],
+                processEscapes: true
+            }
+        });
+        </script>
+        <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  </head>
+<!--  <body> 
+-->
+  <script type="text/javascript">
+    function setTimeSpan(){
+    	var date = new Date();
+    	timeSpan.innerText=date.format('yyyy-MM-dd hh:mm:ss');
+    }
+    
+    Date.prototype.format = function(format)
+		{
+    var o =
+    	{
+    	    "M+" : this.getMonth()+1, //month
+    	    "d+" : this.getDate(),    //day
+    	    "h+" : this.getHours(),   //hour
+    	    "m+" : this.getMinutes(), //minute
+    	    "s+" : this.getSeconds(), //second
+    	    "q+" : Math.floor((this.getMonth()+3)/3),  //quarter
+    	    "S" : this.getMilliseconds() //millisecond
+    	}
+    	if(/(y+)/.test(format))
+    	format=format.replace(RegExp.$1,(this.getFullYear()+"").substr(4 - RegExp.$1.length));
+    	for(var k in o)
+    	if(new RegExp("("+ k +")").test(format))
+    	format = format.replace(RegExp.$1,RegExp.$1.length==1 ? o[k] : ("00"+ o[k]).substr((""+ o[k]).length));
+    	return format;
+		}
+  </script>
+  <body onLoad="setInterval(setTimeSpan,1000);">
+    <div id="container">
+      <div id="main" role="main">
+        <header>
+        <h1>Feedly 快捷键</h1>
+        </header>
+        <nav id="real_nav">
+        <span><a title="home" class="" href="/">home</a></span>
+        <span><a title="categories" class="" href="/categories/">categories</a></span>
+        <span><a title="tags" class="" href="/tags/">tags</a></span>
+        <span><a title="logs" class="" href="/logs/">Log</a></span> 
+        <span><a title="about" class="" href="/about/">about</a></span>
+        <span><a title="subscribe by RSS" class="" href="/feed/">Subscribe</a></span>
+        <!--
+        <span><a title="sports" class="" href="/sports/">Sport</a></span>
+        <span><a title="game" class="" href="/game/">Game</a></span>  
+        <span><a title="guestbook" class="" href="/guestbook/">guestbook</a></span>
+        <span><a title="友情链接" class="" href="/links/">链接</a></span>
+        <span><a title="种子订阅" class="" href="/feed/" target="_blank">订阅</a></span> 
+        -->
+        </nav>
+        <article class="content">
+        <section class="meta">
+<span class="time">
+  <time datetime="2013-08-05">2013-08-05</time>
+</span>
+
+ | 
+<span class="categories">
+  categories
+  
+  <a href="/categories/#软件" title="软件">软件</a>&nbsp;
+  
+</span>
+
+
+ | 
+<span class="tags">
+  tags
+  
+  <a href="/tags/#RSS" title="RSS">RSS</a>&nbsp;
+  
+  <a href="/tags/#Feedly" title="Feedly">Feedly</a>&nbsp;
+  
+  <a href="/tags/#快捷键" title="快捷键">快捷键</a>&nbsp;
+  
+  <a href="/tags/#Google Reader" title="Google Reader">Google Reader</a>&nbsp;
+  
+</span>
+
+</section>
+<section class="post">
+<h2 id="google-reader">后Google Reader时代</h2>
+<p>Google关闭了谷歌阅读器 (Google Reader) ，这伤了无数谷粉的心。但是Google Reader的死去并不会终止RSS阅读的时代，只不过我们得寻找一个比较好的替代方案。 首先，RSS客户端阅读器显得复杂和冗余，违背了RSS阅读的初衷，因此仅考虑在线阅读器。其中国产的<a href="http://xianguo.com/">鲜果</a>、<a href="http://reader.youdao.com/">有道</a>等都是不错的选择，但是在综合体验之后，我还是选择了比较小众的[<code>Feedly</code>]： 界面简洁，兼容性好，支持快捷键，使用方便。<br />
+下面将[<code>Feedly</code>]的快捷键整理如下（主要是从网站的说明翻译过来的）：</p>
+
+<h3 id="navigation">导航（Navigation）</h3>
+<p>| 快捷键 | 中文说明 | 英文说明 |
+| ————- |————-|—-|
+| <code>gm</code> | 转到今天 | today |
+| <code>ga</code> | 所有 | all |
+| <code>gg</code> | 分类选择 | magic bar |
+| <code>gl</code> | 保存的文章 | saved article |
+| <code>shift+j</code> | 下一个feed或分类 | next feed or category |
+| <code>shift+k</code> | 上一个feed或分类 | previous feed or category  |
+| <code>a</code> | 添加内容 | add content  |
+| <code>r</code> | 刷新 | refresh|</p>
+
+<h3 id="lists">列表（Lists）</h3>
+<p>| 快捷键 | 中文说明 | 英文说明 |
+| ————- |————-|—-|
+| <code>j</code> | 展开下一篇文章 | inline next article |
+| <code>k</code> | 展开上一篇文章 | inline previous article |
+| <code>n</code> | 选择下一篇文章 | select next article |
+| <code>p</code> | 选择上一篇文章 | select previous article |
+| <code>o</code> | 展开/收起当前选中的文章 | inline/close currently selected article |
+| <code>v</code> | 打开一个新的tab查看原网页 | view original in a new tab  |
+| <code>shift+a</code> | 标记所有为已读 | mark all as read  |</p>
+
+<h3 id="selected-article">文章操作（Selected Article）</h3>
+<p>| 快捷键 | 中文说明 | 英文说明 |
+| ————- |————-|—-|
+| <code>m</code> | （取消）标记为已读 | toggle mark as read |
+| <code>x</code> | 最小化并隐藏（即从列表中删除） | minimize and hide |
+| <code>s</code> | 保存 | save for later |
+| <code>b</code> | 缓存（保存至Buffer） | buffer |
+| <code>shift+v</code> | 预览文章 | preview  |</p>
+
+<p>[<code>Feedly</code>]: http://cloud.feedly.com “”</p>
+
+</section>
+<section align="right">
+<br/>
+<span>
+	<a  href="/2013/08/Github-page-build-failure" class="pageNav"  >上一篇</a>
+	&nbsp;&nbsp;&nbsp;
+	<a  href="/2013/08/notepad-replace-notepad" class="pageNav"  >下一篇</a>
+</span>
+</section>
+
+	
+	<div class="ds-thread" />
+		
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"jiyeqian"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = 'http://static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		|| document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+
+
+<script type="text/javascript">
+$(function(){
+  $(document).keydown(function(e) {
+    var url = false;
+        if (e.which == 37 || e.which == 74) {  // Left arrow and J
+            
+        url = 'http://jiyeqian.github.io/2013/08/Github-page-build-failure';
+        
+        }
+        else if (e.which == 39 || e.which == 75) {  // Right arrow and K
+            
+        url = 'http://jiyeqian.github.io/2013/08/notepad-replace-notepad';
+        
+        }
+        if (url) {
+            window.location = url;
+        }
+  });
+})
+</script>
+
+        </article>
+        <a style="position:fixed;bottom:5px;right:5px;" href="#" title="Back to Top">
+            <img src="/assets/btt.png" />
+        </a> 
+      </div>
+
+    <footer>
+        <p><small>
+            <a href="http://github.com/jiyeqian/jiyeqian.github.io/new/master/_posts" target="_blank" title="撰写文章">Po</a>wer<a href="http://github.com/jiyeqian/jiyeqian.github.io/edit/master/_posts/2013-08-05-feedly.md" target="_blank" title="编辑页面">ed</a> by <a href="http://jekyllrb.com" target="_blank">Jekyll</a> @ <a href="http://github.com/jiyeqian/jiyeqian.github.io" target="_blank" title="项目主页">GitHub</a> | Copyright 2013 - 2013 by <a href="/about/">Jiye Qian</a> | <span class="label label-info" id="timeSpan"></span></small></p>
+    </footer>
+
+    </div>
+  </body>
+</html>

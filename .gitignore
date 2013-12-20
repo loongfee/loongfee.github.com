@@ -1,4 +1,7 @@
-_site/*
+_posts/2012-07-03-test.md
+_posts/\#*
+.pygments-cache/*
+_gist_cache/*
 _theme_packages/*
 
 Thumbs.db

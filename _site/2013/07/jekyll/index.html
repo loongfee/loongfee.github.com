@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN" lang="zh-CN">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="author" content="Jiye Qian" />
+    <title>Jekyll上手篇</title>
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link href="/feed/" rel="alternate" title="Jiye Qian" type="application/atom+xml" />
+    <link rel="stylesheet" href="/media/css/style.css" />
+    <link rel="stylesheet" href="/media/css/pygments/emacs.css" />
+    <!--
+    <link rel="stylesheet" href="/media/css/highlight.css" />
+    -->
+    <script type="text/javascript" src="/media/js/jquery-1.7.1.min.js"></script>
+    <script type="text/javascript" src="/media/js/outliner.js"></script>
+
+    <!-- MathJax for LaTeX -->
+        <script type="text/x-mathjax-config"> 
+        MathJax.Hub.Config({
+            TeX: { equationNumbers: { autoNumber: "AMS" } }
+        }); 
+        </script>
+        <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            tex2jax: {
+                inlineMath: [ ['$','$'], ['$$$','$$$'], ["\\(","\\)"] ],
+                processEscapes: true
+            }
+        });
+        </script>
+        <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  </head>
+<!--  <body> 
+-->
+  <script type="text/javascript">
+    function setTimeSpan(){
+    	var date = new Date();
+    	timeSpan.innerText=date.format('yyyy-MM-dd hh:mm:ss');
+    }
+    
+    Date.prototype.format = function(format)
+		{
+    var o =
+    	{
+    	    "M+" : this.getMonth()+1, //month
+    	    "d+" : this.getDate(),    //day
+    	    "h+" : this.getHours(),   //hour
+    	    "m+" : this.getMinutes(), //minute
+    	    "s+" : this.getSeconds(), //second
+    	    "q+" : Math.floor((this.getMonth()+3)/3),  //quarter
+    	    "S" : this.getMilliseconds() //millisecond
+    	}
+    	if(/(y+)/.test(format))
+    	format=format.replace(RegExp.$1,(this.getFullYear()+"").substr(4 - RegExp.$1.length));
+    	for(var k in o)
+    	if(new RegExp("("+ k +")").test(format))
+    	format = format.replace(RegExp.$1,RegExp.$1.length==1 ? o[k] : ("00"+ o[k]).substr((""+ o[k]).length));
+    	return format;
+		}
+  </script>
+  <body onLoad="setInterval(setTimeSpan,1000);">
+    <div id="container">
+      <div id="main" role="main">
+        <header>
+        <h1>Jekyll上手篇</h1>
+        </header>
+        <nav id="real_nav">
+        <span><a title="home" class="" href="/">home</a></span>
+        <span><a title="categories" class="" href="/categories/">categories</a></span>
+        <span><a title="tags" class="" href="/tags/">tags</a></span>
+        <span><a title="logs" class="" href="/logs/">Log</a></span> 
+        <span><a title="about" class="" href="/about/">about</a></span>
+        <span><a title="subscribe by RSS" class="" href="/feed/">Subscribe</a></span>
+        <!--
+        <span><a title="sports" class="" href="/sports/">Sport</a></span>
+        <span><a title="game" class="" href="/game/">Game</a></span>  
+        <span><a title="guestbook" class="" href="/guestbook/">guestbook</a></span>
+        <span><a title="友情链接" class="" href="/links/">链接</a></span>
+        <span><a title="种子订阅" class="" href="/feed/" target="_blank">订阅</a></span> 
+        -->
+        </nav>
+        <article class="content">
+        <section class="meta">
+<span class="time">
+  <time datetime="2013-07-31">2013-07-31</time>
+</span>
+
+ | 
+<span class="categories">
+  categories
+  
+  <a href="/categories/#开源" title="开源">开源</a>&nbsp;
+  
+</span>
+
+
+ | 
+<span class="tags">
+  tags
+  
+  <a href="/tags/#Jekyll" title="Jekyll">Jekyll</a>&nbsp;
+  
+  <a href="/tags/#Blog" title="Blog">Blog</a>&nbsp;
+  
+  <a href="/tags/#Git" title="Git">Git</a>&nbsp;
+  
+  <a href="/tags/#Markdown" title="Markdown">Markdown</a>&nbsp;
+  
+</span>
+
+</section>
+<section class="post">
+<h2 id="jekyllrun-jekyll-locally">1. 启动本地Jekyll服务（Run Jekyll Locally）</h2>
+<p>输入下面的命令<sup id="fnref:chengxuyuan"><a href="#fn:chengxuyuan" class="footnote">1</a></sup>。</p>
+
+<div class="highlight"><pre><code class="bash"><span class="nb">cd </span>USERNAME.github.com
+jekyll serve
+</code></pre></div>
+
+<p>其中，<code>USERNAME</code>是你的github博客用户名，也就是说需要先定位到本地博客的根目录下。
+然后，就可以通过<a href="http://localhost:4000/">http://localhost:4000/</a>来访问你的博客了。</p>
+
+<h2 id="jekyllstop-jekyll-locally">2. 停止本地Jekyll服务（Stop Jekyll Locally）</h2>
+<p>在控制台窗口中使用快捷键来停止服务：</p>
+
+<pre><code>Ctrl+C
+</code></pre>
+
+<h2 id="post">3. 创建一个post</h2>
+
+<div class="highlight"><pre><code class="bash">rake post <span class="nv">title</span><span class="o">=</span><span class="s2">&quot;Hello World&quot;</span>
+ 
+</code></pre></div>
+
+<h2 id="page">4. 创建一个page</h2>
+
+<div class="highlight"><pre><code class="bash">rake page <span class="nv">name</span><span class="o">=</span><span class="s2">&quot;about.md&quot;</span>
+ 
+</code></pre></div>
+
+<h2 id="postpage">5. 删除post或page</h2>
+<p>直接删除相应的post文件即可删除一个post<sup id="fnref:truong"><a href="#fn:truong" class="footnote">2</a></sup>。</p>
+
+<h2 id="section">6. 上传新添加的内容</h2>
+<p>只需要将新添加的内容上传到Github，Jekyll就可以帮我们生成相应的网页了。上传内容的命令如下。</p>
+
+<div class="highlight"><pre><code class="bash">git add .
+git commit -m <span class="s2">&quot;Add new content&quot;</span>
+git push origin master
+ 
+</code></pre></div>
+
+<h2 id="section-1">7. 中文编码问题</h2>
+<p>修改<code>convertible.rb</code>文件中的以下行<sup id="fnref:Neptune"><a href="#fn:Neptune" class="footnote">3</a></sup> <sup>,</sup> <sup id="fnref:oschina"><a href="#fn:oschina" class="footnote">4</a></sup>：</p>
+
+<div class="highlight"><pre><code class="ruby"><span class="nb">self</span><span class="o">.</span><span class="n">content</span> <span class="o">=</span> <span class="no">File</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="no">File</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">base</span><span class="p">,</span> <span class="nb">name</span><span class="p">))</span>
+</code></pre></div>
+
+<p>加入utf-8支持，改后为：</p>
+
+<div class="highlight"><pre><code class="ruby"><span class="nb">self</span><span class="o">.</span><span class="n">content</span> <span class="o">=</span> <span class="no">File</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="no">File</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">base</span><span class="p">,</span> <span class="nb">name</span><span class="p">),</span> <span class="ss">:encoding</span> <span class="o">=&gt;</span> <span class="s1">&#39;utf-8&#39;</span><span class="p">)</span>
+</code></pre></div>
+
+<p>改后即可正常处理包含中文的post。
+如果编译出现如下错误</p>
+
+<div class="highlight"><pre><code class="bash">Liquid Exception: incompatible character encodings: UTF-8 and GBK
+</code></pre></div>
+
+<p>可以尝试更改控制台编码：<code>chcp 65001</code>，改后控制台变得比较丑，但总算能解决中文编码问题。</p>
+
+<div class="footnotes">
+  <ol>
+    <li id="fn:chengxuyuan">
+      <p>利用Jekyll搭建个人博客:<a href="http://www.mceiba.com/develop/jekyll-introduction.html">http://www.mceiba.com/develop/jekyll-introduction.html</a> <a href="#fnref:chengxuyuan" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:truong">
+      <p>Blogging using your favorite Text editor with Git and Jekyll: <a href="http://truongtx.me/2013/05/08/blogging-using-your-favorite-text-editor-with-git-and-jekyll/">http://truongtx.me/2013/05/08/blogging-using-your-favorite-text-editor-with-git-and-jekyll/</a> <a href="#fnref:truong" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:Neptune">
+      <p>Jekyll对中文问题的处理:<a href="http://nepshi.com/2012-10-08/chinese-characters-in-jekyll/">http://nepshi.com/2012-10-08/chinese-characters-in-jekyll/</a> <a href="#fnref:Neptune" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:oschina">
+      <p>win7使用jekyll的中文编码问题: <a href="http://www.oschina.net/question/195686_72215">http://www.oschina.net/question/195686_72215</a> <a href="#fnref:oschina" class="reversefootnote">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+
+</section>
+<section align="right">
+<br/>
+<span>
+	<a  href="/2013/07/github" class="pageNav"  >上一篇</a>
+	&nbsp;&nbsp;&nbsp;
+	<a  href="/2013/07/pandoc" class="pageNav"  >下一篇</a>
+</span>
+</section>
+
+	
+	<div class="ds-thread" />
+		
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"jiyeqian"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = 'http://static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		|| document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+
+
+<script type="text/javascript">
+$(function(){
+  $(document).keydown(function(e) {
+    var url = false;
+        if (e.which == 37 || e.which == 74) {  // Left arrow and J
+            
+        url = 'http://jiyeqian.github.io/2013/07/github';
+        
+        }
+        else if (e.which == 39 || e.which == 75) {  // Right arrow and K
+            
+        url = 'http://jiyeqian.github.io/2013/07/pandoc';
+        
+        }
+        if (url) {
+            window.location = url;
+        }
+  });
+})
+</script>
+
+        </article>
+        <a style="position:fixed;bottom:5px;right:5px;" href="#" title="Back to Top">
+            <img src="/assets/btt.png" />
+        </a> 
+      </div>
+
+    <footer>
+        <p><small>
+            <a href="http://github.com/jiyeqian/jiyeqian.github.io/new/master/_posts" target="_blank" title="撰写文章">Po</a>wer<a href="http://github.com/jiyeqian/jiyeqian.github.io/edit/master/_posts/2013-07-31-jekyll.md" target="_blank" title="编辑页面">ed</a> by <a href="http://jekyllrb.com" target="_blank">Jekyll</a> @ <a href="http://github.com/jiyeqian/jiyeqian.github.io" target="_blank" title="项目主页">GitHub</a> | Copyright 2013 - 2013 by <a href="/about/">Jiye Qian</a> | <span class="label label-info" id="timeSpan"></span></small></p>
+    </footer>
+
+    </div>
+  </body>
+</html>

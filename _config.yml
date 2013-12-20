@@ -1,17 +1,33 @@
+# my new items
 encoding: utf-8
-markdown: rdiscount
-permalink: /blog/:year/:month/:day/:title 
-url: http://dannpu.com
-name: dannpu.com
-author: 土肥龙
-qq: 123018
-email: loongfee@gmail.com
-duoshuo: loongfee
-beian: 浙ICP备12026616号
-cnzz: 119959
-weibo: loongfee
-github: loongfee
+markdown: kramdown
+permalink: /:year/:month/:title 
+github: jiyeqian
+duoshuo: jiyeqian
+email: jyq080601@gmail.com
+url: http://jiyeqian.github.io
+name: Jiye Qian
+author: Jiye Qian
+img_url: http://jiyeqian.github.com/assets/images
+code_dir: /assets/code
+weibo: 1651549787 
+
+# markdown: rdiscount
+# permalink: /:title/
+# url: http://89ao.info
+# name: 89Ao.info
+# author: AoGang
+# qq: 103230005
+# email: 89ao@live.com
+# duoshuo: 89ao
+#beian: 浙ICP备12026616号
+#cnzz: 119959
+# weibo: 2067815867
+# github: 89ao
 pygments: true
 safe: true
 paginate: 20
-about: "这里是 Yonsm 的个人博客，创建于 2004 年。开始使用了 ExBlog 博客程序；之后长期（2004 ~ 2011）使用 Bo-Blog；2012 年更换为 WordProess；2013年7月迁移到 Jekyll @ GitHub。<br /><br />这里包含了部分个人的“折腾”过程、结论和成果，切换到分类模可以更快地找到感兴趣的内容，欢迎观赏、建议、拍砖……"
+about: "攻城狮一头，目前从事Linux的相关运维。	
+热爱Linux，开源爱好者，喜欢虚拟化，github等。		
+电脑洁癖与性能癖。  	
+偶尔微博，偶尔wow。"

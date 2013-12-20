@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN" lang="zh-CN">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="author" content="Jiye Qian" />
+    <title> Minimum-Rank Solutions via Nuclear Norm Minimization</title>
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link href="/feed/" rel="alternate" title="Jiye Qian" type="application/atom+xml" />
+    <link rel="stylesheet" href="/media/css/style.css" />
+    <link rel="stylesheet" href="/media/css/pygments/emacs.css" />
+    <!--
+    <link rel="stylesheet" href="/media/css/highlight.css" />
+    -->
+    <script type="text/javascript" src="/media/js/jquery-1.7.1.min.js"></script>
+    <script type="text/javascript" src="/media/js/outliner.js"></script>
+
+    <!-- MathJax for LaTeX -->
+        <script type="text/x-mathjax-config"> 
+        MathJax.Hub.Config({
+            TeX: { equationNumbers: { autoNumber: "AMS" } }
+        }); 
+        </script>
+        <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            tex2jax: {
+                inlineMath: [ ['$','$'], ['$$$','$$$'], ["\\(","\\)"] ],
+                processEscapes: true
+            }
+        });
+        </script>
+        <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  </head>
+<!--  <body> 
+-->
+  <script type="text/javascript">
+    function setTimeSpan(){
+    	var date = new Date();
+    	timeSpan.innerText=date.format('yyyy-MM-dd hh:mm:ss');
+    }
+    
+    Date.prototype.format = function(format)
+		{
+    var o =
+    	{
+    	    "M+" : this.getMonth()+1, //month
+    	    "d+" : this.getDate(),    //day
+    	    "h+" : this.getHours(),   //hour
+    	    "m+" : this.getMinutes(), //minute
+    	    "s+" : this.getSeconds(), //second
+    	    "q+" : Math.floor((this.getMonth()+3)/3),  //quarter
+    	    "S" : this.getMilliseconds() //millisecond
+    	}
+    	if(/(y+)/.test(format))
+    	format=format.replace(RegExp.$1,(this.getFullYear()+"").substr(4 - RegExp.$1.length));
+    	for(var k in o)
+    	if(new RegExp("("+ k +")").test(format))
+    	format = format.replace(RegExp.$1,RegExp.$1.length==1 ? o[k] : ("00"+ o[k]).substr((""+ o[k]).length));
+    	return format;
+		}
+  </script>
+  <body onLoad="setInterval(setTimeSpan,1000);">
+    <div id="container">
+      <div id="main" role="main">
+        <header>
+        <h1> Minimum-Rank Solutions via Nuclear Norm Minimization</h1>
+        </header>
+        <nav id="real_nav">
+        <span><a title="home" class="" href="/">home</a></span>
+        <span><a title="categories" class="" href="/categories/">categories</a></span>
+        <span><a title="tags" class="" href="/tags/">tags</a></span>
+        <span><a title="logs" class="" href="/logs/">Log</a></span> 
+        <span><a title="about" class="" href="/about/">about</a></span>
+        <span><a title="subscribe by RSS" class="" href="/feed/">Subscribe</a></span>
+        <!--
+        <span><a title="sports" class="" href="/sports/">Sport</a></span>
+        <span><a title="game" class="" href="/game/">Game</a></span>  
+        <span><a title="guestbook" class="" href="/guestbook/">guestbook</a></span>
+        <span><a title="友情链接" class="" href="/links/">链接</a></span>
+        <span><a title="种子订阅" class="" href="/feed/" target="_blank">订阅</a></span> 
+        -->
+        </nav>
+        <article class="content">
+        <section class="meta">
+<span class="time">
+  <time datetime="2013-12-20">2013-12-20</time>
+</span>
+
+ | 
+<span class="categories">
+  categories
+  
+  <a href="/categories/#computer vision" title="computer vision">computer vision</a>&nbsp;
+  
+</span>
+
+
+ | 
+<span class="tags">
+  tags
+  
+  <a href="/tags/#Compressive Sensing" title="Compressive Sensing">Compressive Sensing</a>&nbsp;
+  
+  <a href="/tags/#Math" title="Math">Math</a>&nbsp;
+  
+  <a href="/tags/#Computer Vision" title="Computer Vision">Computer Vision</a>&nbsp;
+  
+  <a href="/tags/#Nuclear Norm" title="Nuclear Norm">Nuclear Norm</a>&nbsp;
+  
+  <a href="/tags/#Optimization" title="Optimization">Optimization</a>&nbsp;
+  
+  <a href="/tags/#Minimum-Rank" title="Minimum-Rank">Minimum-Rank</a>&nbsp;
+  
+</span>
+
+</section>
+<section class="post">
+<h2 id="section">几个范数</h2>
+<p>矩阵 $X \in \mathbb{R}^{m \times n}$，$\sigma_i(X)$ 表示 $X$ 的第 $i$ 大奇异值（即 $XX’$ 的第 $i$ 大特征值的均方根）。$r$ 表示矩阵 $X$ 的秩（Rank），也等于 $X$ 非零奇异值的个数。对维度相同的两个矩阵 $X$ 和 $Y$，我们定义在 $\mathbb{R}^{m \times n}$上的内积为
+<script type="math/tex">
+\langle X,Y \rangle := Tr(X'Y） = \sum_{i=1}^m\sum_{j=1}^nX_{ij}Y_{ij}
+</script></p>
+
+<ol>
+  <li>Nuclear Norm </li>
+  <li></li>
+</ol>
+
+<script type="math/tex; mode=display">
+card(x) \ge \|x\|_1/\|x\|_{\infty}
+</script>
+
+<p>@article{recht2010guaranteed,
+  title={Guaranteed minimum-rank solutions of linear matrix equations via nuclear norm minimization},
+  author={Recht, Benjamin and Fazel, Maryam and Parrilo, Pablo A},
+  journal={SIAM review},
+  volume={52},
+  number={3},
+  pages={471–501},
+  year={2010},
+  publisher={SIAM}
+}</p>
+
+</section>
+<section align="right">
+<br/>
+<span>
+	<a  href="/2013/10/Compressive-Sensing" class="pageNav"  >上一篇</a>
+	&nbsp;&nbsp;&nbsp;
+	<a   class="pageNavInvalid"  >下一篇</a>
+</span>
+</section>
+
+	
+	<div class="ds-thread" />
+		
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"jiyeqian"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = 'http://static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		|| document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+
+
+<script type="text/javascript">
+$(function(){
+  $(document).keydown(function(e) {
+    var url = false;
+        if (e.which == 37 || e.which == 74) {  // Left arrow and J
+            
+        url = 'http://jiyeqian.github.io/2013/10/Compressive-Sensing';
+        
+        }
+        else if (e.which == 39 || e.which == 75) {  // Right arrow and K
+            
+        }
+        if (url) {
+            window.location = url;
+        }
+  });
+})
+</script>
+
+        </article>
+        <a style="position:fixed;bottom:5px;right:5px;" href="#" title="Back to Top">
+            <img src="/assets/btt.png" />
+        </a> 
+      </div>
+
+    <footer>
+        <p><small>
+            <a href="http://github.com/jiyeqian/jiyeqian.github.io/new/master/_posts" target="_blank" title="撰写文章">Po</a>wer<a href="http://github.com/jiyeqian/jiyeqian.github.io/edit/master/_posts/2013-12-20-Minimum-Rank-Solutions.md" target="_blank" title="编辑页面">ed</a> by <a href="http://jekyllrb.com" target="_blank">Jekyll</a> @ <a href="http://github.com/jiyeqian/jiyeqian.github.io" target="_blank" title="项目主页">GitHub</a> | Copyright 2013 - 2013 by <a href="/about/">Jiye Qian</a> | <span class="label label-info" id="timeSpan"></span></small></p>
+    </footer>
+
+    </div>
+  </body>
+</html>
