@@ -12,6 +12,22 @@ img_url: http://jiyeqian.github.com/assets/images
 code_dir: /assets/code
 weibo: 1651549787 
 
+pygments: true
+safe: false
+paginate: 20
+
+markdown: pandoc
+  
+pandoc:
+  format: html
+  extensions:
+    - smart
+    - mathjax
+    - toc
+    - csl elsevier.csl
+    - highlight-style pygments
+    - bibliography contrario.bib
+
 # markdown: rdiscount
 # permalink: /:title/
 # url: http://89ao.info
@@ -24,9 +40,6 @@ weibo: 1651549787
 #cnzz: 119959
 # weibo: 2067815867
 # github: 89ao
-pygments: true
-safe: true
-paginate: 20
 about: "攻城狮一头，目前从事Linux的相关运维。	
 热爱Linux，开源爱好者，喜欢虚拟化，github等。		
 电脑洁癖与性能癖。  	

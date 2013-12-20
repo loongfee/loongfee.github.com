@@ -109,20 +109,12 @@
 
 </section>
 <section class="post">
-<h2 id="section">缘起</h2>
+<h2 id="缘起"><a href="#缘起">缘起</a></h2>
 <p><code>Github Page</code> 提供了自动编译 <code>Jekyll</code> 网站的功能，我们只需要将 <code>Jekyll</code> 网站代码 <code>push</code> 到 <code>Github</code> 上，接下来的事情就都可以交给 <code>Github Page</code>，一般几分钟后就可以看到由 <code>Github Page</code> 重新编译生成的网站了。那末，好好的服务放弃不用，偏偏折腾着直接利用本地编译结果是要闹哪样呢？其实这么捣鼓还真不是因为DT，确实是事发有因。<code>Github Page</code> 虽然方便，但是它还是存在几个问题：</p>
-
-<ol>
-  <li>
-    <p>[<code>Github Page</code>] 不支持插件<br />
-虽然[<code>Github Page</code>] 服务器不提供插件支持，但是如果需要使用插件可以将 <code>*.rub</code> 文件放到网站根目录下的 <code>_plugins</code> 文件夹中。遗憾的是这种方式并非万能的，对于一些小巧的、相对独立的插件是可行的，但是对诸如“让Jekyll将Pandoc作为Markdown的渲染器[^loong]”的问题，这种方式就显得力不从心了。</p>
-  </li>
-  <li>
-    <p>[<code>Github Page</code>] 服务器上软件的版本偏低<br />
-[<code>Github Page</code>] 服务器提供的编译平台是一定的，出于稳定性和大用户群的体验考虑，服务器不可能频繁地更新编译平台，因此其编译平台的版本通常比较滞后。例如写作本文时，[<code>Github Page</code>] 服务器提供的 <code>Jekyll</code> 及其它依赖库的版本为</p>
-  </li>
+<ol style="list-style-type: decimal">
+<li><p><a href="http://pages.github.com/"><code>Github Page</code></a> 不支持插件<br />虽然<a href="http://pages.github.com/"><code>Github Page</code></a> 服务器不提供插件支持，但是如果需要使用插件可以将 <code>*.rub</code> 文件放到网站根目录下的 <code>_plugins</code> 文件夹中。遗憾的是这种方式并非万能的，对于一些小巧的、相对独立的插件是可行的，但是对诸如“让Jekyll将Pandoc作为Markdown的渲染器<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a>”的问题，这种方式就显得力不从心了。</p></li>
+<li><p><a href="http://pages.github.com/"><code>Github Page</code></a> 服务器上软件的版本偏低<br /><a href="http://pages.github.com/"><code>Github Page</code></a> 服务器提供的编译平台是一定的，出于稳定性和大用户群的体验考虑，服务器不可能频繁地更新编译平台，因此其编译平台的版本通常比较滞后。例如写作本文时，<a href="http://pages.github.com/"><code>Github Page</code></a> 服务器提供的 <code>Jekyll</code> 及其它依赖库的版本为</p></li>
 </ol>
-
 <div class="highlight"><pre><code class="bash">ruby <span class="s1">&#39;1.9.3&#39;</span>
 gem <span class="s1">&#39;jekyll&#39;</span>,     <span class="s1">&#39;=1.0.3&#39;</span>
 gem <span class="s1">&#39;liquid&#39;</span>,     <span class="s1">&#39;=2.5.1&#39;</span>
@@ -133,36 +125,26 @@ gem <span class="s1">&#39;RedCloth&#39;</span>,   <span class="s1">&#39;=4.2.9&#
 gem <span class="s1">&#39;kramdown&#39;</span>,   <span class="s1">&#39;=1.0.2&#39;</span>
 </code></pre></div>
 
-<p>而时下的 <code>ruby</code> 最新版本为2.0.0p195, <code>rdiscount</code> 的最新版本则是2.1.6，有着不小的差距。这样就出现兼容性问题了，本地使用新版本平台能够编译通过的代码提交到 [<code>Github Page</code>] 服务器就可能 “<code>page build failed</code>” 了。最保险的办法就是将本地的编译平台按照 [<code>Github Page</code>] 服务器上地版本来配置，并且不使用插件，这样就能保证本地编译通过的代码提交到 [<code>Github Page</code>] 后不出现问题了。但是新版本的新功能和bug的修复无法享用了。</p>
 
-<ol>
-  <li>利用 [<code>Github Page</code>] 编译并发布网站相对比较耗时 <br />
-很显然，既然已经在本地生成好了网站，再将代码上传到服务器重新编译一遍是挺多余的。事实上有时候在晚上上传上去的代码到第二天才会生成好网站。当然，直接将编译好的结果文件 <code>push</code> 到 <code>Github</code> 也不是立即生效的，但至少不会担心 “<code>page build failed</code>” 的错误了。</li>
+<p>而时下的 <code>ruby</code> 最新版本为2.0.0p195, <code>rdiscount</code> 的最新版本则是2.1.6，有着不小的差距。这样就出现兼容性问题了，本地使用新版本平台能够编译通过的代码提交到 <a href="http://pages.github.com/"><code>Github Page</code></a> 服务器就可能 “<code>page build failed</code>” 了。最保险的办法就是将本地的编译平台按照 <a href="http://pages.github.com/"><code>Github Page</code></a> 服务器上地版本来配置，并且不使用插件，这样就能保证本地编译通过的代码提交到 <a href="http://pages.github.com/"><code>Github Page</code></a> 后不出现问题了。但是新版本的新功能和bug的修复无法享用了。</p>
+<ol start="3" style="list-style-type: decimal">
+<li>利用 <a href="http://pages.github.com/"><code>Github Page</code></a> 编译并发布网站相对比较耗时<br />很显然，既然已经在本地生成好了网站，再将代码上传到服务器重新编译一遍是挺多余的。事实上有时候在晚上上传上去的代码到第二天才会生成好网站。当然，直接将编译好的结果文件 <code>push</code> 到 <code>Github</code> 也不是立即生效的，但至少不会担心 “<code>page build failed</code>” 的错误了。</li>
 </ol>
-
-<h2 id="section-1">解决方案</h2>
-<p>[<code>Github Page</code>] 官网上提到在网站根目录下创建一个名为 <code>.nojekyll</code> 的文件就可以关闭服务器端的 <code>Jekyll</code> 编译器，但是即使将 <code>_site</code> 文件夹上传到服务器上，网站也不会被发布。笔者找到的解决方案是在 <code>Github</code> 该网站的 <code>Repositor</code> 中创建一个新的 <code>branch</code>，然后用这两个分支分别管理源代码和生成的网站文件。下面介绍具体的实施步骤[^varn]。<br />
-1. 用 <code>Github</code> 创建一个 <code>source</code> 分支<br />
-打开 <code>git</code> 控制台，进入到网站工程目录（以后的操作均在该目录下进行）。用下面的命令将 <code>master</code> 分支中的文件移动到一个新的分支中（命名为 <code>source</code> ）。</p>
-
+<h2 id="解决方案"><a href="#解决方案">解决方案</a></h2>
+<p><a href="http://pages.github.com/"><code>Github Page</code></a> 官网上提到在网站根目录下创建一个名为 <code>.nojekyll</code> 的文件就可以关闭服务器端的 <code>Jekyll</code> 编译器，但是即使将 <code>_site</code> 文件夹上传到服务器上，网站也不会被发布。笔者找到的解决方案是在 <code>Github</code> 该网站的 <code>Repositor</code> 中创建一个新的 <code>branch</code>，然后用这两个分支分别管理源代码和生成的网站文件。下面介绍具体的实施步骤<a href="#fn2" class="footnoteRef" id="fnref2"><sup>2</sup></a>。<br />1. 用 <code>Github</code> 创建一个 <code>source</code> 分支<br />打开 <code>git</code> 控制台，进入到网站工程目录（以后的操作均在该目录下进行）。用下面的命令将 <code>master</code> 分支中的文件移动到一个新的分支中（命名为 <code>source</code> ）。</p>
 <div class="highlight"><pre><code class="bash">git checkout -b <span class="nb">source </span>master
 </code></pre></div>
-
-<ol>
-  <li>将源代码上传到 <code>source</code> 分支<br />
-使用下面的命令将这个新的分支 <code>push</code> 到 <code>Github</code> 上</li>
+  
+<ol start="2" style="list-style-type: decimal">
+<li>将源代码上传到 <code>source</code> 分支<br />使用下面的命令将这个新的分支 <code>push</code> 到 <code>Github</code> 上</li>
 </ol>
-
 <div class="highlight"><pre><code class="bash">git push -u origin <span class="nb">source</span>
 </code></pre></div>
-
-<ol>
-  <li>在 <code>Github</code> 上修改 <code>source</code> 为默认分支<br />
-登录到 <code>Github</code>，在 <code>repository</code> 设置中将该工程的默认分支设置为 <code>source</code>。这样，当其他人访问你的 <code>Github</code> 是默认看到的就是你的源代码而不是生成的网站了。   </li>
-  <li>编译网站代码并上传到 <code>master</code> 分支
-这一步的原理是将 <code>source</code> 分支中的代码 <code>build</code> 到一个临时文件夹中，然后将临时文件夹中的结果文件 <code>push</code> 到 <code>master</code> 分支中去。步骤稍微有点复杂，如果每次上传网站都要重复操作的话就太麻烦了，好在我们可以将这些机械的操作写到 <code>batch</code> 批处理中自动完成。</li>
+    
+<ol start="3" style="list-style-type: decimal">
+<li>在 <code>Github</code> 上修改 <code>source</code> 为默认分支<br />登录到 <code>Github</code>，在 <code>repository</code> 设置中将该工程的默认分支设置为 <code>source</code>。这样，当其他人访问你的 <code>Github</code> 是默认看到的就是你的源代码而不是生成的网站了。<br /></li>
+<li>编译网站代码并上传到 <code>master</code> 分支 这一步的原理是将 <code>source</code> 分支中的代码 <code>build</code> 到一个临时文件夹中，然后将临时文件夹中的结果文件 <code>push</code> 到 <code>master</code> 分支中去。步骤稍微有点复杂，如果每次上传网站都要重复操作的话就太麻烦了，好在我们可以将这些机械的操作写到 <code>batch</code> 批处理中自动完成。</li>
 </ol>
-
 <div class="highlight"><pre><code class="bat"><span class="c">:: 发布到github</span>
 
 <span class="p">@</span><span class="k">echo</span> <span class="k">off</span>
@@ -213,13 +195,18 @@ C:
 <span class="c">:: 删除临时编译目录</span>
 rd <span class="n">/s</span> <span class="n">/q</span> !build_path!
 </code></pre></div>
+  
+<p>创建一个 <code>windows batch</code> 文件（扩展名为 <code>bat</code>），将以上代码复制粘贴到这个文件中，并把代码 <code>set usr=anyone</code> 中的 <code>anyone</code> 改成你自己 <code>Github</code> 的用户名（也可以直接<a href="/assets/share/publish.bat">下载这个<code>bat</code>文件</a>），然后这个文件存放在网站代码的根目录下，每次需要发布网站的时候直接运行这个<code>bat</code>文件即可。<br />命令执行过程中可能会出现警告，只要最后能执行通过就没有问题。</p>
+<div class="references">
 
-<p>创建一个 <code>windows batch</code> 文件（扩展名为 <code>bat</code>），将以上代码复制粘贴到这个文件中，并把代码 <code>set usr=anyone</code> 中的 <code>anyone</code> 改成你自己 <code>Github</code> 的用户名（也可以直接<a href="/assets/share/publish.bat">下载这个<code>bat</code>文件</a>），然后这个文件存放在网站代码的根目录下，每次需要发布网站的时候直接运行这个<code>bat</code>文件即可。<br />
-命令执行过程中可能会出现警告，只要最后能执行通过就没有问题。</p>
-
-<p>[<code>Github Page</code>]: http://pages.github.com/ “”
-[^varn]: Jekyll : Handling Github page build failure and Jekyll plugins on Github:<a href="http://varunbpatil.github.io/2013/07/06/jekyll-build-fail/#.UfumtI8lzRe">http://varunbpatil.github.io/2013/07/06/jekyll-build-fail/#.UfumtI8lzRe</a>
-[^loong]:  让Jekyll将Pandoc作为Markdown的渲染器: <a href="http://loongfee.github.io/blog/2013/08/02/new-post/">http://loongfee.github.io/blog/2013/08/02/new-post/</a></p>
+</div>
+<div class="footnotes">
+<hr />
+<ol>
+<li id="fn1"><p>让Jekyll将Pandoc作为Markdown的渲染器: <a href="http://loongfee.github.io/blog/2013/08/02/new-post/">http://loongfee.github.io/blog/2013/08/02/new-post/</a><a href="#fnref1">↩</a></p></li>
+<li id="fn2"><p>Jekyll : Handling Github page build failure and Jekyll plugins on Github:<a href="http://varunbpatil.github.io/2013/07/06/jekyll-build-fail/#.UfumtI8lzRe">http://varunbpatil.github.io/2013/07/06/jekyll-build-fail/#.UfumtI8lzRe</a><a href="#fnref2">↩</a></p></li>
+</ol>
+</div>
 
 </section>
 <section align="right">

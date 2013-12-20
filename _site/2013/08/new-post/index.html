@@ -114,76 +114,57 @@
 <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
 </script>
 
-<h1 id="jekyll">Jekyll的渲染器</h1>
-<p>Jekyll中默认的markdown渲染器是<code>maruku</code>，但是它对Latex公式和中文支持都不太好, 通常是根据不同的需要选择其它几种渲染器（<code>rdiscount</code>，<code>kramdown</code>，<code>redcarpet</code>等），它们各有利弊。Github在后台则选用了<code>Redcarpet</code>作为其文本渲染器，因为它安全性高且性能卓越，同时它在基本<code>Markdown</code>语法的基础上增加了一些自己的特性。<code>Kramdown</code>是这几个当中对基础 <code>Markdown</code>语法拓展最多，也是最方便使用的<sup id="fnref:yangzetian"><a href="#fn:yangzetian" class="footnote">1</a></sup>（但是跟<code>Pandoc</code>相比，还是差得很远）。笔者之前一直是使用<code>rdiscount</code>，结果在本地编译没问题的代码在Github上就是无法通过，折腾了半天知道Github上的<code>rdiscount</code>是1.6.8版本，而本地<code>rdiscount</code>是2.1.6版本。下降版本后发现<code>rdiscount</code>1.6.8版本不支持注脚语法。使用低版本就无法使用注脚，使用高版本就无法在Github上编译通过，纠结之余开始寻找合适的解决方案，于是就有了这篇文章。</p>
-
-<h1 id="pandoc">为什么使用pandoc</h1>
+<h1 id="jekyll的渲染器"><a href="#jekyll的渲染器">Jekyll的渲染器</a></h1>
+<p>Jekyll中默认的markdown渲染器是<code>maruku</code>，但是它对Latex公式和中文支持都不太好, 通常是根据不同的需要选择其它几种渲染器（<code>rdiscount</code>，<code>kramdown</code>，<code>redcarpet</code>等），它们各有利弊。Github在后台则选用了<code>Redcarpet</code>作为其文本渲染器，因为它安全性高且性能卓越，同时它在基本<code>Markdown</code>语法的基础上增加了一些自己的特性。<code>Kramdown</code>是这几个当中对基础 <code>Markdown</code>语法拓展最多，也是最方便使用的<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a>（但是跟<code>Pandoc</code>相比，还是差得很远）。笔者之前一直是使用<code>rdiscount</code>，结果在本地编译没问题的代码在Github上就是无法通过，折腾了半天知道Github上的<code>rdiscount</code>是1.6.8版本，而本地<code>rdiscount</code>是2.1.6版本。下降版本后发现<code>rdiscount</code>1.6.8版本不支持注脚语法。使用低版本就无法使用注脚，使用高版本就无法在Github上编译通过，纠结之余开始寻找合适的解决方案，于是就有了这篇文章。</p>
+<h1 id="为什么使用pandoc"><a href="#为什么使用pandoc">为什么使用pandoc</a></h1>
 <p><a href="http://johnmacfarlane.net/pandoc"><code>Pandoc</code></a>被称为格式转换的瑞士军刀，功能强大，能够在数十种文件格式（如Markdown，reStructuredText，Textilte，HTML，LaTeX，pdf，doc等）中自如的转换，几乎能做到无缝兼容，且成熟稳定。使用<a href="http://johnmacfarlane.net/pandoc"><code>Pandoc</code></a>在Markdown文件中直接使用Latex公式，然后通过MathJax、jsMath 等等方式显示公式。例如使用下面一段Latex代码</p>
-
 <div class="highlight"><pre><code class="latex"><span class="sb">$$</span><span class="nb">e^{i</span><span class="nv">\pi</span><span class="nb">}</span><span class="o">+</span><span class="m">1</span><span class="o">=</span><span class="m">0</span><span class="s">$$</span>
 </code></pre></div>
 
-<p>就可以得到一个优美的公式：
-<script type="math/tex">e^{i\pi}+1=0</script>
-<em>为了能让公式在网页中显示，请在markdown文件头加上以下调用MathJax的代码。</em></p>
-
+<p>就可以得到一个优美的公式： <span class="math">\[e^{i\pi}+1=0\]</span> <em>为了能让公式在网页中显示，请在markdown文件头加上以下调用MathJax的代码。</em></p>
 <div class="highlight"><pre><code class="html"><span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src=</span><span class="s">&quot;http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML&quot;</span><span class="nt">&gt;</span>
 <span class="nt">&lt;/script&gt;</span>
 </code></pre></div>
 
-<p>因此选用<a href="http://johnmacfarlane.net/pandoc"><code>Pandoc</code></a>作为Jekyll中markdown的渲染器是很自然的。
-但是Github Pages并没有提供pandoc的支持，也就是说使用<a href="http://johnmacfarlane.net/pandoc"><code>Pandoc</code></a>的网站代码在Github上是无法编译的，以后会谈到如何解决这个问题。下面先看看如何配置环境将<a href="http://johnmacfarlane.net/pandoc"><code>Pandoc</code></a>作为Markdown的渲染器。</p>
 
-<h2 id="pandoc-1">配置Pandoc环境</h2>
-<ol>
-  <li>
-    <p>首先当然是安装<a href="http://johnmacfarlane.net/pandoc"><code>Pandoc</code></a>：
-Windows下直接从<a href="http://johnmacfarlane.net/pandoc/">pandoc官网</a>下载<a href="http://code.google.com/p/pandoc/downloads/">最新安装包</a>安装即可。</p>
-  </li>
-  <li>
-    <p>安装Pandoc-Ruby。这里假设已经转好Ruby、Jekyll等环境了，如果还没有安装请参考&lt;&gt;。<br />
-直接使用以下命令即可安装Pandoc-Ruby</p>
-  </li>
+<p>因此选用<a href="http://johnmacfarlane.net/pandoc"><code>Pandoc</code></a>作为Jekyll中markdown的渲染器是很自然的。 但是Github Pages并没有提供pandoc的支持，也就是说使用<a href="http://johnmacfarlane.net/pandoc"><code>Pandoc</code></a>的网站代码在Github上是无法编译的，以后会谈到如何解决这个问题。下面先看看如何配置环境将<a href="http://johnmacfarlane.net/pandoc"><code>Pandoc</code></a>作为Markdown的渲染器。</p>
+<h2 id="配置pandoc环境"><a href="#配置pandoc环境">配置Pandoc环境</a></h2>
+<ol style="list-style-type: decimal">
+<li><p>首先当然是安装<a href="http://johnmacfarlane.net/pandoc"><code>Pandoc</code></a>： Windows下直接从<a href="http://johnmacfarlane.net/pandoc/">pandoc官网</a>下载<a href="http://code.google.com/p/pandoc/downloads/">最新安装包</a>安装即可。</p></li>
+<li><p>安装Pandoc-Ruby。这里假设已经转好Ruby、Jekyll等环境了，如果还没有安装请参考&lt;&gt;。<br />直接使用以下命令即可安装Pandoc-Ruby</p></li>
 </ol>
-
 <div class="highlight"><pre><code class="bash">gem install pandoc-ruby
 </code></pre></div>
 
-<ol>
-  <li>
-    <p>安装Jekyll插件。直接从Github站点
-<a href="https://github.com/dsanson/jekyll-pandoc-plugin">Jekyll Plugin for Using Pandoc-Ruby</a>下载<code>pandoc_markdown.rb</code>放到网站根目录下的<code>_plugins</code>文件夹中（如果<code>_plugins</code>文件夹不存在，就创建一个），Jekyll在每次编译生成网站前都会自动加载<code>_plugins</code>文件夹中的所有<code>*.rb</code>文件。Jekyll官网<sup id="fnref:jekyll_plugins"><a href="#fn:jekyll_plugins" class="footnote">2</a></sup>上有该插件的相关介绍，同时也给出了其它的解决方案。</p>
-  </li>
-  <li>
-    <p>在网站配置文件<code>_config.yml</code>中添加设置Markdown的渲染器为<code>Pandoc</code>。添加以下配置即可</p>
-  </li>
-</ol>
 
+<ol start="3" style="list-style-type: decimal">
+<li><p>安装Jekyll插件。直接从Github站点 <a href="https://github.com/dsanson/jekyll-pandoc-plugin">Jekyll Plugin for Using Pandoc-Ruby</a>下载<code>pandoc_markdown.rb</code>放到网站根目录下的<code>_plugins</code>文件夹中（如果<code>_plugins</code>文件夹不存在，就创建一个），Jekyll在每次编译生成网站前都会自动加载<code>_plugins</code>文件夹中的所有<code>*.rb</code>文件。Jekyll官网<a href="#fn2" class="footnoteRef" id="fnref2"><sup>2</sup></a>上有该插件的相关介绍，同时也给出了其它的解决方案。</p></li>
+<li><p>在网站配置文件<code>_config.yml</code>中添加设置Markdown的渲染器为<code>Pandoc</code>。添加以下配置即可</p></li>
+</ol>
 <div class="highlight"><pre><code class="bash">markdown: pandoc
 pandoc:
   format: html5
   extensions: <span class="o">[</span>smart, mathjax<span class="o">]</span>
 </code></pre></div>
 
-<h2 id="section">一些修改</h2>
-<p>理论上经过以上的配置就可以使用<code>pandoc</code>渲染<code>Markdown</code>了，可是事情似乎并没有这么简单，执行<code>jekyll server</code>命令后，出现了下面的错误</p>
 
+<h2 id="一些修改"><a href="#一些修改">一些修改</a></h2>
+<p>理论上经过以上的配置就可以使用<code>pandoc</code>渲染<code>Markdown</code>了，可是事情似乎并没有这么简单，执行<code>jekyll server</code>命令后，出现了下面的错误</p>
 <div class="highlight"><pre><code class="bash">Conversion error: There was an error converting .....
 : undefined method <span class="s1">&#39;convert&#39;</span> <span class="k">for</span> <span class="o">[</span>:smart, :mathjax<span class="o">]</span>:Array. Use --trace to view backtrace
 </code></pre></div>
 
-<p>下载<a href="/assets/share/markdown.rb">文件</a>替换<code>lib/jekyll/converters/markdown.rb</code>即可，修改之处是在<code>setup</code>和<code>convert</code>中按照其它渲染器的格式增加一个<code>pandoc</code>判断。<br />
-至此，我们已经可以在本地Jekyll中使用<code>Pandoc</code>作为<code>Markdown</code>的渲染器了，至于<code>Github Page</code>不能编译通过的问题下次再讨论。</p>
 
+<p>下载<a href="/assets/share/markdown.rb">文件</a>替换<code>lib/jekyll/converters/markdown.rb</code>即可，修改之处是在<code>setup</code>和<code>convert</code>中按照其它渲染器的格式增加一个<code>pandoc</code>判断。<br />至此，我们已经可以在本地Jekyll中使用<code>Pandoc</code>作为<code>Markdown</code>的渲染器了，至于<code>Github Page</code>不能编译通过的问题下次再讨论。</p>
+<div class="references">
+
+</div>
 <div class="footnotes">
-  <ol>
-    <li id="fn:yangzetian">
-      <p>为Jekyll装上瑞士军刀Pandoc: <a href="http://yangzetian.github.io/2012/04/15/jekyll-pandoc/">http://yangzetian.github.io/2012/04/15/jekyll-pandoc/</a> <a href="#fnref:yangzetian" class="reversefootnote">&#8617;</a></p>
-    </li>
-    <li id="fn:jekyll_plugins">
-      <p>Jekyll Plugins: <a href="http://jekyllrb.com/docs/plugins/">http://jekyllrb.com/docs/plugins/</a> <a href="#fnref:jekyll_plugins" class="reversefootnote">&#8617;</a></p>
-    </li>
-  </ol>
+<hr />
+<ol>
+<li id="fn1"><p>为Jekyll装上瑞士军刀Pandoc: <a href="http://yangzetian.github.io/2012/04/15/jekyll-pandoc/">http://yangzetian.github.io/2012/04/15/jekyll-pandoc/</a><a href="#fnref1">↩</a></p></li>
+<li id="fn2"><p>Jekyll Plugins: <a href="http://jekyllrb.com/docs/plugins/">http://jekyllrb.com/docs/plugins/</a><a href="#fnref2">↩</a></p></li>
+</ol>
 </div>
 
 </section>
