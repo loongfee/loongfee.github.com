@@ -8,19 +8,37 @@
 		<meta name="description" content="">
 		
 		<title>收藏夹</title>
-		<script src="js/jquery-1.10.2.min.js"></script>
-		<script src="js/lightbox-2.6.min.js"></script>
-		<link rel="stylesheet" href="/css/main.css" />
-		<link rel="stylesheet" href="/css/pygments_native.css" />		
-		<link rel="stylesheet" href="/css/favorite.css" />
-		<link href="css/lightbox.css" rel="stylesheet" />
+		<link rel="stylesheet" href="/media/css/main.css" />
+		<link rel="stylesheet" href="/media/css/pygments_native.css" />
+		<link rel="stylesheet" href="/media/css/favorite.css" />
+		<link rel="stylesheet" href="/media/css/lightbox.css" rel="stylesheet" />
 		<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Handlee">
+		<script type="text/javascript" src="/media/js/jquery-1.10.2.min.js"></script>
+		<script type="text/javascript" src="/media/js/lightbox-2.6.min.js"></script>
+		<script type="text/javascript" src="/media/js/outliner.js"></script>
 		<!---<link rel="stylesheet" href="/css/styles/monokai.css">
         <script src="/js/highlight.js"></script>
         <script>hljs.initHighlightingOnLoad();</script>-->
+		<!-- MathJax for LaTeX -->
+        <script type="text/x-mathjax-config"> 
+        MathJax.Hub.Config({
+            TeX: { equationNumbers: { autoNumber: "AMS" } }
+        }); 
+        </script>
+        <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            tex2jax: {
+                inlineMath: [ ['$','$'], ['$$$','$$$'], ["\\(","\\)"] ],
+                processEscapes: true
+            }
+        });
+        </script>
+        <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+		
     
 	</head>
 	<body>
+     <div id="main" role="main">
 		<header id="header">
 			<div class="header-info fix">
 				<h1><a href="/">淡朴若水</a></h1>				
@@ -42,20 +60,7 @@
 		</header><!--/header end-->
 
 		<section id="content" class="fix">
-			<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  <meta name="generator" content="pandoc">
-  <title></title>
-  <style type="text/css">code{white-space: pre;}</style>
-  <!--[if lt IE 9]>
-    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-  <![endif]-->
-
-</head>
-<body>
-<div id="nav">
+			<div id="nav">
 <ul>
  <li class="catalog"">
  <div class="list">
@@ -169,12 +174,10 @@
 <div class="references">
 
 </div>
-</body>
-</html>
 
 		</section><!--/content end-->
 
-
+	</div>
 		<footer id="footer">
 			<p class="l">
 				&copy;2013 <a href="/">土肥龙</a> 

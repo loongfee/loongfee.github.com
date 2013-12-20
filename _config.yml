@@ -26,7 +26,7 @@ pandoc:
     - highlight-style pygments
     - bibliography contrario.bib
    # - variable bibliography=contrario
-    - template default.html5
+    # - template default.html5
    # - template pm.html5
 
 # Themes are encouraged to use these universal variables 

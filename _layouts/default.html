@@ -8,19 +8,37 @@
 		{% if page.description %}<meta name="description" content="{{ page.description }}">{% endif %}
 		{% if page.keywords %}<meta name="keywords" content="{{ page.keywords }}">{% endif %}
 		<title>{{ page.title }}</title>
-		<script src="js/jquery-1.10.2.min.js"></script>
-		<script src="js/lightbox-2.6.min.js"></script>
-		<link rel="stylesheet" href="/css/main.css" />
-		<link rel="stylesheet" href="/css/pygments_native.css" />		
-		<link rel="stylesheet" href="/css/favorite.css" />
-		<link href="css/lightbox.css" rel="stylesheet" />
+		<link rel="stylesheet" href="/media/css/main.css" />
+		<link rel="stylesheet" href="/media/css/pygments_native.css" />
+		<link rel="stylesheet" href="/media/css/favorite.css" />
+		<link rel="stylesheet" href="/media/css/lightbox.css" rel="stylesheet" />
 		<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Handlee">
+		<script type="text/javascript" src="/media/js/jquery-1.10.2.min.js"></script>
+		<script type="text/javascript" src="/media/js/lightbox-2.6.min.js"></script>
+		<script type="text/javascript" src="/media/js/outliner.js"></script>
 		<!---<link rel="stylesheet" href="/css/styles/monokai.css">
         <script src="/js/highlight.js"></script>
         <script>hljs.initHighlightingOnLoad();</script>-->
+		<!-- MathJax for LaTeX -->
+        <script type="text/x-mathjax-config"> 
+        MathJax.Hub.Config({
+            TeX: { equationNumbers: { autoNumber: "AMS" } }
+        }); 
+        </script>
+        <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            tex2jax: {
+                inlineMath: [ ['$','$'], ['$$$','$$$'], ["\\(","\\)"] ],
+                processEscapes: true
+            }
+        });
+        </script>
+        <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+		
     {% include JB/analytics %}
 	</head>
 	<body>
+     <div id="main" role="main">
 		<header id="header">
 			<div class="header-info fix">
 				<h1><a href="/">淡朴若水</a></h1>				
@@ -45,7 +63,7 @@
 			{{content}}
 		</section><!--/content end-->
 
-
+	</div>
 		<footer id="footer">
 			<p class="l">
 				&copy;2013 <a href="/">{{ site.author.name }}</a> 

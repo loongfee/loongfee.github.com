@@ -1,6 +1,6 @@
 ---
 layout: post
-title: " \"a contrario\"：一种基于概率统计的无参数决策模型"
+title: " A Contrario：一种基于概率统计的无参数决策模型"
 description: "一种基于概率统计的无参数决策模型"
 category: "Computer Vision"
 tags: [Contrario, Math, Helmholtz, Gestalt Theory, Computer Vision]
