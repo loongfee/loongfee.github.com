@@ -1,6 +1,0 @@
----
-# Remember to set production_url in your _config.yml file!
-title : robots
----
-User-Agent: Baiduspider
-Allow: /sitemap.txt
