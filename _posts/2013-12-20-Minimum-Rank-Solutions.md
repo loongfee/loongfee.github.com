@@ -5,6 +5,7 @@ description: "Minimum-Rank Solutions via Nuclear Norm Minimization"
 category: "Computer Vision"
 tags: [Compressive Sensing, Math, Computer Vision, Nuclear Norm, Optimization, Minimum-Rank]
 ---
+{% include JB/setup %}
 
 ## 几个范数
 矩阵 $X \in \mathbb{R}^{m \times n}$，$\sigma_i(X)$ 表示 $X$ 的第 $i$ 大奇异值（即 $XX'$ 的第 $i$ 大特征值的均方根）。$r$ 表示矩阵 $X$ 的秩（Rank），也等于 $X$ 非零奇异值的个数。对维度相同的两个矩阵 $X$ 和 $Y$，我们定义在 $\mathbb{R}^{m \times n}$上的内积为

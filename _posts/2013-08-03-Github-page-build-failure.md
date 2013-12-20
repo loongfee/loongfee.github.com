@@ -5,6 +5,7 @@ description: "利用本地编译结果替代Github Page自动生成网站"
 category: "Jekyll"
 tags: [Jekyll, Github, Plugins]
 ---
+{% include JB/setup %}
 
 ## 缘起
 `Github Page` 提供了自动编译 `Jekyll` 网站的功能，我们只需要将 `Jekyll` 网站代码 `push` 到 `Github` 上，接下来的事情就都可以交给 `Github Page`，一般几分钟后就可以看到由 `Github Page` 重新编译生成的网站了。那末，好好的服务放弃不用，偏偏折腾着直接利用本地编译结果是要闹哪样呢？其实这么捣鼓还真不是因为DT，确实是事发有因。`Github Page` 虽然方便，但是它还是存在几个问题：

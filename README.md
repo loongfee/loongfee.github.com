@@ -1,3 +1,3 @@
-[土肥龙](http://loongfee.com) 的博客
+Jekyll+Github+Markdown+Pandoc，体验非常好的blog方式。
 
-本博客运行于 [Jekyll](http://jekyllrb.com) @ [GitHub](http://github.com/Yonsm/NET)，博客模板clone自 [Yonsm](http://github.com/Yonsm/NET) 的博客。
+<http://loongfee.github.io>

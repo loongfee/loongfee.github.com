@@ -1,3 +1,2 @@
-User-agent: *
-Disallow: /assets/
-Sitemap: http://89ao.tk/sitemap.xml
+User-Agent: Baiduspider
+Allow: /sitemap.txt

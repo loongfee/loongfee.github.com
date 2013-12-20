@@ -1,208 +1,176 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN" lang="zh-CN">
-  <head>
-    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    <meta name="author" content="Jiye Qian" />
-    <title>Jiye Qian</title>
-    <link rel="shortcut icon" href="/favicon.ico" />
-    <link href="/feed/" rel="alternate" title="Jiye Qian" type="application/atom+xml" />
-    <link rel="stylesheet" href="/media/css/style.css" />
-    <link rel="stylesheet" href="/media/css/pygments/emacs.css" />
-    <!--
-    <link rel="stylesheet" href="/media/css/highlight.css" />
-    -->
-    <script type="text/javascript" src="/media/js/jquery-1.7.1.min.js"></script>
-    <script type="text/javascript" src="/media/js/outliner.js"></script>
-
-    <!-- MathJax for LaTeX -->
-        <script type="text/x-mathjax-config"> 
-        MathJax.Hub.Config({
-            TeX: { equationNumbers: { autoNumber: "AMS" } }
-        }); 
-        </script>
-        <script type="text/x-mathjax-config">
-        MathJax.Hub.Config({
-            tex2jax: {
-                inlineMath: [ ['$','$'], ['$$$','$$$'], ["\\(","\\)"] ],
-                processEscapes: true
-            }
-        });
-        </script>
-        <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-
-  </head>
-<!--  <body> 
--->
-  <script type="text/javascript">
-    function setTimeSpan(){
-    	var date = new Date();
-    	timeSpan.innerText=date.format('yyyy-MM-dd hh:mm:ss');
-    }
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1">
+		<meta name="author" content="土肥龙">
+		<meta name="title" content="淡朴若水">
+		
+		
+		<title>淡朴若水</title>
+		<script src="js/jquery-1.10.2.min.js"></script>
+		<script src="js/lightbox-2.6.min.js"></script>
+		<link rel="stylesheet" href="/css/main.css" />
+		<link rel="stylesheet" href="/css/pygments_native.css" />		
+		<link rel="stylesheet" href="/css/favorite.css" />
+		<link href="css/lightbox.css" rel="stylesheet" />
+		<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Handlee">
+		<!---<link rel="stylesheet" href="/css/styles/monokai.css">
+        <script src="/js/highlight.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script>-->
     
-    Date.prototype.format = function(format)
-		{
-    var o =
-    	{
-    	    "M+" : this.getMonth()+1, //month
-    	    "d+" : this.getDate(),    //day
-    	    "h+" : this.getHours(),   //hour
-    	    "m+" : this.getMinutes(), //minute
-    	    "s+" : this.getSeconds(), //second
-    	    "q+" : Math.floor((this.getMonth()+3)/3),  //quarter
-    	    "S" : this.getMilliseconds() //millisecond
-    	}
-    	if(/(y+)/.test(format))
-    	format=format.replace(RegExp.$1,(this.getFullYear()+"").substr(4 - RegExp.$1.length));
-    	for(var k in o)
-    	if(new RegExp("("+ k +")").test(format))
-    	format = format.replace(RegExp.$1,RegExp.$1.length==1 ? o[k] : ("00"+ o[k]).substr((""+ o[k]).length));
-    	return format;
-		}
-  </script>
-  <body onLoad="setInterval(setTimeSpan,1000);">
-    <div id="container">
-      <div id="main" role="main">
-        <header>
-        <h1>Jiye's Homepage</h1>
-        </header>
-        <nav id="real_nav">
-        <span><a title="home" class="" href="/">home</a></span>
-        <span><a title="categories" class="" href="/categories/">categories</a></span>
-        <span><a title="tags" class="" href="/tags/">tags</a></span>
-        <span><a title="logs" class="" href="/logs/">Log</a></span> 
-        <span><a title="about" class="" href="/about/">about</a></span>
-        <span><a title="subscribe by RSS" class="" href="/feed/">Subscribe</a></span>
-        <!--
-        <span><a title="sports" class="" href="/sports/">Sport</a></span>
-        <span><a title="game" class="" href="/game/">Game</a></span>  
-        <span><a title="guestbook" class="" href="/guestbook/">guestbook</a></span>
-        <span><a title="友情链接" class="" href="/links/">链接</a></span>
-        <span><a title="种子订阅" class="" href="/feed/" target="_blank">订阅</a></span> 
-        -->
-        </nav>
-        <article class="content">
-        <section class="post">
-<ul class="listing">
+	</head>
+	<body>
+		<header id="header">
+			<div class="header-info fix">
+				<h1><a href="/">淡朴若水</a></h1>				
+        <h3>『遥感, 软件, 数学, IT杂碎』</h3>
+				<nav class="navigation">
+					<ul>
+						<li><a href="/">Home</a></li>
+						<li><a href="/archive.html">List</a></li>
+						<li><a href="/favorite.html">Favorite</a></li>
+						<li><a href="/tags.html">Tags</a></li>
+						<!--<li><a href="/sitemap.txt">网站地图</a></li>-->
+						<li><a href="/atom.xml">
+						<!---<img alt="rss fead" src="/css/images/rss.png">-->
+						RSS
+						</a></li>
+					</ul>
+				</nav>
+			</div>
+		</header><!--/header end-->
 
-  
-  
-    
-    <li class="listing-seperator">2013</li>
-  
-  <li class="listing-item">
-    <time datetime="2013-12-20">2013-12-20</time>
-    <a href="/2013/12/Minimum-Rank-Solutions" title=" Minimum-Rank Solutions via Nuclear Norm Minimization"> Minimum-Rank Solutions via Nuclear Norm Minimization</a>
-    
-  </li>
+		<section id="content" class="fix">
+			<div class="article-list">
+	<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
 
-  
-  
-  <li class="listing-item">
-    <time datetime="2013-10-22">2013-10-22</time>
-    <a href="/2013/10/Compressive-Sensing" title=" 压缩感知初探"> 压缩感知初探</a>
-    
-  </li>
-
-  
-  
-  <li class="listing-item">
-    <time datetime="2013-08-12">2013-08-12</time>
-    <a href="/2013/08/a-contrario-starting" title=" "a contrario"：一种基于概率统计的无参数决策模型"> "a contrario"：一种基于概率统计的无参数决策模型</a>
-    
-  </li>
-
-  
-  
-  <li class="listing-item">
-    <time datetime="2013-08-06">2013-08-06</time>
-    <a href="/2013/08/notepad-replace-notepad" title="用Notepad++替换系统记事本">用Notepad++替换系统记事本</a>
-    
-  </li>
-
-  
-  
-  <li class="listing-item">
-    <time datetime="2013-08-05">2013-08-05</time>
-    <a href="/2013/08/feedly" title="Feedly 快捷键">Feedly 快捷键</a>
-    
-  </li>
-
-  
-  
-  <li class="listing-item">
-    <time datetime="2013-08-03">2013-08-03</time>
-    <a href="/2013/08/Github-page-build-failure" title="利用本地编译结果替代Github Page自动生成网站">利用本地编译结果替代Github Page自动生成网站</a>
-    
-  </li>
-
-  
-  
-  <li class="listing-item">
-    <time datetime="2013-08-02">2013-08-02</time>
-    <a href="/2013/08/new-post" title="让Jekyll将Pandoc作为Markdown的渲染器">让Jekyll将Pandoc作为Markdown的渲染器</a>
-    
-  </li>
-
-  
-  
-  <li class="listing-item">
-    <time datetime="2013-07-31">2013-07-31</time>
-    <a href="/2013/07/pandoc" title="利用Pandoc将markdown文件转化为pdf">利用Pandoc将markdown文件转化为pdf</a>
-    
-  </li>
-
-  
-  
-  <li class="listing-item">
-    <time datetime="2013-07-31">2013-07-31</time>
-    <a href="/2013/07/jekyll" title="Jekyll上手篇">Jekyll上手篇</a>
-    
-  </li>
-
-  
-  
-  <li class="listing-item">
-    <time datetime="2013-07-31">2013-07-31</time>
-    <a href="/2013/07/github" title="使用GitHub管理你的工程">使用GitHub管理你的工程</a>
-    
-  </li>
-
+</head>
+<body>
+<ul>
+<li><h3><a href="#minimum-rank-solutions-via-nuclear-norm-minimization-2013-12-20"><a href="/blog/2013/12/20/Minimum-Rank-Solutions">Minimum-Rank Solutions via Nuclear Norm Minimization</a> <time>2013-12-20</time></a></h3></li>
 </ul>
+<p><a href="/blog/2013/12/20/Minimum-Rank-Solutions">全文阅读 »</a></p>
+<ul>
+<li><h3><a href="#压缩感知初探-2013-10-22"><a href="/blog/2013/10/22/Compressive-Sensing">压缩感知初探</a> <time>2013-10-22</time></a></h3></li>
+</ul>
+<p><a href="/blog/2013/10/22/Compressive-Sensing">全文阅读 »</a></p>
+<ul>
+<li><h3><a href="#a-contrario一种基于概率统计的无参数决策模型-2013-08-12"><a href="/blog/2013/08/12/a-contrario-starting">“a contrario”：一种基于概率统计的无参数决策模型</a> <time>2013-08-12</time></a></h3></li>
+</ul>
+<p><a href="/blog/2013/08/12/a-contrario-starting">全文阅读 »</a></p>
+<ul>
+<li><h3><a href="#用notepad替换系统记事本-2013-08-06"><a href="/blog/2013/08/06/notepad-replace-notepad">用Notepad++替换系统记事本</a> <time>2013-08-06</time></a></h3></li>
+</ul>
+<p><a href="/blog/2013/08/06/notepad-replace-notepad">全文阅读 »</a></p>
+<ul>
+<li><h3><a href="#feedly-快捷键-2013-08-05"><a href="/blog/2013/08/05/feedly">Feedly 快捷键</a> <time>2013-08-05</time></a></h3></li>
+</ul>
+<p><a href="/blog/2013/08/05/feedly">全文阅读 »</a></p>
+<ul>
+<li><h3><a href="#利用本地编译结果替代github-page自动生成网站-2013-08-03"><a href="/blog/2013/08/03/Github-page-build-failure">利用本地编译结果替代Github Page自动生成网站</a> <time>2013-08-03</time></a></h3></li>
+</ul>
+<p><a href="/blog/2013/08/03/Github-page-build-failure">全文阅读 »</a></p>
+<ul>
+<li><h3><a href="#让jekyll将pandoc作为markdown的渲染器-2013-08-02"><a href="/blog/2013/08/02/new-post">让Jekyll将Pandoc作为Markdown的渲染器</a> <time>2013-08-02</time></a></h3></li>
+</ul>
+<p><a href="/blog/2013/08/02/new-post">全文阅读 »</a></p>
+<ul>
+<li><h3><a href="#利用pandoc将markdown文件转化为pdf-2013-07-31"><a href="/blog/2013/07/31/pandoc">利用Pandoc将markdown文件转化为pdf</a> <time>2013-07-31</time></a></h3></li>
+</ul>
+<p><a href="/blog/2013/07/31/pandoc">全文阅读 »</a></p>
+<ul>
+<li><h3><a href="#jekyll上手篇-2013-07-31"><a href="/blog/2013/07/31/jekyll">Jekyll上手篇</a> <time>2013-07-31</time></a></h3></li>
+</ul>
+<p><a href="/blog/2013/07/31/jekyll">全文阅读 »</a></p>
+<ul>
+<li><h3><a href="#使用github管理你的工程-2013-07-31"><a href="/blog/2013/07/31/github">使用GitHub管理你的工程</a> <time>2013-07-31</time></a></h3></li>
+</ul>
+<p><a href="/blog/2013/07/31/github">全文阅读 »</a></p>
+<div class="references">
 
-<div id="post-pagination" class="paginator">
+</div>
+</body>
+</html>
 
-  
-    <span class="previous disabled">&lt;前页</span>
-  
-
-      
-      <span class="current-page">1</span>
-      
-
-    
-
-  
-    <span class="next disabled" >后页&gt;</span>
-  
-  (共10篇)
 </div>
 
+<aside class="aside">
+	<div>
+		<h3>分类</h3>
+		<ul>
+			
+			<li><a href="/category.html#开源">开源 (3)</a></li>
+			
+			<li><a href="/category.html#jekyll">jekyll (2)</a></li>
+			
+			<li><a href="/category.html#软件">软件 (2)</a></li>
+			
+			<li><a href="/category.html#computer vision">computer vision (3)</a></li>
+			
+		</ul>
+	</div>
+	<div>
+		<h3>链接</h3>
+		<ul>
+			<li><a href="http://blog.sina.com.cn/loongfee" target="_blank">Sina</a></li>
+			<li><a href="http://www.cnblogs.com/loongfee/" target="_blank">cnBlog</a></li>
+		</ul>
+	</div>
+	<script type="text/javascript"><!--
+	google_ad_client = "ca-pub-7452723453274591";
+	/* first ad */
+	google_ad_slot = "3112180067";
+	google_ad_width = 300;
+	google_ad_height = 250;
+	//-->
+	</script>
+	<script type="text/javascript"
+	src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+	</script>
+</aside>
 
-</section>
+		</section><!--/content end-->
 
 
+		<footer id="footer">
+			<p class="l">
+				&copy;2013 <a href="/">土肥龙</a> 
+				版权所有
+				<span class="c9">|</span>
+				欢迎转载，请注明出处并保留原文链接
+			</p>
+			<p class="r">Powered by <a href="https://github.com/mojombo/jekyll" target="_blank">Jekyll</a></p>
+			<p class="tac">
+				『上善若水，水善利万物而不争』
+			</p>
+		</footer><!--/footer end-->
+		
+		<script>
+	(function(d, s) {
+		var js, fjs = d.getElementsByTagName(s)[0], load = function(url, id) {
+		if (d.getElementById(id)) {return;}
+		js = d.createElement(s); js.src = url; js.id = id;
+		fjs.parentNode.insertBefore(js, fjs);
+		};
+	load('//platform.twitter.com/widgets.js', 'tweetjs');
+	// load('https://apis.google.com/js/plusone.js', 'gplus1js'); // Checkout http://j.mp/ApDgMr for usage html for this is <div class="g-plusone" data-size="medium"></div>
+	// load('//connect.facebook.net/en_US/all.js#xfbml=1', 'fbjssdk'); // Checkout http://j.mp/wZw2xR for using open graph protorol html for this is <div class="fb-like" data-href="/index.html" data-send="false" data-layout="button_count" data-width="450" data-show-faces="false" data-font="verdana"></div>
+	}(document, 'script'));
+</script>
+<script>
+/*! A fix for the iOS orientationchange zoom bug.Script by @scottjehl, rebound by @wilto. MIT License.*/
+(function(j){var i=j.document;if(!i.querySelectorAll){return}var l=i.querySelectorAll("meta[name=viewport]")[0],a=l&&l.getAttribute("content"),h=a+", maximum-scale=1.0",d=a+", maximum-scale=10.0",g=true,c=j.orientation,k=0;if(!l){return}function f(){l.setAttribute("content",d);g=true}function b(){l.setAttribute("content",h);g=false}function e(m){c=Math.abs(j.orientation);k=Math.abs(m.gamma);if(k>8&&c===0){if(g){b()}}else{if(!g){f()}}}j.addEventListener("orientationchange",f,false);j.addEventListener("deviceorientation",e,false)})(this);
+</script>	
 
-        </article>
-        <a style="position:fixed;bottom:5px;right:5px;" href="#" title="Back to Top">
-            <img src="/assets/btt.png" />
-        </a> 
-      </div>
-
-    <footer>
-        <p><small>
-            <a href="http://github.com/jiyeqian/jiyeqian.github.io/new/master/_posts" target="_blank" title="撰写文章">Po</a>wer<a href="http://github.com/jiyeqian/jiyeqian.github.io/edit/master/index.html" target="_blank" title="编辑页面">ed</a> by <a href="http://jekyllrb.com" target="_blank">Jekyll</a> @ <a href="http://github.com/jiyeqian/jiyeqian.github.io" target="_blank" title="项目主页">GitHub</a> | Copyright 2013 - 2013 by <a href="/about/">Jiye Qian</a> | <span class="label label-info" id="timeSpan"></span></small></p>
-    </footer>
-
-    </div>
-  </body>
+	</body>
 </html>

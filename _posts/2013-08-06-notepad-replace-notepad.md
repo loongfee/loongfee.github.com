@@ -6,6 +6,7 @@ category: "软件"
 tags: [Notepad++, 记事本, AutoHotkey, 映像劫持]
 keywords: [Notepad++, notepad, 记事本, AutoHotkey, 映像劫持, Image File Execution Options, vim, notepad2]
 ---
+{% include JB/setup %}
 
 本文主要介绍如何借助AutoHotkey和映像劫持结束来实现用Notepad++替换系统记事本的功能，方法具有普适性，理论上说可以支持用任意软件替换系统相应的默认程序。
 

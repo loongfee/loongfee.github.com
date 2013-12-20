@@ -5,6 +5,7 @@ description: "一种基于概率统计的无参数决策模型"
 category: "Computer Vision"
 tags: [Contrario, Math, Helmholtz, Gestalt Theory, Computer Vision]
 ---
+{% include JB/setup %}
 
 ## 关于"a contrario"模型
 虽然这个模型已经提出了十多年，应用也比较广泛了，但是笔者并没查阅到确切的中文翻译，这里姑且将其译为“悖论模型”吧。与这个模型密切相关的关键词有：`Gestalt`、`Helmholtz`、`NFA (Number of False Alarm)`、` ε-meaningful `，它们原本都是属于心理学的范畴，[Agnès Desolneux](http://desolneux.perso.math.cnrs.fr), [Lionel Moisan](http://www.math-info.univ-paris5.fr/~moisan/index.php) and [Jean-Michel Morel](http://scholar.google.com/citations?user=BlEbdeEAAAAJ&hl=en)于1999年将其引入到图像分析领域 ^[@desolneux2000meaningful]，提出了一种基于概率统计的无参数决策模型——“`a contrario`”。
