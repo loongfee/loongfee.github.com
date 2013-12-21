@@ -127,7 +127,7 @@ ul{list-style:circle;}
 .navigation li{float:left;margin:0;padding:10px 20px;font-size:1.2em;}
 
 /* footer */
-#footer{overflow:hidden;margin:20px 280px;border-top:1px solid #d3d2d2;
+#footer{overflow:hidden;margin:20px 270px;border-top:1px solid #d3d2d2;
 	-webkit-box-shadow:0 -1px 0 rgba(255,255,255,.7);	
 	-moz-box-shadow:0 -1px 0 rgba(255,255,255,.7);
 	box-shadow:0 -1px 0 rgba(255,255,255,.7);
@@ -181,7 +181,7 @@ ul{list-style:circle;}
 #h2outline
 {
     display: block;
-    font-size:1.2em;
+    font-size:1.0em;
 }
 #h2outline a{
     display: block;
