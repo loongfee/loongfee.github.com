@@ -39,7 +39,7 @@ description: ""
 		<a href="http://ask.com/" target="_blank">Ask</a>
 </div>
 
- <li class="catalog"">
+ <li class="catalog">
  <div class="list">
         <span class="title">SNS</span>
         <a href="http://www.facebook.com/" target="_blank">Facebook</a>
