@@ -6,7 +6,7 @@ description: ""
 
 <div id="nav">
  <ul>
- <li class="catalog"">
+ <li class="catalog">
  <div class="list">
         <span class="title">门户</span>
         <a href="http://www.hao123.com/" target="_blank">hao123</a>
@@ -16,7 +16,7 @@ description: ""
  </div> 
  </li>
  
- <li class="catalog"">
+ <li class="catalog">
  <div class="list">
         <span class="title">我的校园</span>
         <a href="http://www.whu.edu.cn/" target="_blank">Whu</a>
@@ -26,7 +26,7 @@ description: ""
 </div>
  </li>
  
- <li class="catalog"">
+ <li class="catalog">
  <div class="list">
         <span class="title">搜索</span>
         <a href="http://www.google.com/ncr" target="_blank">Google</a>
@@ -51,7 +51,7 @@ description: ""
 </div>
  </li>
  
- <li class="catalog"">
+ <li class="catalog">
  <div class="list">
         <span class="title">购物</span>
         <a href="http://www.taobao.com/" target="_blank">淘宝</a>
@@ -64,7 +64,7 @@ description: ""
  </div> 
  <div class="list">
  
-<li class="catalog"">
+<li class="catalog">
 <div class="list">
         <span class="title">站长</span>
         <a href="https://www.dnspod.cn" target="_blank">DNSPod</a>
@@ -75,7 +75,7 @@ description: ""
 </div>
 </li>
  
-<li class="catalog"">
+<li class="catalog">
 <div class="list">
         <span class="title">学术百科</span>
         <a href="http://en.wikipedia.org/wiki/Main_Page" target="_blank">Wikipedia</a>
@@ -88,7 +88,7 @@ description: ""
 </div>
 </li>
  
-<li class="catalog"">
+<li class="catalog">
 <div class="list">
         <span class="title">编程</span>
         <a href="http://fayaa.com" target="_blank">发芽网</a>
@@ -99,7 +99,7 @@ description: ""
 </div>  
  </li>
  
-<li class="catalog"">
+<li class="catalog">
 <div class="list">
         <span class="title">GIS</span>
         <a href="http://www.3snews.net/" target="_blank">3S News</a>
@@ -107,7 +107,7 @@ description: ""
 </div>   
  </li>
  
- <li class="catalog"">
+ <li class="catalog">
 <div class="list">
         <span class="title">英语学习</span>
         <a href="http://www.hjbbs.com/" target="_blank">沪江论坛</a>
@@ -116,7 +116,7 @@ description: ""
 </div>
 </li>
 
- <li class="catalog"">
+ <li class="catalog">
 <div class="list">
         <span class="title">English Website</span>
         <a href="http://www.chinadaily.com.cn/" target="_blank">ChinaDaily</a>
@@ -127,7 +127,7 @@ description: ""
 </div>
 </li>
 
- <li class="catalog"">
+ <li class="catalog">
 <div class="list">
         <span class="title">Dictionary</span>
         <a href="http://www.iciba.com/" target="_blank">Iciba</a> 
@@ -136,7 +136,7 @@ description: ""
 </div>
 </li>
 
- <li class="catalog"">
+ <li class="catalog">
 <div class="list">
         <span class="title">MySite</span>
         <a href="http://email.163.com/#126" target="_blank">126邮箱</a>
@@ -153,7 +153,7 @@ description: ""
 </div>
 </li>
 
- <li class="catalog"">
+ <li class="catalog">
 <div class="list">
         <span class="title">财务</span>
         <a href="https://ibsbjstar.ccb.com.cn/app/V5/CN/STY1/login.jsp" target="_blank">建设银行</a>
@@ -165,7 +165,7 @@ description: ""
 </div>
 </li>
 
-<li class="catalog"">
+<li class="catalog">
 <div class="list">
         <span class="title">视听</span>
         <a href="http://www.tinpai.com/" target="_blank">听派</a>
