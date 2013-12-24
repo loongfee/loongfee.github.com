@@ -15,7 +15,6 @@
 		<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Handlee">
 		<script type="text/javascript" src="/media/js/jquery-1.10.2.min.js"></script>
 		<script type="text/javascript" src="/media/js/lightbox-2.6.min.js"></script>
-		<script type="text/javascript" src="/media/js/outliner.js"></script>
 		<!---<link rel="stylesheet" href="/css/styles/monokai.css">
         <script src="/js/highlight.js"></script>
         <script>hljs.initHighlightingOnLoad();</script>-->
@@ -46,6 +45,10 @@
     
 	</head>
 	<body>
+    <div id="aside-left">
+        <p> </p>
+    </div>
+    <div id="mid">
      <div id="main" role="main">
 		<header id="header">
 			<div class="header-info fix">
@@ -261,8 +264,33 @@
 				『上善若水，水善利万物而不争』
 			</p>
 		</footer><!--/footer end-->
+    </div>
+        
+    <div id="aside-right">
+        <div>
+            <h3>分类</h3>
+            <ul>
+                
+                <li><a href="/category.html#开源">开源 (3)</a></li>
+                
+                <li><a href="/category.html#jekyll">jekyll (2)</a></li>
+                
+                <li><a href="/category.html#软件">软件 (2)</a></li>
+                
+                <li><a href="/category.html#computer vision">computer vision (3)</a></li>
+                
+            </ul>
+        </div>
+        <div>
+            <h3>链接</h3>
+            <ul>
+                <li><a href="http://blog.sina.com.cn/loongfee" target="_blank">Sina</a></li>
+                <li><a href="http://www.cnblogs.com/loongfee/" target="_blank">cnBlog</a></li>
+            </ul>
+        </div>
+    </div>
 		
-		<script>
+    <script>
 	(function(d, s) {
 		var js, fjs = d.getElementsByTagName(s)[0], load = function(url, id) {
 		if (d.getElementById(id)) {return;}

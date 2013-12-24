@@ -23,9 +23,11 @@ $(this).html('<a name="' + id + '"></a>'+$(this).html());
 	if  (outline_ul.length > 0){
 		outline_ul .prepend("<li>Outline</li>");
 	}
-    $('#main').append($('<nav id="h2outline"></nav>')
+    $('#aside-left').append($('<nav id="h2outline"></nav>')
+                         //.css('position', 'fixed')
+                         //.css('top', $('#page-title').position().top - 1)
                          .css('position', 'fixed')
-                         .css('top', $('#page-title').position().top - 1)
+                         .css('top', '120px')
                          .css('width', '155px')
                          .css('text-align', 'left')
                          .html(outline_ul));
@@ -51,7 +53,7 @@ $(this).html('<a name="' + id + '"></a>'+$(this).html());
      *     l = $('#real_nav').position().left,
      *     n = $('#real_nav').width()
      */
-    var main = $('#main'),
+    var main = $('#aside-left'),
         h2outline = $('#h2outline'),
         real_nav  = $('#real_nav');
 
