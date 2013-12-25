@@ -64,19 +64,21 @@
   a{color:red;}
 }
 
+.border-left{
+  list-style: none;padding:3px;max-width:200px;margin:0;font-size:12px;border-left: 2px solid #FFF;
+  &:hover{border-left: 2px solid #33B5E5;background-color:rgba(255,255,255,.3);}
+  a:hover{text-decoration: none;}
+}
 #article_nav{
   position:fixed;right:0px;top:150px;background-color:rgba(255,255,255,.8);border-radius: 3px;opacity: .3;z-index: 1;
   padding:10px;
   line-height: 200%;
   &:hover{opacity: 1;}
-  li{list-style: none;padding:3px;max-width:200px;margin:0;font-size:12px;border-left: 2px solid #FFF;}
-  li:hover{border-left: 2px solid #33B5E5;background-color:rgba(255,255,255,.3);}
-  li a:hover{text-decoration: none;}
-
-  .txt_H2{padding-left:2px;}
-  .txt_H3{padding-left:12px;}
-  .txt_H4{padding-left:24px;}
-  .txt_H5{padding-left:36px;}
+  li{.border-left;}
+  .txt_H2{.border-left;padding-left:2px;}
+  .txt_H3{.border-left;padding-left:12px;}
+  .txt_H4{.border-left;padding-left:24px;}
+  .txt_H5{.border-left;padding-left:36px;}
 }
 
 @import url(http://fonts.googleapis.com/css?family=Marmelad:400);
