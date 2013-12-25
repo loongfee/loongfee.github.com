@@ -13,61 +13,27 @@ $(function() {
 /*        $(this).append('<a name="' + id + '"></a>'); */
 $(this).html('<a name="' + id + '"></a>'+$(this).html());
     });
-	
-    var outline_ul = $('<ul style="list-style-type: none"></ul>');
+
+    var article_nav = $('<nav id="article_nav"></nav>');
+    article_nav.append($('<li></li>')
+        .html('<a href="#top">返回顶部</a>'));
     $.each(dict, function (idx, val) {
-        outline_ul.append($('<li></li>')
-                             .html('<span><a href="#' + val + '">' + idx + '</a></span>'));
+        article_nav.append($('<li></li>')
+                             .html('<a href="#' + val + '">' + idx + '</a>'));
     });
-	
-	if  (outline_ul.length > 0){
-		outline_ul .prepend("<li>Outline</li>");
-	}
-    $('#aside-left').append($('<nav id="h2outline"></nav>')
-                         //.css('position', 'fixed')
-                         //.css('top', $('#page-title').position().top - 1)
-                         .css('position', 'fixed')
-                         .css('top', '120px')
-                         .css('width', '155px')
-                         .css('text-align', 'left')
-                         .html(outline_ul));
 
-    /**
-     * |<------------------------------w------------------------------>|
-     * |       -----------     -----------------     -----------       |
-     * |<--l-->|   nav   |<-d->|               |<-d->| outline |<--x-->|
-     * |       |<---n--->|     |<------c------>|     |<---a--->|       |
-     * |       -----------     |               |     -----------       |
-     * |<----------m---------->|               |                       |
-     * |                       -----------------                       |
-     * -----------------------------------------------------------------
-     * (w - c) / 2 = d + a + x
-     *   => x = (w - c) / 2 - (a + d), where
-     *     w = $(window).width(),
-     *     c = $('#container').width(),
-     *     a = $('h2outline').width(),
-     *
-     * m = l + n + d
-     *   => d = m - (l + n), where
-     *     m = $('#container').position().left,
-     *     l = $('#real_nav').position().left,
-     *     n = $('#real_nav').width()
-     */
-    var main = $('#aside-left'),
-        h2outline = $('#h2outline'),
-        real_nav  = $('#real_nav');
-
-    var m = main.position().left,
-        l = real_nav.position().left,
-        n = real_nav.width(),
-        d = m - (l + n) + 184.8; // #real_nav has left margin of -184.8px
+    $('#content').append(article_nav);
+    var main = $('#content'),
+        article_nav = $('#article_nav');
 
     $(window).resize(function () {
         var w = $(window).width(),
             c = main.width(),
-            a = h2outline.width();
-        h2outline.css('right',
-                      (w - c) / 2 - (a + d));
+            a = article_nav.width();
+        article_nav.css('right',
+            (w - c)/2);
+        /*article_nav.css('right',
+                      (w - c) / 2 - (a));       */
     });
 
     $(window).resize();
