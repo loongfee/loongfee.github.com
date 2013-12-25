@@ -6,6 +6,7 @@
         <entry key="blog">
           <value>
             <LessProfile>
+              <option name="compressOutput" value="true" />
               <option name="cssDirectories">
                 <list>
                   <CssDirectory>
@@ -13,7 +14,7 @@
                   </CssDirectory>
                 </list>
               </option>
-              <option name="lessDirPath" value="E:\Dropbox\Programs\GitHub\loongfee.github.com\media\css" />
+              <option name="lessDirPath" value="E:\Dropbox\Programs\GitHub\loongfee.github.com\media\less" />
               <option name="name" value="blog" />
             </LessProfile>
           </value>

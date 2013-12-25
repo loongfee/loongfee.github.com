@@ -1,14 +1,12 @@
 @background-color: #323232;
 @aside-left-width:250px;
 @aside-right-width:300px;
-
 /* 四角的半径定制 */
-.border-radius-custom (@topleft: 5px, @topright: 5px, @bottomleft: 5px, @bottomright: 5px) {
-  -webkit-border-radius: @topleft @topright @bottomright @bottomleft;
-  -moz-border-radius: @topleft @topright @bottomright @bottomleft;
-  border-radius: @topleft @topright @bottomright @bottomleft;
+.border-radius-custom (@top_left: 5px, @top_right: 5px, @bottom_left: 5px, @bottom_right: 5px) {
+  -webkit-border-radius: @arguments;
+  -moz-border-radius: @arguments;
+  border-radius: @arguments;
 }
-
 /*
 盒子阴影
 @right_left 右边阴影为正数 左边负数
@@ -27,9 +25,10 @@
 /* main */
 #main {
   .border-radius-custom(10px, 10px, 10px, 10px);
-  .box-shadow(10px, 10px, 10px, #b6ebf7);
-  box-shadow:0 0 1px #fff inset, 0 0 3px #fff inset;margin:auto @aside-left-width @aside-right-width;min-width:100px;
-  background-color: #f0f0f0;
+  .box-shadow(10px, 10px, 10px, #000);
+  //box-shadow:0 0 1px #fff inset, 0 0 3px #fff inset;
+  margin:auto @aside-left-width @aside-right-width;min-width:100px;
+  background-color: #fefefe;
   padding: 30px;
 }
 #header{position:relative;border-bottom:1px solid #ccc;height:50px;
