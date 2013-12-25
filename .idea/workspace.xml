@@ -1,15 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6d677fb5-736e-4943-920f-5d30e36850f5" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_layouts/default.html" afterPath="$PROJECT_DIR$/_layouts/default.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/favorite.html" afterPath="$PROJECT_DIR$/_site/favorite.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/media/less/favorite.less" afterPath="$PROJECT_DIR$/media/less/favorite.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/index.html" afterPath="$PROJECT_DIR$/_site/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/lessc/lessc.xml" afterPath="$PROJECT_DIR$/.idea/lessc/lessc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/media/less/main.less" afterPath="$PROJECT_DIR$/media/less/main.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-    </list>
+    <list default="true" id="6d677fb5-736e-4943-920f-5d30e36850f5" name="Default" comment="" />
     <ignored path="loongfee.github.com.iws" />
     <ignored path=".idea/workspace.xml" />
     <file path="/Dummy.txt" changelist="6d677fb5-736e-4943-920f-5d30e36850f5" time="1387960495962" ignored="false" />
@@ -20,7 +12,19 @@
     <file path="/outliner.js" changelist="6d677fb5-736e-4943-920f-5d30e36850f5" time="1387937503611" ignored="false" />
     <file path="/favorite.less" changelist="6d677fb5-736e-4943-920f-5d30e36850f5" time="1387949211356" ignored="false" />
     <file path="/favorite.html" changelist="6d677fb5-736e-4943-920f-5d30e36850f5" time="1387948380491" ignored="false" />
-    <file path="$PROJECT_DIR$/_site/media/less/main.less" changelist="6d677fb5-736e-4943-920f-5d30e36850f5" time="1387963696444" ignored="false" />
+    <file path="$PROJECT_DIR$/_site/atom.xml" changelist="6d677fb5-736e-4943-920f-5d30e36850f5" time="1387963895768" ignored="false" />
+    <file path="$PROJECT_DIR$/_site/blog/2013/08/05/feedly/index.html" changelist="6d677fb5-736e-4943-920f-5d30e36850f5" time="1387963895768" ignored="false" />
+    <file path="$PROJECT_DIR$/_site/media/less/main.less" changelist="6d677fb5-736e-4943-920f-5d30e36850f5" time="1387963895768" ignored="false" />
+    <file path="$PROJECT_DIR$/_site/blog/2013/08/06/notepad-replace-notepad/index.html" changelist="6d677fb5-736e-4943-920f-5d30e36850f5" time="1387963895768" ignored="false" />
+    <file path="$PROJECT_DIR$/_site/blog/2013/08/12/a-contrario-starting/index.html" changelist="6d677fb5-736e-4943-920f-5d30e36850f5" time="1387963895768" ignored="false" />
+    <file path="$PROJECT_DIR$/_site/media/css/main.css" changelist="6d677fb5-736e-4943-920f-5d30e36850f5" time="1387963895768" ignored="false" />
+    <file path="$PROJECT_DIR$/_site/blog/2013/07/31/github/index.html" changelist="6d677fb5-736e-4943-920f-5d30e36850f5" time="1387963895768" ignored="false" />
+    <file path="$PROJECT_DIR$/_site/blog/2013/07/31/jekyll/index.html" changelist="6d677fb5-736e-4943-920f-5d30e36850f5" time="1387963895768" ignored="false" />
+    <file path="$PROJECT_DIR$/_site/blog/2013/10/22/compressive-sensing/index.html" changelist="6d677fb5-736e-4943-920f-5d30e36850f5" time="1387963895768" ignored="false" />
+    <file path="$PROJECT_DIR$/_site/blog/2013/07/31/pandoc/index.html" changelist="6d677fb5-736e-4943-920f-5d30e36850f5" time="1387963895768" ignored="false" />
+    <file path="$PROJECT_DIR$/_site/blog/2013/12/20/Minimum-Rank-Solutions/index.html" changelist="6d677fb5-736e-4943-920f-5d30e36850f5" time="1387963895768" ignored="false" />
+    <file path="$PROJECT_DIR$/_site/blog/2013/08/02/new-post/index.html" changelist="6d677fb5-736e-4943-920f-5d30e36850f5" time="1387963895768" ignored="false" />
+    <file path="$PROJECT_DIR$/_site/blog/2013/08/03/Github-page-build-failure/index.html" changelist="6d677fb5-736e-4943-920f-5d30e36850f5" time="1387963895768" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -115,7 +119,7 @@
       <file leaf-file-name="default.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/_layouts/default.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="14" column="54" selection-start="747" selection-end="747" vertical-scroll-proportion="0.31666666">
+            <state line="21" column="51" selection-start="1183" selection-end="1183" vertical-scroll-proportion="0.475">
               <folding>
                 <marker date="1387963673954" expanded="true" signature="314:325" placeholder="{...}" />
                 <marker date="1387963673954" expanded="true" signature="402:413" placeholder="{...}" />
@@ -650,16 +654,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/media/css/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="49" selection-start="289" selection-end="289" vertical-scroll-proportion="0.21839081" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/media/css/home.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="210" column="23" selection-start="2505" selection-end="2505" vertical-scroll-proportion="-2.7112117" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/favorite.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="55" column="65" selection-start="2045" selection-end="2045" vertical-scroll-proportion="0.4">
@@ -739,7 +733,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/_layouts/default.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="54" selection-start="747" selection-end="747" vertical-scroll-proportion="0.31666666">
+        <state line="21" column="51" selection-start="1183" selection-end="1183" vertical-scroll-proportion="0.475">
           <folding>
             <marker date="1387963673954" expanded="true" signature="314:325" placeholder="{...}" />
             <marker date="1387963673954" expanded="true" signature="402:413" placeholder="{...}" />
