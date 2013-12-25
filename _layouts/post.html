@@ -2,7 +2,7 @@
 layout: default
 ---
 
-<script type="text/javascript" src="/media/js/outliner.js"></script>
+<script type="text/javascript" src="/media/js/navigation.js"></script>
 <article id="post">
 	<a href="#" class="icon-fullscreen r" title="点击全屏显示"></a>
     <header>
@@ -82,29 +82,6 @@ $(function() {
 		else {
 			icon.hide();
 		}
-	})();
-
-
-	// ============== 目录提取 ===============
-	(function() {
-		// 设置无目录时，不显示
-		if (!parseInt('{{page.list}}', 10)) {
-			return;
-		}
-
-		var dom = $('<fieldset id="catalogue"><legend>目录</legend></fieldset>'),
-			count = 0;
-		
-		$('#post').find('h2,h3,h4,h5').each(function() {
-			var name = 'catalogue_' + count++;
-			dom.append('<div class="txt_' + this.tagName + '">' +
-				'<a href="#' + name + '">' +
-					this.innerHTML +
-				'</a></div>');
-			this.id = name;
-		});
-
-		dom.appendTo('body');
 	})();
 });
 </script>

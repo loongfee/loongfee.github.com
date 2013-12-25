@@ -1,3 +1,7 @@
+@background-color: #323232;
+@aside-left-width:250px;
+@aside-right-width:300px;
+
 /* 四角的半径定制 */
 .border-radius-custom (@topleft: 5px, @topright: 5px, @bottomleft: 5px, @bottomright: 5px) {
   -webkit-border-radius: @topleft @topright @bottomright @bottomleft;
@@ -17,46 +21,69 @@
   -moz-box-shadow:@arguments;
   -webkit-box-shadow:@arguments;
 }
-/* mid */
-#mid {
+#aside-left,#aside-right{position:absolute;top:120px;height:100%;}
+#aside-left{left:0;width:@aside-left-width;}
+#aside-right{right:0;width:@aside-right-width;}
+/* main */
+#main {
   .border-radius-custom(10px, 10px, 10px, 10px);
   .box-shadow(10px, 10px, 10px, #b6ebf7);
-  box-shadow:0 0 1px #fff inset, 0 0 3px #fff inset;margin:auto 260px 260px;min-width:100px;
+  box-shadow:0 0 1px #fff inset, 0 0 3px #fff inset;margin:auto @aside-left-width @aside-right-width;min-width:100px;
   background-color: #f0f0f0;
   padding: 30px;
 }
-#aside-left,#aside-right{position:absolute;top:120px;width:230px;height:100%;}
-#aside-left{left:0;}
-#aside-right{right:0;}
-#aside-left ul{padding-left:2.6em;margin:0;}
-
-/* Minimum width of 600 pixels. */
-@media screen and (min-width: 600px) {
-  .site-header h1{float:left;}
-  .site-header .fn_search{float:right;}
+#header{position:relative;border-bottom:1px solid #ccc;height:50px;
+  h1 .describe{font-family:Handlee, Palatino, "Palatino Linotype", "Book Antiqua", Georgia;}
+  h1{float:left;font-size:2.5em;padding-bottom:10px;text-shadow:0 1px 2px rgba(0,0,0,1);margin:0;}
+  h1 a{color:#333;text-decoration:none;}
+  .describe{float:left;padding-left:2em;margin-top:1.6em;}
 }
-@media screen and (min-width: 1200px) {
-  body .site {
-    max-width: 1200px;
-    max-width: 85.7142857137rem;
+#post{
+  h1{padding-bottom:15px;border-bottom:1px dotted #ccc;}
+  .eof{text-align:center;margin:1em;}
+  img{border:#fff solid 10px;box-shadow:0 0 3px rgba(0,0,0,0.8) inset, 2px 2px 8px rgba(0,0,0,0.9);max-width:760px;}
+}
+#post.fullscreen{margin:0 auto;width:840px;padding-left:30px;padding-right:30px;background-color:#fdfdfd;}
+#post.fullscreen h1{text-align:center;}
+
+#content{padding-top:20px;}
+#footer{overflow:hidden;border-top:1px solid #d3d2d2;box-shadow:0 -1px 0 rgba(255,255,255,0.7);}
+.navigation{
+  .border-radius-custom(5px, 5px, 5px, 5px);
+  background-color: #FFF;
+  padding: 0px 10px;
+  margin: 10px;
+  h3{
+    background-color: #f6f6f6;
+    padding: 3px;
   }
+  li{
+    margin-left: 5px;
+    list-style-type:none;
+  }
+  a{color:red;}
 }
 
 #article_nav{
-  position:fixed;right:0px;top:120px;background-color:rgba(255,255,255,.8);border-radius: 3px;opacity: .3;z-index: 1;
+  position:fixed;right:0px;top:150px;background-color:rgba(255,255,255,.8);border-radius: 3px;opacity: .3;z-index: 1;
   padding:10px;
+  line-height: 200%;
   &:hover{opacity: 1;}
-  li{list-style: none;padding:3px;max-width:100px;margin:0;font-size:12px;border-left: 2px solid #FFF;}
+  li{list-style: none;padding:3px;max-width:200px;margin:0;font-size:12px;border-left: 2px solid #FFF;}
   li:hover{border-left: 2px solid #33B5E5;background-color:rgba(255,255,255,.3);}
   li a:hover{text-decoration: none;}
+
+  .txt_H2{padding-left:2px;}
+  .txt_H3{padding-left:12px;}
+  .txt_H4{padding-left:24px;}
+  .txt_H5{padding-left:36px;}
 }
 
 @import url(http://fonts.googleapis.com/css?family=Marmelad:400);
 body{font-family:Marmelad, "WenQuanYi ZenHei","文泉驿正黑", 'Hiragino Sans GB', STHeiti, Helvetica, Arial, Sans-Serif;font-size:14px;line-height:150%;border-radius:3px;
-background-color: #303030;
+background-color: @background-color;
 }
 p{text-align:left;margin:.8em 0;}
-#TOC{background-color:#F2F2F2;border:#CCC solid 1px;width:300px;background:#F2F2F2;overflow:hidden;border-left:3px solid #CCC;padding:10px;}
 time{font-size:13px;color:#999;}
 a,a code{color:#015BF1;text-decoration:none;}
 a:hover{color:#FF6347;text-decoration:underline;border-radius:5px;}
@@ -74,33 +101,15 @@ ul{list-style:circle;}
 .tac{font-size:.9em;text-align:center;}
 .fix:after{content:"";display:block;height:0;clear:both;visibility:hidden;}
 .c9{color:#999;}
-.navigation ul,.article-list ul{list-style:none;margin:0;padding:0;}
-#header{position:relative;border-bottom:1px solid #ccc;}
-#header h1,#header .describe{font-family:Handlee, Palatino, "Palatino Linotype", "Book Antiqua", Georgia;}
-#header h1{float:left;font-size:2.5em;padding-bottom:10px;text-shadow:0 1px 2px rgba(0,0,0,1);margin:0;}
-#header h1 a{color:#333;text-decoration:none;}
-#header .describe{float:left;padding-left:2em;margin-top:1.6em;}
+.article-list ul{list-style:none;margin:0;padding:0;}
 .header-info{position:relative;}
-.navigation{position:absolute;top:.2em;right:3px;}
-.navigation li{float:left;font-size:1.2em;margin:0;padding:10px 20px;}
-#footer{overflow:hidden;border-top:1px solid #d3d2d2;box-shadow:0 -1px 0 rgba(255,255,255,0.7);}
-#content{padding-top:20px;}
 .article-list li{border-bottom:1px dashed #dedede;list-style-type:none;}
 .article-list h3 a{color:#D33;font-size:16px;line-height:40px;font-weight:400;padding:20px 10px;}
-#post h1{padding-bottom:15px;border-bottom:1px dotted #ccc;}
-#post .eof{text-align:center;margin:1em;}
-#post img{border:#fff solid 10px;box-shadow:0 0 3px rgba(0,0,0,0.8) inset, 2px 2px 8px rgba(0,0,0,0.9);max-width:760px;}
-#post.fullscreen{width:840px;padding-left:30px;padding-right:30px;background-color:#fdfdfd;margin:0 auto;}
-#post.fullscreen h1{text-align:center;}
 .icon-fullscreen{display:inline-block;width:24px;height:24px;background:url(../img/fullscreen.png) no-repeat;}
 .icon-fullscreen:hover{background-position:-24px 0;}
 .icon-fullscreen.expand{background-position:0 -24px;}
 .icon-fullscreen.expand:hover{background-position:-24px -24px;}
 .page .next{float:right;}
-#catalogue{position:fixed;left:10px;top:70px;max-height:400px;overflow:auto;border:#ededed dashed 1px;background-color:#fefefe;box-shadow:1px 1px 5px rgba(0,0,0,0.4);padding:10px 8px;}
-#catalogue .txt_H3{padding-left:12px;}
-#catalogue .txt_H4{padding-left:24px;}
-#catalogue .txt_H5{padding-left:36px;}
 .clearfix:before,.clearfix:after,.cf:before,.cf:after,.hasGrid:before,.hasGrid:after,.unit-inner:before,.unit-inner:after,.tag_box:before,.tag_box:after,#page:before,#page:after{content:"";display:table;}
 .clearfix:after,.cf:after,.hasGrid:after,.unit-inner:after,.tag_box:after,#page:after{clear:both;}
 .tag_box{background:url(/css/images/100-90-5-monochrome.png) 0 0 repeat #999;list-style:none;border-radius:3px;background-clip:padding-box;box-shadow:0 1px 1px rgba(0,0,0,0.4) inset, 0 1px 0 rgba(255,255,255,0.4);padding:.8125em;}

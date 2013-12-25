@@ -2,22 +2,34 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6d677fb5-736e-4943-920f-5d30e36850f5" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/lessc/lessc.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/loongfee.github.com.iml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/media/less/favorite.less" />
+      <change type="DELETED" beforePath="E:\Dropbox\Programs\GitHub\loongfee.github.com\media\css\favorite.css" afterPath="" />
+      <change type="DELETED" beforePath="E:\Dropbox\Programs\GitHub\loongfee.github.com\media\css\images\100-90-5-monochrome.png" afterPath="" />
+      <change type="DELETED" beforePath="E:\Dropbox\Programs\GitHub\loongfee.github.com\media\css\images\body_bg.png" afterPath="" />
+      <change type="DELETED" beforePath="E:\Dropbox\Programs\GitHub\loongfee.github.com\media\css\images\close.png" afterPath="" />
+      <change type="DELETED" beforePath="E:\Dropbox\Programs\GitHub\loongfee.github.com\media\css\images\fullscreen.png" afterPath="" />
+      <change type="DELETED" beforePath="E:\Dropbox\Programs\GitHub\loongfee.github.com\media\css\images\loading.gif" afterPath="" />
+      <change type="DELETED" beforePath="E:\Dropbox\Programs\GitHub\loongfee.github.com\media\css\images\next.png" afterPath="" />
+      <change type="DELETED" beforePath="E:\Dropbox\Programs\GitHub\loongfee.github.com\media\css\images\prev.png" afterPath="" />
+      <change type="DELETED" beforePath="E:\Dropbox\Programs\GitHub\loongfee.github.com\media\css\images\rss.png" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_layouts/default.html" afterPath="$PROJECT_DIR$/_layouts/default.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/favorite.html" afterPath="$PROJECT_DIR$/_site/favorite.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/index.html" afterPath="$PROJECT_DIR$/_site/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/media/css/main.css" afterPath="$PROJECT_DIR$/media/css/main.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/media/js/outliner.js" afterPath="$PROJECT_DIR$/media/js/outliner.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/media/less/main.less" afterPath="$PROJECT_DIR$/media/less/main.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_layouts/post.html" afterPath="$PROJECT_DIR$/_layouts/post.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MOVED" beforePath="E:\Dropbox\Programs\GitHub\loongfee.github.com\favorite.md" afterPath="$PROJECT_DIR$/favorite.html" />
     </list>
     <ignored path="loongfee.github.com.iws" />
     <ignored path=".idea/workspace.xml" />
     <file path="/Dummy.txt" changelist="6d677fb5-736e-4943-920f-5d30e36850f5" time="1387931107223" ignored="false" />
     <file path="/main.css" changelist="6d677fb5-736e-4943-920f-5d30e36850f5" time="1387930873187" ignored="false" />
-    <file path="/default.html" changelist="6d677fb5-736e-4943-920f-5d30e36850f5" time="1387933388399" ignored="false" />
-    <file path="/main.less" changelist="6d677fb5-736e-4943-920f-5d30e36850f5" time="1387941304936" ignored="false" />
+    <file path="/default.html" changelist="6d677fb5-736e-4943-920f-5d30e36850f5" time="1387949648297" ignored="false" />
+    <file path="/main.less" changelist="6d677fb5-736e-4943-920f-5d30e36850f5" time="1387954689082" ignored="false" />
     <file path="/a.dummy" changelist="6d677fb5-736e-4943-920f-5d30e36850f5" time="1387934223225" ignored="false" />
     <file path="/outliner.js" changelist="6d677fb5-736e-4943-920f-5d30e36850f5" time="1387937503611" ignored="false" />
+    <file path="/favorite.less" changelist="6d677fb5-736e-4943-920f-5d30e36850f5" time="1387949211356" ignored="false" />
+    <file path="/favorite.html" changelist="6d677fb5-736e-4943-920f-5d30e36850f5" time="1387948380491" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -81,17 +93,36 @@
       <file leaf-file-name="main.less" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/media/less/main.less">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="78" column="109" selection-start="3118" selection-end="3118" vertical-scroll-proportion="1.4149425">
+            <state line="91" column="57" selection-start="3420" selection-end="3420" vertical-scroll-proportion="0.5502958">
+              <folding>
+                <element signature="e#185#387#0" expanded="false" />
+                <element signature="e#548#639#0" expanded="false" />
+                <element signature="e#817#1075#0" expanded="false" />
+                <element signature="e#1083#1437#0" expanded="false" />
+                <element signature="e#1943#2187#0" expanded="false" />
+                <element signature="e#2201#2725#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="navigation.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/media/js/navigation.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="25" column="49" selection-start="747" selection-end="747" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="lightbox.css" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/media/css/lightbox.css">
+      <file leaf-file-name="favorite.less" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/media/less/favorite.less">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="2" column="43" selection-start="217" selection-end="217" vertical-scroll-proportion="0.0">
-              <folding />
+            <state line="22" column="7" selection-start="407" selection-end="407" vertical-scroll-proportion="-10.64">
+              <folding>
+                <element signature="e#235#399#0" expanded="false" />
+                <element signature="e#410#592#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -99,12 +130,13 @@
       <file leaf-file-name="default.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/_layouts/default.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="116" column="25" selection-start="4068" selection-end="4068" vertical-scroll-proportion="-17.857143">
+            <state line="31" column="52" selection-start="1604" selection-end="1604" vertical-scroll-proportion="-6.785714">
               <folding>
-                <element signature="tag#head#0;tag#html#0" expanded="false" />
-                <marker date="1387933393745" expanded="true" signature="314:325" placeholder="{...}" />
-                <marker date="1387933393745" expanded="true" signature="402:413" placeholder="{...}" />
-                <marker date="1387933393745" expanded="true" signature="2031:2057" placeholder="{...}" />
+                <marker date="1387951133697" expanded="true" signature="314:325" placeholder="{...}" />
+                <marker date="1387951133697" expanded="true" signature="402:413" placeholder="{...}" />
+                <marker date="1387951133697" expanded="true" signature="2046:2072" placeholder="{...}" />
+                <marker date="1387951133697" expanded="true" signature="2046:2072" placeholder="{...}" />
+                <marker date="1387951133697" expanded="true" signature="2046:2072" placeholder="{...}" />
               </folding>
             </state>
           </provider>
@@ -113,7 +145,16 @@
       <file leaf-file-name="post.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/_layouts/post.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="57" column="44" selection-start="1544" selection-end="1544" vertical-scroll-proportion="-13.571428">
+            <state line="57" column="34" selection-start="1536" selection-end="1536" vertical-scroll-proportion="-8.821428">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Fullscreen.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/media/js/Fullscreen.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="51" column="26" selection-start="1284" selection-end="1289" vertical-scroll-proportion="-25.96">
               <folding />
             </state>
           </provider>
@@ -122,7 +163,7 @@
       <file leaf-file-name="outliner.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/media/js/outliner.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="30" column="34" selection-start="925" selection-end="925" vertical-scroll-proportion="0.0">
+            <state line="22" column="54" selection-start="713" selection-end="713" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -147,8 +188,13 @@
     <option name="changedFiles">
       <list>
         <option value="$PROJECT_DIR$/media/less/test.less" />
-        <option value="$PROJECT_DIR$/_layouts/default.html" />
         <option value="$PROJECT_DIR$/media/js/outliner.js" />
+        <option value="$PROJECT_DIR$/media/css/favorite.css" />
+        <option value="$PROJECT_DIR$/favorite.html" />
+        <option value="$PROJECT_DIR$/media/less/favorite.less" />
+        <option value="$PROJECT_DIR$/_layouts/default.html" />
+        <option value="$PROJECT_DIR$/media/js/navigation.js" />
+        <option value="$PROJECT_DIR$/_layouts/post.html" />
         <option value="$PROJECT_DIR$/media/less/main.less" />
       </list>
     </option>
@@ -387,8 +433,8 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="E:\Dropbox\Programs\GitHub\loongfee.github.com\media\js" />
       <recent name="E:\Dropbox\Programs\GitHub\loongfee.github.com\media\less" />
+      <recent name="E:\Dropbox\Programs\GitHub\loongfee.github.com\media\js" />
     </key>
   </component>
   <component name="RunManager">
@@ -638,43 +684,101 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/media/js/outliner.js">
+    <entry file="file://$PROJECT_DIR$/favorite.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="30" column="34" selection-start="925" selection-end="925" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/_layouts/post.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="57" column="44" selection-start="1544" selection-end="1544" vertical-scroll-proportion="-13.571428">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/_layouts/default.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="116" column="25" selection-start="4068" selection-end="4068" vertical-scroll-proportion="-17.857143">
+        <state line="55" column="65" selection-start="2045" selection-end="2045" vertical-scroll-proportion="0.4">
           <folding>
-            <element signature="tag#head#0;tag#html#0" expanded="false" />
-            <marker date="1387933393745" expanded="true" signature="314:325" placeholder="{...}" />
-            <marker date="1387933393745" expanded="true" signature="402:413" placeholder="{...}" />
-            <marker date="1387933393745" expanded="true" signature="2031:2057" placeholder="{...}" />
+            <element signature="tag#li#0;tag#div#0" expanded="false" />
+            <element signature="tag#li#1;tag#div#0" expanded="false" />
+            <element signature="tag#li#2;tag#div#0" expanded="false" />
+            <element signature="tag#div#0;tag#li#3;tag#div#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/media/css/lightbox.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="43" selection-start="217" selection-end="217" vertical-scroll-proportion="0.0">
+        <state line="2" column="29" selection-start="217" selection-end="217" vertical-scroll-proportion="0.04303511">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/media/js/outliner.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="22" column="54" selection-start="713" selection-end="713" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/media/less/favorite.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="22" column="7" selection-start="407" selection-end="407" vertical-scroll-proportion="-10.64">
+          <folding>
+            <element signature="e#235#399#0" expanded="false" />
+            <element signature="e#410#592#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/media/js/navigation.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="25" column="49" selection-start="747" selection-end="747" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_layouts/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="27" selection-start="51" selection-end="51" vertical-scroll-proportion="0.08888889">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="53" selection-start="242" selection-end="242" vertical-scroll-proportion="0.22222222">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_layouts/default.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="31" column="52" selection-start="1604" selection-end="1604" vertical-scroll-proportion="-6.785714">
+          <folding>
+            <marker date="1387951133697" expanded="true" signature="314:325" placeholder="{...}" />
+            <marker date="1387951133697" expanded="true" signature="402:413" placeholder="{...}" />
+            <marker date="1387951133697" expanded="true" signature="2046:2072" placeholder="{...}" />
+            <marker date="1387951133697" expanded="true" signature="2046:2072" placeholder="{...}" />
+            <marker date="1387951133697" expanded="true" signature="2046:2072" placeholder="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_layouts/post.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="57" column="34" selection-start="1536" selection-end="1536" vertical-scroll-proportion="-8.821428">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/media/js/Fullscreen.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="51" column="26" selection-start="1284" selection-end="1289" vertical-scroll-proportion="-25.96">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/media/less/main.less">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="78" column="109" selection-start="3118" selection-end="3118" vertical-scroll-proportion="1.4149425">
-          <folding />
+        <state line="91" column="57" selection-start="3420" selection-end="3420" vertical-scroll-proportion="0.5502958">
+          <folding>
+            <element signature="e#185#387#0" expanded="false" />
+            <element signature="e#548#639#0" expanded="false" />
+            <element signature="e#817#1075#0" expanded="false" />
+            <element signature="e#1083#1437#0" expanded="false" />
+            <element signature="e#1943#2187#0" expanded="false" />
+            <element signature="e#2201#2725#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
