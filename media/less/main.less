@@ -1,6 +1,7 @@
 @background-color: #323232;
-@aside-left-width:250px;
-@aside-right-width:300px;
+@dark-red:#cc0000;
+@aside-left-width:240px;
+@aside-right-width:240px;
 /* 四角的半径定制 */
 .border-radius-custom (@top_left: 5px, @top_right: 5px, @bottom_left: 5px, @bottom_right: 5px) {
   -webkit-border-radius: @arguments;
@@ -24,7 +25,7 @@
 #aside-right{right:0;width:@aside-right-width;}
 /* main */
 #main {
-  .border-radius-custom(10px, 10px, 10px, 10px);
+  .border-radius-custom(5px, 5px, 5px, 5px);
   .box-shadow(10px, 10px, 10px, #000);
   //box-shadow:0 0 1px #fff inset, 0 0 3px #fff inset;
   margin:auto @aside-left-width @aside-right-width;min-width:100px;
@@ -48,19 +49,23 @@
 #content{padding-top:20px;}
 #footer{overflow:hidden;border-top:1px solid #d3d2d2;box-shadow:0 -1px 0 rgba(255,255,255,0.7);}
 .navigation{
-  .border-radius-custom(5px, 5px, 5px, 5px);
+  .border-radius-custom(5px, 5px, 2px, 2px);
+  .box-shadow(10px, 10px, 10px, #000);
   background-color: #FFF;
-  padding: 0px 10px;
+  padding-bottom: 10px;
   margin: 10px;
   h3{
+    .border-radius-custom(5px, 5px, 0px, 0px);
     background-color: #f6f6f6;
     padding: 3px;
+    padding-left: 10px;
   }
   li{
+    padding-left: 10px;
     margin-left: 5px;
     list-style-type:none;
   }
-  a{color:red;}
+  a{color: @dark-red;}
 }
 
 .border-left{
@@ -81,10 +86,16 @@
 }
 
 @import url(http://fonts.googleapis.com/css?family=Marmelad:400);
-body{font-family:Marmelad, "WenQuanYi ZenHei","文泉驿正黑", 'Hiragino Sans GB', STHeiti, Helvetica, Arial, Sans-Serif;font-size:14px;line-height:150%;border-radius:3px;
-background-color: @background-color;
+body{
+/*font-family:Marmelad, "WenQuanYi ZenHei", 'Hiragino Sans GB', STHeiti, Helvetica, Arial, Sans-Serif; */
+  font-family:"georgia", "Hiragino Mincho Pro", "宋体", Meiryo, "MS PGothic", sans-serif;
+/*font-family:georgia, "ヒラギノ明朝 Pro W3", "Hiragino Mincho Pro", "メイリオ", Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;*/
+  font-size:14px;
+  line-height:150%;
+  border-radius:3px;
+  background-color: @background-color;
 }
-p{text-align:left;margin:.8em 0;}
+p{text-align:left;}
 time{font-size:13px;color:#999;}
 a,a code{color:#015BF1;text-decoration:none;}
 a:hover{color:#FF6347;text-decoration:underline;border-radius:5px;}
@@ -105,7 +116,7 @@ ul{list-style:circle;}
 .article-list ul{list-style:none;margin:0;padding:0;}
 .header-info{position:relative;}
 .article-list li{border-bottom:1px dashed #dedede;list-style-type:none;}
-.article-list h3 a{color:#D33;font-size:16px;line-height:40px;font-weight:400;padding:20px 10px;}
+.article-list h3 a{color:@dark-red;font-size:16px;line-height:40px;font-weight:400;padding:20px 10px;}
 .icon-fullscreen{display:inline-block;width:24px;height:24px;background:url(../img/fullscreen.png) no-repeat;}
 .icon-fullscreen:hover{background-position:-24px 0;}
 .icon-fullscreen.expand{background-position:0 -24px;}
