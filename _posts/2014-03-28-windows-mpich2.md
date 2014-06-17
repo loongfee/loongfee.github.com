@@ -8,6 +8,7 @@ tags: [集群, 并行, MPICH2, MPI, windows]
 {% include JB/setup %}
 
 ## 1. 安装
+
 ### (1) MPI版本
 MPI（Message Passing Interface）是一种消息传递编程模型，用于实现进程间的通信。MPI从它的诞生开始就有着深深的自然科学家的烙印，MPI标准的制定就是为了自然科学学者实现高速计算。目前MPI以有多种实现，如[MPICH](http://www.mpich.org)、[Open MPI](http://www.open-mpi.org)、[Microsoft MPI](http://msdn.microsoft.com/en-us/library/bb524831(v=vs.85).aspx)、[LAM/MPI](http://www.lam-mpi.org)、[LA-MPI](http://public.lanl.gov/lampi/)等，其中MPICH是windows下比较易用的，本文就是介绍如何在windows下安装和配置[MPICH](http://www.mpich.org)。
 
@@ -19,6 +20,7 @@ Windows版本的安装基本是傻瓜式的，需要注意的是权限问题，�
 是的，这样就算安装完了。
 
 ## 2. 配置运行环境
+
 ### <h3 id='Environment'>(1) 环境变量<h3>
 把MPICH2的执行程序目录添加到环境变量PATH中去。路径为“$MPICH2安装路径$\bin”，如：“C:\Program Files\MPICH2\bin”。
 
