@@ -8,13 +8,16 @@ permalink: /blog/:year/:month/:day/:title
 exclude: [".rvmrc", ".rbenv-version", "README.md", "Rakefile", "changelog.md"]
 #auto: true
 safe: false
-pygments: true
+#pygments: true
 # paginate: 6
 
 #markdown: rdiscount
 #markdown: redcarpet-pygments
 #markdown: pandoc
+highlighter: true
 markdown: kramdown
+permalink: pretty
+
   
 #pandoc:
  # format: html
