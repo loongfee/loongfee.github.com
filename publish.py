@@ -41,7 +41,7 @@ os.system('jekyll build -d %s' %build_path)
 
 # 如果编译没有错误就发布网站
 print('cd %s' %build_path)
-os.system('cd /d %s' %build_path)
+os.system('cd %s' %build_path)
 os.system('C:')
 os.system('del /q/a/f/s %s\*.bat'%build_path)
 os.system('git init')
