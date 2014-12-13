@@ -24,4 +24,4 @@ os.system('git add .')
 os.system('git commit -m "updated site %s"' %comment)
 os.system('git push origin source')
 
-os.system('puase')
+os.system('pause')
