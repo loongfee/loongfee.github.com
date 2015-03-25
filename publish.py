@@ -65,6 +65,6 @@ os.system(r'git config remote.origin.url https://%s:a9595965@github.com/%s/%s.gi
 #git config remote.origin.url https://{USERNAME}:{PASSWORD}@github.com/{USERNAME}/{REPONAME}.git
 os.system(r'git remote add origin https://github.com/%s/%s.github.com.git'%(usr,usr))
 os.system(r'git remote set-url origin https://github.com/%s/%s.github.com.git'%(usr,usr))
-os.system('git push origin master')
+os.system('git push origin master -f')
 
 os.chdir(cwd)
