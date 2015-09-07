@@ -3,9 +3,13 @@ encoding: utf-8
 permalink: /blog/:year/:month/:day/:title
 paginate: 10
 #markdown: redcarpet
-highlighter: true
-markdown: kramdown
+highlighter: pygments
+#markdown: kramdown
+markdown: KramdownPygments
 #permalink: pretty
+
+kramdown:
+  default_lang: python
 
 # 作者信息
 author: 

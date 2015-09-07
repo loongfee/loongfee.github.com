@@ -184,7 +184,9 @@ img{
 #content {
 /*  font-size: 18px;
 */
-    font-size: 16px;
+  font-family: "宋体";
+
+  font-size: 16px;
 }
 #content h2, h3 {
   line-height: 2;
@@ -204,4 +206,9 @@ blockquote p {
 .show-commend {
   width: 100%;
   margin-bottom: 40px;
+}
+
+pre{
+  border-style: dashed;
+
 }
