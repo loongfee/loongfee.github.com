@@ -1,33 +1,16 @@
 ---
-layout: default
+layout: base
 ---
-{% include JB/setup %}
-
-<article class="unit-article layout-page">
-	<div class="unit-inner unit-article-inner">
-		<div class="content">
-			<header>
-				<div class="unit-head">
-					<div class="unit-inner unit-head-inner">
-						<h1 class="h2 entry-title">{{ page.title }}</h1>
-					</div><!-- unit-inner -->
-				</div><!-- unit-head -->
-			</header>
-
-			<div class="bd">
-				<div class="entry-content">
-					{{ content }}
-				</div><!-- entry-content -->
-			</div><!-- bd -->
-
-			<footer class="unit-foot">
-				<div class="unit-inner unit-foot-inner">
-					<p class="gotop">
-						<a href="#page">Back to Top</a>
-					</p>
-				</div>
-			</footer>
-
-		</div><!-- content -->
-	</div><!-- unit-inner -->
-</article>
+<div class="row">
+  <div class="col-md-13 aside3-title">
+    <br>
+    <h2 id="#identifier">{{ page.title }}</h2>
+  </div>
+  <div class="col-md-13 aside3-content">
+    <div id="page-content">
+      {{ content }}
+    </div>
+    <hr>
+    {% include disqus.html %}
+  </div>
+</div>

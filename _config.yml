@@ -1,178 +1,52 @@
-# This is the default format. 
-# For more see: https://github.com/mojombo/jekyll/wiki/Permalinks
 encoding: utf-8
-
-# permalink: /:categories/:year/:month/:day/:title 
-permalink: /blog/:year/:month/:day/:title 
-
-exclude: [".rvmrc", ".rbenv-version", "README.md", "Rakefile", "changelog.md"]
-#auto: true
-safe: false
-#pygments: true
-# paginate: 6
-
-#markdown: rdiscount
-#markdown: redcarpet-pygments
-#markdown: pandoc
+#permalink: /:year/:month/:day/:title.html
+permalink: /blog/:year/:month/:day/:title
+paginate: 10
+#markdown: redcarpet
 highlighter: true
 markdown: kramdown
-permalink: pretty
+#permalink: pretty
 
-  
-#pandoc:
- # format: html
- # extensions:
-  #  - smart
-   # - mathjax
-    #- toc
-    #- csl elsevier.csl
-    #- highlight-style pygments
-    #- bibliography contrario.bib
-   # - variable bibliography=contrario
-    # - template default.html5
-   # - template pm.html5
-   
-scholar:
-  style: apa
-  locale: en
+# 作者信息
+author: 
+  name: Loong
+  email: loongfee@gmail.com
+  link: http://loongfee.github.io
+  github: https://github.com/loongfee
+  researchgate: https://www.researchgate.net/profile/Tengfei_Long
 
-  sort_by: none
-  order: ascending
+# 站点信息
+title: 淡朴若水
+description: 土肥龙的博客
+aphorism: 上善若水，水善利万物而不争
+url: http://loongfee.github.io
+rss_url: /pages/atom.xml
 
-  source: ./_bibliography
-  bibliography: reference.bib
-  bibliography_template: "%{reference}"
-  #bibliography_template: "<abbr>[%{key}]</abbr>%{reference}"
+# gavatar头像及Favicon
+gavatar: /public/img/satellite.png
+favicon: /public/img/earth.png
 
-  details_dir:    bibliography
-  details_layout: bibtex.html
-  details_link:   Details
+# google analytics 设置
+ga:
+  id: UA-42985048-1 
+  url: http://loongfee.github.io
 
-  query: "@*"
+# disqus 设置
+disqus:
+  shortname: loongfee
 
-# Themes are encouraged to use these universal variables 
-# so be sure to set them if your theme uses them.
-#
-title : 淡朴若水
-tagline: Site Tagline
-author :
-  name : 土肥龙
-  email : loongfee@gmail.com
-  github : loongfee
-  twitter : loongfee
-  
-# The production_url is only used when full-domain names are needed
-# such as sitemap.txt 
-# Most places will/should use BASE_PATH to make the urls
-#
-# If you have set a CNAME (pages.github.com) set your custom domain here.
-# Else if you are pushing to username.github.io, replace with your username.
-# Finally if you are pushing to a GitHub project page, include the project name at the end.
-#
-production_url : http://dannpu.com
+# 主题设置，自动激活某个标签
+active: 读书
 
-# All Jekyll-Bootstrap specific configurations are namespaced into this hash
-#
-JB :
-  version : 0.3.0
+# 首页除了最新文章外显示分类
+#cates: 
+#  - Optimization
+#  - LaTeX
 
-  # All links will be namespaced by BASE_PATH if defined.
-  # Links in your website should always be prefixed with {{BASE_PATH}}
-  # however this value will be dynamically changed depending on your deployment situation.
-  #
-  # CNAME (http://yourcustomdomain.com)
-  #   DO NOT SET BASE_PATH 
-  #   (urls will be prefixed with "/" and work relatively)
-  #
-  # GitHub Pages (http://username.github.io)
-  #   DO NOT SET BASE_PATH 
-  #   (urls will be prefixed with "/" and work relatively)
-  #
-  # GitHub Project Pages (http://username.github.io/project-name)
-  #
-  #   A GitHub Project site exists in the `gh-pages` branch of one of your repositories.
-  #  REQUIRED! Set BASE_PATH to: http://username.github.io/project-name
-  #
-  # CAUTION:
-  #   - When in Localhost, your site will run from root "/" regardless of BASE_PATH
-  #   - Only the following values are falsy: ["", null, false]
-  #   - When setting BASE_PATH it must be a valid url.
-  #     This means always setting the protocol (http|https) or prefixing with "/"
-  BASE_PATH : false
-  # BASE_PATH : loongfee.github.com
-
-  # By default, the asset_path is automatically defined relative to BASE_PATH plus the enabled theme.
-  # ex: [BASE_PATH]/assets/themes/[THEME-NAME]
-  #
-  # Override this by defining an absolute path to assets here.
-  # ex: 
-  #   http://s3.amazonaws.com/yoursite/themes/watermelon
-  #   /assets
-  #
-  ASSET_PATH : false
-  #ASSET_PATH : /assets
-
-  # These paths are to the main pages Jekyll-Bootstrap ships with.
-  # Some JB helpers refer to these paths; change them here if needed.
-  #
-  archive_path: /archive.html
-  categories_path : /categories.html
-  tags_path : /tags.html
-  atom_path : /atom.xml
-  rss_path : /rss.xml
-  layout_path : /_layouts
-
-  # Settings for comments helper
-  # Set 'provider' to the comment provider you want to use.
-  # Set 'provider' to false to turn commenting off globally.
-  #
-  comments :
-    provider : disqus
-    disqus :
-      short_name : dannpu
-    livefyre :
-      site_id : 123
-    intensedebate :
-      account : 123abc
-    facebook :
-      appid : 123
-      num_posts: 5
-      width: 580
-      colorscheme: light
-
-   
-  # Settings for analytics helper
-  # Set 'provider' to the analytics provider you want to use.
-  # Set 'provider' to false to turn analytics off globally.
-  #        
-  analytics :
-    provider : google 
-    google : 
-        tracking_id : 'UA-42985048-1'
-    getclicky :
-      site_id : 
-    mixpanel :
-        token : '_MIXPANEL_TOKEN_'
-    piwik :
-        baseURL : 'myserver.tld/piwik' # Piwik installation address (without protocol)
-        idsite : '1'                   # the id of the site on Piwik
-
-  # Settings for sharing helper. 
-  # Sharing is for things like tweet, plusone, like, reddit buttons etc.
-  # Set 'provider' to the sharing provider you want to use.
-  # Set 'provider' to false to turn sharing off globally.
-  #
-  sharing :
-    provider : false
-    
-  # Settings for all other include helpers can be defined by creating 
-  # a hash with key named for the given helper. ex:
-  #
-  #   pages_list :
-  #     provider : "custom"   
-  #
-  # Setting any helper's provider to 'custom' will bypass the helper code
-  # and include your custom code. Your custom file must be defined at:
-  #   ./_includes/custom/[HELPER]
-  # where [HELPER] is the name of the helper you are overriding.
-  
+# 中文本地化
+locals:
+  tags: 标签
+  favorite: 收藏
+  about: 关于
+  newest: 最新文章
+  archive: 归档
