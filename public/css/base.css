@@ -186,11 +186,12 @@ img{
 */
   font-family: "宋体";
 
-  font-size: 16px;
+  font-size: 14px;
 }
-#content h2, h3 {
-  line-height: 2;
-}
+#content h1, h2, h3 {line-height: 2;}
+#content h3 {font-size: 16px;}
+#content h2 {font-size: 20px;}
+#content h1 {font-size: 24px;}
 blockquote p {
   font-size: 20px;
 }
