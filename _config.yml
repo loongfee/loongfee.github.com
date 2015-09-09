@@ -12,7 +12,7 @@ kramdown:
   default_lang: python
   
   
-exclude: [".py", "LICENSE.txt", ".rvmrc", ".rbenv-version", "README.md", "Rakefile", "changelog.md"]
+exclude: ["*.py", "LICENSE.txt", ".rvmrc", ".rbenv-version", "README.md", "Rakefile", "changelog.md"]
 
 # 作者信息
 author: 
