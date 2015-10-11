@@ -30,4 +30,4 @@ os.system(r'git remote add origin https://github.com/%s/%s.github.com.git'%(usr,
 os.system(r'git remote set-url origin https://github.com/%s/%s.github.com.git'%(usr,usr))
 os.system('git push origin source -f')
 
-os.system('pause')
+#os.system('pause')
