@@ -5,6 +5,60 @@ titlename: 收藏夹
 description: ""
 ---
 
+<style>
+    #favorite .list {}
+#favorite {
+  font-size: .9em;
+  border-bottom: 0;
+    z-index: 1;
+  text-shadow:.1px .1px .1px #333;
+}
+
+.column {float: left;}
+
+.size-1of1 {width: 100%;}
+
+.size-1of2 {width: 50%;}
+
+.size-1of3 {
+  width: 32%;
+  border: dotted 1px #933;
+  background-color: #F6DDD9;
+  /*padding: 2px;*/
+  margin: 1px;
+  display: inline;
+}
+
+#favorite[data-columns] span.title {
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #7799EE;
+  display: block;
+  text-align: center;
+  background-color: #BA4846;
+  text-shadow: 1px 1px 1px #000;
+}
+
+#favorite a:link,
+#favorite a:visited {
+  color: blue;
+  text-decoration: none;
+  float: left;
+  line-height: 25px;
+  transition: color .8s .1s ease-in-out;
+  margin: 0 2px;
+  padding: 0 2px;
+}
+
+#favorite a:hover {
+  color: #ff6347;
+  text-decoration: underline;
+  background-color: #c4f0c4;
+  border-radius: 5px;
+  transition: color .8s ease-in-out;
+}
+</style>
+
 <div id="favorite" data-columns>
 <div class="column size-1of3">
   <div class="list">
@@ -53,7 +107,6 @@ description: ""
 <div class="column size-1of3">
   <div class="list">
     <span class="title">Scholar</span>
-    <a href="http://scholarnet.cn" target="_blank">Scholarnet</a>
     <a href="http://www.isiknowledge.com/" target="_blank">Web of Science</a>
     <a href="http://esi.webofknowledge.com/home.cgi" target="_blank">JCR</a>
     <a href="http://www.engineeringvillage.com/" target="_blank">EI</a>
@@ -64,41 +117,6 @@ description: ""
     <a href="http://xb.sinomaps.com:8080/journalx_chxb/authorLogOn.action?mag_Id=2" target="_blank">测绘学报</a>
   </div>
 </div>
-
-<div class="column size-1of3">
-  <div class="list">
-    <span class="title">Read & Write</span>
-    <a href="http://readcolor.com/" target="_blank">读远</a>
-    <a href="http://haodoo.net/?M=hd&P=welcome" target="_blank">好讀</a>
-    <a href="http://kindlefere.com/" target="_blank">Kindle伴侣</a>
-    <a href="http://www.yinxiang.com" target="_blank">印象笔记</a>
-    <a href="http://note.youdao.com/web" target="_blank">有道云笔记</a>
-  </div>
-</div>
-
-<div class="column size-1of3">
-  <div class="list">
-    <span class="title">Data</span>
-    <a href="http://ids.ceode.ac.cn/" target="_blank">RADI</a>
-    <a href="https://scihub.copernicus.eu/" target="_blank">Sentinel</a>
-    <a href="http://218.247.138.121/DSSPlatform/index.html" target="_blank">资源</a>
-    <a href="http://earthexplorer.usgs.gov/" target="_blank">USGS</a>
-    <a href="http://www.gscloud.cn/sources" target="_blank">gscloud</a>
-    <a href="https://ladsweb.nascom.nasa.gov/data/" target="_blank">MODIS</a>
-  </div>
-</div>
-
-
-<div class="column size-1of3">
-  <div class="list">
-    <span class="title">Dictionary</span>
-    <a href="http://www.iciba.com/" target="_blank">Iciba</a>
-    <a href="https://translate.google.com" target="_blank">Google Translate</a>
-    <a href="http://dict.cn/" target="_blank">Dict</a>
-    <a href="http://dict.cnki.net/" target="_blank">CNKI助手</a>
-  </div>
-</div>
-
 
 <div class="column size-1of3">
   <div class="list">
@@ -116,18 +134,45 @@ description: ""
 
 <div class="column size-1of3">
   <div class="list">
-    <span class="title">Shopping</span>
-    <a href="http://www.taobao.com/" target="_blank">淘宝</a>
-    <a href="http://www.360buy.com/" target="_blank">京东</a>
-    <a href="http://www.suning.com" target="_blank">苏宁</a>
-    <a href="http://www.yixun.com" target="_blank">易迅</a>
-    <a href="http://www.dangdang.com/" target="_blank">当当</a>
-    <a href="http://bj.jumei.com" target="_blank">聚美</a>
-    <a href="http://www.vip.com" target="_blank">唯品会</a>
-    <a href="http://www.amazon.cn/" target="_blank">卓越</a>
-    <a href="http://www.yihaodian.com" target="_blank">一号店</a>
-    <a href="http://www.amazon.com/" target="_blank">amazon</a>
-    <a href="http://www.shopin.net" target="_blank">上品折扣</a>
+    <span class="title">MOOC</span>
+    <a href="https://www.coursera.org" target="_blank">Coursera</a>
+    <a href="https://class.stanford.edu" target="_blank">Stanford OpenEdX</a>
+    <a href="http://www.xuetangx.com" target="_blank">学堂在线</a>
+    <a href="http://www.icourse163.org/index.htm" target="_blank">中国大学MOOC</a>
+    <a href="http://mooc.guokr.com" target="_blank">MOOC学院</a>
+  </div>
+</div>
+
+<div class="column size-1of3">
+  <div class="list">
+    <span class="title">Collection</span>
+    <a href="http://cloud.feedly.com/" target="_blank">Feedly</a>
+    <a href="https://www.inoreader.com/" target="_blank">Inoreader</a>
+    <a href="http://www.xnote.cn/" target="_blank">Xnote</a>
+    <a href="http://www.vjianke.com" target="_blank">剪客</a>
+    <a href="http://note.sdo.com" target="_blank">麦库</a>
+  </div>
+</div>
+
+<div class="column size-1of3">
+  <div class="list">
+    <span class="title">Data</span>
+    <a href="http://ids.ceode.ac.cn/" target="_blank">RADI</a>
+    <a href="https://scihub.copernicus.eu/" target="_blank">Sentinel</a>
+    <a href="http://218.247.138.121/DSSPlatform/index.html" target="_blank">资源</a>
+    <a href="http://earthexplorer.usgs.gov/" target="_blank">USGS</a>
+    <a href="http://www.gscloud.cn/sources" target="_blank">gscloud</a>
+    <a href="https://ladsweb.nascom.nasa.gov/data/" target="_blank">MODIS</a>
+  </div>
+</div>
+
+<div class="column size-1of3">
+  <div class="list">
+    <span class="title">Dictionary</span>
+    <a href="http://www.iciba.com/" target="_blank">Iciba</a>
+    <a href="https://translate.google.com" target="_blank">Google Translate</a>
+    <a href="http://dict.cn/" target="_blank">Dict</a>
+    <a href="http://dict.cnki.net/" target="_blank">CNKI助手</a>
   </div>
 </div>
 
@@ -151,6 +196,40 @@ description: ""
 
 <div class="column size-1of3">
   <div class="list">
+    <span class="title">SNS</span>
+    <a href="http://www.facebook.com/" target="_blank">Facebook</a>
+    <a href="https://twitter.com/" target="_blank">Twitter</a>
+    <a href="http://www.weibo.com" target="_blank">Sina微博</a>
+    <a href="http://www.douban.com/" target="_blank">豆瓣</a>
+    <a href="http://www.newsmth.net" target="_blank">水木</a>
+  </div>
+</div>
+
+<div class="column size-1of3">
+  <div class="list">
+    <span class="title">Read & Write</span>
+    <a href="http://readcolor.com/" target="_blank">读远</a>
+    <a href="http://haodoo.net/?M=hd&P=welcome" target="_blank">好讀</a>
+    <a href="http://kindlefere.com/" target="_blank">Kindle伴侣</a>
+    <a href="http://www.yinxiang.com" target="_blank">印象笔记</a>
+    <a href="http://note.youdao.com/web" target="_blank">有道云笔记</a>
+  </div>
+</div>
+
+<div class="column size-1of3">
+  <div class="list">
+    <span class="title">English</span>
+    <a href="http://www.putclub.com/" target="_blank">普特</a>
+    <a href="http://www.chinadaily.com.cn/" target="_blank">ChinaDaily</a>
+    <a href="http://www.cnn.com/" target="_blank">CNN</a>
+    <a href="http://www.yahoo.com/" target="_blank">Yahoo</a>
+    <a href="http://www.bbc.co.uk/" target="_blank">BBC</a>
+    <a href="http://www.shortnews.com/start.cfm" target="_blank">Short News</a>
+  </div>
+</div>
+
+<div class="column size-1of3">
+  <div class="list">
     <span class="title">IDE</span>
     <a href="https://jsfiddle.net/" target="_blank">jsfiddle</a>
     <a href="http://www.tutorialspoint.com/codingground.htm" target="_blank">Online IDEs</a>
@@ -161,6 +240,22 @@ description: ""
   </div>
 </div>
 
+<div class="column size-1of3">
+  <div class="list">
+    <span class="title">Shopping</span>
+    <a href="http://www.taobao.com/" target="_blank">淘宝</a>
+    <a href="http://www.360buy.com/" target="_blank">京东</a>
+    <a href="http://www.suning.com" target="_blank">苏宁</a>
+    <a href="http://www.yixun.com" target="_blank">易迅</a>
+    <a href="http://www.dangdang.com/" target="_blank">当当</a>
+    <a href="http://bj.jumei.com" target="_blank">聚美</a>
+    <a href="http://www.vip.com" target="_blank">唯品会</a>
+    <a href="http://www.amazon.cn/" target="_blank">卓越</a>
+    <a href="http://www.yihaodian.com" target="_blank">一号店</a>
+    <a href="http://www.amazon.com/" target="_blank">amazon</a>
+    <a href="http://www.shopin.net" target="_blank">上品折扣</a>
+  </div>
+</div>
 
 <div class="column size-1of3">
   <div class="list">
@@ -186,28 +281,6 @@ description: ""
 
 <div class="column size-1of3">
   <div class="list">
-    <span class="title">Collection</span>
-    <a href="http://cloud.feedly.com/" target="_blank">Feedly</a>
-    <a href="https://www.inoreader.com/" target="_blank">Inoreader</a>
-    <a href="http://www.xnote.cn/" target="_blank">Xnote</a>
-    <a href="http://www.vjianke.com" target="_blank">剪客</a>
-    <a href="http://note.sdo.com" target="_blank">麦库</a>
-  </div>
-</div>
-
-<div class="column size-1of3">
-  <div class="list">
-    <span class="title">SNS</span>
-    <a href="http://www.facebook.com/" target="_blank">Facebook</a>
-    <a href="https://twitter.com/" target="_blank">Twitter</a>
-    <a href="http://www.weibo.com" target="_blank">Sina微博</a>
-    <a href="http://www.douban.com/" target="_blank">豆瓣</a>
-    <a href="http://www.newsmth.net" target="_blank">水木</a>
-  </div>
-</div>
-
-<div class="column size-1of3">
-  <div class="list">
     <span class="title">人才</span>
     <a href="http://talent.sciencenet.cn" target="_blank">科学网</a>
     <a href="http://www.zhaopin.com" target="_blank">智联</a>
@@ -215,17 +288,6 @@ description: ""
     <a href="http://www.lietou.com" target="_blank">猎聘</a>
     <a href="http://www.lagou.com" target="_blank">拉勾</a>
     <a href="http://www.gaoxiaojob.com" target="_blank">高校</a>
-  </div>
-</div>
-
-<div class="column size-1of3">
-  <div class="list">
-    <span class="title">Courses</span>
-    <a href="https://www.coursera.org" target="_blank">Coursera</a>
-    <a href="https://class.stanford.edu" target="_blank">Stanford OpenEdX</a>
-    <a href="http://www.xuetangx.com" target="_blank">学堂在线</a>
-    <a href="http://www.icourse163.org/index.htm" target="_blank">中国大学MOOC</a>
-    <a href="http://mooc.guokr.com" target="_blank">MOOC学院</a>
   </div>
 </div>
 
@@ -261,18 +323,6 @@ description: ""
     <a href="http://fayaa.com" target="_blank">发芽网</a>
     <a href="http://www.codeproject.com/" target="_blank">Code Project</a>
     <a href="http://www.pudn.com" target="_blank">程序员联合开发网</a>
-  </div>
-</div>
-
-<div class="column size-1of3">
-  <div class="list">
-    <span class="title">English</span>
-    <a href="http://www.putclub.com/" target="_blank">普特</a>
-    <a href="http://www.chinadaily.com.cn/" target="_blank">ChinaDaily</a>
-    <a href="http://www.cnn.com/" target="_blank">CNN</a>
-    <a href="http://www.yahoo.com/" target="_blank">Yahoo</a>
-    <a href="http://www.bbc.co.uk/" target="_blank">BBC</a>
-    <a href="http://www.shortnews.com/start.cfm" target="_blank">Short News</a>
   </div>
 </div>
 
