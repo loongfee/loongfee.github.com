@@ -5,6 +5,6 @@ SET PATH=%PortableJekyll%\ruby\bin;%PortableJekyll%\devkit\bin;%PortableJekyll%\
 set SSL_CERT_FILE=%PortableJekyll%\curl\bin\cacert.pem
 
 python upload.py
-python publish.py
+:: python publish.py
 
 pause
