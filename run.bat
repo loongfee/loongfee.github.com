@@ -4,6 +4,10 @@ SET PATH=%PortableJekyll%\ruby\bin;%PortableJekyll%\devkit\bin;%PortableJekyll%\
 
 set SSL_CERT_FILE=%PortableJekyll%\curl\bin\cacert.pem
 
+:: reset account
+:: git config --global --unset credential.helper
+:: git config credential.helper store
+
 python upload.py
 python publish.py
 
