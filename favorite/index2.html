@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>收藏夹</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <style>
+    /* 基本样式 */
+    /* 背景、文字和过渡的基础样式 */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 20px;
+  background-color: #f4f7f6; /* 柔和的绿色调背景 */
+  color: #5a5a5a; /* 亮色调文本 */
+}
+
+h1 {
+  color: #37474f; /* 深色调标题 */
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 2em; /* 更大的标题文字 */
+}
+
+/* 父容器样式 */
+.categories-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 创建三列，每列大小相同 */
+  grid-gap: 30px;  /* 在格子之间设定30px的间距 */
+  margin-bottom: 30px; /* 给整体的底部留出一些空间 */
+}
+
+
+/* 类别容器的样式 */
+.category {
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* 较轻微的阴影 */
+  margin-bottom: 20px;
+  padding: 15px;
+  transition: transform 0.3s ease-out; /* 平滑的动态效果 */
+}
+
+.category:hover {
+  transform: translateY(-3px); /* 鼠标悬停时轻微上浮 */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* 类别头部样式，增加间隙 */
+.category-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 15px; /* 类别头部与链接之间的间隔 */
+  margin-bottom: 15px; /* 类别标题之间的间隔 */
+  border-bottom: 1px solid #e9ecef; /* 细线分隔 */
+  cursor: pointer;
+}
+
+/* 类别标题 */
+.category-header h2 {
+  margin: 0;
+  font-size: 1.5em;
+  color: #333333; /* 深色调文本 */
+}
+
+/* 控制类别展开和收起的交互样式 */
+.category-toggle {
+  font-size: 24px; /* 更大的图标，便于交互 */
+  color: #9e9e9e; /* 灰色图标 */
+  transition: color 0.2s;
+}
+
+.category-toggle:hover {
+  color: #333333; /* 深色调图标，鼠标悬停时 */
+}
+
+/* 类别链接的样式 */
+.category-links {
+  /* display: flex; */
+  /* flex-wrap: wrap; */
+  max-height: 0; /* 只显示一行链接 */
+  overflow: hidden;
+  transition: max-height 0.5s ease-in-out, padding 0.5s ease-in-out;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.category-links a {
+  display: inline-block;
+  color: #427b58; /* 链接色调 */
+  text-decoration: none;
+  margin: 5px 10px 5px 0; /* 为链接添加一些间距 */
+  font-size: 0.9em;
+  transition: color 0.3s;
+}
+
+.category-links a:hover {
+  color: #2c5c4d; /* 链接悬停色调 */
+}
+
+/* 调整打开状态的类别的高度 */
+.category.open .category-links {
+  max-height: none;
+}
+
+.category-links .link {
+  display: block; /* 用 block 代替 float 来确保清晰的过渡效果 */
+  width: 100px;  /* 你的链接宽度 */
+  height: 50px;  /* 你的链接高度 */
+  text-align: center; /* 确保文本居中 */
+  line-height: 50px; /* 确保文本垂直居中 */
+  transition: background-color 0.3s; /* 链接背景颜色的过渡效果 */
+}
+
+/* 悬停时的链接样式 */
+.category-links .link:hover {
+  background-color: #926262; /* 悬停时的背景色 */
+}
+
+.category:hover .category-links {
+  max-height: 1000px; /* 足够高以容纳所有链接，可根据需要调整 */
+  overflow: visible;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+@media (min-width: 300px) {
+  .category-links {
+    max-height: 30px; /* 只展示一行 */
+  }
+}
+
+.category .category-header {
+  position: relative; /* 为 absolute positioned 元素设置 context */
+}
+
+.category .category-header .category-toggle {
+  cursor: pointer;
+  position: absolute;  /* 把 toggle 定位到 header 的右侧 */
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);  /* 垂直居中对齐 */
+  background-color: #f8f8f8; /* toggle 背景色 */
+  border-radius: 50%;  /* 圆形的 toggle button */
+  width: 25px; /* 宽度 */
+  height: 25px; /* 高度 */
+  text-align: center; /* 文本居中 */
+  line-height: 25px; /* 文本垂直居中 */
+  transition: background-color 0.3s; /* 颜色变化过渡效果 */
+}
+
+/* 悬停时 toggle button 的样式改变 */
+.category .category-header .category-toggle:hover {
+  background-color: #e0e0e0;
+}
+  </style>
+</head>
+<body>
+  <h1>收藏夹</h1>
+  <div class="categories-container">
+
+  <!-- 类别内容, 重复此块以创建更多类别 -->
+  <div class="category">
+    <div class="category-header">
+      <h2>门户</h2>
+      <!-- <span class="category-toggle"><i class="fas fa-plus"></i></span> -->
+    </div>
+    <div class="category-links">
+      <a href="http://www.hao123.com/" target="_blank">hao123</a>
+      <a href="http://www.whu.edu.cn" target="_blank">Whu</a>
+      <a href="http://www.aircas.ac.cn/" target="_blank">AIR</a>
+      <a href="http://www.lmars.whu.edu.cn" target="_blank">lmars</a>
+      <a href="http://www.163.com/" target="_blank">网易</a>
+      <a href="http://www.qq.com/" target="_blank">腾讯</a>
+      <a href="https://topbook.cc/overview" target="_blank">TopBook</a>
+      <a href="https://www.buzzing.cc/" target="_blank">buzzing</a>
+      <a href="http://guozhivip.com/" target="_blank">果汁</a>
+      <a href="http://guozhivip.com/rank/" target="_blank">排行榜</a>
+      <a href="http://guozhivip.com/lab/" target="_blank">实验室</a>   
+      <a href="https://bbs.leyuz.net/" target="_blank">乐愚</a>
+      <a href="http://free-ss.site/" target="_blank">free-ss</a>   
+    </div>
+  </div>
+
+  <div class="category">
+    <div class="category-header">
+      <h2>English Writing</h2>
+      <!-- <span class="category-toggle"><i class="fas fa-plus"></i></span> -->
+    </div>
+    <div class="category-links">
+      <a href="https://languagetool.org/" target="_blank">LT</a>
+      <a href="https://hemingwayapp.com/" target="_blank">海明威</a>
+      <a href="https://www.gingersoftware.com/" target="_blank">Ginger</a>
+      <a href="https://www.nounplus.net/" target="_blank">nounplus</a>
+      <a href="https://app.grammarly.com/" target="_blank">Grammarly</a>
+      <a href="https://gramara.com/en/" target="_blank">Gramara</a>
+      <a href="https://www.reverso.net/spell-checker/english-spelling-grammar/" target="_blank">Reverso</a>
+      <a href="https://www.scribens.com/" target="_blank">Scribens</a>
+      <a href="https://www.polishmywriting.com/" target="_blank">PolishmyWriting</a>
+      <a href="https://virtualwritingtutor.com/" target="_blank">VirtualWritingTutor</a>
+    </div>
+  </div>
+
+  <div class="category">
+    <div class="category-header">
+      <h2>Dictionary</h2>
+      <!-- <span class="category-toggle"><i class="fas fa-plus"></i></span> -->
+    </div>
+    <div class="category-links">
+      <a href="http://www.iciba.com/" target="_blank">Iciba</a>
+      <a href="http://wordinfo.info/" target="_blank">wordinfo</a>
+      <a href="http://www.thesaurus.com/" target="_blank">Thesaurus</a>
+      <a href="https://ludwig.guru/" target="_blank">Ludwig</a>
+      <a href="https://www.ldoceonline.com/" target="_blank">LongMen</a>
+      <a href="https://www.oxfordlearnersdictionaries.com/" target="_blank">Oxford</a>
+      <a href="http://learnersdictionary.com/" target="_blank">Merriam</a>
+      <a href="https://dictionary.cambridge.org/" target="_blank">Cambridge</a>
+      <a href="https://www.collinsdictionary.com/" target="_blank">Collins</a>
+      <a href="https://www.macmillandictionary.com/" target="_blank">Macmillan</a>
+      <a href="https://www.merriam-webster.com/thesaurus" target="_blank">merriam</a>
+      <a href="https://www.collinsdictionary.com/zh/dictionary/english-thesaurus" target="_blank">CollinsCN</a>
+      <a href="http://dict.cn/" target="_blank">Dict</a>
+      <a href="https://translate.google.com" target="_blank">Google Translate</a>
+      <a href="https://wikidiff.com/" target="_blank">比较</a>
+      <a href="https://wantwords.thunlp.org/" target="_blank">万词王</a>
+      <a href="http://fanyi.baidu.com/" target="_blank">百度翻译</a>
+      <a href="http://fanyi.youdao.com/" target="_blank">有道翻译</a>
+      <a href="https://www.deepl.com/en/translator" target="_blank">DeepL</a>
+      <a href="https://www.bing.com/translator/" target="_blank">Bing翻译</a>
+      <a href="http://www.worldlingo.com/products_services/worldlingo_translator.html" target="_blank">worldlingo</a>
+      <a href="http://dict.cnki.net/" target="_blank">CNKI助手</a>
+      <a href="https://www.english-corpora.org/coca/" target="_blank">coca</a>
+      <a href="http://www.netspeak.org/" target="_blank">netspeak</a>
+      <a href="https://linggle.com/" target="_blank">linggle</a>
+      <a href="https://quillbot.com/" target="_blank">quillbot</a>
+      <a href="https://www.phrasebank.manchester.ac.uk/" target="_blank">phrasebank</a>
+    </div>
+  </div>
+
+  <div class="category">
+    <div class="category-header">
+      <h2>Search</h2>
+      <!-- <span class="category-toggle"><i class="fas fa-plus"></i></span> -->
+    </div>
+    <div class="category-links">
+      <a href="http://www.google.com/ncr" target="_blank">Google</a>
+      <a href="https://duckduckgo.com" target="_blank">DuckDuckGo</a>
+      <a href="https://www.startpage.com" target="_blank">Startpage</a>
+      <a href="http://www.baidu.com/" target="_blank">百度</a>
+      <a href="https://www.qwant.com/?l=en" target="_blank">Qwant</a>
+      <a href="https://searx.space/" target="_blank">Searx</a>
+      <a href="https://www.nona.de/" target="_blank">Nona</a>
+      <a href="http://www.6453.net/" target="_blank">龙猫</a>
+      <a href="http://ac.scmor.com/" target="_blank">G镜像</a>
+      <a href="http://www.bing.com" target="_blank">Bing</a>
+      <a href="http://lackar.com/aa/" target="_blank">AWA</a>
+      <a href="https://www.jiumodiary.com/" target="_blank">鸠摩</a>
+      <a href="https://yandex.com/" target="_blank">Yandex</a>
+      <a href="https://www.sogou.com/" target="_blank">搜狗</a>
+      <a href="http://search.chongbuluo.com/" target="_blank">快搜</a>
+      <a href="https://picular.co/" target="_blank">Picular</a>
+      <a href="http://www.yahoo.com/" target="_blank">Yahoo</a>
+    </div>
+  </div>
+
+  <div class="category">
+    <div class="category-header">
+      <h2>MySite</h2>
+      <!-- <span class="category-toggle"><i class="fas fa-plus"></i></span> -->
+    </div>
+    <div class="category-links">
+      <a href="http://mail.cstnet.cn/" target="_blank">cas邮箱</a>
+      <a href="https://mail.google.com" target="_blank">Gmail</a>
+      <a href="http://spaces.live.com/" target="_blank">Live</a>
+      <a href="https://github.com/loongfee" target="_blank">GitHub</a>
+      <a href="https://www.researchgate.net/profile/Tengfei_Long" target="_blank">ResearchGate</a>
+      <a href="http://www.126.com/" target="_blank">126邮箱</a>
+      <a href="http://blog.sina.com.cn/loongfee" target="_blank">Sina</a>
+      <a href="http://www.cnblogs.com/loongfee/" target="_blank">cnblogs</a>
+      <a href="https://web.any.do/" target="_blank">AnyDo</a>
+      <a href="https://keep.google.com/" target="_blank">keep</a>
+      <a href="https://www.ngrok.cc/" target="_blank">Sunny-Ngrok</a>
+      <a href="https://ngrok.com/" target="_blank">Ngrok</a>
+    </div>
+  </div>
+
+  <div class="category">
+    <div class="category-header">
+      <h2>Scholar</h2>
+      <!-- <span class="category-toggle"><i class="fas fa-plus"></i></span> -->
+    </div>
+    <div class="category-links">
+      <a href="http://scholar.google.com/schhp?hl=en" target="_blank">Google Scholar</a>
+      <a href="http://www.isiknowledge.com/" target="_blank">Web of Science</a>
+      <a href="http://esi.webofknowledge.com/home.cgi" target="_blank">JCR</a>
+      <a href="https://jcr.incites.thomsonreuters.com/JCRJournalHomeAction.action" target="_blank">InCites</a>
+      <a href="http://www.engineeringvillage.com/" target="_blank">EI</a>
+      <a href="http://lib.irsa.ac.cn:8080" target="_blank">Library</a>
+      <a href="http://ir.radi.ac.cn/" target="_blank">IR</a>
+      <a href="http://www.las.ac.cn/" target="_blank">LAS</a>
+      <a href="https://arxiv.org/" target="_blank">arXiv</a>
+      <a href="http://mc.manuscriptcentral.com/tgrs" target="_blank">TGRS</a>
+      <a href="https://ees.elsevier.com/rse/default.asp" target="_blank">RSE</a>
+      <a href="https://www.journals.elsevier.com/isprs-journal-of-photogrammetry-and-remote-sensing" target="_blank">ISPRS</a>
+      <a href="http://www.mdpi.com/journal/remotesensing" target="_blank">remotesensing</a>
+      <a href="https://search.crossref.org/" target="_blank">crossref</a>
+      <a href="https://zbib.org/" target="_blank">zbib</a>
+      <a href="https://www.nstrs.cn/" target="_blank">科技报告</a>
+      <a href="https://www.bigan.net/fund/" target="_blank">笔杆</a>
+      <a href="http://www.hiresearch.cn/" target="_blank">海研</a>
+      <a href="https://www.semanticscholar.org/" target="_blank">semanticscholar</a>
+      <a href="https://www.scimagojr.com/" target="_blank">scimagojr</a>
+      <a href="https://isisn.nsfc.gov.cn/egrantweb/" target="_blank">基金</a>
+      <a href="http://cpquery.sipo.gov.cn/" target="_blank">专利</a>
+      <a href="https://www.cn-ki.net/" target="_blank">iData</a>
+      <a href="http://www.koovin.com/" target="_blank">库问</a>
+      <a href="https://www.ablesci.com/journal" target="_blank">期刊查询</a>
+      <a href="http://www.wikicfp.com/cfp/" target="_blank">cfp</a>
+      <a href="http://tool.yovisun.com/scihub/" target="_blank">SCI-Hub</a>
+    </div>
+  </div>
+
+  <div class="category">
+    <div class="category-header">
+      <h2>Map</h2>
+      <!-- <span class="category-toggle"><i class="fas fa-plus"></i></span> -->
+    </div>
+    <div class="category-links">
+      <a href="https://www.google.com/maps" target="_blank">Google Map</a>
+      <a href="https://map.baidu.com/" target="_blank">百度地图</a>
+      <a href="http://map.sogou.com" target="_blank">搜狗地图</a>
+      <a href="https://ditu.amap.com" target="_blank">高德地图</a>
+    </div>
+  </div>
+
+  <div class="category">
+    <div class="category-header">
+      <h2>网盘</h2>
+      <!-- <span class="category-toggle"><i class="fas fa-plus"></i></span> -->
+    </div>
+    <div class="category-links">
+      <a href="https://www.dropbox.com" target="_blank">Dropbox</a>
+      <a href="https://pan.baidu.com/" target="_blank">百度云</a>
+      <a href="https://www.jianguoyun.com/" target="_blank">坚果云</a>
+      <a href="https://drive.google.com/drive" target="_blank">GoogleDrive</a>
+      <a href="https://mega.nz/" target="_blank">Mega</a>
+      <a href="https://6pan.cn/" target="_blank">6盘</a>
+      <a href="https://onedrive.live.com" target="_blank">OneDrive</a>
+      <a href="http://terfi.ys168.com/" target="_blank">永硕E盘</a>
+      <a href="https://teracloud.jp/en/" target="_blank">teracloud</a>
+      <a href="https://cowtransfer.com/" target="_blank">牛奶快传</a>
+      <a href="https://www.multcloud.com" target="_blank">MultCloud</a>
+      <a href="https://vdisk.weibo.com" target="_blank">微盘</a>
+      <a href="https://www.box.com" target="_blank">Box</a>
+    </div>
+  </div>
+
+  <div class="category">
+    <div class="category-header">
+      <h2>MOOC</h2>
+      <!-- <span class="category-toggle"><i class="fas fa-plus"></i></span> -->
+    </div>
+    <div class="category-links">
+      <a href="https://www.coursera.org" target="_blank">Coursera</a>
+      <a href="https://cn.udacity.com" target="_blank">Udacity</a>
+      <a href="https://class.stanford.edu" target="_blank">OpenEdX</a>
+      <a href="http://www.xuetangx.com" target="_blank">学堂在线</a>
+      <a href="http://www.icourse163.org/index.htm" target="_blank">中国大学MOOC</a>
+      <a href="http://www.coursade.com/" target="_blank">Coursade</a>
+      <a href="https://crashcourse.club/category/" target="_blank">CrashCourse</a>
+      <a href="http://www.wanmen.org/" target="_blank">万门大学</a>
+      <a href="http://study.163.com/" target="_blank">网易云课堂</a>
+      <a href="http://www.cnmooc.org/home/index.mooc" target="_blank">好大学在线</a>
+      <a href="http://www.icourses.cn/home/" target="_blank">爱课程</a>
+      <a href="http://www.imooc.com/" target="_blank">慕课网</a>
+    </div>
+  </div>
+
+  <div class="category">
+    <div class="category-header">
+      <h2>Collection</h2>
+      <!-- <span class="category-toggle"><i class="fas fa-plus"></i></span> -->
+    </div>
+    <div class="category-links">
+      <a href="http://cloud.feedly.com/" target="_blank">Feedly</a>
+      <a href="https://rss.othing.xyz/p/i/" target="_blank">FreshRSS</a>
+      <a href="https://www.inoreader.com/" target="_blank">Inoreader</a>
+      <a href="https://feed43.com/" target="_blank">Feed43</a>
+      <a href="http://www.xnote.cn/" target="_blank">Xnote</a>
+    </div>
+  </div>
+
+  <div class="category">
+    <div class="category-header">
+      <h2>Data</h2>
+      <!-- <span class="category-toggle"><i class="fas fa-plus"></i></span> -->
+    </div>
+    <div class="category-links">
+      <a href="http://ids.ceode.ac.cn/" target="_blank">RADI</a>
+      <a href="https://scihub.copernicus.eu/" target="_blank">Sentinel</a>
+      <a href="https://search.remotepixel.ca" target="_blank">RemotePixel</a>
+      <a href="http://www.cresda.com/CN/" target="_blank">资源</a>
+      <a href="http://earthexplorer.usgs.gov/" target="_blank">USGS</a>
+      <a href="http://www.dgi.inpe.br/CDSR/index.php" target="_blank">CBERS</a>
+      <a href="http://www.gscloud.cn/sources" target="_blank">gscloud</a>
+      <a href="https://ladsweb.nascom.nasa.gov/data/" target="_blank">MODIS</a>
+      <a href="https://vertex.daac.asf.alaska.edu/" target="_blank">ASF</a>
+      <a href="https://nature.data.aliyun.com/" target="_blank">aliyun</a>
+    </div>
+  </div>
+
+  <div class="category">
+    <div class="category-header">
+      <h2>Tools</h2>
+      <!-- <span class="category-toggle"><i class="fas fa-plus"></i></span> -->
+    </div>
+    <div class="category-links">
+      <a href="https://www.processon.com" target="_blank">ProcessOn</a>
+      <a href="http://hao.shejidaren.com/" target="_blank">设计导航</a>
+      <a href="http://www.downforeveryoneorjustme.com/" target="_blank">isup.me</a>
+      <a href="https://www.wolframalpha.com/" target="_blank">Wolfram</a>
+      <a href="http://www.25os.com/" target="_blank">WebOS</a>
+      <a href="https://www.gliffy.com/" target="_blank">Gliffy</a>
+      <a href="http://www.google.cn/intl/zh-cn_all/docs/about/" target="_blank">GoogleDoc</a>
+      <a href="https://docs.google.com/drawings/" target="_blank">GoogleDraw</a>
+      <a href="https://www.draw.io/" target="_blank">draw.io</a>
+      <a href="https://jsonvisio.com/" target="_blank">JsonVisio</a>
+      <a href="https://coggle.it/" target="_blank">Coggle</a>
+      <a href="http://my-mind.github.io/" target="_blank">my-mind</a>
+      <a href="http://naotu.baidu.com/" target="_blank">百度脑图</a>
+      <a href="http://echarts.baidu.com/index.html" target="_blank">ECharts</a>
+      <a href="https://color.adobe.com" target="_blank">Kuler</a>
+      <a href="http://color.aurlien.net/" target="_blank">Piknik</a>
+      <a href="http://www.materialpalette.com/" target="_blank">Material Palette</a>
+      <a href="http://www.easyicon.net/" target="_blank">Easyicon</a>
+      <a href="http://www.iconfont.cn/" target="_blank">Iconfont</a>
+      <a href="http://www.iconpng.com/" target="_blank">Iconpng</a>
+      <a href="http://oneclickclip.com/" target="_blank">OneClickClip</a>
+    </div>
+  </div>
+
+  <div class="category">
+    <div class="category-header">
+      <h2>SNS</h2>
+      <!-- <span class="category-toggle"><i class="fas fa-plus"></i></span> -->
+    </div>
+    <div class="category-links">
+      <a href="http://www.facebook.com/" target="_blank">Facebook</a>
+      <a href="https://twitter.com/" target="_blank">Twitter</a>
+      <a href="http://www.weibo.com" target="_blank">Sina微博</a>
+      <a href="http://www.douban.com/" target="_blank">豆瓣</a>
+      <a href="https://www.mysmth.net/" target="_blank">水木</a>
+      <a href="https://m.mysmth.net/hot" target="_blank">smth</a>
+    </div>
+  </div>
+
+  <div class="category">
+    <div class="category-header">
+      <h2>Read & Write</h2>
+      <!-- <span class="category-toggle"><i class="fas fa-plus"></i></span> -->
+    </div>
+    <div class="category-links">
+      <a href="https://shici.store/huajianji/" target="_blank">中华诗词</a>
+      <a href="http://www.banshujiang.cn/" target="_blank">搬书匠</a>
+      <a href="http://haodoo.net/?M=hd&P=welcome" target="_blank">好讀</a>
+      <a href="https://ctext.org/zh" target="_blank">中国哲学</a>
+      <a href="http://www.ltfc.net/" target="_blank">中华珍宝馆</a>
+      <a href="https://new.shuge.org/" target="_blank">书格</a>
+      <a href="https://meiriyiwen.com/" target="_blank">每日一文</a>
+      <a href="https://www.allhistory.com/" target="_blank">全历史</a>
+      <a href="https://www.ageeye.cn/" target="_blank">观沧海</a>
+      <a href="http://kindlefere.com/" target="_blank">Kindle伴侣</a>
+      <a href="http://www.yinxiang.com" target="_blank">印象笔记</a>
+      <a href="http://note.youdao.com/web" target="_blank">有道云笔记</a>
+      <a href="http://www.wiz.cn/" target="_blank">为知笔记</a>
+      <a href="https://app.simplenote.com/" target="_blank">SimpleNote</a>
+    </div>
+  </div>
+
+  <div class="category">
+    <div class="category-header">
+      <h2>English</h2>
+      <!-- <span class="category-toggle"><i class="fas fa-plus"></i></span> -->
+    </div>
+    <div class="category-links">
+      <a href="http://www.kekenet.com/" target="_blank">可可</a>
+      <a href="https://breakingnewsenglish.com/" target="_blank">Breaking News</a>
+      <a href="https://www.newsy.com/" target="_blank">newsy</a>
+      <a href="http://www.putclub.com/" target="_blank">普特</a>
+      <a href="https://www.nytimes.com/" target="_blank">NYT</a>
+      <a href="https://abcnews.go.com/" target="_blank">ABC</a>
+      <a href="http://www.cnn.com/" target="_blank">CNN</a>
+      <a href="http://www.bbc.co.uk/" target="_blank">BBC</a>
+      <a href="https://www.theguardian.com/" target="_blank">Guardian</a>
+      <a href="https://www.npr.org/" target="_blank">NPR</a>
+      <a href="http://www.globaltimes.cn/" target="_blank">GlobalTimes</a>
+      <a href="http://theconversation.com" target="_blank">Conversation</a>
+      <a href="https://news.google.com" target="_blank">Google</a>
+      <a href="http://www.yahoo.com/" target="_blank">Yahoo</a>
+      <a href="http://www.chinadaily.com.cn/" target="_blank">ChinaDaily</a>
+      <a href="https://www.tingclass.net/" target="_blank">TingClass</a>
+      <a href="http://www.tingroom.com/" target="_blank">在线听力</a>
+      <a href="https://language.chinadaily.com.cn/" target="_blank">英语点津</a>
+      <a href="https://dict.eudic.net/ting" target="_blank">每日听力</a>
+      <a href="https://www.en84.com/" target="_blank">英文巴士</a>
+    </div>
+  </div>
+
+  <div class="category">
+    <div class="category-header">
+      <h2>IDE</h2>
+      <!-- <span class="category-toggle"><i class="fas fa-plus"></i></span> -->
+    </div>
+    <div class="category-links">
+      <a href="https://ideone.com" target="_blank">Ideone</a>
+      <a href="http://repl.it/languages" target="_blank">repl</a>
+      <a href="https://www.onlinegdb.com/" target="_blank">OnlineGDB</a>
+      <a href="https://pythontutor.com/" target="_blank">repl</a>
+      <a href="https://www.programiz.com/python-programming/online-compiler/" target="_blank">Programiz</a>
+      <a href="https://www.tutorialspoint.com/execute_python_online.php" target="_blank">CodingGround</a>
+      <a href="https://www.online-python.com/" target="_blank">Online-Python</a>
+      <a href="https://www.codechef.com/ide" target="_blank">CodeChef</a>
+      <a href="https://www.python.org/shell/" target="_blank">python</a>
+    </div>
+  </div>
+
+  <div class="category">
+    <div class="category-header">
+      <h2>Shopping</h2>
+      <!-- <span class="category-toggle"><i class="fas fa-plus"></i></span> -->
+    </div>
+    <div class="category-links">
+      <a href="http://www.taobao.com/" target="_blank">淘宝</a>
+      <a href="http://www.360buy.com/" target="_blank">京东</a>
+      <a href="http://www.amazon.cn/" target="_blank">亚马逊</a>
+      <a href="http://www.suning.com" target="_blank">苏宁</a>
+      <a href="http://www.yixun.com" target="_blank">易迅</a>
+      <a href="http://www.bookschina.com/" target="_blank">中图网</a>
+      <a href="http://www.dangdang.com/" target="_blank">当当</a>
+      <a href="http://bj.jumei.com" target="_blank">聚美</a>
+      <a href="http://www.vip.com" target="_blank">唯品会</a>
+      <a href="http://www.yhd.com" target="_blank">一号店</a>
+      <a href="https://www.smzdm.com/" target="_blank">什么值得买</a>
+      <a href="http://www.amazon.com/" target="_blank">amazon</a>
+    </div>
+  </div>
+
+  <div class="category">
+    <div class="category-header">
+      <h2>IDE</h2>
+      <!-- <span class="category-toggle"><i class="fas fa-plus"></i></span> -->
+    </div>
+    <div class="category-links">
+      <a href="https://ideone.com" target="_blank">Ideone</a>
+      <a href="http://repl.it/languages" target="_blank">repl</a>
+      <a href="https://www.onlinegdb.com/" target="_blank">OnlineGDB</a>
+      <a href="https://pythontutor.com/" target="_blank">repl</a>
+      <a href="https://www.programiz.com/python-programming/online-compiler/" target="_blank">Programiz</a>
+      <a href="https://www.tutorialspoint.com/execute_python_online.php" target="_blank">CodingGround</a>
+      <a href="https://www.online-python.com/" target="_blank">Online-Python</a>
+      <a href="https://www.codechef.com/ide" target="_blank">CodeChef</a>
+      <a href="https://www.python.org/shell/" target="_blank">python</a>
+    </div>
+  </div>
+
+  <div class="category">
+    <div class="category-header">
+      <h2>Markdown</h2>
+      <!-- <span class="category-toggle"><i class="fas fa-plus"></i></span> -->
+    </div>
+    <div class="category-links">
+      <a href="http://dillinger.io" target="_blank">Dillinger</a>
+      <a href="https://stackedit.io/editor" target="_blank">Stackedit</a>
+      <a href="https://www.zybuluo.com/mdeditor" target="_blank">Cmd Markdown</a>
+      <a href="http://jbt.github.io/markdown-editor" target="_blank">Github</a>
+      <a href="http://markable.in/editor/" target="_blank">Markable</a>
+    </div>
+  </div>
+
+  <div class="category">
+    <div class="category-header">
+      <h2>Latex</h2>
+      <!-- <span class="category-toggle"><i class="fas fa-plus"></i></span> -->
+    </div>
+    <div class="category-links">
+      <a href="https://www.sharelatex.com" target="_blank">ShareLatex</a>
+      <a href="https://www.latex4technics.com/" target="_blank">LaTeX4technics</a>
+      <a href="https://upmath.me/" target="_blank">Upmath</a>
+      <a href="http://3142.nl/latex-diff/" target="_blank">Upmath</a>
+      <a href="https://www.authorea.com" target="_blank">Authorea</a>
+      <a href="https://papeeria.com" target="_blank">Papeeria</a>
+      <a href="https://www.overleaf.com" target="_blank">Overleaf</a>
+      <a href="http://truben.no/latex/bibtex/" target="_blank">Bibtex</a>
+    </div>
+  </div>
+
+  <div class="category">
+    <div class="category-header">
+      <h2>人才</h2>
+      <!-- <span class="category-toggle"><i class="fas fa-plus"></i></span> -->
+    </div>
+    <div class="category-links">
+      <a href="http://talent.sciencenet.cn" target="_blank">科学网</a>
+      <a href="http://www.zhaopin.com" target="_blank">智联</a>
+      <a href="http://www.chinahr.com" target="_blank">中华</a>
+      <a href="http://www.lietou.com" target="_blank">猎聘</a>
+      <a href="http://www.lagou.com" target="_blank">拉勾</a>
+      <a href="http://www.gaoxiaojob.com" target="_blank">高校</a>
+    </div>
+  </div>
+
+  <div class="category">
+    <div class="category-header">
+      <h2>站长</h2>
+      <!-- <span class="category-toggle"><i class="fas fa-plus"></i></span> -->
+    </div>
+    <div class="category-links">
+      <a href="https://www.dnspod.cn" target="_blank">DNSPod</a>
+      <a href="https://www.google.com/webmasters/tools/home?hl=zh-CN" target="_blank">Google站长</a>
+      <a href="http://www.google.com/intl/zh-CN/analytics/" target="_blank">Google分析</a>
+      <a href="https://www.google.com/adsense/app?hl=zh_CN#home" target="_blank">Google AdSense</a>
+      <a href="http://zhanzhang.baidu.com/site/index" target="_blank">百度站长</a>
+    </div>
+  </div>
+
+  <div class="category">
+    <div class="category-header">
+      <h2>学术百科</h2>
+      <!-- <span class="category-toggle"><i class="fas fa-plus"></i></span> -->
+    </div>
+    <div class="category-links">
+      <a href="http://en.wikipedia.org/wiki/Main_Page" target="_blank">Wikipedia</a>
+      <a href="http://www.hudong.com/" target="_blank">互动百科</a>
+      <a href="http://muchong.com/bbs/" target="_blank">小木虫论坛</a>
+      <a href="http://www.scholarpedia.org/" target="_blank">Scholarpedia</a>
+      <a href="http://www.answers.com" target="_blank">Answer</a>
+      <a href="http://answers.yahoo.com/" target="_blank">YahooAnswer</a>
+    </div>
+  </div>
+
+  <div class="category">
+    <div class="category-header">
+      <h2>IT</h2>
+      <!-- <span class="category-toggle"><i class="fas fa-plus"></i></span> -->
+    </div>
+    <div class="category-links">
+      <a href="http://www.3snews.net/" target="_blank">3S News</a>
+      <a href="http://www.gissky.net/" target="_blank">GIS空间站</a>
+      <a href="https://searchcode.com/" target="_blank">searchcode</a>
+      <a href="http://fayaa.com" target="_blank">发芽网</a>
+      <a href="https://code-maven.com/" target="_blank">CodeMaven</a>
+      <a href="http://www.codeproject.com/" target="_blank">Code Project</a>
+      <a href="http://www.pudn.com" target="_blank">程序员联合开发网</a>
+    </div>
+  </div>
+
+  <div class="category">
+    <div class="category-header">
+      <h2>财务</h2>
+      <span class="category-toggle"><i class="fas fa-plus"></i></span>
+    </div>
+    <div class="category-links">
+      <a href="https://ibsbjstar.ccb.com.cn/app/V5/CN/STY1/login.jsp" target="_blank">建设银行</a>
+      <a href="https://www.cib.com.cn/index.jsp" target="_blank">兴业银行</a>
+      <a href="http://www.bankcomm.com/BankCommSite/cn/index.html" target="_blank">交通银行</a>
+      <a href="https://pbsz.ebank.cmbchina.com/CmbBank_GenShell/UI/GenShellPC/Login/Login.aspx" target="_blank">招商银行</a>
+      <a href="https://mybank.icbc.com.cn/icbc/perbank/index.jsp" target="_blank">工商银行</a>
+    </div>
+  </div>
+
+  <div class="category">
+    <div class="category-header">
+      <h2>视听</h2>
+      <!-- <span class="category-toggle"><i class="fas fa-plus"></i></span> -->
+    </div>
+    <div class="category-links">
+      <a href="http://www.youtube.com/" target="_blank">YouTube</a>
+      <a href="http://www.youku.com/" target="_blank">优酷</a>
+      <a href="https://www.bilibili.com/" target="_blank">B站</a>
+      <a href="http://v.qq.com/" target="_blank">腾讯视频</a>
+      <a href="https://yixi.tv/#/home" target="_blank">一席</a>
+      <a href="https://www.mvcat.com/" target="_blank">电影推荐</a>
+      <a href="https://podcasts.google.com/" target="_blank">GGPodcasts</a>
+      <a href="https://getpodcast.xyz/" target="_blank">播客Feed</a>
+      <a href="https://podcastaddict.com/" target="_blank">Podcast Addict</a>
+      <a href="https://fm.douban.com/" target="_blank">豆瓣FM</a>
+      <a href="https://www.lizhi.fm/" target="_blank">荔枝FM</a>
+      <a href="https://blog.pod.link/" target="_blank">pod.link</a>
+      <a href="http://music.ifkdy.com/" target="_blank">音乐搜索</a>
+      <a href="http://www.51ape.com/" target="_blank">无损</a>
+      <a href="https://www.itingwa.com/" target="_blank">听蛙</a>
+      <a href="http://www.htqyy.com/" target="_blank">轻音乐</a>
+      <a href="http://guozhivip.com/qt/" target="_blank">倾听</a>
+    </div>
+  </div>
+
+  <!-- 添加更多的类别 -->
+</div>
+  <script>
+    // 动态展开/收起分类链接的函数
+    document.addEventListener('DOMContentLoaded', (event) => {
+      document.querySelectorAll('.category-header').forEach(toggle => {
+        toggle.addEventListener('mouseenter', () => {
+          const category = toggle.closest('.category');
+          const links = category.querySelector('.category-links');
+          
+          category.classList.add('open');
+          links.style.maxHeight = links.scrollHeight + "px";
+        });
+  
+        toggle.addEventListener('mouseleave', () => {
+          const category = toggle.closest('.category');
+          const links = category.querySelector('.category-links');
+          
+          category.classList.remove('open');
+          links.style.maxHeight = '30px'; // 适当调整以显示一行链接
+        });
+      });
+    });
+  </script>
+</body>
+</html>
