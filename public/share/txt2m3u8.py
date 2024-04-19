@@ -27,5 +27,5 @@ def text_to_m3u8_with_genres(input_file, output_file):
                 outfile.write(f"{media_url}\n")
                 
 input_file = 'DIYP-v4.txt'
-output_file = 'DIYP-v4.m3u8'
+output_file = 'IPTV.m3u'
 text_to_m3u8_with_genres(input_file, output_file)
