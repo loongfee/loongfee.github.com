@@ -1,0 +1,838 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+<title> Minimum-Rank Solutions via Nuclear Norm Minimization | 淡朴若水</title>
+<meta name="author" content="Loong">
+
+
+  <meta name="description " content="Minimum-Rank Solutions via Nuclear Norm Minimization">
+
+<link rel="shortcut icon" href="/public/img/earth.png" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="/public/css/bootstrap.css">
+<link rel="stylesheet" href="/public/css/font-awesome.css">
+<link rel="stylesheet" href="/public/css/highlight.css">
+<link rel="stylesheet" href="/public/js/prettify/prettify.css">
+<link rel="stylesheet" href="/public/css/base.css">
+<link href="/pages/atom.xml" rel="alternate" title="淡朴若水" type="application/atom+xml">
+<link rel="stylesheet" href="//unpkg.com/heti/umd/heti.min.css">
+
+
+<!-- MathJax for LaTeX (HTTPS) -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    TeX: { equationNumbers: { autoNumber: "AMS" } },
+    tex2jax: { inlineMath: [ ['$', '$'], ['$$$', '$$$'], ["\\(","\\)"] ], processEscapes: true }
+  });
+  MathJax.Hub.Config({ TeX: { extensions: ["autobold.js"] }});
+  </script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<script src="//unpkg.com/heti/umd/heti-addon.min.js"></script>
+<script>
+  const heti = new Heti('.heti');
+  heti.autoSpacing(); // 自动进行中西文混排美化和标点挤压
+  </script>
+
+</head>
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3 col-lg-3 col-sm-13 col-xs-13 aside visible-md visible-lg">
+  <div class="row">
+    <div class="col-md-2 col-xs-2 aside1">
+      <br>
+      <a class="pjaxlink" href="/"><img src="/public/img/satellite.png" class="img-ronuded avatar" style="border-width:0px; border-color:#000"></a>
+      <br><br><br><br>
+      <ul class="nav nav-pills nav-stacked">
+             <!-- 这里是aside1的读书、生活、科研、技术、绘画-->
+         <li><a href="#技术" data-toggle="tab">技术</a></li>
+             <!-- 这里是aside1的读书、生活、科研、技术、绘画-->
+         <li><a href="#码农" data-toggle="tab">码农</a></li>
+             <!-- 这里是aside1的读书、生活、科研、技术、绘画-->
+         <li><a href="#软件" data-toggle="tab">软件</a></li>
+             <!-- 这里是aside1的读书、生活、科研、技术、绘画-->
+         <li><a href="#科研" data-toggle="tab">科研</a></li>
+             <!-- 这里是aside1的读书、生活、科研、技术、绘画-->
+         <li><a href="#读书" data-toggle="tab">读书</a></li>
+          
+        <li><a href="#tags" data-toggle="tab">标签</a></li>  
+        <li><a class="pjaxlink" href="/favorite/index.html">收藏</a></li>
+        <li><a class="pjaxlink" href="/pages/archive.html">归档</a></li>
+        <li><a class="pjaxlink" href="/pages/about.html">关于</a></li>  
+        <!-- <li><a href="#tags" data-toggle="tab"><i class="fa fa-tags fa-lg"></i></a></li>
+        <li><a class="pjaxlink" href="/pages/archive.html"><i class="fa fa-archive fa-lg"></i></a></li>
+        <li><a class="pjaxlink" href="/pages/about.html"><i class="fa fa-user fa-lg"></i></a></li>
+        这是原来现实汉字的代码，我改为了图标 -->
+      </ul>
+      <div class="aside1_bottom">
+        <table class="table table-condensed">
+          <tr>
+            <td><a href="/pages/atom.xml" target="_blank"><i class="fa fa-rss fa-lg" style="color:#000;"></i></a></td>
+            <td><a href="mailto:loongfee@gmail.com"><i class="fa fa-envelope-o fa-lg" style="color:#fff;"></i></a></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="col-md-10 col-xs-10 aside2">
+      <div class="row">
+        <div class="tab-content"> 
+           
+            <div class="tab-pane" id="技术">
+              <div class="list-group">
+                <!--<h2 class="center">技术</h2>-->     <!--原来aside2上面的大标题-->
+                
+                  <a href="/blog/2015/09/18/gdalwarp" class="list-group-item">使用gdalwarp进行栅格影像裁剪</a>
+                
+                  <a href="/blog/2014/03/28/windows-mpich2" class="list-group-item"> 在windows下使用MPICH2进行集群并行计算</a>
+                
+                  <a href="/blog/2013/08/03/Github-page-build-failure" class="list-group-item">利用本地编译结果替代Github Page自动生成网站</a>
+                
+                  <a href="/blog/2013/08/02/new-post" class="list-group-item">让Jekyll将Pandoc作为Markdown的渲染器</a>
+                
+                  <a href="/blog/2013/07/31/pandoc" class="list-group-item">利用Pandoc将markdown文件转化为pdf</a>
+                
+                  <a href="/blog/2013/07/31/github" class="list-group-item">使用GitHub管理你的工程</a>
+                
+              </div>
+            </div>
+           
+            <div class="tab-pane" id="码农">
+              <div class="list-group">
+                <!--<h2 class="center">码农</h2>-->     <!--原来aside2上面的大标题-->
+                
+                  <a href="/blog/2013/07/31/jekyll" class="list-group-item">Your Title</a>
+                
+              </div>
+            </div>
+           
+            <div class="tab-pane" id="软件">
+              <div class="list-group">
+                <!--<h2 class="center">软件</h2>-->     <!--原来aside2上面的大标题-->
+                
+                  <a href="/blog/2013/08/06/notepad-replace-notepad" class="list-group-item">用Notepad++替换系统记事本</a>
+                
+                  <a href="/blog/2013/08/05/feedly" class="list-group-item">Feedly 快捷键</a>
+                
+              </div>
+            </div>
+           
+            <div class="tab-pane" id="科研">
+              <div class="list-group">
+                <!--<h2 class="center">科研</h2>-->     <!--原来aside2上面的大标题-->
+                
+                  <a href="/blog/2013/12/20/Minimum-Rank-Solutions" class="list-group-item"> Minimum-Rank Solutions via Nuclear Norm Minimization</a>
+                
+                  <a href="/blog/2013/10/22/Compressive-Sensing" class="list-group-item"> 压缩感知初探</a>
+                
+                  <a href="/blog/2013/08/12/a-contrario-starting" class="list-group-item"> A Contrario：一种基于概率统计的无参数决策模型</a>
+                
+              </div>
+            </div>
+           
+            <div class="tab-pane" id="读书">
+              <div class="list-group">
+                <!--<h2 class="center">读书</h2>-->     <!--原来aside2上面的大标题-->
+                
+                  <a href="/blog/2015/01/29/Book-List-2015" class="list-group-item">2015年阅读书单</a>
+                
+              </div>
+            </div>
+                
+          <div class="tab-pane" id="tags">
+            <div class="panel-group" id="accordion">
+              <!--<h2 class="center">标签</h2>-->
+               
+                <div class="panel panel-info">
+                  <div class="panel-heading">
+                    <h4 class="panel-title">
+                      <a data-toggle="collapse" data-toggle="collapse" data-parent="#accordion" href="#Github">Github</a>
+                      <span class="badge pull-right">2</span>
+                    </h4>
+                  </div>
+                  <div id="Github" class="panel-collapse collapse">
+                    
+                      <a  href='/blog/2013/08/03/Github-page-build-failure' class="list-group-item">
+                        利用本地编译结果替代Github Page自动生成网站
+                      </a>
+                    
+                      <a  href='/blog/2013/07/31/github' class="list-group-item">
+                        使用GitHub管理你的工程
+                      </a>
+                    
+                  </div>
+                </div>
+               
+                <div class="panel panel-info">
+                  <div class="panel-heading">
+                    <h4 class="panel-title">
+                      <a data-toggle="collapse" data-toggle="collapse" data-parent="#accordion" href="#pandoc">pandoc</a>
+                      <span class="badge pull-right">1</span>
+                    </h4>
+                  </div>
+                  <div id="pandoc" class="panel-collapse collapse">
+                    
+                      <a  href='/blog/2013/07/31/pandoc' class="list-group-item">
+                        利用Pandoc将markdown文件转化为pdf
+                      </a>
+                    
+                  </div>
+                </div>
+               
+                <div class="panel panel-info">
+                  <div class="panel-heading">
+                    <h4 class="panel-title">
+                      <a data-toggle="collapse" data-toggle="collapse" data-parent="#accordion" href="#Latex">Latex</a>
+                      <span class="badge pull-right">2</span>
+                    </h4>
+                  </div>
+                  <div id="Latex" class="panel-collapse collapse">
+                    
+                      <a  href='/blog/2013/08/02/new-post' class="list-group-item">
+                        让Jekyll将Pandoc作为Markdown的渲染器
+                      </a>
+                    
+                      <a  href='/blog/2013/07/31/pandoc' class="list-group-item">
+                        利用Pandoc将markdown文件转化为pdf
+                      </a>
+                    
+                  </div>
+                </div>
+               
+                <div class="panel panel-info">
+                  <div class="panel-heading">
+                    <h4 class="panel-title">
+                      <a data-toggle="collapse" data-toggle="collapse" data-parent="#accordion" href="#pdf">pdf</a>
+                      <span class="badge pull-right">1</span>
+                    </h4>
+                  </div>
+                  <div id="pdf" class="panel-collapse collapse">
+                    
+                      <a  href='/blog/2013/07/31/pandoc' class="list-group-item">
+                        利用Pandoc将markdown文件转化为pdf
+                      </a>
+                    
+                  </div>
+                </div>
+               
+                <div class="panel panel-info">
+                  <div class="panel-heading">
+                    <h4 class="panel-title">
+                      <a data-toggle="collapse" data-toggle="collapse" data-parent="#accordion" href="#Markdown">Markdown</a>
+                      <span class="badge pull-right">2</span>
+                    </h4>
+                  </div>
+                  <div id="Markdown" class="panel-collapse collapse">
+                    
+                      <a  href='/blog/2013/08/02/new-post' class="list-group-item">
+                        让Jekyll将Pandoc作为Markdown的渲染器
+                      </a>
+                    
+                      <a  href='/blog/2013/07/31/pandoc' class="list-group-item">
+                        利用Pandoc将markdown文件转化为pdf
+                      </a>
+                    
+                  </div>
+                </div>
+               
+                <div class="panel panel-info">
+                  <div class="panel-heading">
+                    <h4 class="panel-title">
+                      <a data-toggle="collapse" data-toggle="collapse" data-parent="#accordion" href="#Jekyll">Jekyll</a>
+                      <span class="badge pull-right">2</span>
+                    </h4>
+                  </div>
+                  <div id="Jekyll" class="panel-collapse collapse">
+                    
+                      <a  href='/blog/2013/08/03/Github-page-build-failure' class="list-group-item">
+                        利用本地编译结果替代Github Page自动生成网站
+                      </a>
+                    
+                      <a  href='/blog/2013/08/02/new-post' class="list-group-item">
+                        让Jekyll将Pandoc作为Markdown的渲染器
+                      </a>
+                    
+                  </div>
+                </div>
+               
+                <div class="panel panel-info">
+                  <div class="panel-heading">
+                    <h4 class="panel-title">
+                      <a data-toggle="collapse" data-toggle="collapse" data-parent="#accordion" href="#Pandoc">Pandoc</a>
+                      <span class="badge pull-right">1</span>
+                    </h4>
+                  </div>
+                  <div id="Pandoc" class="panel-collapse collapse">
+                    
+                      <a  href='/blog/2013/08/02/new-post' class="list-group-item">
+                        让Jekyll将Pandoc作为Markdown的渲染器
+                      </a>
+                    
+                  </div>
+                </div>
+               
+                <div class="panel panel-info">
+                  <div class="panel-heading">
+                    <h4 class="panel-title">
+                      <a data-toggle="collapse" data-toggle="collapse" data-parent="#accordion" href="#Plugins">Plugins</a>
+                      <span class="badge pull-right">1</span>
+                    </h4>
+                  </div>
+                  <div id="Plugins" class="panel-collapse collapse">
+                    
+                      <a  href='/blog/2013/08/03/Github-page-build-failure' class="list-group-item">
+                        利用本地编译结果替代Github Page自动生成网站
+                      </a>
+                    
+                  </div>
+                </div>
+               
+                <div class="panel panel-info">
+                  <div class="panel-heading">
+                    <h4 class="panel-title">
+                      <a data-toggle="collapse" data-toggle="collapse" data-parent="#accordion" href="#RSS">RSS</a>
+                      <span class="badge pull-right">1</span>
+                    </h4>
+                  </div>
+                  <div id="RSS" class="panel-collapse collapse">
+                    
+                      <a  href='/blog/2013/08/05/feedly' class="list-group-item">
+                        Feedly 快捷键
+                      </a>
+                    
+                  </div>
+                </div>
+               
+                <div class="panel panel-info">
+                  <div class="panel-heading">
+                    <h4 class="panel-title">
+                      <a data-toggle="collapse" data-toggle="collapse" data-parent="#accordion" href="#Feedly">Feedly</a>
+                      <span class="badge pull-right">1</span>
+                    </h4>
+                  </div>
+                  <div id="Feedly" class="panel-collapse collapse">
+                    
+                      <a  href='/blog/2013/08/05/feedly' class="list-group-item">
+                        Feedly 快捷键
+                      </a>
+                    
+                  </div>
+                </div>
+               
+                <div class="panel panel-info">
+                  <div class="panel-heading">
+                    <h4 class="panel-title">
+                      <a data-toggle="collapse" data-toggle="collapse" data-parent="#accordion" href="#快捷键">快捷键</a>
+                      <span class="badge pull-right">1</span>
+                    </h4>
+                  </div>
+                  <div id="快捷键" class="panel-collapse collapse">
+                    
+                      <a  href='/blog/2013/08/05/feedly' class="list-group-item">
+                        Feedly 快捷键
+                      </a>
+                    
+                  </div>
+                </div>
+               
+                <div class="panel panel-info">
+                  <div class="panel-heading">
+                    <h4 class="panel-title">
+                      <a data-toggle="collapse" data-toggle="collapse" data-parent="#accordion" href="#Google Reader">Google Reader</a>
+                      <span class="badge pull-right">1</span>
+                    </h4>
+                  </div>
+                  <div id="Google Reader" class="panel-collapse collapse">
+                    
+                      <a  href='/blog/2013/08/05/feedly' class="list-group-item">
+                        Feedly 快捷键
+                      </a>
+                    
+                  </div>
+                </div>
+               
+                <div class="panel panel-info">
+                  <div class="panel-heading">
+                    <h4 class="panel-title">
+                      <a data-toggle="collapse" data-toggle="collapse" data-parent="#accordion" href="#Notepad++">Notepad++</a>
+                      <span class="badge pull-right">1</span>
+                    </h4>
+                  </div>
+                  <div id="Notepad++" class="panel-collapse collapse">
+                    
+                      <a  href='/blog/2013/08/06/notepad-replace-notepad' class="list-group-item">
+                        用Notepad++替换系统记事本
+                      </a>
+                    
+                  </div>
+                </div>
+               
+                <div class="panel panel-info">
+                  <div class="panel-heading">
+                    <h4 class="panel-title">
+                      <a data-toggle="collapse" data-toggle="collapse" data-parent="#accordion" href="#记事本">记事本</a>
+                      <span class="badge pull-right">1</span>
+                    </h4>
+                  </div>
+                  <div id="记事本" class="panel-collapse collapse">
+                    
+                      <a  href='/blog/2013/08/06/notepad-replace-notepad' class="list-group-item">
+                        用Notepad++替换系统记事本
+                      </a>
+                    
+                  </div>
+                </div>
+               
+                <div class="panel panel-info">
+                  <div class="panel-heading">
+                    <h4 class="panel-title">
+                      <a data-toggle="collapse" data-toggle="collapse" data-parent="#accordion" href="#AutoHotkey">AutoHotkey</a>
+                      <span class="badge pull-right">1</span>
+                    </h4>
+                  </div>
+                  <div id="AutoHotkey" class="panel-collapse collapse">
+                    
+                      <a  href='/blog/2013/08/06/notepad-replace-notepad' class="list-group-item">
+                        用Notepad++替换系统记事本
+                      </a>
+                    
+                  </div>
+                </div>
+               
+                <div class="panel panel-info">
+                  <div class="panel-heading">
+                    <h4 class="panel-title">
+                      <a data-toggle="collapse" data-toggle="collapse" data-parent="#accordion" href="#映像劫持">映像劫持</a>
+                      <span class="badge pull-right">1</span>
+                    </h4>
+                  </div>
+                  <div id="映像劫持" class="panel-collapse collapse">
+                    
+                      <a  href='/blog/2013/08/06/notepad-replace-notepad' class="list-group-item">
+                        用Notepad++替换系统记事本
+                      </a>
+                    
+                  </div>
+                </div>
+               
+                <div class="panel panel-info">
+                  <div class="panel-heading">
+                    <h4 class="panel-title">
+                      <a data-toggle="collapse" data-toggle="collapse" data-parent="#accordion" href="#Contrario">Contrario</a>
+                      <span class="badge pull-right">1</span>
+                    </h4>
+                  </div>
+                  <div id="Contrario" class="panel-collapse collapse">
+                    
+                      <a  href='/blog/2013/08/12/a-contrario-starting' class="list-group-item">
+                         A Contrario：一种基于概率统计的无参数决策模型
+                      </a>
+                    
+                  </div>
+                </div>
+               
+                <div class="panel panel-info">
+                  <div class="panel-heading">
+                    <h4 class="panel-title">
+                      <a data-toggle="collapse" data-toggle="collapse" data-parent="#accordion" href="#Math">Math</a>
+                      <span class="badge pull-right">3</span>
+                    </h4>
+                  </div>
+                  <div id="Math" class="panel-collapse collapse">
+                    
+                      <a  href='/blog/2013/12/20/Minimum-Rank-Solutions' class="list-group-item">
+                         Minimum-Rank Solutions via Nuclear Norm Minimization
+                      </a>
+                    
+                      <a  href='/blog/2013/10/22/Compressive-Sensing' class="list-group-item">
+                         压缩感知初探
+                      </a>
+                    
+                      <a  href='/blog/2013/08/12/a-contrario-starting' class="list-group-item">
+                         A Contrario：一种基于概率统计的无参数决策模型
+                      </a>
+                    
+                  </div>
+                </div>
+               
+                <div class="panel panel-info">
+                  <div class="panel-heading">
+                    <h4 class="panel-title">
+                      <a data-toggle="collapse" data-toggle="collapse" data-parent="#accordion" href="#Helmholtz">Helmholtz</a>
+                      <span class="badge pull-right">1</span>
+                    </h4>
+                  </div>
+                  <div id="Helmholtz" class="panel-collapse collapse">
+                    
+                      <a  href='/blog/2013/08/12/a-contrario-starting' class="list-group-item">
+                         A Contrario：一种基于概率统计的无参数决策模型
+                      </a>
+                    
+                  </div>
+                </div>
+               
+                <div class="panel panel-info">
+                  <div class="panel-heading">
+                    <h4 class="panel-title">
+                      <a data-toggle="collapse" data-toggle="collapse" data-parent="#accordion" href="#Gestalt Theory">Gestalt Theory</a>
+                      <span class="badge pull-right">1</span>
+                    </h4>
+                  </div>
+                  <div id="Gestalt Theory" class="panel-collapse collapse">
+                    
+                      <a  href='/blog/2013/08/12/a-contrario-starting' class="list-group-item">
+                         A Contrario：一种基于概率统计的无参数决策模型
+                      </a>
+                    
+                  </div>
+                </div>
+               
+                <div class="panel panel-info">
+                  <div class="panel-heading">
+                    <h4 class="panel-title">
+                      <a data-toggle="collapse" data-toggle="collapse" data-parent="#accordion" href="#Computer Vision">Computer Vision</a>
+                      <span class="badge pull-right">3</span>
+                    </h4>
+                  </div>
+                  <div id="Computer Vision" class="panel-collapse collapse">
+                    
+                      <a  href='/blog/2013/12/20/Minimum-Rank-Solutions' class="list-group-item">
+                         Minimum-Rank Solutions via Nuclear Norm Minimization
+                      </a>
+                    
+                      <a  href='/blog/2013/10/22/Compressive-Sensing' class="list-group-item">
+                         压缩感知初探
+                      </a>
+                    
+                      <a  href='/blog/2013/08/12/a-contrario-starting' class="list-group-item">
+                         A Contrario：一种基于概率统计的无参数决策模型
+                      </a>
+                    
+                  </div>
+                </div>
+               
+                <div class="panel panel-info">
+                  <div class="panel-heading">
+                    <h4 class="panel-title">
+                      <a data-toggle="collapse" data-toggle="collapse" data-parent="#accordion" href="#Compressive Sensing">Compressive Sensing</a>
+                      <span class="badge pull-right">2</span>
+                    </h4>
+                  </div>
+                  <div id="Compressive Sensing" class="panel-collapse collapse">
+                    
+                      <a  href='/blog/2013/12/20/Minimum-Rank-Solutions' class="list-group-item">
+                         Minimum-Rank Solutions via Nuclear Norm Minimization
+                      </a>
+                    
+                      <a  href='/blog/2013/10/22/Compressive-Sensing' class="list-group-item">
+                         压缩感知初探
+                      </a>
+                    
+                  </div>
+                </div>
+               
+                <div class="panel panel-info">
+                  <div class="panel-heading">
+                    <h4 class="panel-title">
+                      <a data-toggle="collapse" data-toggle="collapse" data-parent="#accordion" href="#Nuclear Norm">Nuclear Norm</a>
+                      <span class="badge pull-right">1</span>
+                    </h4>
+                  </div>
+                  <div id="Nuclear Norm" class="panel-collapse collapse">
+                    
+                      <a  href='/blog/2013/12/20/Minimum-Rank-Solutions' class="list-group-item">
+                         Minimum-Rank Solutions via Nuclear Norm Minimization
+                      </a>
+                    
+                  </div>
+                </div>
+               
+                <div class="panel panel-info">
+                  <div class="panel-heading">
+                    <h4 class="panel-title">
+                      <a data-toggle="collapse" data-toggle="collapse" data-parent="#accordion" href="#Optimization">Optimization</a>
+                      <span class="badge pull-right">1</span>
+                    </h4>
+                  </div>
+                  <div id="Optimization" class="panel-collapse collapse">
+                    
+                      <a  href='/blog/2013/12/20/Minimum-Rank-Solutions' class="list-group-item">
+                         Minimum-Rank Solutions via Nuclear Norm Minimization
+                      </a>
+                    
+                  </div>
+                </div>
+               
+                <div class="panel panel-info">
+                  <div class="panel-heading">
+                    <h4 class="panel-title">
+                      <a data-toggle="collapse" data-toggle="collapse" data-parent="#accordion" href="#Minimum-Rank">Minimum-Rank</a>
+                      <span class="badge pull-right">1</span>
+                    </h4>
+                  </div>
+                  <div id="Minimum-Rank" class="panel-collapse collapse">
+                    
+                      <a  href='/blog/2013/12/20/Minimum-Rank-Solutions' class="list-group-item">
+                         Minimum-Rank Solutions via Nuclear Norm Minimization
+                      </a>
+                    
+                  </div>
+                </div>
+               
+                <div class="panel panel-info">
+                  <div class="panel-heading">
+                    <h4 class="panel-title">
+                      <a data-toggle="collapse" data-toggle="collapse" data-parent="#accordion" href="#集群">集群</a>
+                      <span class="badge pull-right">1</span>
+                    </h4>
+                  </div>
+                  <div id="集群" class="panel-collapse collapse">
+                    
+                      <a  href='/blog/2014/03/28/windows-mpich2' class="list-group-item">
+                         在windows下使用MPICH2进行集群并行计算
+                      </a>
+                    
+                  </div>
+                </div>
+               
+                <div class="panel panel-info">
+                  <div class="panel-heading">
+                    <h4 class="panel-title">
+                      <a data-toggle="collapse" data-toggle="collapse" data-parent="#accordion" href="#并行">并行</a>
+                      <span class="badge pull-right">1</span>
+                    </h4>
+                  </div>
+                  <div id="并行" class="panel-collapse collapse">
+                    
+                      <a  href='/blog/2014/03/28/windows-mpich2' class="list-group-item">
+                         在windows下使用MPICH2进行集群并行计算
+                      </a>
+                    
+                  </div>
+                </div>
+               
+                <div class="panel panel-info">
+                  <div class="panel-heading">
+                    <h4 class="panel-title">
+                      <a data-toggle="collapse" data-toggle="collapse" data-parent="#accordion" href="#MPICH2">MPICH2</a>
+                      <span class="badge pull-right">1</span>
+                    </h4>
+                  </div>
+                  <div id="MPICH2" class="panel-collapse collapse">
+                    
+                      <a  href='/blog/2014/03/28/windows-mpich2' class="list-group-item">
+                         在windows下使用MPICH2进行集群并行计算
+                      </a>
+                    
+                  </div>
+                </div>
+               
+                <div class="panel panel-info">
+                  <div class="panel-heading">
+                    <h4 class="panel-title">
+                      <a data-toggle="collapse" data-toggle="collapse" data-parent="#accordion" href="#MPI">MPI</a>
+                      <span class="badge pull-right">1</span>
+                    </h4>
+                  </div>
+                  <div id="MPI" class="panel-collapse collapse">
+                    
+                      <a  href='/blog/2014/03/28/windows-mpich2' class="list-group-item">
+                         在windows下使用MPICH2进行集群并行计算
+                      </a>
+                    
+                  </div>
+                </div>
+               
+                <div class="panel panel-info">
+                  <div class="panel-heading">
+                    <h4 class="panel-title">
+                      <a data-toggle="collapse" data-toggle="collapse" data-parent="#accordion" href="#windows">windows</a>
+                      <span class="badge pull-right">1</span>
+                    </h4>
+                  </div>
+                  <div id="windows" class="panel-collapse collapse">
+                    
+                      <a  href='/blog/2014/03/28/windows-mpich2' class="list-group-item">
+                         在windows下使用MPICH2进行集群并行计算
+                      </a>
+                    
+                  </div>
+                </div>
+               
+                <div class="panel panel-info">
+                  <div class="panel-heading">
+                    <h4 class="panel-title">
+                      <a data-toggle="collapse" data-toggle="collapse" data-parent="#accordion" href="#GDAL">GDAL</a>
+                      <span class="badge pull-right">1</span>
+                    </h4>
+                  </div>
+                  <div id="GDAL" class="panel-collapse collapse">
+                    
+                      <a  href='/blog/2015/09/18/gdalwarp' class="list-group-item">
+                        使用gdalwarp进行栅格影像裁剪
+                      </a>
+                    
+                  </div>
+                </div>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      <div class="col-md-13 col-lg-13 col-sm-13 col-xs-13 aside3">
+        <div id="container">
+          <div id="pjax">
+            <div class="row">
+  <div class="col-md-13 aside3-title">
+    <br>
+    <div id="identifier"> Minimum-Rank Solutions via Nuclear Norm Minimization</div>
+    <div id="identifier-date">2013年12月20日</div>
+  </div>
+  <div class="col-md-13 aside3-content">
+    <hr>
+    <div id="content">
+      <h2 id="section">1. 几种范数</h2>
+<p>矩阵 $X \in \mathbb{R}^{m \times n}$，$\sigma_i(X)$ 表示 $X$ 的第 $i$ 大奇异值（即 $XX’$ 的第 $i$ 大特征值的均方根）{cite recht2010guaranteed}。$r$ 表示矩阵 $X$ 的秩（Rank），也等于 $X$ 非零奇异值的个数。对维度相同的两个矩阵 $X$ 和 $Y$，我们定义在 $\mathbb{R}^{m \times n}$上的内积为</p>
+
+<p>\begin{equation}\label{eq:inner}
+\langle X,Y \rangle := Tr(X’Y) = \sum_{i=1}^m \sum_{j=1}^n X_{ij}Y_{ij}
+\end{equation}</p>
+
+<h3 id="frobenius">1. Frobenius范数</h3>
+<p>矩阵的Frobenius范数又称Hilbert-Schmidt范数，用 $\lVert\cdot\rVert_F$ 表示。
+Frobenius范数也等于奇异值向量的Euclidean范数（或称 $\ell_2$ 范数），基于内积\eqref{eq:inner}来计算，即</p>
+
+<p>\begin{equation}\label{eq:Frobenius}
+\lVert X \rVert_F := \sqrt{\langle X,X \rangle} = \sqrt{Tr(X’X)} = \left( \sum_{i=1}^m \sum_{j=1}^n X_{ij}^2 \right)^\frac{1}{2} =  \left( \sum_{i=1}^r {\sigma_i}^2 \right)^\frac{1}{2}
+\end{equation}</p>
+
+<h3 id="section-1">2. 算子范数</h3>
+<p>矩阵的算子范数（operator norm）也称诱导2范数（ induced 2-norm），等于最大奇异值（也就是奇异值向量的 $\ell_{\infty}$ 范数），即</p>
+
+<p>\begin{equation}\label{eq:Operator}
+\lVert X \rVert\ := \sigma_1(X)
+\end{equation}</p>
+
+<h3 id="section-2">3. 核范数</h3>
+<p>矩阵的核范数（nuclear norm）等于矩阵奇异值的和，即</p>
+
+<p>\begin{equation}\label{eq:Nuclear}
+\lVert X \rVert _* := \sum_{i=1}^r \sigma_i(X)
+\end{equation}</p>
+
+<p>核范数通常被称为其他一些名字，如Schatten的 1-norm，Ky Fan的 r-norm，或迹范数（trace class norm）。由于奇异值均非负，核范数等于奇异值向量的 $\ell_1$ 范数。</p>
+
+<p>对于任意秩不超过 $r$ 的矩阵 $X$，以上三种范数满足以下不等式条件</p>
+
+<p>\begin{equation}\label{eq:norm-inequ}
+\lVert X \rVert  \le \lVert X \rVert _F \le \lVert X \rVert _* \le \sqrt{r} \lVert X \rVert_F \le r\lVert X \rVert
+\end{equation}</p>
+
+<h2 id="section-3">2. 对偶矩阵</h2>
+<p>对于内积空间上的任意范数$\lVert  \cdot \rVert$，存在一个对偶范数（dual norm） $\lVert  \cdot \rVert _d$，其定义如下：</p>
+
+<p>\begin{equation}\label{eq:dual-norm}
+\lVert X \rVert _d := \max _{Y} { \langle X,Y \rangle : \lVert Y \rVert \le q }
+\end{equation}</p>
+
+<p>特别地，对偶范数的对偶范数为原范数。</p>
+
+<p>对于 $\mathbb{R}^n$ 上的向量，$\ell_p$ 范数 $1 &lt; p &lt; \infty$ 的对偶范数为 $\ell_q$ 范数，$p,q$ 满足 $ \frac{1}{p} + \frac{1}{q} = 1$。类似地，$\ell_\infty$ 的对偶范数为 $\ell_1$。同样，我们可以推广到我们定义的矩阵范数。例如，Frobenius范数的对偶范数还是Frobenius范数，这可以简单的微积分（或Cauchy-Schwarz）来验证，因为</p>
+
+<p>\begin{equation}\label{eq:Frobenius-verify}
+\max _{Y} { Tr(X’Y) : Tr(Y’Y) \le 1}
+\end{equation}</p>
+
+<p>就等于 $\lVert  X\rVert_F$，且当 $Y = X / \lVert X \rVert_F$时取得最大值。类似地，算子范数的对偶范数是核范数（后面会具体说明）。</p>
+
+<h2 id="section-4">3. 秩和势函数的凸包络</h2>
+<p><strong>凸包络（Convex envelope）</strong>的定义：给定一个凸集 $\mathcal{C}$，一个函数（可以为非凸的）$f : \mathcal{C} \rightarrow \mathbb{R} $ 的凸包络为使得对所有 $x \in \mathcal{C}$ 均有 $g(x) \le f(x)$ 的最大凸函数 $g$ 。凸包络的定义表明，在所有的凸函数中，$g$ 是对 $f$ 最佳的逐点近似。特别的，如果最优的 $g$ 可以方便的描述出来，函数 $f$ 近似的最小值可以高效地求得。</p>
+
+<p>由链式不等式 \eqref{eq:norm-inequ}可以得到 对所有 $X$ 有 $rank(X) \ge \lVert X \rVert_* / \lVert X \rVert$。对所有 $\lVert X \rVert \le 1$，均有 $rank(X) \ge \lVert X \rVert_*$，因此在算子范数定义的单位球内，核范数是秩函数的较小的凸边界。事实上核范数也是其最紧致的凸边界，即：在集合 ${ X \in \mathbb{R}^{m \times n} : \lVert X \rVert \le 1 }$ 上，核范数 $\lVert X \rVert_*$ 是秩函数 $rank(X)$ 的凸包络。</p>
+
+<p>\begin{equation}
+card(x) \ge |x|_1/|x|_{\infty}
+\end{equation}</p>
+
+<h2 id="section-5">4. 秩的可加性</h2>
+<p><strong>次可加性（subadditivity）</strong>：如果从一个线性空间 $\mathcal{S}$ 映射到 $\mathbb{R}$ 的函数 $f$ 满足 $f(x+y) \le f(x) + f(y)$。</p>
+
+<p><strong>可加性（additivity）</strong>：如果从一个线性空间 $\mathcal{S}$ 映射到 $\mathbb{R}$ 的函数 $f$ 满足 $f(x+y) = f(x) + f(y)$。</p>
+
+<p>对于向量来说，势函数和 $\ell_1$ 范数均满足次可加性。</p>
+
+<p>{bibliography –file nuclear.bib –cited}</p>
+
+    </div>
+    <hr>
+    <div id="disqus_thread">
+  <button type="button" name="loongfee" class="btn btn-default show-commend">	
+  	<i class="fa fa-comment-o fa-lg" style="color: #16a095;"></i>     <!-- 修改显示评论按钮图标-->
+  </button>
+</div>
+
+      <div id="footer">
+      <p class="tac">『上善若水，水善利万物而不争』 </p>
+			&copy;2015 <a href="/">Loong</a>  版权所有 <span class="c9">|</span> 欢迎转载，请注明出处并保留原文链接
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Powered by <a href="https://github.com/mojombo/jekyll" target="_blank">Jekyll</a>
+  </div>
+
+
+  </div>
+  
+  <!-- 目录 -->
+  <div id="content_table" style="position:fixed;right:20px;top:120px;display:none;">
+    <div class="panel panel-success">
+      <div class="panel-body" id="nav"></div>
+    </div>
+  </div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div style="position:fixed;right:15px;top:62px;">
+  <button id="content_btn" class="btn btn-primary" style="width:43px; height:34px;">
+    <i class="fa fa-lg fa-plus"></i>
+  </button>
+</div>
+<div style="position:fixed;right:15px;top:20px;">
+  <button id="nav_btn" class="btn btn-primary">
+    <i class="fa fa-lg fa-navicon"></i>
+  </button>
+</div>
+<script type="text/javascript" src="/public/js/jquery.js"></script>
+<script src="/public/js/toc.js"></script>
+<script type="text/javascript" src="/public/js/bootstrap.js"></script>
+<script src="/public/js/base.js"></script>
+<script>    
+    $('#content_table').toc({
+      showAlways:true,
+      showText:'Expand TOC',
+      saveShowStatus:false
+    });
+    $('#content_table').hide();
+    //$('a[href="#读书"]').tab('show');
+</script>
+
+
+<!--button是右上方导航和显示目录的按钮-->
+
+
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-42985048-1', 'http://loongfee.github.io');
+  ga('send', 'pageview');
+</script>
+</body>
+</html>
