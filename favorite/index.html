@@ -5,19 +5,37 @@ titlename: 收藏夹
 description: ""
 ---
 
-<div id="favorite">
+<div id="favorite" class="favorite-page heti">
+  <header class="fav-hero">
+    <h1 class="fav-heading">收藏夹</h1>
+    <p class="fav-subtitle">常用站点，一处直达</p>
+    <div class="fav-toolbar" role="search">
+      <input id="fav-search" class="fav-search" type="search" placeholder="搜索分类或链接…" aria-label="搜索收藏">
+      <div class="fav-actions">
+        <button class="btn btn-light btn-sm" data-action="expand" type="button">展开全部</button>
+        <button class="btn btn-light btn-sm" data-action="collapse" type="button">收起全部</button>
+      </div>
+    </div>
+    <nav class="fav-chips" aria-label="快速跳转">
+      {% for cat in site.data.favorites %}
+        <a href="#fav-{{ cat.title | slugify }}" class="chip">{{ cat.title }}</a>
+      {% endfor %}
+    </nav>
+  </header>
+
   <div class="favorites-grid">
     {% for cat in site.data.favorites %}
-      <section class="fav-card">
-        <h2 class="fav-title">{{ cat.title }}</h2>
+      <details class="fav-card" id="fav-{{ cat.title | slugify }}" {% if forloop.index0 < 3 %}open{% endif %}>
+        <summary class="fav-title">{{ cat.title }}</summary>
         <ul class="fav-links">
           {% for link in cat.links %}
-            <li>
-              <a href="{{ link.url }}" target="_blank" rel="noopener noreferrer">{{ link.title }}</a>
-            </li>
+            <li><a href="{{ link.url }}" target="_blank" rel="noopener noreferrer">{{ link.title }}</a></li>
           {% endfor %}
         </ul>
-      </section>
+      </details>
     {% endfor %}
   </div>
+  <p class="fav-empty" hidden>未找到匹配结果</p>
 </div>
+
+<script src="/public/js/favorite.js"></script>
