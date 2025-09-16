@@ -60,13 +60,18 @@ $(document).ready(function() {
 
   });
 
-  $(document).pjax('.pjaxlink', '#pjax', { fragment: "#pjax", timeout: 10000 });
-  $(document).on("pjax:end", function() {
-    if($("body").find('.container').width() < 992)
-      $('#nav_btn').click();
-    $('.aside3').scrollTop(0);
-    contentEffects();
-  });
+  // PJAX (optional): only initialize if plugin available
+  if ($.pjax || ($.fn && $.fn.pjax)) {
+    try {
+      $(document).pjax('.pjaxlink', '#pjax', { fragment: "#pjax", timeout: 10000 });
+      $(document).on("pjax:end", function() {
+        if($("body").find('.container').width() < 992)
+          $('#nav_btn').click();
+        $('.aside3').scrollTop(0);
+        contentEffects();
+      });
+    } catch (e) { /* no-op */ }
+  }
   $('body').on('click', '.show-commend', function(){
     var ds_loaded = false;
     window.disqus_shortname = $('.show-commend').attr('name');
