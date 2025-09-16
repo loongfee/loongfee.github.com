@@ -1,16 +1,31 @@
 @echo off
-SET PortableJekyll=Z:\longtf\opensource\PortableJekyll
-@set http_proxy=http://192.168.66.105:7890
-@set https_proxy=http://192.168.66.105:7890
-SET PATH=%PortableJekyll%\ruby\bin;%PortableJekyll%\devkit\bin;%PortableJekyll%\git\bin;%PortableJekyll%\Python\App;%PortableJekyll%\Python\App\Scripts;%PortableJekyll%\devkit\mingw\bin;%PortableJekyll%\curl\bin;%PATH%;
+setlocal
 
-set SSL_CERT_FILE=%PortableJekyll%\curl\bin\cacert.pem
+REM Keep this script self-contained to avoid 8191-char PATH overflows.
+SET "PortableJekyll=Z:\longtf\opensource\PortableJekyll"
 
-:: reset account
-:: git config --global --unset credential.helper
-:: git config credential.helper store
+REM Optional proxies (comment out if not needed)
+SET "http_proxy=http://192.168.66.105:7890"
+SET "https_proxy=http://192.168.66.105:7890"
 
-python upload.py
-python publish.py
+REM Build a minimal PATH required by PortableJekyll (do not append existing PATH)
+SET "PATH=%PortableJekyll%\ruby\bin;%PortableJekyll%\devkit\bin;%PortableJekyll%\git\bin;%PortableJekyll%\Python\App;%PortableJekyll%\Python\App\Scripts;%PortableJekyll%\devkit\mingw\bin;%PortableJekyll%\curl\bin"
+SET "SSL_CERT_FILE=%PortableJekyll%\curl\bin\cacert.pem"
 
+IF NOT EXIST "%PortableJekyll%" (
+  echo [ERROR] PortableJekyll not found at %PortableJekyll%
+  goto :END
+)
+
+REM Use the bundled Python to avoid relying on system PATH
+IF NOT EXIST "%PortableJekyll%\Python\App\python.exe" (
+  echo [ERROR] Python not found in PortableJekyll. Check installation.
+  goto :END
+)
+
+"%PortableJekyll%\Python\App\python.exe" upload.py
+"%PortableJekyll%\Python\App\python.exe" publish.py
+
+:END
+endlocal
 pause
