@@ -1,0 +1,486 @@
+# Favorites data for /favorite/index.html
+# Add or update items by editing this file; no HTML changes needed.
+
+- title: "门户"
+  links:
+    - { title: "hao123", url: "http://www.hao123.com/" }
+    - { title: "Whu", url: "http://www.whu.edu.cn" }
+    - { title: "AIR", url: "http://www.aircas.ac.cn/" }
+    - { title: "lmars", url: "http://www.lmars.whu.edu.cn" }
+    - { title: "网易", url: "http://www.163.com/" }
+    - { title: "腾讯", url: "http://www.qq.com/" }
+    - { title: "TopBook", url: "https://topbook.cc/overview" }
+    - { title: "buzzing", url: "https://www.buzzing.cc/" }
+    - { title: "排行榜", url: "http://guozhivip.com/rank/" }
+    - { title: "合集网", url: "https://233heji.com/" }
+    - { title: "Hot", url: "https://baozangdh.com/hotnews/" }
+    - { title: "有用经验", url: "https://yyjingyan.com/" }
+    - { title: "AITool", url: "https://www.30aitool.com/" }
+    - { title: "齐思", url: "https://news.miracleplus.com/feeds?tab=hot#" }
+    - { title: "AI严选", url: "https://topstip.com/ai/#a-llm-global" }
+    - { title: "AI精选工具", url: "https://t16jzwqrzjx.feishu.cn/wiki/EsvowFAqFiTiYDkJgE0cWquPnWb" }
+    - { title: "掘金", url: "https://juejin.cn/" }
+    - { title: "硬核", url: "https://yinghe.tv/" }
+    - { title: "ProductHunt", url: "https://www.producthunt.com/" }
+    - { title: "LINUX DO", url: "https://linux.do/" }
+    - { title: "V2EX", url: "https://www.v2ex.com/go/share" }
+    - { title: "周刊", url: "https://www.fre123.com/weekly" }
+    - { title: "free-ss", url: "http://free-ss.site/" }
+
+- title: "MySite"
+  links:
+    - { title: "cas邮箱", url: "http://mail.cstnet.cn/" }
+    - { title: "Gmail", url: "https://mail.google.com" }
+    - { title: "whu", url: "https://email.whu.edu.cn/" }
+    - { title: "Mastodon", url: "https://m.cmx.im/" }
+    - { title: "Live", url: "http://spaces.live.com/" }
+    - { title: "GitHub", url: "https://github.com/loongfee" }
+    - { title: "ResearchGate", url: "https://www.researchgate.net/profile/Tengfei_Long" }
+    - { title: "126邮箱", url: "http://www.126.com/" }
+    - { title: "Sina", url: "http://blog.sina.com.cn/loongfee" }
+    - { title: "cnblogs", url: "http://www.cnblogs.com/loongfee/" }
+    - { title: "AnyDo", url: "https://web.any.do/" }
+    - { title: "keep", url: "https://keep.google.com/" }
+    - { title: "Sunny-Ngrok", url: "https://www.ngrok.cc/" }
+    - { title: "Ngrok", url: "https://ngrok.com/" }
+    - { title: "Inoreader", url: "https://www.inoreader.com/" }
+    - { title: "Feed43", url: "https://feed43.com/" }
+    - { title: "Xnote", url: "http://www.xnote.cn/" }
+    - { title: "Facebook", url: "http://www.facebook.com/" }
+    - { title: "Twitter", url: "https://twitter.com/" }
+    - { title: "Sina微博", url: "http://www.weibo.com" }
+    - { title: "豆瓣", url: "http://www.douban.com/" }
+    - { title: "水木", url: "https://www.newsmth.net/" }
+    - { title: "smth", url: "https://m.newsmth.net/hot" }
+
+- title: "Tools"
+  links:
+    - { title: "22.Do", url: "https://22.do/" }
+    - { title: "dub短链", url: "https://dub.co/" }
+    - { title: "同步剪切板", url: "https://gcopy.rutron.net/zh" }
+    - { title: "IPTV", url: "https://www.foodieguide.com/iptvsearch/hoteliptv.php" }
+    - { title: "GitHub加速", url: "https://moeyy.cn/gh-proxy/" }
+    - { title: "IT Tools", url: "https://zz.ittools.cc/" }
+    - { title: "AI人性化", url: "https://humanize.im/zh-CN" }
+    - { title: "ProcessOn", url: "https://www.processon.com" }
+    - { title: "isup.me", url: "http://www.downforeveryoneorjustme.com/" }
+    - { title: "Excalidraw", url: "https://excalidraw.com/" }
+    - { title: "AI贴纸", url: "https://stickerbaker.com/" }
+    - { title: "Cleanpng", url: "https://www.cleanpng.com/" }
+    - { title: "设计导航", url: "http://hao.shejidaren.com/" }
+    - { title: "Avatar", url: "https://generate-avatar.vercel.app/?str=generateavatar" }
+    - { title: "图形计算器", url: "https://www.desmos.com/calculator?lang=zh-CN" }
+    - { title: "论文工具", url: "https://laorange.github.io/paper-assistant/" }
+    - { title: "WebApps", url: "https://123apps.com/cn/" }
+    - { title: "WebApps", url: "https://xiangjianan.github.io/lks/" }
+    - { title: "Autoregex", url: "https://www.autoregex.xyz/" }
+    - { title: "RegexVis", url: "https://devtoolcafe.com/tools/regex#!flags=img&re=" }
+    - { title: "Wolfram", url: "https://www.wolframalpha.com/" }
+    - { title: "GoogleDoc", url: "http://www.google.cn/intl/zh-cn_all/docs/about/" }
+    - { title: "GoogleDraw", url: "https://docs.google.com/drawings/" }
+    - { title: "draw.io", url: "https://www.draw.io/" }
+    - { title: "Coggle", url: "https://coggle.it/" }
+    - { title: "my-mind", url: "http://my-mind.github.io/" }
+    - { title: "百度脑图", url: "http://naotu.baidu.com/" }
+    - { title: "Kuler", url: "https://color.adobe.com" }
+    - { title: "Getcolor", url: "https://www.bejson.com/ui/getcolor/" }
+    - { title: "Piknik", url: "http://color.aurlien.net/" }
+    - { title: "Material Palette", url: "http://www.materialpalette.com/" }
+    - { title: "Colormind", url: "http://colormind.io/" }
+    - { title: "Colorhunt", url: "https://colorhunt.co/" }
+    - { title: "Khroma", url: "https://www.khroma.co/" }
+    - { title: "Coolors", url: "https://coolors.co/" }
+    - { title: "ColorSpace", url: "https://mycolor.space/" }
+    - { title: "Paletton", url: "https://paletton.com/" }
+    - { title: "在线调色板", url: "https://tool.chinaz.com/tools/onlinecolor.aspx" }
+    - { title: "在线调色板2", url: "https://www.sojson.com/web/panel.html" }
+    - { title: "Iconfont", url: "http://www.iconfont.cn/" }
+    - { title: "Flaticon", url: "https://www.flaticon.com/" }
+    - { title: "Iconbuddy", url: "https://iconbuddy.app/" }
+    - { title: "Icons8", url: "https://icons8.com/" }
+    - { title: "Yesicon", url: "https://yesicon.app/" }
+
+- title: "Search"
+  links:
+    - { title: "Google", url: "http://www.google.com/ncr" }
+    - { title: "GBG", url: "https://www.gobaidugle.com/" }
+    - { title: "Bing", url: "http://www.bing.com" }
+    - { title: "Brave", url: "https://search.brave.com/" }
+    - { title: "Feedle", url: "https://feedle.world/" }
+    - { title: "DuckDuckGo", url: "https://duckduckgo.com" }
+    - { title: "Startpage", url: "https://www.startpage.com" }
+    - { title: "百度", url: "http://www.baidu.com/" }
+    - { title: "据意查句", url: "https://wantquotes.net/" }
+    - { title: "深言达意", url: "https://www.shenyandayi.com/" }
+    - { title: "Qwant", url: "https://www.qwant.com/?l=en" }
+    - { title: "F", url: "https://fsoufsou.com/" }
+    - { title: "Searx", url: "https://searx.space/" }
+    - { title: "Nona", url: "https://www.nona.de/" }
+    - { title: "G镜像", url: "http://ac.scmor.com/" }
+    - { title: "AWA", url: "http://lackar.com/aa/" }
+    - { title: "鸠摩", url: "https://www.jiumodiary.com/" }
+    - { title: "搜狗", url: "https://www.sogou.com/" }
+    - { title: "快搜", url: "http://search.chongbuluo.com/" }
+    - { title: "Picular", url: "https://picular.co/" }
+
+- title: "AI Search"
+  links:
+    - { title: "秘塔AI", url: "https://metaso.cn/" }
+    - { title: "Devv(coding)", url: "https://devv.ai/" }
+    - { title: "开搜AI", url: "https://kaisouai.com/" }
+    - { title: "Phind", url: "https://www.phind.com/search?home=true" }
+    - { title: "Perplexity", url: "https://www.perplexity.ai/" }
+    - { title: "Kimi", url: "https://kimi.moonshot.cn/" }
+    - { title: "Andi", url: "https://andisearch.com/" }
+    - { title: "bing", url: "https://www.bing.com/?/ai" }
+    - { title: "360", url: "https://so.360.com/" }
+    - { title: "lepton", url: "https://search.lepton.run/" }
+    - { title: "GlobeEngineer", url: "https://explorer.globe.engineer/" }
+    - { title: "You", url: "https://you.com/" }
+    - { title: "Medisearch", url: "https://medisearch.io/" }
+    - { title: "天工", url: "https://search.tiangong.cn/" }
+    - { title: "DeepAI", url: "https://deepai.org/" }
+    - { title: "Elicit", url: "https://elicit.com/?workflow=table-of-papers" }
+    - { title: "Aoyo", url: "https://aoyo.ai/" }
+    - { title: "iAsk", url: "https://iask.ai/" }
+    - { title: "yep", url: "https://yep.com/" }
+    - { title: "Rabbit", url: "https://www.researchrabbit.ai/" }
+    - { title: "waldo", url: "https://www.waldo.fyi/app/search" }
+    - { title: "komo", url: "https://komo.ai/" }
+    - { title: "semanticscholar", url: "https://www.semanticscholar.org/" }
+    - { title: "consensus", url: "https://consensus.app/search/" }
+    - { title: "SearCholic", url: "https://searcholic.com/" }
+    - { title: "kagi", url: "https://kagi.com/" }
+    - { title: "yoursearch", url: "https://app.yoursearch.ai/" }
+    - { title: "GptGo", url: "https://gptgo.ai/en" }
+    - { title: "Rewind", url: "https://www.rewind.ai/" }
+    - { title: "Walles", url: "https://walles.ai/chat" }
+    - { title: "AI Engines", url: "https://www.toolify.ai/zh/category/ai-search-engine" }
+
+- title: "AI"
+  links:
+    - { title: "ChatGPT", url: "https://chat.openai.com/chat" }
+    - { title: "共享GPT", url: "https://www.opkfc.com/list" }
+    - { title: "Gemini", url: "https://gemini.google.com/" }
+    - { title: "NotebookLM", url: "https://notebooklm.google.com/" }
+    - { title: "Gemini 1.5 Pro", url: "https://aistudio.google.com/prompts/new_chat" }
+    - { title: "GPT-4o", url: "https://chatgpt.com/?model=gpt-4o" }
+    - { title: "GPT-4oMini", url: "https://gpt4omini.app/" }
+    - { title: "Claude", url: "https://claude.ai/chats" }
+    - { title: "Arena", url: "https://lmarena.ai/" }
+    - { title: "Slack", url: "https://gpt-18.slack.com/ssb/redirect" }
+    - { title: "GPT-4o", url: "https://gpt4o.so/zh-CN" }
+    - { title: "Coze", url: "https://www.coze.com/home" }
+    - { title: "Poe", url: "https://poe.com/" }
+    - { title: "MetaAI", url: "https://www.meta.ai/" }
+    - { title: "Llama3", url: "https://llama3.dev/" }
+    - { title: "Huggingface", url: "https://huggingface.co/chat/" }
+    - { title: "Duckduckgo", url: "https://duckduckgo.com/?q=DuckDuckGo&ia=chat" }
+    - { title: "天工", url: "https://www.tiangong.cn/" }
+    - { title: "智谱清言", url: "https://chatglm.cn/main/detail" }
+    - { title: "万知", url: "https://www.wanzhi01.com/" }
+    - { title: "PopAi", url: "https://www.popai.pro/" }
+    - { title: "灵动AI", url: "https://4tmm.ai1233.top/c.html" }
+    - { title: "ChatGPT提示语", url: "https://prompts.fresns.cn/" }
+    - { title: "Awesome ChatGPT Prompts", url: "https://prompts.chat/" }
+    - { title: "BlueWillow", url: "https://www.bluewillow.ai/" }
+    - { title: "MS Designer", url: "https://designer.microsoft.com/" }
+    - { title: "Aishort", url: "https://www.aishort.top/" }
+    - { title: "PromptVibes", url: "https://www.promptvibes.com/" }
+    - { title: "dispdf", url: "https://www.dispdf.com/" }
+    - { title: "PandaGPT", url: "https://www.pandagpt.io/" }
+    - { title: "Effidit", url: "https://effidit.qq.com/" }
+    - { title: "AI导航", url: "http://www.ainav.cn/" }
+    - { title: "未来百科", url: "https://nav.6aiq.com/" }
+    - { title: "huggingface", url: "https://huggingface.co/tasks" }
+    - { title: "AITools", url: "https://aitoolsarena.com/" }
+    - { title: "AIValley", url: "https://www.theaivalley.com/" }
+    - { title: "Pi", url: "https://heypi.com/" }
+    - { title: "LearnPrompting", url: "https://learnprompting.org/zh-Hans/docs/category/-advanced-applications" }
+    - { title: "Awesome-chatgpt", url: "https://github.com/sindresorhus/awesome-chatgpt" }
+
+- title: "Scholar"
+  links:
+    - { title: "Google Scholar", url: "http://scholar.google.com/schhp?hl=en" }
+    - { title: "Web of Science", url: "http://www.isiknowledge.com/" }
+    - { title: "JCR", url: "http://esi.webofknowledge.com/home.cgi" }
+    - { title: "InCites", url: "https://jcr.incites.thomsonreuters.com/JCRJournalHomeAction.action" }
+    - { title: "EI", url: "http://www.engineeringvillage.com/" }
+    - { title: "Library", url: "http://lib.irsa.ac.cn:8080" }
+    - { title: "IR", url: "http://ir.radi.ac.cn/" }
+    - { title: "LAS", url: "http://www.las.ac.cn/" }
+    - { title: "arXiv", url: "https://arxiv.org/" }
+    - { title: "TGRS", url: "http://mc.manuscriptcentral.com/tgrs" }
+    - { title: "RSE", url: "https://ees.elsevier.com/rse/default.asp" }
+    - { title: "ISPRS", url: "https://www.journals.elsevier.com/isprs-journal-of-photogrammetry-and-remote-sensing" }
+    - { title: "remotesensing", url: "http://www.mdpi.com/journal/remotesensing" }
+    - { title: "crossref", url: "https://search.crossref.org/" }
+    - { title: "zbib", url: "https://zbib.org/" }
+    - { title: "科技报告", url: "https://www.nstrs.cn/" }
+    - { title: "笔杆", url: "https://www.bigan.net/fund/" }
+    - { title: "海研", url: "http://www.hiresearch.cn/" }
+    - { title: "semanticscholar", url: "https://www.semanticscholar.org/" }
+    - { title: "connectedpapers", url: "https://www.connectedpapers.com/" }
+    - { title: "scimagojr", url: "https://www.scimagojr.com/" }
+    - { title: "基金", url: "https://grants.nsfc.gov.cn/pmpweb/login" }
+    - { title: "专利", url: "http://cpquery.sipo.gov.cn/" }
+    - { title: "iData", url: "https://www.cn-ki.net/" }
+    - { title: "库问", url: "http://www.koovin.com/" }
+    - { title: "期刊查询", url: "https://www.ablesci.com/journal" }
+    - { title: "cfp", url: "http://www.wikicfp.com/cfp/" }
+    - { title: "SCI-Hub", url: "http://tool.yovisun.com/scihub/" }
+
+- title: "Dictionary"
+  links:
+    - { title: "Iciba", url: "http://www.iciba.com/" }
+    - { title: "wordinfo", url: "http://wordinfo.info/" }
+    - { title: "Onelook", url: "https://www.onelook.com/" }
+    - { title: "Thesaurus", url: "http://www.thesaurus.com/" }
+    - { title: "Ludwig", url: "https://ludwig.guru/" }
+    - { title: "LongMen", url: "https://www.ldoceonline.com/" }
+    - { title: "Oxford", url: "https://www.oxfordlearnersdictionaries.com/" }
+    - { title: "Merriam", url: "http://learnersdictionary.com/" }
+    - { title: "Cambridge", url: "https://dictionary.cambridge.org/" }
+    - { title: "Collins", url: "https://www.collinsdictionary.com/" }
+    - { title: "Macmillan", url: "https://www.macmillandictionary.com/" }
+    - { title: "merriam", url: "https://www.merriam-webster.com/thesaurus" }
+    - { title: "CollinsCN", url: "https://www.collinsdictionary.com/zh/dictionary/english-thesaurus" }
+    - { title: "Dict", url: "http://dict.cn/" }
+    - { title: "Google Translate", url: "https://translate.google.com" }
+    - { title: "比较", url: "https://wikidiff.com/" }
+    - { title: "万词王", url: "https://wantwords.thunlp.org/" }
+    - { title: "百度翻译", url: "http://fanyi.baidu.com/" }
+    - { title: "有道翻译", url: "http://fanyi.youdao.com/" }
+    - { title: "DeepL", url: "https://www.deepl.com/en/translator" }
+    - { title: "Bing翻译", url: "https://www.bing.com/translator/" }
+    - { title: "worldlingo", url: "http://www.worldlingo.com/products_services/worldlingo_translator.html" }
+    - { title: "CNKI助手", url: "http://dict.cnki.net/" }
+    - { title: "macmillan", url: "https://www.macmillandictionary.com/" }
+    - { title: "coca", url: "https://www.english-corpora.org/coca/" }
+    - { title: "netspeak", url: "http://www.netspeak.org/" }
+    - { title: "linggle", url: "https://linggle.com/" }
+    - { title: "quillbot", url: "https://quillbot.com/" }
+    - { title: "phrasebank", url: "https://www.phrasebank.manchester.ac.uk/" }
+    - { title: "Ludwig", url: "https://ludwig.guru/" }
+
+- title: "Map"
+  links:
+    - { title: "Google Map", url: "https://www.google.com/maps" }
+    - { title: "百度地图", url: "https://map.baidu.com/" }
+    - { title: "搜狗地图", url: "http://map.sogou.com" }
+    - { title: "高德地图", url: "https://ditu.amap.com" }
+
+- title: "网盘"
+  links:
+    - { title: "Dropbox", url: "https://www.dropbox.com" }
+    - { title: "百度云", url: "https://pan.baidu.com/" }
+    - { title: "坚果云", url: "https://www.jianguoyun.com/" }
+    - { title: "GoogleDrive", url: "https://drive.google.com/drive" }
+    - { title: "万人迷", url: "http://wanrenmi8.com/cn/index.html" }
+    - { title: "易搜", url: "https://yiso.fun/" }
+    - { title: "Mega", url: "https://mega.nz/" }
+    - { title: "6盘", url: "https://6pan.cn/" }
+    - { title: "OneDrive", url: "https://onedrive.live.com" }
+    - { title: "永硕E盘", url: "http://terfi.ys168.com/" }
+    - { title: "teracloud", url: "https://teracloud.jp/en/" }
+    - { title: "牛奶快传", url: "https://cowtransfer.com/" }
+    - { title: "MultCloud", url: "https://www.multcloud.com" }
+    - { title: "微盘", url: "https://vdisk.weibo.com" }
+    - { title: "Box", url: "https://www.box.com" }
+
+- title: "MOOC"
+  links:
+    - { title: "Coursera", url: "https://www.coursera.org" }
+    - { title: "Udacity", url: "https://cn.udacity.com" }
+    - { title: "OpenEdX", url: "https://class.stanford.edu" }
+    - { title: "学堂在线", url: "http://www.xuetangx.com" }
+    - { title: "中国大学MOOC", url: "http://www.icourse163.org/index.htm" }
+    - { title: "Coursade", url: "http://www.coursade.com/" }
+    - { title: "CrashCourse", url: "https://crashcourse.club/category/" }
+    - { title: "网易云课堂", url: "http://study.163.com/" }
+    - { title: "好大学在线", url: "http://www.cnmooc.org/home/index.mooc" }
+    - { title: "爱课程", url: "http://www.icourses.cn/home/" }
+    - { title: "慕课网", url: "http://www.imooc.com/" }
+
+- title: "Data"
+  links:
+    - { title: "RADI", url: "http://ids.ceode.ac.cn/" }
+    - { title: "GEE", url: "https://code.earthengine.google.com/" }
+    - { title: "Sentinel", url: "https://dataspace.copernicus.eu/browser/" }
+    - { title: "eo-browser", url: "https://apps.sentinel-hub.com/eo-browser" }
+    - { title: "资源", url: "https://data.cresda.cn/#/home" }
+    - { title: "USGS", url: "http://earthexplorer.usgs.gov/" }
+    - { title: "CBERS", url: "http://www.dgi.inpe.br/CDSR/index.php" }
+    - { title: "gscloud", url: "http://www.gscloud.cn/sources" }
+    - { title: "MODIS", url: "https://ladsweb.nascom.nasa.gov/data/" }
+    - { title: "ASF", url: "https://vertex.daac.asf.alaska.edu/" }
+    - { title: "大数据导航", url: "http://hao.199it.com/" }
+    - { title: "AMiner大数据", url: "https://www.aminer.cn/" }
+
+- title: "Read & Write"
+  links:
+    - { title: "中华诗词", url: "https://shici.store/huajianji/" }
+    - { title: "走读派", url: "http://www.zoudupai.com/" }
+    - { title: "搬书匠", url: "http://www.banshujiang.cn/" }
+    - { title: "RSS", url: "https://rss-source.com/" }
+    - { title: "好讀", url: "http://haodoo.net/?M=hd&P=welcome" }
+    - { title: "中国哲学", url: "https://ctext.org/zh" }
+    - { title: "中华珍宝馆", url: "http://www.ltfc.net/" }
+    - { title: "书格", url: "https://new.shuge.org/" }
+    - { title: "每日一文", url: "https://meiriyiwen.com/" }
+    - { title: "全历史", url: "https://www.allhistory.com/" }
+    - { title: "观沧海", url: "https://www.ageeye.cn/" }
+    - { title: "Kindle伴侣", url: "http://kindlefere.com/" }
+    - { title: "印象笔记", url: "http://www.yinxiang.com" }
+    - { title: "有道云笔记", url: "http://note.youdao.com/web" }
+    - { title: "为知笔记", url: "http://www.wiz.cn/" }
+    - { title: "SimpleNote", url: "https://app.simplenote.com/" }
+
+- title: "English"
+  links:
+    - { title: "可可", url: "http://www.kekenet.com/" }
+    - { title: "Breaking News", url: "https://breakingnewsenglish.com/" }
+    - { title: "newsy", url: "https://www.newsy.com/" }
+    - { title: "普特", url: "http://www.putclub.com/" }
+    - { title: "NYT", url: "https://www.nytimes.com/" }
+    - { title: "ABC", url: "https://abcnews.go.com/" }
+    - { title: "CNN", url: "http://www.cnn.com/" }
+    - { title: "BBC", url: "http://www.bbc.co.uk/" }
+    - { title: "Guardian", url: "https://www.theguardian.com/" }
+    - { title: "NPR", url: "https://www.npr.org/" }
+    - { title: "GlobalTimes", url: "http://www.globaltimes.cn/" }
+    - { title: "Conversation", url: "http://theconversation.com" }
+    - { title: "Google", url: "https://news.google.com" }
+    - { title: "Yahoo", url: "http://www.yahoo.com/" }
+    - { title: "ChinaDaily", url: "http://www.chinadaily.com.cn/" }
+    - { title: "TingClass", url: "https://www.tingclass.net/" }
+    - { title: "在线听力", url: "http://www.tingroom.com/" }
+    - { title: "英语点津", url: "https://language.chinadaily.com.cn/" }
+    - { title: "每日听力", url: "https://dict.eudic.net/ting" }
+    - { title: "英文巴士", url: "https://www.en84.com/" }
+
+- title: "English Writing"
+  links:
+    - { title: "LT", url: "https://languagetool.org/" }
+    - { title: "海明威", url: "https://hemingwayapp.com/" }
+    - { title: "Ginger", url: "https://www.gingersoftware.com/" }
+    - { title: "nounplus", url: "https://www.nounplus.net/" }
+    - { title: "Grammarly", url: "https://app.grammarly.com/" }
+    - { title: "Gramara", url: "https://gramara.com/en/" }
+    - { title: "Reverso", url: "https://www.reverso.net/spell-checker/english-spelling-grammar/" }
+    - { title: "Scribens", url: "https://www.scribens.com/" }
+    - { title: "PolishmyWriting", url: "https://www.polishmywriting.com/" }
+    - { title: "VirtualWritingTutor", url: "https://virtualwritingtutor.com/" }
+    - { title: "Quillbot", url: "https://quillbot.com/" }
+    - { title: "WordTune", url: "https://www.wordtune.com/" }
+    - { title: "Paperpal", url: "https://edit.paperpal.com/9b02da58-59c9-4f8a-a184-36fca0b5195d" }
+
+- title: "IDE"
+  links:
+    - { title: "Ideone", url: "https://ideone.com" }
+    - { title: "repl", url: "http://repl.it/languages" }
+    - { title: "OnlineGDB", url: "https://www.onlinegdb.com/" }
+    - { title: "repl", url: "https://pythontutor.com/" }
+    - { title: "Programiz", url: "https://www.programiz.com/python-programming/online-compiler/" }
+    - { title: "CodingGround", url: "https://www.tutorialspoint.com/execute_python_online.php" }
+    - { title: "Online-Python", url: "https://www.online-python.com/" }
+    - { title: "CodeChef", url: "https://www.codechef.com/ide" }
+    - { title: "python", url: "https://www.python.org/shell/" }
+
+- title: "Shopping"
+  links:
+    - { title: "淘宝", url: "http://www.taobao.com/" }
+    - { title: "京东", url: "http://www.360buy.com/" }
+    - { title: "亚马逊", url: "http://www.amazon.cn/" }
+    - { title: "苏宁", url: "http://www.suning.com" }
+    - { title: "易迅", url: "http://www.yixun.com" }
+    - { title: "中图网", url: "http://www.bookschina.com/" }
+    - { title: "孔夫子", url: "https://www.kongfz.com/" }
+    - { title: "当当", url: "http://www.dangdang.com/" }
+    - { title: "聚美", url: "http://bj.jumei.com" }
+    - { title: "唯品会", url: "http://www.vip.com" }
+    - { title: "一号店", url: "http://www.yhd.com" }
+    - { title: "什么值得买", url: "https://www.smzdm.com/" }
+    - { title: "amazon", url: "http://www.amazon.com/" }
+
+- title: "Markdown"
+  links:
+    - { title: "Dillinger", url: "http://dillinger.io" }
+    - { title: "Stackedit", url: "https://stackedit.io/editor" }
+    - { title: "Cmd Markdown", url: "https://www.zybuluo.com/mdeditor" }
+    - { title: "Github", url: "http://jbt.github.io/markdown-editor" }
+    - { title: "Markable", url: "http://markable.in/editor/" }
+
+- title: "Latex"
+  links:
+    - { title: "ShareLatex", url: "https://www.sharelatex.com" }
+    - { title: "SciSpace", url: "https://typeset.io/" }
+    - { title: "LaTeX4technics", url: "https://www.latex4technics.com/" }
+    - { title: "Upmath", url: "https://upmath.me/" }
+    - { title: "Upmath", url: "http://3142.nl/latex-diff/" }
+    - { title: "Authorea", url: "https://www.authorea.com" }
+    - { title: "Papeeria", url: "https://papeeria.com" }
+    - { title: "Overleaf", url: "https://www.overleaf.com" }
+    - { title: "Bibtex", url: "http://truben.no/latex/bibtex/" }
+
+- title: "人才"
+  links:
+    - { title: "科学网", url: "http://talent.sciencenet.cn" }
+    - { title: "智联", url: "http://www.zhaopin.com" }
+    - { title: "中华", url: "http://www.chinahr.com" }
+    - { title: "猎聘", url: "http://www.lietou.com" }
+    - { title: "拉勾", url: "http://www.lagou.com" }
+    - { title: "高校", url: "http://www.gaoxiaojob.com" }
+
+- title: "站长"
+  links:
+    - { title: "DNSPod", url: "https://www.dnspod.cn" }
+    - { title: "Google站长", url: "https://www.google.com/webmasters/tools/home?hl=zh-CN" }
+    - { title: "Google分析", url: "http://www.google.com/intl/zh-CN/analytics/" }
+    - { title: "Google AdSense", url: "https://www.google.com/adsense/app?hl=zh_CN#home" }
+    - { title: "百度站长", url: "http://zhanzhang.baidu.com/site/index" }
+
+- title: "学术百科"
+  links:
+    - { title: "Wikipedia", url: "http://en.wikipedia.org/wiki/Main_Page" }
+    - { title: "互动百科", url: "http://www.hudong.com/" }
+    - { title: "小木虫论坛", url: "http://muchong.com/bbs/" }
+    - { title: "Scholarpedia", url: "http://www.scholarpedia.org/" }
+    - { title: "Answer", url: "http://www.answers.com" }
+    - { title: "YahooAnswer", url: "http://answers.yahoo.com/" }
+
+- title: "IT"
+  links:
+    - { title: "3S News", url: "http://www.3snews.net/" }
+    - { title: "GIS空间站", url: "http://www.gissky.net/" }
+    - { title: "searchcode", url: "https://searchcode.com/" }
+    - { title: "CodeMaven", url: "https://code-maven.com/" }
+    - { title: "程序员联合开发网", url: "http://www.pudn.com" }
+
+- title: "财务"
+  links:
+    - { title: "建设银行", url: "https://ibsbjstar.ccb.com.cn/app/V5/CN/STY1/login.jsp" }
+    - { title: "兴业银行", url: "https://www.cib.com.cn/index.jsp" }
+    - { title: "交通银行", url: "http://www.bankcomm.com/BankCommSite/cn/index.html" }
+    - { title: "招商银行", url: "https://pbsz.ebank.cmbchina.com/CmbBank_GenShell/UI/GenShellPC/Login/Login.aspx" }
+    - { title: "工商银行", url: "https://mybank.icbc.com.cn/icbc/perbank/index.jsp" }
+
+- title: "视听"
+  links:
+    - { title: "YouTube", url: "http://www.youtube.com/" }
+    - { title: "B站", url: "https://www.bilibili.com/" }
+    - { title: "一席", url: "https://yixi.tv/#/home" }
+    - { title: "电影推荐", url: "https://www.mvcat.com/" }
+    - { title: "GGPodcasts", url: "https://podcasts.google.com/" }
+    - { title: "播客Feed", url: "https://getpodcast.xyz/" }
+    - { title: "Podcast Addict", url: "https://podcastaddict.com/" }
+    - { title: "荔枝FM", url: "https://www.lizhi.fm/" }
+    - { title: "pod.link", url: "https://blog.pod.link/" }
+    - { title: "轻音乐", url: "http://www.htqyy.com/" }
+    - { title: "倾听", url: "http://guozhivip.com/qt/" }
+    - { title: "Pluvior", url: "https://pluvior.com/index.html" }
+    - { title: "Rainyscope", url: "https://rainyscope.com/" }
+    - { title: "Defonic", url: "https://defonic.com/" }
+    - { title: "Asoftmurmur", url: "https://asoftmurmur.com/" }
+    - { title: "Virtocean", url: "https://virtocean.com/" }
+    - { title: "Zensound", url: "https://app.zenflowchart.com/zen-sounds" }
