@@ -449,14 +449,6 @@
     - { title: "Answer", url: "http://www.answers.com" }
     - { title: "YahooAnswer", url: "http://answers.yahoo.com/" }
 
-- title: "IT"
-  links:
-    - { title: "3S News", url: "http://www.3snews.net/" }
-    - { title: "GIS空间站", url: "http://www.gissky.net/" }
-    - { title: "searchcode", url: "https://searchcode.com/" }
-    - { title: "CodeMaven", url: "https://code-maven.com/" }
-    - { title: "程序员联合开发网", url: "http://www.pudn.com" }
-
 - title: "财务"
   links:
     - { title: "建设银行", url: "https://ibsbjstar.ccb.com.cn/app/V5/CN/STY1/login.jsp" }
