@@ -195,8 +195,9 @@
   #favorite .chip:hover { background: #111827; }
 }
 
-/* Expand content into aside3-content padding for this page */
-.aside3-content .favorite-page { margin-left: -5%; margin-right: -5%; }
+/* Full-bleed content for pages that opt-in */
+.aside3.full-bleed { overflow-x: visible; }
+.aside3-content.full-bleed { padding-left: 0; padding-right: 0; }
 
 /* Back to top */
 #favorite .back-to-top {

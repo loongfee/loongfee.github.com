@@ -7,7 +7,7 @@
 <body>
   <div class="container">
     <div class="row">
-      <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 aside3">
+      <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 aside3{% if page.full_width %} full-bleed{% endif %}">
         <div id="container">
           <div id="pjax">
             <div class="row">
@@ -15,7 +15,7 @@
                 <br>
                 <div id="identifier">{{ page.title }}</div>
               </div>
-              <div class="col-md-12 aside3-content">
+              <div class="col-md-12 aside3-content{% if page.full_width %} full-bleed{% endif %}">
                 <div id="page-content">
                   {{ content }}
                 </div>
