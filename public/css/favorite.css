@@ -110,14 +110,15 @@
 #favorite .fav-search:focus { border-color: #60a5fa; box-shadow: 0 0 0 3px rgba(96,165,250,.25); }
 #favorite .fav-actions { display: flex; gap: 8px; }
 
-#favorite .fav-chips { 
-  display: grid; 
-  grid-template-columns: repeat(auto-fit, minmax(90px, max-content));
-  gap: 8px; 
-  margin: 8px 0 0; 
+#favorite .fav-chips {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(60px, max-content));
+  grid-auto-flow: dense;
+  gap: 6px;
+  margin: 8px 0 0;
 }
 #favorite .chip {
-  display: inline-block; padding: 4px 8px; font-size: .85rem; color: #374151;
+  display: inline-block; padding: 2px 8px; font-size: .85rem; color: #374151;
   background: #f3f4f6; border: 1px solid #e5e7eb; border-radius: 999px; text-decoration: none;
 }
 #favorite .chip:hover { background: #e5e7eb; }
