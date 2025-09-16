@@ -6,16 +6,17 @@
 </head>
 <body>
   <div class="container">
-    <div class="row">
-      <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 aside3{% if page.full_width %} full-bleed{% endif %}">
+    <div class="row{% if page.favorite_wide %} favorite-wide-row{% endif %}">
+      {% include navside.html %}
+      <div class="col-md-13 col-lg-13 col-sm-13 col-xs-13 aside3">
         <div id="container">
           <div id="pjax">
             <div class="row">
-              <div class="col-md-12 aside3-title">
+              <div class="col-md-13 aside3-title">
                 <br>
                 <div id="identifier">{{ page.title }}</div>
               </div>
-              <div class="col-md-12 aside3-content{% if page.full_width %} full-bleed{% endif %}">
+              <div class="col-md-13 aside3-content">
                 <div id="page-content">
                   {{ content }}
                 </div>

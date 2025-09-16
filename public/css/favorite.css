@@ -195,9 +195,14 @@
   #favorite .chip:hover { background: #111827; }
 }
 
-/* Full-bleed content for pages that opt-in */
-.aside3.full-bleed { overflow-x: visible; }
-.aside3-content.full-bleed { padding-left: 0; padding-right: 0; }
+/* Expand into aside3-content padding for this page only */
+.aside3-content .favorite-page { margin-left: -5%; margin-right: -5%; }
+
+/* Keep sidebar but widen middle area on favorite page */
+@media (min-width: 992px) {
+  .favorite-wide-row .aside { width: 200px !important; }
+  .favorite-wide-row .aside3 { width: calc(100% - 200px) !important; }
+}
 
 /* Back to top */
 #favorite .back-to-top {

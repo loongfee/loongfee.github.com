@@ -28,24 +28,7 @@
   }
   applySavedOpenState();
 
-  // Widen container by hiding left sidebar on this page only
-  try {
-    var aside = document.querySelector('.aside');
-    var aside3 = document.querySelector('.aside3');
-    var aside3Content = document.querySelector('.aside3-content');
-    if (aside) {
-      aside.classList.add('hidden-md','hidden-lg');
-      aside.classList.remove('visible-md','visible-lg');
-      aside.style.display = 'none';
-    }
-    if (aside3) {
-      aside3.style.float = 'none';
-      aside3.style.width = '100%';
-    }
-    if (aside3Content) {
-      aside3Content.classList.remove('col-md-10','col-lg-8','col-md-offset-1','col-lg-offset-2');
-    }
-  } catch (e) {}
+  // Keep default layout (sidebar visible). Page width tuning handled via CSS.
 
   function normalize(s) { return (s || '').toLowerCase(); }
 
