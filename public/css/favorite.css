@@ -95,7 +95,7 @@
   color: #333;
 }
 
-#favorite .fav-hero { margin: 6px 0 12px; }
+#favorite .fav-hero { margin: 6px 0 12px; text-align: center; }
 #favorite .fav-heading { font-size: 1.6rem; margin: 0 0 4px; font-weight: 800; }
 #favorite .fav-subtitle { margin: 0 0 10px; color: #6b7280; font-size: .95rem; }
 
@@ -195,14 +195,7 @@
   #favorite .chip:hover { background: #111827; }
 }
 
-/* Expand into aside3-content padding for this page only */
-.aside3-content .favorite-page { margin-left: -5%; margin-right: -5%; }
-
-/* Keep sidebar but widen middle area on favorite page */
-@media (min-width: 992px) {
-  .favorite-wide-row .aside { width: 200px !important; }
-  .favorite-wide-row .aside3 { width: calc(100% - 200px) !important; }
-}
+/* Use site's default aside width; let content fill the right area */
 
 /* Back to top */
 #favorite .back-to-top {
