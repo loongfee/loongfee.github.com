@@ -25,10 +25,11 @@ description: ""
 
   <div class="favorites-grid">
     {% for cat in site.data.favorites %}
-      <details class="fav-card" id="fav-{{ cat.title | slugify }}" {% if forloop.index0 < 3 %}open{% endif %}>
+      <details class="fav-card" id="fav-{{ cat.title | slugify }}" open>
         <summary class="fav-title">{{ cat.title }}</summary>
+        {% assign sorted_links = cat.links | sort: 'title' %}
         <ul class="fav-links">
-          {% for link in cat.links %}
+          {% for link in sorted_links %}
             <li><a href="{{ link.url }}" target="_blank" rel="noopener noreferrer">{{ link.title }}</a></li>
           {% endfor %}
         </ul>
@@ -36,6 +37,7 @@ description: ""
     {% endfor %}
   </div>
   <p class="fav-empty" hidden>未找到匹配结果</p>
+  <button id="back-to-top" class="back-to-top" type="button" aria-label="回到顶部">↑</button>
 </div>
 
 <script src="/public/js/favorite.js"></script>

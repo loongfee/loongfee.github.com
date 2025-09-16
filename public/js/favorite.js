@@ -6,6 +6,27 @@
   const searchInput = root.querySelector('#fav-search');
   const cards = Array.from(root.querySelectorAll('.fav-card'));
   const empty = root.querySelector('.fav-empty');
+  const backTop = root.querySelector('#back-to-top');
+
+  // Persist details open state
+  const STORE_KEY = 'favorite:open-state';
+  function loadState() {
+    try { return JSON.parse(localStorage.getItem(STORE_KEY) || '{}'); } catch { return {}; }
+  }
+  function saveState(state) {
+    try { localStorage.setItem(STORE_KEY, JSON.stringify(state)); } catch (e) {}
+  }
+  function applySavedOpenState() {
+    const state = loadState();
+    cards.forEach(card => {
+      const id = card.id || '';
+      const v = state[id];
+      if (v === true) card.setAttribute('open', 'open');
+      else if (v === false) card.removeAttribute('open');
+      // if undefined, keep default (currently open by default)
+    });
+  }
+  applySavedOpenState();
 
   function normalize(s) { return (s || '').toLowerCase(); }
 
@@ -72,8 +93,27 @@
     const btn = e.target.closest('[data-action]');
     if (!btn) return;
     const action = btn.getAttribute('data-action');
-    if (action === 'expand') cards.forEach(c => c.setAttribute('open', 'open'));
-    if (action === 'collapse') cards.forEach(c => c.removeAttribute('open'));
+    const state = loadState();
+    if (action === 'expand') cards.forEach(c => { c.setAttribute('open', 'open'); state[c.id] = true; });
+    if (action === 'collapse') cards.forEach(c => { c.removeAttribute('open'); state[c.id] = false; });
+    saveState(state);
   });
-})();
 
+  // Save per-section toggle
+  cards.forEach(card => {
+    card.addEventListener('toggle', () => {
+      const state = loadState();
+      state[card.id] = card.open;
+      saveState(state);
+    });
+  });
+
+  // Back-to-top
+  if (backTop) {
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 400) backTop.classList.add('show');
+      else backTop.classList.remove('show');
+    }, { passive: true });
+    backTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+  }
+})();
