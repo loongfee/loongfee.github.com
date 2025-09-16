@@ -125,7 +125,7 @@
 
 #favorite .favorites-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
   gap: 12px;
   width: 100%;
 }
@@ -194,6 +194,9 @@
   #favorite .chip { background: #0f172a; border-color: #1f2937; color: #e5e7eb; }
   #favorite .chip:hover { background: #111827; }
 }
+
+/* Expand content into aside3-content padding for this page */
+.aside3-content .favorite-page { margin-left: -5%; margin-right: -5%; }
 
 /* Back to top */
 #favorite .back-to-top {
