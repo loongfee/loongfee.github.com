@@ -158,7 +158,7 @@
     - { title: "共享GPT", url: "https://www.opkfc.com/list" }
     - { title: "Gemini", url: "https://gemini.google.com/" }
     - { title: "NotebookLM", url: "https://notebooklm.google.com/" }
-    - { title: "Gemini 1.5 Pro", url: "https://aistudio.google.com/prompts/new_chat" }
+    - { title: "Google AI", url: "https://aistudio.google.com/prompts/new_chat" }
     - { title: "GPT-4o", url: "https://chatgpt.com/?model=gpt-4o" }
     - { title: "GPT-4oMini", url: "https://gpt4omini.app/" }
     - { title: "Claude", url: "https://claude.ai/chats" }
