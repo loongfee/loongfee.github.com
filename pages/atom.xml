@@ -1,0 +1,1046 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0">
+  <channel>
+    <title>淡朴若水</title>
+    <link>http://loongfee.github.io</link>
+    <description>土肥龙的博客</description>
+    
+      <item>
+        <title>使用gdalwarp进行栅格影像裁剪</title>
+        <link>http://loongfee.github.io/blog/2015/09/18/gdalwarp</link>
+        <guid isPermaLink="true">http://loongfee.github.io/blog/2015/09/18/gdalwarp</guid>
+        <pubDate>Fri, 18 Sep 2015 00:00:00 +0800</pubDate>
+        <description>&lt;p&gt;&lt;strong&gt;Usage&lt;sup id=&quot;fnref:gdalwarp&quot;&gt;&lt;a href=&quot;#fn:gdalwarp&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-batch&quot;&gt;gdalwarp [--help-general] [--formats]
+    [-s_srs srs_def] [-t_srs srs_def] [-to &quot;NAME=VALUE&quot;]
+    [-order n | -tps | -rpc | -geoloc] [-et err_threshold]
+    [-refine_gcps tolerance [minimum_gcps]]
+    [-te xmin ymin xmax ymax] [-te_srs srs_def]
+    [-tr xres yres] [-tap] [-ts width height]
+    [-ovr level|AUTO|AUTO-n|NONE] [-wo &quot;NAME=VALUE&quot;] [-ot Byte/Int16/...] [-wt Byte/Int16]
+    [-srcnodata &quot;value [value...]&quot;] [-dstnodata &quot;value [value...]&quot;] -dstalpha
+    [-r resampling_method] [-wm memory_in_mb] [-multi] [-q]
+    [-cutline datasource] [-cl layer] [-cwhere expression]
+    [-csql statement] [-cblend dist_in_pixels] [-crop_to_cutline]
+    [-of format] [-co &quot;NAME=VALUE&quot;]* [-overwrite]
+    [-nomd] [-cvmd meta_conflict_value] [-setci] [-oo NAME=VALUE]*
+    [-doo NAME=VALUE]*
+    srcfile* dstfile
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;裁剪命令如下：&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-batch&quot;&gt;gdalwarp --config GDAL_CACHEMAX 512 --config GDAL_FILENAME_IS_UTF8 NO --config SHAPE_ENCODING UTF-8 --config GDAL_DATA gdal_data_folder -crop_to_cutline -cutline region.shp -cwhere NAME=&#39;北京市&#39; -multi -wo NUM_THREADS=ALL_CPUS -wm 512 -r cubic -overwrite china.tif 北京市.tif
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;参数说明：&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;--config GDAL_CACHEMAX              ---default GDAL raster block cache size
+--config GDAL_FILENAME_IS_UTF8 NO   ---使GDAL支持中文路径
+--config SHAPE_ENCODING UTF-8       ---使GDAL支持中文shapefile表格
+--config GDAL_DATA gdal_data_folder ---设置GDAL数据目录，其中存放了各种投影、坐标系参数
+-crop_to_cutline                    ---裁剪后去掉黑边
+-cutline region.shp                 ---用于裁剪的shapefile文件
+-cwhere NAME=&#39;北京市&#39;                 ---选择用于裁剪的元素，如果不设置则使用整个shapefile边界进行裁剪
+-multi                              ---利用多线程提高处理效率
+-wo NUM_THREADS=ALL_CPUS            ---使用所有CPU资源进行计算，提高处理效率
+-wm 512                             ---可以使用的内存大小（MB）
+-r cubic                            ---采用方式为双三次卷积
+-overwrite                          ---如果结果文件已存在则覆盖
+china.tif                           ---带裁剪影像
+北京市.tif                            ---结果影像
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;下面是裁剪结果：
+&lt;img src=&quot;/public/img/beijing_tm543.jpg&quot; alt=&quot;北京市TM&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;结果挺不错的，但是尽管采用了多线程并且调大了可用内存，裁减速度仍然不太理想。&lt;/p&gt;
+
+&lt;h2 id=&quot;section&quot;&gt;参考资料&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://trac.osgeo.org/gdal/wiki/ConfigOptions&quot;&gt;GDAL Configuration Options&lt;/a&gt;&lt;/p&gt;
+&lt;div class=&quot;footnotes&quot;&gt;
+  &lt;ol&gt;
+    &lt;li id=&quot;fn:gdalwarp&quot;&gt;
+      &lt;p&gt;gdalwarp说明 &lt;a href=&quot;http://www.gdal.org/gdalwarp.html&quot;&gt;http://www.gdal.org/gdalwarp.html&lt;/a&gt; &lt;a href=&quot;#fnref:gdalwarp&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/div&gt;
+</description>
+      </item>
+    
+      <item>
+        <title>2015年阅读书单</title>
+        <link>http://loongfee.github.io/blog/2015/01/29/Book-List-2015</link>
+        <guid isPermaLink="true">http://loongfee.github.io/blog/2015/01/29/Book-List-2015</guid>
+        <pubDate>Thu, 29 Jan 2015 00:00:00 +0800</pubDate>
+        <description>
+</description>
+      </item>
+    
+      <item>
+        <title> 在windows下使用MPICH2进行集群并行计算</title>
+        <link>http://loongfee.github.io/blog/2014/03/28/windows-mpich2</link>
+        <guid isPermaLink="true">http://loongfee.github.io/blog/2014/03/28/windows-mpich2</guid>
+        <pubDate>Fri, 28 Mar 2014 00:00:00 +0800</pubDate>
+        <description>&lt;h2 id=&quot;section&quot;&gt;1. 安装&lt;/h2&gt;
+
+&lt;h3 id=&quot;mpi&quot;&gt;(1) MPI版本&lt;/h3&gt;
+&lt;p&gt;MPI（Message Passing Interface）是一种消息传递编程模型，用于实现进程间的通信。MPI从它的诞生开始就有着深深的自然科学家的烙印，MPI标准的制定就是为了自然科学学者实现高速计算。目前MPI以有多种实现，如&lt;a href=&quot;http://www.mpich.org&quot;&gt;MPICH&lt;/a&gt;、&lt;a href=&quot;http://www.open-mpi.org&quot;&gt;Open MPI&lt;/a&gt;、&lt;a href=&quot;http://msdn.microsoft.com/en-us/library/bb524831(v=vs.85).aspx&quot;&gt;Microsoft MPI&lt;/a&gt;、&lt;a href=&quot;http://www.lam-mpi.org&quot;&gt;LAM/MPI&lt;/a&gt;、&lt;a href=&quot;http://public.lanl.gov/lampi/&quot;&gt;LA-MPI&lt;/a&gt;等，其中MPICH是windows下比较易用的，本文就是介绍如何在windows下安装和配置&lt;a href=&quot;http://www.mpich.org&quot;&gt;MPICH&lt;/a&gt;。&lt;/p&gt;
+
+&lt;p&gt;MPICH是MPI标准的一种最重要的实现，可以免费从网上下载。MPICH的开发与MPI规范的制订是同步进行的，因此MPICH最能反映MPI的变化和发展。MPICH的开发主要是由Argonne National Laboratory和Mississippi State University共同完成的，在这一过程中IBM也做出了自己的贡献，但是MPI规范的标准化工作是由MPI论坛完成的。MPICH是MPI最流行的非专利实现,由Argonne国家实验室和密西西比州立大学联合开发,具有更好的可移植性。目前（2014年4月）MPICH的最新版本已经更新到mpich-3.1，但是较新的版本并没有提供Windows下二进制安装文件，现阶段多流行的是MPICH2。&lt;a href=&quot;http://www.mpich.org/static/downloads/&quot;&gt;这里&lt;/a&gt;可以看到MPICH的所有版本，本文使用的是支持提供Windows二进制安装文件的最新版本1.4.1p1，可以选择下载&lt;a href=&quot;http://www.mpich.org/static/downloads/1.4.1p1/mpich2-1.4.1p1-win-ia32.msi&quot;&gt;32位版本&lt;/a&gt;或者&lt;a href=&quot;http://www.mpich.org/static/downloads/1.4.1p1/mpich2-1.4.1p1-win-x86-64.msi&quot;&gt;64位版本&lt;/a&gt;，这个可以根据你安装的Windows是32位还是64位来选择。&lt;/p&gt;
+
+&lt;h3 id=&quot;mpich2&quot;&gt;(2) 安装MPICH2&lt;/h3&gt;
+&lt;p&gt;Windows版本的安装基本是傻瓜式的，需要注意的是权限问题，尤其是在vista、win7或win8下，必须以管理员身份来运行安装程序（把用户帐户控制UAC也关掉）。也可以直接使用“msiexec /i ***.msi”命令来完成管理员权限下的mpich2安装。安装过程中基本是一路next，就是在选择安装用户的时候需要选择“everyone”，因为后面进行配置的时候可能会用到不同的用户账户。&lt;/p&gt;
+
+&lt;p&gt;是的，这样就算安装完了。&lt;/p&gt;
+
+&lt;h2 id=&quot;section-1&quot;&gt;2. 配置运行环境&lt;/h2&gt;
+
+&lt;h3 id=&quot;h3-idenvironment1-h3&quot;&gt;&amp;lt;h3 id=&#39;Environment&#39;&amp;gt;(1) 环境变量&amp;lt;h3&amp;gt;&lt;/h3&gt;
+&lt;p&gt;把MPICH2的执行程序目录添加到环境变量PATH中去。路径为“$MPICH2安装路径$\bin”，如：“C:\Program Files\MPICH2\bin”。&lt;/p&gt;
+
+&lt;h3 id=&quot;section-2&quot;&gt;(2) 用户账户设置&lt;/h3&gt;
+&lt;p&gt;要使用MPICH2必须保证当前用户为管理员用户，并且需要设置登录密码。因此，如果你的帐户不满足以上要求就需要进行相应的修改。&lt;/p&gt;
+
+&lt;h3 id=&quot;section-3&quot;&gt;(3) 注册&lt;/h3&gt;
+&lt;p&gt;运行“$MPICH2安装路径$\bin\wmpiregister.exe”，输入用户名和密码进行注册。&lt;/p&gt;
+
+&lt;h3 id=&quot;section-4&quot;&gt;(4) 单机测试&lt;/h3&gt;
+&lt;p&gt;做完以上的配置，应该就能够在单机进行并行计算了，可以用MPICH2自带的工具和计算PI的程序测试一下。
+运行“$MPICH2安装路径$\bin\wmpiexec.exe”：&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;在Application中选择“$MPICH2安装路径$\examples\cpi.exe”&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;然后调节“Number of processes”以选择使用的进程数&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;勾选“run in an separate window”&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;点击“Execute”&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;接下来会提示输入一个区间，这里输入5000000+回车，然后可以看到计算结果和计算时间。输入0+回车可以退出程序。&lt;/p&gt;
+
+&lt;p&gt;可以选择不同的进程数进行测试，看看计算时间有什么变化。通常来说当进程数小于CUP核的个数时，计算时间应该随着进程数线型递减。&lt;/p&gt;
+
+&lt;h3 id=&quot;section-5&quot;&gt;(5) 可能的问题&lt;/h3&gt;
+&lt;ol&gt;
+  &lt;li&gt;测试时点击“Execute”，命令行窗口一闪即关&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;blockquote&gt;
+  &lt;blockquote&gt;
+    &lt;p&gt;可能是环境变量没有设置好，重新&lt;a href=&quot;#Environment&quot;&gt;设置环境变量&lt;/a&gt;，必要时需要注销或重启。&lt;/p&gt;
+  &lt;/blockquote&gt;
+&lt;/blockquote&gt;
+</description>
+      </item>
+    
+      <item>
+        <title> Minimum-Rank Solutions via Nuclear Norm Minimization</title>
+        <link>http://loongfee.github.io/blog/2013/12/20/Minimum-Rank-Solutions</link>
+        <guid isPermaLink="true">http://loongfee.github.io/blog/2013/12/20/Minimum-Rank-Solutions</guid>
+        <pubDate>Fri, 20 Dec 2013 00:00:00 +0800</pubDate>
+        <description>&lt;h2 id=&quot;section&quot;&gt;1. 几种范数&lt;/h2&gt;
+&lt;p&gt;矩阵 $X \in \mathbb{R}^{m \times n}$，$\sigma_i(X)$ 表示 $X$ 的第 $i$ 大奇异值（即 $XX’$ 的第 $i$ 大特征值的均方根）{cite recht2010guaranteed}。$r$ 表示矩阵 $X$ 的秩（Rank），也等于 $X$ 非零奇异值的个数。对维度相同的两个矩阵 $X$ 和 $Y$，我们定义在 $\mathbb{R}^{m \times n}$上的内积为&lt;/p&gt;
+
+&lt;p&gt;\begin{equation}\label{eq:inner}
+\langle X,Y \rangle := Tr(X’Y) = \sum_{i=1}^m \sum_{j=1}^n X_{ij}Y_{ij}
+\end{equation}&lt;/p&gt;
+
+&lt;h3 id=&quot;frobenius&quot;&gt;1. Frobenius范数&lt;/h3&gt;
+&lt;p&gt;矩阵的Frobenius范数又称Hilbert-Schmidt范数，用 $\lVert\cdot\rVert_F$ 表示。
+Frobenius范数也等于奇异值向量的Euclidean范数（或称 $\ell_2$ 范数），基于内积\eqref{eq:inner}来计算，即&lt;/p&gt;
+
+&lt;p&gt;\begin{equation}\label{eq:Frobenius}
+\lVert X \rVert_F := \sqrt{\langle X,X \rangle} = \sqrt{Tr(X’X)} = \left( \sum_{i=1}^m \sum_{j=1}^n X_{ij}^2 \right)^\frac{1}{2} =  \left( \sum_{i=1}^r {\sigma_i}^2 \right)^\frac{1}{2}
+\end{equation}&lt;/p&gt;
+
+&lt;h3 id=&quot;section-1&quot;&gt;2. 算子范数&lt;/h3&gt;
+&lt;p&gt;矩阵的算子范数（operator norm）也称诱导2范数（ induced 2-norm），等于最大奇异值（也就是奇异值向量的 $\ell_{\infty}$ 范数），即&lt;/p&gt;
+
+&lt;p&gt;\begin{equation}\label{eq:Operator}
+\lVert X \rVert\ := \sigma_1(X)
+\end{equation}&lt;/p&gt;
+
+&lt;h3 id=&quot;section-2&quot;&gt;3. 核范数&lt;/h3&gt;
+&lt;p&gt;矩阵的核范数（nuclear norm）等于矩阵奇异值的和，即&lt;/p&gt;
+
+&lt;p&gt;\begin{equation}\label{eq:Nuclear}
+\lVert X \rVert _* := \sum_{i=1}^r \sigma_i(X)
+\end{equation}&lt;/p&gt;
+
+&lt;p&gt;核范数通常被称为其他一些名字，如Schatten的 1-norm，Ky Fan的 r-norm，或迹范数（trace class norm）。由于奇异值均非负，核范数等于奇异值向量的 $\ell_1$ 范数。&lt;/p&gt;
+
+&lt;p&gt;对于任意秩不超过 $r$ 的矩阵 $X$，以上三种范数满足以下不等式条件&lt;/p&gt;
+
+&lt;p&gt;\begin{equation}\label{eq:norm-inequ}
+\lVert X \rVert  \le \lVert X \rVert _F \le \lVert X \rVert _* \le \sqrt{r} \lVert X \rVert_F \le r\lVert X \rVert
+\end{equation}&lt;/p&gt;
+
+&lt;h2 id=&quot;section-3&quot;&gt;2. 对偶矩阵&lt;/h2&gt;
+&lt;p&gt;对于内积空间上的任意范数$\lVert  \cdot \rVert$，存在一个对偶范数（dual norm） $\lVert  \cdot \rVert _d$，其定义如下：&lt;/p&gt;
+
+&lt;p&gt;\begin{equation}\label{eq:dual-norm}
+\lVert X \rVert _d := \max _{Y} { \langle X,Y \rangle : \lVert Y \rVert \le q }
+\end{equation}&lt;/p&gt;
+
+&lt;p&gt;特别地，对偶范数的对偶范数为原范数。&lt;/p&gt;
+
+&lt;p&gt;对于 $\mathbb{R}^n$ 上的向量，$\ell_p$ 范数 $1 &amp;lt; p &amp;lt; \infty$ 的对偶范数为 $\ell_q$ 范数，$p,q$ 满足 $ \frac{1}{p} + \frac{1}{q} = 1$。类似地，$\ell_\infty$ 的对偶范数为 $\ell_1$。同样，我们可以推广到我们定义的矩阵范数。例如，Frobenius范数的对偶范数还是Frobenius范数，这可以简单的微积分（或Cauchy-Schwarz）来验证，因为&lt;/p&gt;
+
+&lt;p&gt;\begin{equation}\label{eq:Frobenius-verify}
+\max _{Y} { Tr(X’Y) : Tr(Y’Y) \le 1}
+\end{equation}&lt;/p&gt;
+
+&lt;p&gt;就等于 $\lVert  X\rVert_F$，且当 $Y = X / \lVert X \rVert_F$时取得最大值。类似地，算子范数的对偶范数是核范数（后面会具体说明）。&lt;/p&gt;
+
+&lt;h2 id=&quot;section-4&quot;&gt;3. 秩和势函数的凸包络&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;凸包络（Convex envelope）&lt;/strong&gt;的定义：给定一个凸集 $\mathcal{C}$，一个函数（可以为非凸的）$f : \mathcal{C} \rightarrow \mathbb{R} $ 的凸包络为使得对所有 $x \in \mathcal{C}$ 均有 $g(x) \le f(x)$ 的最大凸函数 $g$ 。凸包络的定义表明，在所有的凸函数中，$g$ 是对 $f$ 最佳的逐点近似。特别的，如果最优的 $g$ 可以方便的描述出来，函数 $f$ 近似的最小值可以高效地求得。&lt;/p&gt;
+
+&lt;p&gt;由链式不等式 \eqref{eq:norm-inequ}可以得到 对所有 $X$ 有 $rank(X) \ge \lVert X \rVert_* / \lVert X \rVert$。对所有 $\lVert X \rVert \le 1$，均有 $rank(X) \ge \lVert X \rVert_*$，因此在算子范数定义的单位球内，核范数是秩函数的较小的凸边界。事实上核范数也是其最紧致的凸边界，即：在集合 ${ X \in \mathbb{R}^{m \times n} : \lVert X \rVert \le 1 }$ 上，核范数 $\lVert X \rVert_*$ 是秩函数 $rank(X)$ 的凸包络。&lt;/p&gt;
+
+&lt;p&gt;\begin{equation}
+card(x) \ge |x|_1/|x|_{\infty}
+\end{equation}&lt;/p&gt;
+
+&lt;h2 id=&quot;section-5&quot;&gt;4. 秩的可加性&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;次可加性（subadditivity）&lt;/strong&gt;：如果从一个线性空间 $\mathcal{S}$ 映射到 $\mathbb{R}$ 的函数 $f$ 满足 $f(x+y) \le f(x) + f(y)$。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;可加性（additivity）&lt;/strong&gt;：如果从一个线性空间 $\mathcal{S}$ 映射到 $\mathbb{R}$ 的函数 $f$ 满足 $f(x+y) = f(x) + f(y)$。&lt;/p&gt;
+
+&lt;p&gt;对于向量来说，势函数和 $\ell_1$ 范数均满足次可加性。&lt;/p&gt;
+
+&lt;p&gt;{bibliography –file nuclear.bib –cited}&lt;/p&gt;
+</description>
+      </item>
+    
+      <item>
+        <title> 压缩感知初探</title>
+        <link>http://loongfee.github.io/blog/2013/10/22/Compressive-Sensing</link>
+        <guid isPermaLink="true">http://loongfee.github.io/blog/2013/10/22/Compressive-Sensing</guid>
+        <pubDate>Tue, 22 Oct 2013 00:00:00 +0800</pubDate>
+        <description>&lt;h2 id=&quot;section&quot;&gt;关于压缩感知的有关资源网站&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;http://dsp.rice.edu/cs&quot;&gt;Rice University的资源&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://terrytao.wordpress.com/2007/04/13/compressed-sensing-and-single-pixel-cameras/&quot;&gt;陶哲轩介绍压缩感知的科普性博文&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.youku.com/playlist_show/id_5267259.html&quot;&gt;陶哲轩的compressive sensing（CS）的课程&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.youtube.com/watch?v=i2aY7tZ5S7U&amp;amp;list=PLC94A02A1218B24DF&quot;&gt;Compressed Sensing by Terence Tao&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.cvchina.info/2010/06/01/sparse-representation-vector-matrix-tensor-1/&quot;&gt;稀疏表达：向量、矩阵与张量&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      </item>
+    
+      <item>
+        <title> A Contrario：一种基于概率统计的无参数决策模型</title>
+        <link>http://loongfee.github.io/blog/2013/08/12/a-contrario-starting</link>
+        <guid isPermaLink="true">http://loongfee.github.io/blog/2013/08/12/a-contrario-starting</guid>
+        <pubDate>Mon, 12 Aug 2013 00:00:00 +0800</pubDate>
+        <description>&lt;h2 id=&quot;a-contrario&quot;&gt;关于”a contrario”模型&lt;/h2&gt;
+&lt;p&gt;虽然这个模型已经提出了十多年，应用也比较广泛了，但是笔者并没查阅到确切的中文翻译，这里姑且将其译为“悖论模型”吧。与这个模型密切相关的关键词有：&lt;code&gt;Gestalt&lt;/code&gt;、&lt;code&gt;Helmholtz&lt;/code&gt;、&lt;code&gt;NFA (Number of False Alarm)&lt;/code&gt;、&lt;code&gt; ε-meaningful &lt;/code&gt;，它们原本都是属于心理学的范畴，&lt;a href=&quot;http://desolneux.perso.math.cnrs.fr&quot;&gt;Agnès Desolneux&lt;/a&gt;, &lt;a href=&quot;http://www.math-info.univ-paris5.fr/~moisan/index.php&quot;&gt;Lionel Moisan&lt;/a&gt; and &lt;a href=&quot;http://scholar.google.com/citations?user=BlEbdeEAAAAJ&amp;amp;hl=en&quot;&gt;Jean-Michel Morel&lt;/a&gt;于1999年将其引入到图像分析领域{cite desolneux2000meaningful}，提出了一种基于概率统计的无参数决策模型——“&lt;code&gt;a contrario&lt;/code&gt;”。&lt;/p&gt;
+
+&lt;h2 id=&quot;gestalt&quot;&gt;格式塔（Gestalt）理论&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;http://en.wikipedia.org/wiki/Gestalt_psychology&quot;&gt;格式塔（Gestalt）&lt;/a&gt;理论最早由德国心理学家Wertheimer于1912年提出。
+“格式塔”（Gestalt）一词具有两种涵义。一种涵义是指形状或形式，亦即物体的性质，例如，用“有角的”或“对称的”这样一些术语来表示物体的一般性质，以示三角形（在几何图形中）或时间序列（在曲调中）的一些特性。在这个意义上说，格式塔意即“形式”。另一种涵义是指一个具体的实体和它具有一种特殊形状或形式的特征，例如，“有角的”或“对称的”是指具体的三角形或曲调，而非第一种涵义那样意指三角形或时间序列的概念，它涉及物体本身，而不是物体的特殊形式，形式只是物体的属性之一。在这个意义上说，格式塔即任何分离的整体&lt;sup id=&quot;fnref:zhlzw&quot;&gt;&lt;a href=&quot;#fn:zhlzw&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;。  &lt;/p&gt;
+
+&lt;p&gt;格式塔理论的基本假设是视觉感知过程中的主动分组原则，简单说来就是在视野范围内，当一些点（或者由点组成的组）具有一种或多种公共的特征时，它们就会被分为一组并形成一个更大的可见目标（也就是一个格式塔）。&lt;/p&gt;
+
+&lt;p&gt;根据Gaetano Kanizsa的著作，格式塔理论基本的分组原则包括 vicinity（邻近关系）, similarity（相似性）, continuity of direction（方向的连续性）, amodal completion（补全）, closure（闭合关系）, constant width（一致的宽度）, tendency to convexity（凸包的趋势）, symmetry（对称性）, common motion（公共的运动）, past experience（过去的经验）等 {cite desolneux2008gestalt}。&lt;/p&gt;
+
+&lt;h2 id=&quot;helmholtz&quot;&gt;Helmholtz原理&lt;/h2&gt;
+&lt;p&gt;简单说来，Helmholtz原理是指在一个完全随机的图像上我们不能感知到任何的结构信息。采用另一种更强的说法，Helmholtz原理是指只要有一些现象大大偏离随机发生的几率，那么我们就可以从中感知到结构信息。通俗地讲就是“我们可以很容易地感知到那些不可能是随机发生的事物”{cite desolneux2008gestalt}。  &lt;/p&gt;
+
+&lt;p&gt;{cite desolneux2000meaningful} 将Helmholtz原理定量化了，他们给出的Helmholtz假设检验过程包含三个要素：分组方法、悖论概率模型和决策函数。&lt;/p&gt;
+
+&lt;h2 id=&quot;references&quot;&gt;References&lt;/h2&gt;
+
+&lt;p&gt;{bibliography –cited}&lt;/p&gt;
+
+&lt;div class=&quot;footnotes&quot;&gt;
+  &lt;ol&gt;
+    &lt;li id=&quot;fn:zhlzw&quot;&gt;
+      &lt;p&gt;[德]库尔特·考夫卡《 格式塔心理学原理》: &lt;a href=&quot;http://www.zhlzw.com/lzsj/mz/tsxl/index.htm&quot;&gt;http://www.zhlzw.com/lzsj/mz/tsxl/index.htm&lt;/a&gt; &lt;a href=&quot;#fnref:zhlzw&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/div&gt;
+</description>
+      </item>
+    
+      <item>
+        <title>用Notepad++替换系统记事本</title>
+        <link>http://loongfee.github.io/blog/2013/08/06/notepad-replace-notepad</link>
+        <guid isPermaLink="true">http://loongfee.github.io/blog/2013/08/06/notepad-replace-notepad</guid>
+        <pubDate>Tue, 06 Aug 2013 00:00:00 +0800</pubDate>
+        <description>&lt;p&gt;本文主要介绍如何借助AutoHotkey和映像劫持结束来实现用Notepad++替换系统记事本的功能，方法具有普适性，理论上说可以支持用任意软件替换系统相应的默认程序。&lt;/p&gt;
+
+&lt;h2 id=&quot;section&quot;&gt;1. 什么映像劫持技术&lt;/h2&gt;
+&lt;p&gt;简单说来，&lt;a href=&quot;http://baike.baidu.com/view/1296399.htm&quot;&gt;映像劫持技术(Image File Execution Options)&lt;/a&gt;就是将某个&lt;code&gt;程序A&lt;/code&gt;直接映射到另一个&lt;code&gt;程序B&lt;/code&gt;上去，然后在试图执行&lt;code&gt;程序A&lt;/code&gt;时自动执行了&lt;code&gt;程序B&lt;/code&gt;。而这一切只需要在注册表中添加一条语句即可实现，不需要修改系统中的文件和其他配置。想要恢复原有程序时，只需从注册表中删除这条语句就行了。整个过程非常绿色环保，不会对系统造成其他影响。&lt;br /&gt;
+以使用Notepad2替换记事本&lt;sup id=&quot;fnref:portablesoft&quot;&gt;&lt;a href=&quot;#fn:portablesoft&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;为例，具体过程主要包括：&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;创建如下注册表项：&lt;code&gt;HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\notepad.exe&lt;/code&gt;，如果无法修改，需要先右键取得权限  &lt;/li&gt;
+  &lt;li&gt;在&lt;code&gt;notepad.exe&lt;/code&gt;注册表项中，创建名为&lt;code&gt;Debugger&lt;/code&gt;的字符串值(&lt;code&gt;REG_SZ&lt;/code&gt;)  &lt;/li&gt;
+  &lt;li&gt;修改字符串值&lt;code&gt;Debugger&lt;/code&gt;的数据为&lt;code&gt;Notepad2.exe&lt;/code&gt;的完整路径，最后以 &lt;code&gt;/z&lt;/code&gt; 参数结尾。
+通过镜像劫持技术将记事本替换为Notepad2的方案十分非常完美了，&lt;code&gt;Notepad2&lt;/code&gt;官方文档&lt;sup id=&quot;fnref:notepad2&quot;&gt;&lt;a href=&quot;#fn:notepad2&quot; class=&quot;footnote&quot;&gt;2&lt;/a&gt;&lt;/sup&gt;中就给出了实现方法，其中的参数 &lt;code&gt;/z&lt;/code&gt; 应该就是特地为替换记事本而设计的。  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;平心而论，&lt;code&gt;Notepad2&lt;/code&gt;已经是一款非常优秀的记事本替代品了，启动速度快，支持自定制，功能也非常丰富，尤其是&lt;a href=&quot;http://www.portablesoft.org&quot;&gt;精品绿色便携软件&lt;/a&gt;提供的修改版&lt;a href=&quot;http://www.portablesoft.org/notepad2-replacement/&quot;&gt;Notepad2-mod&lt;/a&gt;，功能更强大了，一般使用已经完全足够了。但是与同样开源免费的&lt;a href=&quot;http://notepad-plus-plus.org&quot;&gt;&lt;code&gt;Notepad++&lt;/code&gt;&lt;/a&gt;相比，在对文本文件(*.txt)编码字符集的自动识别能力上差了不少，有的不能自动识别，显示乱字符。另外一个硬伤就是不支持多标签，在打开多个文件时窗口是很凌乱的。&lt;/p&gt;
+
+&lt;h2 id=&quot;notepad&quot;&gt;2. 尝试用&lt;code&gt;Notepad++&lt;/code&gt;替换系统记事本&lt;/h2&gt;
+&lt;p&gt;首先，笔者尝试了将在&lt;code&gt;Notepad2&lt;/code&gt;中得到完美应用的&lt;code&gt;映像劫持技术&lt;/code&gt;直接搬到&lt;code&gt;Notepad++&lt;/code&gt;中来，结果是失败的：  &lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;直接使用&lt;code&gt;镜像劫持&lt;/code&gt;方案修改后，运行记事本时会自动打开&lt;code&gt;notepad.exe&lt;/code&gt;文件。原因是&lt;code&gt;notepad++.exe&lt;/code&gt;不支持用参数 &lt;code&gt;/z&lt;/code&gt; 跳过后续第一个参数。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;autohotkey-&quot;&gt;3. 万能工具 &lt;code&gt;AutoHotkey&lt;/code&gt; 出马&lt;/h2&gt;
+&lt;p&gt;虽然&lt;code&gt;Notepad++&lt;/code&gt;本身没有提供&lt;code&gt;跳过后续第一个参数&lt;/code&gt;的功能，但是并不是没有办法实现的。因为 &lt;code&gt;AutoHotkey&lt;/code&gt; 的存在，几乎一切都是可以自己定制的，更何况是这么一个小小的参数。下面一段代码就是通过 &lt;code&gt;AutoHotkey&lt;/code&gt;来跳过 &lt;code&gt;notepad.exe&lt;/code&gt; 参数，解决自动打开&lt;code&gt;notepad.exe&lt;/code&gt;的问题。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-ahk&quot;&gt;; cnpp.ahk
+cpath =
+Loop, %0%
+{
+    param := %A_Index%
+    If param not contains notepad.exe
+    cpath = %cpath% %param%
+}
+Run notepad++.exe &quot;%cpath%&quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;编译这段 &lt;code&gt;AHK&lt;/code&gt; 代码，生成一个名为&lt;code&gt;cnpp&lt;/code&gt;的可执行程序。 然后通过下面的 &lt;code&gt;Batch&lt;/code&gt; 命令直接添加注册表语句，实现系统记事本的映像劫持。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-bat&quot;&gt;:: 替换记事本.bat
+@echo off
+cd /d &quot;%~dp0&quot;
+reg add &quot;HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\notepad.exe&quot; /v &quot;Debugger&quot; /d &quot;%~dp0cnpp.exe&quot;
+cls
+echo cnpp已设为默认编辑器。
+pause
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;需要回复系统记事本时，直接运行下面的 &lt;code&gt;Batch&lt;/code&gt; 代码就行了。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-bat&quot;&gt;:: 还原记事本.bat
+@echo off
+cd /d &quot;%~dp0&quot;
+reg delete &quot;HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\notepad.exe&quot; /f
+cls
+echo Notepad已还原为默认编辑器
+pause
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&quot;autohotkey--1&quot;&gt;4. 纯 &lt;code&gt;AutoHotkey&lt;/code&gt; 实现&lt;/h2&gt;
+&lt;p&gt;其实到上一节为止，设置&lt;code&gt;Notepad++&lt;/code&gt;替换系统记事本的功能已经实现了，这一节只是将这个过程做的更方便更友好。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-ahk&quot;&gt;; cnpp安装.卸载.ahk
+RegRead, Hijack, HKLM, SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\notepad.exe,debugger
+;MsgBox %hijack%
+If(Hijack!=&quot;&quot;){
+	RegDelete HKLM, SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\notepad.exe,debugger
+	TrayTip,,Notepad为默认编辑器,2000
+	Sleep ,1500
+	}
+Else{
+	RegWrite, REG_SZ, HKEY_LOCAL_MACHINE, SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\notepad.exe , debugger, ccaiai
+	RegRead, Hijack, HKLM, SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\notepad.exe,debugger
+	If(Hijack!=&quot;ccaiai&quot;){
+	MsgBox, 16, 请先关闭杀毒软件后再重试
+	ExitApp
+	}
+	HijackPath=%A_WorkingDir%\cnpp.exe
+	RegWrite, REG_SZ, HKEY_LOCAL_MACHINE, SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\notepad.exe , debugger, %HijackPath%
+	TrayTip,,cnpp为默认编辑器,2000
+	Sleep ,1500
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;编译完 &lt;code&gt;AutoHotkey&lt;/code&gt; 代码得到的 &lt;code&gt;exe&lt;/code&gt; 程序放到 &lt;code&gt;notepad++.exe&lt;/code&gt; 同目录下，执行  &lt;code&gt;cnpp安装.卸载.exe&lt;/code&gt; 程序即可替换或还原系统记事本。&lt;br /&gt;
+&lt;em&gt;&lt;code&gt;AutoHotkey&lt;/code&gt; 代码参考了 &lt;code&gt;ccaiai&lt;/code&gt; 设置VIM为默认编辑器的代码。&lt;/em&gt;&lt;br /&gt;
+&lt;em&gt;P.S. 再次体会到 &lt;code&gt;AutoHotkey&lt;/code&gt; 的强大。&lt;/em&gt;&lt;/p&gt;
+
+&lt;div class=&quot;footnotes&quot;&gt;
+  &lt;ol&gt;
+    &lt;li id=&quot;fn:portablesoft&quot;&gt;
+      &lt;p&gt;通过映像劫持实现Notepad2替换记事本: &lt;a href=&quot;http://www.portablesoft.org/notepad2-replacement/&quot;&gt;http://www.portablesoft.org/notepad2-replacement/&lt;/a&gt; &lt;a href=&quot;#fnref:portablesoft&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li id=&quot;fn:notepad2&quot;&gt;
+      &lt;p&gt;Notepad2 ― Replacing Windows Notepad: &lt;a href=&quot;http://www.flos-freeware.ch/doc/notepad2-Replacement.html&quot;&gt;http://www.flos-freeware.ch/doc/notepad2-Replacement.html&lt;/a&gt; &lt;a href=&quot;#fnref:notepad2&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/div&gt;
+</description>
+      </item>
+    
+      <item>
+        <title>Feedly 快捷键</title>
+        <link>http://loongfee.github.io/blog/2013/08/05/feedly</link>
+        <guid isPermaLink="true">http://loongfee.github.io/blog/2013/08/05/feedly</guid>
+        <pubDate>Mon, 05 Aug 2013 00:00:00 +0800</pubDate>
+        <description>&lt;h2 id=&quot;google-reader&quot;&gt;后Google Reader时代&lt;/h2&gt;
+&lt;p&gt;Google关闭了谷歌阅读器 (Google Reader) ，这伤了无数谷粉的心。但是Google Reader的死去并不会终止RSS阅读的时代，只不过我们得寻找一个比较好的替代方案。 首先，RSS客户端阅读器显得复杂和冗余，违背了RSS阅读的初衷，因此仅考虑在线阅读器。其中国产的&lt;a href=&quot;http://xianguo.com/&quot;&gt;鲜果&lt;/a&gt;、&lt;a href=&quot;http://reader.youdao.com/&quot;&gt;有道&lt;/a&gt;等都是不错的选择，但是在综合体验之后，我还是选择了比较小众的[&lt;code&gt;Feedly&lt;/code&gt;]： 界面简洁，兼容性好，支持快捷键，使用方便。&lt;br /&gt;
+下面将[&lt;code&gt;Feedly&lt;/code&gt;]的快捷键整理如下（主要是从网站的说明翻译过来的）：&lt;/p&gt;
+
+&lt;h3 id=&quot;navigation&quot;&gt;导航（Navigation）&lt;/h3&gt;
+&lt;p&gt;| 快捷键 | 中文说明 | 英文说明 |&lt;/p&gt;
+
+&lt;p&gt;| ————- |————-|—-|&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code&gt;gm&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;转到今天&lt;/td&gt;
+      &lt;td&gt;today&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;table&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code&gt;ga&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;所有&lt;/td&gt;
+      &lt;td&gt;all&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;table&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code&gt;gg&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;分类选择&lt;/td&gt;
+      &lt;td&gt;magic bar&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;table&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code&gt;gl&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;保存的文章&lt;/td&gt;
+      &lt;td&gt;saved article&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;table&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code&gt;shift+j&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;下一个feed或分类&lt;/td&gt;
+      &lt;td&gt;next feed or category&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;table&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code&gt;shift+k&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;上一个feed或分类&lt;/td&gt;
+      &lt;td&gt;previous feed or category&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;table&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code&gt;a&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;添加内容&lt;/td&gt;
+      &lt;td&gt;add content&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;table&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code&gt;r&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;刷新&lt;/td&gt;
+      &lt;td&gt;refresh&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&quot;lists&quot;&gt;列表（Lists）&lt;/h3&gt;
+&lt;p&gt;| 快捷键 | 中文说明 | 英文说明 |&lt;/p&gt;
+
+&lt;p&gt;| ————- |————-|—-|&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code&gt;j&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;展开下一篇文章&lt;/td&gt;
+      &lt;td&gt;inline next article&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;table&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code&gt;k&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;展开上一篇文章&lt;/td&gt;
+      &lt;td&gt;inline previous article&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;table&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code&gt;n&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;选择下一篇文章&lt;/td&gt;
+      &lt;td&gt;select next article&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;table&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code&gt;p&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;选择上一篇文章&lt;/td&gt;
+      &lt;td&gt;select previous article&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;table&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code&gt;o&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;展开/收起当前选中的文章&lt;/td&gt;
+      &lt;td&gt;inline/close currently selected article&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;table&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code&gt;v&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;打开一个新的tab查看原网页&lt;/td&gt;
+      &lt;td&gt;view original in a new tab&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;table&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code&gt;shift+a&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;标记所有为已读&lt;/td&gt;
+      &lt;td&gt;mark all as read&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&quot;selected-article&quot;&gt;文章操作（Selected Article）&lt;/h3&gt;
+&lt;p&gt;| 快捷键 | 中文说明 | 英文说明 |&lt;/p&gt;
+
+&lt;p&gt;| ————- |————-|—-|&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code&gt;m&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;（取消）标记为已读&lt;/td&gt;
+      &lt;td&gt;toggle mark as read&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;table&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code&gt;x&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;最小化并隐藏（即从列表中删除）&lt;/td&gt;
+      &lt;td&gt;minimize and hide&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;table&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code&gt;s&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;保存&lt;/td&gt;
+      &lt;td&gt;save for later&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;table&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code&gt;b&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;缓存（保存至Buffer）&lt;/td&gt;
+      &lt;td&gt;buffer&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;table&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code&gt;shift+v&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;预览文章&lt;/td&gt;
+      &lt;td&gt;preview&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&quot;section&quot;&gt;网址&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&quot;http://cloud.feedly.com&quot;&gt;&lt;code&gt;Feedly&lt;/code&gt;: http://cloud.feedly.com&lt;/a&gt;&lt;/p&gt;
+</description>
+      </item>
+    
+      <item>
+        <title>利用本地编译结果替代Github Page自动生成网站</title>
+        <link>http://loongfee.github.io/blog/2013/08/03/Github-page-build-failure</link>
+        <guid isPermaLink="true">http://loongfee.github.io/blog/2013/08/03/Github-page-build-failure</guid>
+        <pubDate>Sat, 03 Aug 2013 00:00:00 +0800</pubDate>
+        <description>&lt;h2 id=&quot;section&quot;&gt;缘起&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;Github Page&lt;/code&gt; 提供了自动编译 &lt;code&gt;Jekyll&lt;/code&gt; 网站的功能，我们只需要将 &lt;code&gt;Jekyll&lt;/code&gt; 网站代码 &lt;code&gt;push&lt;/code&gt; 到 &lt;code&gt;Github&lt;/code&gt; 上，接下来的事情就都可以交给 &lt;code&gt;Github Page&lt;/code&gt;，一般几分钟后就可以看到由 &lt;code&gt;Github Page&lt;/code&gt; 重新编译生成的网站了。那末，好好的服务放弃不用，偏偏折腾着直接利用本地编译结果是要闹哪样呢？其实这么捣鼓还真不是因为DT，确实是事发有因。&lt;code&gt;Github Page&lt;/code&gt; 虽然方便，但是它还是存在几个问题：&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;[&lt;code&gt;Github Page&lt;/code&gt;] 不支持插件&lt;br /&gt;
+虽然[&lt;code&gt;Github Page&lt;/code&gt;] 服务器不提供插件支持，但是如果需要使用插件可以将 &lt;code&gt;*.rub&lt;/code&gt; 文件放到网站根目录下的 &lt;code&gt;_plugins&lt;/code&gt; 文件夹中。遗憾的是这种方式并非万能的，对于一些小巧的、相对独立的插件是可行的，但是对诸如“让Jekyll将Pandoc作为Markdown的渲染器&lt;sup id=&quot;fnref:loong&quot;&gt;&lt;a href=&quot;#fn:loong&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;”的问题，这种方式就显得力不从心了。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;[&lt;code&gt;Github Page&lt;/code&gt;] 服务器上软件的版本偏低&lt;br /&gt;
+[&lt;code&gt;Github Page&lt;/code&gt;] 服务器提供的编译平台是一定的，出于稳定性和大用户群的体验考虑，服务器不可能频繁地更新编译平台，因此其编译平台的版本通常比较滞后。例如写作本文时，[&lt;code&gt;Github Page&lt;/code&gt;] 服务器提供的 &lt;code&gt;Jekyll&lt;/code&gt; 及其它依赖库的版本为&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;ruby &#39;1.9.3&#39;
+gem &#39;jekyll&#39;,     &#39;=1.0.3&#39;
+gem &#39;liquid&#39;,     &#39;=2.5.1&#39;
+gem &#39;redcarpet&#39;,  &#39;=2.2.2&#39;
+gem &#39;maruku&#39;,     &#39;=0.6.1&#39;
+gem &#39;rdiscount&#39;,  &#39;=1.6.8&#39;
+gem &#39;RedCloth&#39;,   &#39;=4.2.9&#39;
+gem &#39;kramdown&#39;,   &#39;=1.0.2&#39;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;而时下的 &lt;code&gt;ruby&lt;/code&gt; 最新版本为2.0.0p195, &lt;code&gt;rdiscount&lt;/code&gt; 的最新版本则是2.1.6，有着不小的差距。这样就出现兼容性问题了，本地使用新版本平台能够编译通过的代码提交到 [&lt;code&gt;Github Page&lt;/code&gt;] 服务器就可能 “&lt;code&gt;page build failed&lt;/code&gt;” 了。最保险的办法就是将本地的编译平台按照 [&lt;code&gt;Github Page&lt;/code&gt;] 服务器上地版本来配置，并且不使用插件，这样就能保证本地编译通过的代码提交到 [&lt;code&gt;Github Page&lt;/code&gt;] 后不出现问题了。但是新版本的新功能和bug的修复无法享用了。&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;利用 [&lt;code&gt;Github Page&lt;/code&gt;] 编译并发布网站相对比较耗时 &lt;br /&gt;
+很显然，既然已经在本地生成好了网站，再将代码上传到服务器重新编译一遍是挺多余的。事实上有时候在晚上上传上去的代码到第二天才会生成好网站。当然，直接将编译好的结果文件 &lt;code&gt;push&lt;/code&gt; 到 &lt;code&gt;Github&lt;/code&gt; 也不是立即生效的，但至少不会担心 “&lt;code&gt;page build failed&lt;/code&gt;” 的错误了。&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;section-1&quot;&gt;解决方案&lt;/h2&gt;
+&lt;p&gt;[&lt;code&gt;Github Page&lt;/code&gt;] 官网上提到在网站根目录下创建一个名为 &lt;code&gt;.nojekyll&lt;/code&gt; 的文件就可以关闭服务器端的 &lt;code&gt;Jekyll&lt;/code&gt; 编译器，但是即使将 &lt;code&gt;_site&lt;/code&gt; 文件夹上传到服务器上，网站也不会被发布。笔者找到的解决方案是在 &lt;code&gt;Github&lt;/code&gt; 该网站的 &lt;code&gt;Repositor&lt;/code&gt; 中创建一个新的 &lt;code&gt;branch&lt;/code&gt;，然后用这两个分支分别管理源代码和生成的网站文件。下面介绍具体的实施步骤&lt;sup id=&quot;fnref:varn&quot;&gt;&lt;a href=&quot;#fn:varn&quot; class=&quot;footnote&quot;&gt;2&lt;/a&gt;&lt;/sup&gt;。&lt;br /&gt;
+1. 用 &lt;code&gt;Github&lt;/code&gt; 创建一个 &lt;code&gt;source&lt;/code&gt; 分支&lt;br /&gt;
+打开 &lt;code&gt;git&lt;/code&gt; 控制台，进入到网站工程目录（以后的操作均在该目录下进行）。用下面的命令将 &lt;code&gt;master&lt;/code&gt; 分支中的文件移动到一个新的分支中（命名为 &lt;code&gt;source&lt;/code&gt; ）。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;git checkout -b source master
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;将源代码上传到 &lt;code&gt;source&lt;/code&gt; 分支&lt;br /&gt;
+使用下面的命令将这个新的分支 &lt;code&gt;push&lt;/code&gt; 到 &lt;code&gt;Github&lt;/code&gt; 上&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;git push -u origin source
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;在 &lt;code&gt;Github&lt;/code&gt; 上修改 &lt;code&gt;source&lt;/code&gt; 为默认分支&lt;br /&gt;
+登录到 &lt;code&gt;Github&lt;/code&gt;，在 &lt;code&gt;repository&lt;/code&gt; 设置中将该工程的默认分支设置为 &lt;code&gt;source&lt;/code&gt;。这样，当其他人访问你的 &lt;code&gt;Github&lt;/code&gt; 是默认看到的就是你的源代码而不是生成的网站了。   &lt;/li&gt;
+  &lt;li&gt;编译网站代码并上传到 &lt;code&gt;master&lt;/code&gt; 分支
+这一步的原理是将 &lt;code&gt;source&lt;/code&gt; 分支中的代码 &lt;code&gt;build&lt;/code&gt; 到一个临时文件夹中，然后将临时文件夹中的结果文件 &lt;code&gt;push&lt;/code&gt; 到 &lt;code&gt;master&lt;/code&gt; 分支中去。步骤稍微有点复杂，如果每次上传网站都要重复操作的话就太麻烦了，好在我们可以将这些机械的操作写到 &lt;code&gt;batch&lt;/code&gt; 批处理中自动完成。&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-bat&quot;&gt;:: 发布到github
+
+@echo off
+
+:: 用户名
+set usr=anyone
+
+:: 当前日期
+set &quot;Ymd=%date:~,4%%date:~5,2%%date:~8,2%&quot;
+
+:: 临时编译目录
+set build_path=&quot;%TEMP%Jekyll_build&quot;
+
+:: 创建临时编译目录
+:: 如果已经存在则删除后重新创建
+
+if exist %build_path% (
+    ::echo !build_path! exist
+    rd /s /q %build_path%
+    md %build_path%
+    ) else (
+    ::echo !build_path! missing
+    md %build_path%
+)
+
+:: 支持utf-8编码
+chcp 65001
+:: 编译网站
+call jekyll build -d %build_path%
+
+:: 如果编译出错，直接跳出
+if   %errorlevel% NEQ 0  exit
+
+:: 如果编译没有错误就发布网站
+cd /d %build_path%
+C:
+del /q/a/f/s %build_path%\*.bat
+call git init
+call git add .
+call git commit -m &quot;updated site %ymd%&quot;
+call git remote add origin git@github.com:!usr!/!usr!.github.com.git
+call git remote set-url origin git@github.com:!usr!/!usr!.github.com.git
+call git push origin master --force
+
+:: 返回当前目录
+cd /d %~dp0
+
+:: 删除临时编译目录
+rd /s /q !build_path!
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;创建一个 &lt;code&gt;windows batch&lt;/code&gt; 文件（扩展名为 &lt;code&gt;bat&lt;/code&gt;），将以上代码复制粘贴到这个文件中，并把代码 &lt;code&gt;set usr=anyone&lt;/code&gt; 中的 &lt;code&gt;anyone&lt;/code&gt; 改成你自己 &lt;code&gt;Github&lt;/code&gt; 的用户名（也可以直接&lt;a href=&quot;/assets/share/publish.bat&quot;&gt;下载这个&lt;code&gt;bat&lt;/code&gt;文件&lt;/a&gt;），然后这个文件存放在网站代码的根目录下，每次需要发布网站的时候直接运行这个&lt;code&gt;bat&lt;/code&gt;文件即可。&lt;br /&gt;
+命令执行过程中可能会出现警告，只要最后能执行通过就没有问题。&lt;/p&gt;
+
+&lt;p&gt;[&lt;code&gt;Github Page&lt;/code&gt;]: http://pages.github.com/ “”&lt;/p&gt;
+
+&lt;div class=&quot;footnotes&quot;&gt;
+  &lt;ol&gt;
+    &lt;li id=&quot;fn:loong&quot;&gt;
+      &lt;p&gt;让Jekyll将Pandoc作为Markdown的渲染器: &lt;a href=&quot;http://loongfee.github.io/blog/2013/08/02/new-post/&quot;&gt;http://loongfee.github.io/blog/2013/08/02/new-post/&lt;/a&gt; &lt;a href=&quot;#fnref:loong&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li id=&quot;fn:varn&quot;&gt;
+      &lt;p&gt;Jekyll : Handling Github page build failure and Jekyll plugins on Github:&lt;a href=&quot;http://varunbpatil.github.io/2013/07/06/jekyll-build-fail/#.UfumtI8lzRe&quot;&gt;http://varunbpatil.github.io/2013/07/06/jekyll-build-fail/#.UfumtI8lzRe&lt;/a&gt; &lt;a href=&quot;#fnref:varn&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/div&gt;
+</description>
+      </item>
+    
+      <item>
+        <title>让Jekyll将Pandoc作为Markdown的渲染器</title>
+        <link>http://loongfee.github.io/blog/2013/08/02/new-post</link>
+        <guid isPermaLink="true">http://loongfee.github.io/blog/2013/08/02/new-post</guid>
+        <pubDate>Fri, 02 Aug 2013 00:00:00 +0800</pubDate>
+        <description>&lt;script type=&quot;text/javascript&quot; src=&quot;http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML&quot;&gt;
+&lt;/script&gt;
+
+&lt;h1 id=&quot;jekyll&quot;&gt;Jekyll的渲染器&lt;/h1&gt;
+&lt;p&gt;Jekyll中默认的markdown渲染器是&lt;code&gt;maruku&lt;/code&gt;，但是它对Latex公式和中文支持都不太好, 通常是根据不同的需要选择其它几种渲染器（&lt;code&gt;rdiscount&lt;/code&gt;，&lt;code&gt;kramdown&lt;/code&gt;，&lt;code&gt;redcarpet&lt;/code&gt;等），它们各有利弊。Github在后台则选用了&lt;code&gt;Redcarpet&lt;/code&gt;作为其文本渲染器，因为它安全性高且性能卓越，同时它在基本&lt;code&gt;Markdown&lt;/code&gt;语法的基础上增加了一些自己的特性。&lt;code&gt;Kramdown&lt;/code&gt;是这几个当中对基础 &lt;code&gt;Markdown&lt;/code&gt;语法拓展最多，也是最方便使用的&lt;sup id=&quot;fnref:yangzetian&quot;&gt;&lt;a href=&quot;#fn:yangzetian&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;（但是跟&lt;code&gt;Pandoc&lt;/code&gt;相比，还是差得很远）。笔者之前一直是使用&lt;code&gt;rdiscount&lt;/code&gt;，结果在本地编译没问题的代码在Github上就是无法通过，折腾了半天知道Github上的&lt;code&gt;rdiscount&lt;/code&gt;是1.6.8版本，而本地&lt;code&gt;rdiscount&lt;/code&gt;是2.1.6版本。下降版本后发现&lt;code&gt;rdiscount&lt;/code&gt;1.6.8版本不支持注脚语法。使用低版本就无法使用注脚，使用高版本就无法在Github上编译通过，纠结之余开始寻找合适的解决方案，于是就有了这篇文章。&lt;/p&gt;
+
+&lt;h1 id=&quot;pandoc&quot;&gt;为什么使用pandoc&lt;/h1&gt;
+&lt;p&gt;&lt;a href=&quot;http://johnmacfarlane.net/pandoc&quot;&gt;&lt;code&gt;Pandoc&lt;/code&gt;&lt;/a&gt;被称为格式转换的瑞士军刀，功能强大，能够在数十种文件格式（如Markdown，reStructuredText，Textilte，HTML，LaTeX，pdf，doc等）中自如的转换，几乎能做到无缝兼容，且成熟稳定。使用&lt;a href=&quot;http://johnmacfarlane.net/pandoc&quot;&gt;&lt;code&gt;Pandoc&lt;/code&gt;&lt;/a&gt;在Markdown文件中直接使用Latex公式，然后通过MathJax、jsMath 等等方式显示公式。例如使用下面一段Latex代码&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-latex&quot;&gt;$$e^{i\pi}+1=0$$
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;就可以得到一个优美的公式：
+&lt;script type=&quot;math/tex&quot;&gt;e^{i\pi}+1=0&lt;/script&gt;
+&lt;em&gt;为了能让公式在网页中显示，请在markdown文件头加上以下调用MathJax的代码。&lt;/em&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-html&quot;&gt;&amp;lt;script type=&quot;text/javascript&quot; src=&quot;http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML&quot;&amp;gt;
+&amp;lt;/script&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;因此选用&lt;a href=&quot;http://johnmacfarlane.net/pandoc&quot;&gt;&lt;code&gt;Pandoc&lt;/code&gt;&lt;/a&gt;作为Jekyll中markdown的渲染器是很自然的。
+但是Github Pages并没有提供pandoc的支持，也就是说使用&lt;a href=&quot;http://johnmacfarlane.net/pandoc&quot;&gt;&lt;code&gt;Pandoc&lt;/code&gt;&lt;/a&gt;的网站代码在Github上是无法编译的，以后会谈到如何解决这个问题。下面先看看如何配置环境将&lt;a href=&quot;http://johnmacfarlane.net/pandoc&quot;&gt;&lt;code&gt;Pandoc&lt;/code&gt;&lt;/a&gt;作为Markdown的渲染器。&lt;/p&gt;
+
+&lt;h2 id=&quot;pandoc-1&quot;&gt;配置Pandoc环境&lt;/h2&gt;
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;首先当然是安装&lt;a href=&quot;http://johnmacfarlane.net/pandoc&quot;&gt;&lt;code&gt;Pandoc&lt;/code&gt;&lt;/a&gt;：
+Windows下直接从&lt;a href=&quot;http://johnmacfarlane.net/pandoc/&quot;&gt;pandoc官网&lt;/a&gt;下载&lt;a href=&quot;http://code.google.com/p/pandoc/downloads/&quot;&gt;最新安装包&lt;/a&gt;安装即可。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;安装Pandoc-Ruby。这里假设已经转好Ruby、Jekyll等环境了，如果还没有安装请参考&amp;lt;&amp;gt;。&lt;br /&gt;
+直接使用以下命令即可安装Pandoc-Ruby&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;gem install pandoc-ruby
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;安装Jekyll插件。直接从Github站点
+&lt;a href=&quot;https://github.com/dsanson/jekyll-pandoc-plugin&quot;&gt;Jekyll Plugin for Using Pandoc-Ruby&lt;/a&gt;下载&lt;code&gt;pandoc_markdown.rb&lt;/code&gt;放到网站根目录下的&lt;code&gt;_plugins&lt;/code&gt;文件夹中（如果&lt;code&gt;_plugins&lt;/code&gt;文件夹不存在，就创建一个），Jekyll在每次编译生成网站前都会自动加载&lt;code&gt;_plugins&lt;/code&gt;文件夹中的所有&lt;code&gt;*.rb&lt;/code&gt;文件。Jekyll官网&lt;sup id=&quot;fnref:jekyll_plugins&quot;&gt;&lt;a href=&quot;#fn:jekyll_plugins&quot; class=&quot;footnote&quot;&gt;2&lt;/a&gt;&lt;/sup&gt;上有该插件的相关介绍，同时也给出了其它的解决方案。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;在网站配置文件&lt;code&gt;_config.yml&lt;/code&gt;中添加设置Markdown的渲染器为&lt;code&gt;Pandoc&lt;/code&gt;。添加以下配置即可&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;markdown: pandoc
+pandoc:
+  format: html5
+  extensions: [smart, mathjax]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&quot;section&quot;&gt;一些修改&lt;/h2&gt;
+&lt;p&gt;理论上经过以上的配置就可以使用&lt;code&gt;pandoc&lt;/code&gt;渲染&lt;code&gt;Markdown&lt;/code&gt;了，可是事情似乎并没有这么简单，执行&lt;code&gt;jekyll server&lt;/code&gt;命令后，出现了下面的错误&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;Conversion error: There was an error converting .....
+: undefined method &#39;convert&#39; for [:smart, :mathjax]:Array. Use --trace to view backtrace
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;下载&lt;a href=&quot;/assets/share/markdown.rb&quot;&gt;文件&lt;/a&gt;替换&lt;code&gt;lib/jekyll/converters/markdown.rb&lt;/code&gt;即可，修改之处是在&lt;code&gt;setup&lt;/code&gt;和&lt;code&gt;convert&lt;/code&gt;中按照其它渲染器的格式增加一个&lt;code&gt;pandoc&lt;/code&gt;判断。&lt;br /&gt;
+至此，我们已经可以在本地Jekyll中使用&lt;code&gt;Pandoc&lt;/code&gt;作为&lt;code&gt;Markdown&lt;/code&gt;的渲染器了，至于&lt;code&gt;Github Page&lt;/code&gt;不能编译通过的问题下次再讨论。&lt;/p&gt;
+
+&lt;div class=&quot;footnotes&quot;&gt;
+  &lt;ol&gt;
+    &lt;li id=&quot;fn:yangzetian&quot;&gt;
+      &lt;p&gt;为Jekyll装上瑞士军刀Pandoc: &lt;a href=&quot;http://yangzetian.github.io/2012/04/15/jekyll-pandoc/&quot;&gt;http://yangzetian.github.io/2012/04/15/jekyll-pandoc/&lt;/a&gt; &lt;a href=&quot;#fnref:yangzetian&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li id=&quot;fn:jekyll_plugins&quot;&gt;
+      &lt;p&gt;Jekyll Plugins: &lt;a href=&quot;http://jekyllrb.com/docs/plugins/&quot;&gt;http://jekyllrb.com/docs/plugins/&lt;/a&gt; &lt;a href=&quot;#fnref:jekyll_plugins&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/div&gt;
+</description>
+      </item>
+    
+      <item>
+        <title>利用Pandoc将markdown文件转化为pdf</title>
+        <link>http://loongfee.github.io/blog/2013/07/31/pandoc</link>
+        <guid isPermaLink="true">http://loongfee.github.io/blog/2013/07/31/pandoc</guid>
+        <pubDate>Wed, 31 Jul 2013 00:00:00 +0800</pubDate>
+        <description>&lt;h2 id=&quot;section&quot;&gt;准备工作&lt;/h2&gt;
+
+&lt;h3 id=&quot;pandoc&quot;&gt;安装pandoc&lt;/h3&gt;
+&lt;p&gt;Windows下安装pandoc很容易，直接从&lt;a href=&quot;http://johnmacfarlane.net/pandoc/&quot;&gt;pandoc官网&lt;/a&gt;上下载&lt;a href=&quot;http://code.google.com/p/pandoc/downloads/&quot;&gt;最新安装包&lt;/a&gt;安装即可。&lt;br /&gt;
+Linux下的安装可以参考阳志平的博文&lt;sup id=&quot;fnref:yzp&quot;&gt;&lt;a href=&quot;#fn:yzp&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;。&lt;/p&gt;
+
+&lt;h3 id=&quot;miktex&quot;&gt;安装MiKTeX&lt;/h3&gt;
+&lt;p&gt;pandoc被称为格式转换的瑞士军刀&lt;sup id=&quot;fnref:yanping&quot;&gt;&lt;a href=&quot;#fn:yanping&quot; class=&quot;footnote&quot;&gt;2&lt;/a&gt;&lt;/sup&gt;。执行程序文件只有20M左右大小，但是能够在几十种文件格式之间自如的转换，那当然是得依赖各种格式文件所需要库。转换为pdf就要用到MiKTeX，Windows下推荐使用CTeX完整版，对中文的支持很好，可以从&lt;a href=&quot;http://www.ctex.org/HomePage&quot;&gt;CTeX官网&lt;/a&gt;下载&lt;a href=&quot;http://ftp.ctex.org/pub/tex/systems/ctex/2.9/CTeX_2.9.2.164_Full.exe&quot;&gt;完整套件&lt;/a&gt;。&lt;/p&gt;
+
+&lt;h2 id=&quot;markdownpdf&quot;&gt;将markdown文件转换为pdf&lt;/h2&gt;
+&lt;p&gt;如果markdown文件中不包含中文字符，那么直接使用下面的命令就可以将markdown文件无缝转换为Latex支持的pdf文件。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;pandoc infile.md -o outfile.pdf
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;如果markdown文件中包含中文字字符，那么上段命令就无法直接转换，可能会报以下错误：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;! Package inputenc Error: Unicode char \u8:鍒?not set up for use with LaTex.
+pandoc: Error producing PDF from Tex source.    
+See the inputsnc package documentation for explanation.   
+... 
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;为了解决中文编译的问题，需要做以下的工作：&lt;/p&gt;
+
+&lt;h3 id=&quot;markdownutf-8&quot;&gt;将markdown文档的编码方式改为utf-8&lt;/h3&gt;
+&lt;p&gt;比较简单的办法就是用记事本打开该文档，然后另存为时选择编码方式为utf-8。有可能当你改变编码方式后，文档中的中文全变成乱码了。为避免这种情况，可以在改变编码方式之前先复制文档的全部内容，然后在改变编码方式之后粘贴替换文档中的全木内容，这样就不会出现乱码了。&lt;/p&gt;
+
+&lt;h3 id=&quot;latex&quot;&gt;修改Latex引擎&lt;/h3&gt;
+&lt;p&gt;编译pandoc默认的latex引擎是pdflatex，是不支持中文的，因此需要手动设置编译时所用的引擎为xelatex，编译命令改为：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;pandoc infile.md -o outfile.pdf --latex-engine=xelatex
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&quot;section-1&quot;&gt;中文字体&lt;/h3&gt;
+&lt;p&gt;这时编译可能没有错误了，但是得到的pdf文档中可能所有的中文都没有了。这是字体的问题，因为编译时默认的字体时不支持中文的，所以我们得手动设置中文字体。显然，所设的字体应该为系统中已装的字体，且字体的名字不能写错。有一个办法可以的到系统中所安装的所有字体名（见&lt;a href=&quot;http://blog.sina.com.cn/s/blog_5ee56d4501019ys8.html&quot;&gt;博文&lt;/a&gt;），即在控制台中输入命令：&lt;code&gt;fc-list &amp;gt;&amp;gt; C:\fonts.txt&lt;/code&gt;。这样，扫到的字体信息就全部被导入到C盘根目录下的fonts.txt文件中了。这里我们选择宋体，字体名称为”SimSun”，于是编译命令改为：  &lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;pandoc infile.md -o outfile.pdf --latex-engine=xelatex -V mainfont=&quot;SimSun&quot; 
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;em&gt;注意：命令中的”V”是大写&lt;/em&gt;&lt;br /&gt;
+这里字体名也可以不加&lt;strong&gt;双&lt;/strong&gt;引号，但是如果字体名比较复杂（如包含空格）时，不加双引号就可能出错。&lt;/p&gt;
+
+&lt;h3 id=&quot;section-2&quot;&gt;使用模板&lt;/h3&gt;
+&lt;p&gt;好了，中文字符应该能够显示了，但是你可能会发现很多文字已经超出了文档的边界无法显示了，这是因为pandoc对中文的支持不太好，不能自动换行。但是这并不表示pandoc就真的无法完美处理中文文档了，因为技术界那些追求完美的极客们为我们提供了无限的可能。这篇博文介绍了pandoc中文pdf转换攻略&lt;sup id=&quot;fnref:pandoc2pdf&quot;&gt;&lt;a href=&quot;#fn:pandoc2pdf&quot; class=&quot;footnote&quot;&gt;3&lt;/a&gt;&lt;/sup&gt;，解决方案是使用网友编辑好的latex模板来生成pdf，这里用到的是&lt;a href=&quot;https://github.com/tzengyuxio&quot;&gt;tzengyuxio&lt;/a&gt;提供的pm-template.latex&lt;sup id=&quot;fnref:pm&quot;&gt;&lt;a href=&quot;#fn:pm&quot; class=&quot;footnote&quot;&gt;4&lt;/a&gt;&lt;/sup&gt;。
+下载模板后将其中的&lt;code&gt;LiHei Pro&lt;/code&gt;字体替换成系统中安装有的中文字体即可，然后编译命令改为：  &lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;pandoc infile.md -o outfile.pdf --latex-engine=xelatex -template=pm-template.latex
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;em&gt;注意：如果安装的MiKTeX（我用的是CTex）宏包不全，编译可能会出问题，如找不到&lt;code&gt;exp13.sty&lt;/code&gt;等，因此推荐安装完整版的MiKTex。&lt;/em&gt;    &lt;br /&gt;
+当然，你也可以使用自己定义的模板来生成tex和pdf文件。首先使用命令 &lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;pandoc -D latex &amp;gt; my.latex
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;生成一个默认的模板，再对这个模板进行修改，如字体、自动换行等。&lt;/p&gt;
+
+&lt;div class=&quot;footnotes&quot;&gt;
+  &lt;ol&gt;
+    &lt;li id=&quot;fn:yzp&quot;&gt;
+      &lt;p&gt;Markdown写作进阶：Pandoc入门浅谈: &lt;a href=&quot;http://www.yangzhiping.com/tech/pandoc.html&quot;&gt;http://www.yangzhiping.com/tech/pandoc.html&lt;/a&gt; &lt;a href=&quot;#fnref:yzp&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li id=&quot;fn:yanping&quot;&gt;
+      &lt;p&gt;黑魔法利器pandoc: &lt;a href=&quot;http://yanping.me/cn/blog/2012/03/13/pandoc/&quot;&gt;http://yanping.me/cn/blog/2012/03/13/pandoc/&lt;/a&gt; &lt;a href=&quot;#fnref:yanping&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li id=&quot;fn:pandoc2pdf&quot;&gt;
+      &lt;p&gt;pandoc中文pdf转换攻略：&lt;a href=&quot;http://afoo.me/2013-07-10-how-to-transform-chinese-pdf-with-pandoc.html&quot;&gt;http://afoo.me/2013-07-10-how-to-transform-chinese-pdf-with-pandoc.html&lt;/a&gt;   &lt;a href=&quot;#fnref:pandoc2pdf&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li id=&quot;fn:pm&quot;&gt;
+      &lt;p&gt;pm-template GitHub: &lt;a href=&quot;https://github.com/tzengyuxio/pages/tree/gh-pages/pandoc&quot;&gt;https://github.com/tzengyuxio/pages/tree/gh-pages/pandoc&lt;/a&gt; &lt;a href=&quot;#fnref:pm&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/div&gt;
+</description>
+      </item>
+    
+      <item>
+        <title>Your Title</title>
+        <link>http://loongfee.github.io/blog/2013/07/31/jekyll</link>
+        <guid isPermaLink="true">http://loongfee.github.io/blog/2013/07/31/jekyll</guid>
+        <pubDate>Wed, 31 Jul 2013 00:00:00 +0800</pubDate>
+        <description>&lt;h2 id=&quot;jekyllrun-jekyll-locally&quot;&gt;1. 启动本地Jekyll服务（Run Jekyll Locally）&lt;/h2&gt;
+&lt;p&gt;输入下面的命令。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;cd USERNAME.github.com
+jekyll serve
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;其中，&lt;code&gt;USERNAME&lt;/code&gt;是你的github博客用户名，也就是说需要先定位到本地博客的根目录下。
+然后，就可以通过来访问你的博客了。&lt;/p&gt;
+
+&lt;h2 id=&quot;jekyllstop-jekyll-locally&quot;&gt;2. 停止本地Jekyll服务（Stop Jekyll Locally）&lt;/h2&gt;
+&lt;p&gt;在控制台窗口中使用快捷键来停止服务：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Ctrl+C
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&quot;post&quot;&gt;3. 创建一个post&lt;/h2&gt;
+&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;rake post title=&quot;Hello World&quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&quot;page&quot;&gt;4. 创建一个page&lt;/h2&gt;
+&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;rake page name=&quot;about.md&quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&quot;postpage&quot;&gt;5. 删除post或page&lt;/h2&gt;
+&lt;p&gt;直接删除相应的post文件即可删除一个post。&lt;/p&gt;
+
+&lt;h2 id=&quot;section&quot;&gt;6. 上传新添加的内容&lt;/h2&gt;
+&lt;p&gt;只需要将新添加的内容上传到Github，Jekyll就可以帮我们生成相应的网页了。上传内容的命令如下。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;git add .
+git commit -m &quot;Add new content&quot;
+git push origin master
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&quot;section-1&quot;&gt;7. 中文编码问题&lt;/h2&gt;
+&lt;p&gt;修改&lt;code&gt;convertible.rb&lt;/code&gt;文件中的以下行：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-ruby&quot;&gt;self.content = File.read(File.join(base, name))
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;加入utf-8支持，改后为：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-ruby&quot;&gt;self.content = File.read(File.join(base, name), :encoding =&amp;gt; &#39;utf-8&#39;)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;改后即可正常处理包含中文的post。
+如果编译出现如下错误&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;Liquid Exception: incompatible character encodings: UTF-8 and GBK
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;可以尝试更改控制台编码：&lt;code&gt;chcp 65001&lt;/code&gt;，改后控制台变得比较丑，但总算能解决中文编码问题。&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;how-to-fix&quot;&gt;How to Fix&lt;/h2&gt;
+
+&lt;h3 id=&quot;check-the-start-of-the-file&quot;&gt;1. Check the Start of the File&lt;/h3&gt;
+
+&lt;p&gt;Please open &lt;code&gt;_posts/码农/2013-07-31-jekyll.md&lt;/code&gt; and ensure the very first lines look like this:&lt;/p&gt;
+
+&lt;p&gt;```markdown&lt;/p&gt;
+&lt;code_block_to_apply_changes_from&gt;
+---
+layout: post
+title: &quot;Your Title&quot;
+date: 2013-07-31
+categories: 码农
+---
+```
+
+- The first line must be exactly `---` (no spaces, no BOM, no tabs).
+- There must be a closing `---` before the content starts.
+
+### 2. Check File Encoding
+
+- Open the file in VSCode or Notepad++.
+- Make sure it is saved as **UTF-8 without BOM**.
+
+### 3. Check for Hidden Characters
+
+- Sometimes, copying from other editors introduces invisible characters.
+- In VSCode, you can use the &quot;Reopen with Encoding&quot; option and resave as UTF-8.
+
+---
+
+## Next Step
+
+**Please copy and paste the first 10 lines of `_posts/码农/2013-07-31-jekyll.md` here.**  
+I can then directly spot the problem for you.
+
+Or, if you prefer, check the above points yourself and let me know if the error persists!
+&lt;/code_block_to_apply_changes_from&gt;
+</description>
+      </item>
+    
+      <item>
+        <title>使用GitHub管理你的工程</title>
+        <link>http://loongfee.github.io/blog/2013/07/31/github</link>
+        <guid isPermaLink="true">http://loongfee.github.io/blog/2013/07/31/github</guid>
+        <pubDate>Wed, 31 Jul 2013 00:00:00 +0800</pubDate>
+        <description>&lt;p&gt;无可非议，这是一个计算机的时代，也是一个代码的时代。作为一个资深码农，你一定写过无数段小代码，无数个小程序了，实际应用中需要用到的很多代码段或者小工具都可以从自己积累的程序中直接拿出来。然而事实并没有这么简单，你可能需要在不同的电脑上编写程序，你也可能根据实际使用的情况对你以前的代码进行修改，随之而来的就是&lt;strong&gt;“版本灾难”&lt;/strong&gt;，这往往是令人抓狂的。另外，现在软件项目越来越大，大多数实际项目已经不再像过去那样只需要一两个人就能完成了。不同的人在不同的终端上几乎同时地对同一个项目进行编辑，可想而知，版本的管理将是多么繁琐的一件事情。那么有没有什么方法可以高效地管理你的工程呢？这就是这篇文章要解决的问题。&lt;/p&gt;
+
+&lt;h2 id=&quot;github&quot;&gt;GitHub是什么&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/&quot;&gt;GitHub&lt;/a&gt;是一家公司，位于旧金山，由&lt;a href=&quot;https://github.com/defunkt&quot;&gt;Chris Wanstrath&lt;/a&gt;, &lt;a href=&quot;https://github.com/pjhyett&quot;&gt;PJ Hyett&lt;/a&gt; 与&lt;a href=&quot;https://github.com/mojombo&quot;&gt;Tom Preston-Werner&lt;/a&gt;三位开发者在2008年4月创办。迄今拥有59名全职员工，主要提供基于Git的版本托管服务。GitHub是目前最流行的开源托管服务，已经成为全球最大的开源项目聚集地。GitHub的服务分为免费和收费两种。免费账号可以自由的发布项目（不过每个项目有100M的大小限制），并且所发布的项目必须是公开源码的。付费账号则可以发布私有的项目。&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;对于一般的开源项目的用户而言，100M的大小是足够的。但如果你的代码是商业保密的或者你的项目非常的大，那么你就需要成为付费用户以便GitHub不公开你的源代码或者提供更大的存储空间。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;好的，下面就从注册GitHub账号开始，逐步介绍如何使用GitHub管理你的软件项目。GitHub的平台无关性表现非常好，但是本文只介绍windows下的使用方法。&lt;/p&gt;
+
+&lt;h2 id=&quot;github-1&quot;&gt;注册GitHub账号&lt;/h2&gt;
+
+&lt;p&gt;打开&lt;a href=&quot;https://github.com/&quot;&gt;GitHub&lt;/a&gt;网站的主页，按照提示输入待注册的用户名、邮箱和密码，然后点“Sign up for GitHub”，如下图所示。&lt;img src=&quot;/public/img/20130801-sign_up.png&quot; alt=&quot;注册&quot; /&gt;
+如果不出意外的话就注册成功了（如果你的密码设置的过于简单，可能会提示你重新设置密码）。对，就这么简单。&lt;/p&gt;
+
+&lt;h2 id=&quot;github-2&quot;&gt;GitHub工具&lt;/h2&gt;
+
+&lt;p&gt;GitHub最初是在linux下面使用的，一切操作都是用命令来实现的，对于windows用户来说还是很不方便的。好在GitHub最近发布了一个windows下的管理工具，操作简单直观，界面是metro UI 风格，推荐使用这个管理工具。相关说明和下载地址如下：&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;官方就这个工具发布的说明：&lt;a href=&quot;https://github.com/blog/1127-github-for-windows&quot;&gt;https://github.com/blog/1127-github-for-windows&lt;/a&gt;&lt;/p&gt;
+
+  &lt;p&gt;官方网址：&lt;a href=&quot;http://windows.github.com/&quot;&gt;http://windows.github.com/&lt;/a&gt;&lt;/p&gt;
+
+  &lt;p&gt;点击此处下载：&lt;a href=&quot;http://github-windows.s3.amazonaws.com/setup.exe&quot;&gt;http://github-windows.s3.amazonaws.com/setup.exe&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;下载的setup.exe是一个在线安装器，运行后会开始在线安装，安装过程可能需要几分钟（需要下载安装程序）。
+安装完后会出现”Git Shell”和”GitHub”两个程序，其中”Git Shell”是命令行模式，”GitHub”是图形界面模式，这里打开”GitHub”，出现登录界面，如下图所示。
+&lt;img src=&quot;/public/img/20130801-github_login.png&quot; alt=&quot;登录客户端&quot; /&gt;
+## 创建一个项目（Repositories）&lt;/p&gt;
+</description>
+      </item>
+    
+  </channel>
+</rss>

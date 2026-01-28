@@ -1,0 +1,44 @@
+
+  /pages/about.html
+
+  /pages/archive.html
+
+  /pages/atom.xml
+
+  /favorite/index-bk.html
+
+  /favorite/index.html
+
+  /index.html
+
+  /sitemap.txt
+
+  /page2/index.html
+
+
+
+  /blog/2015/09/18/gdalwarp
+
+  /blog/2015/01/29/Book-List-2015
+
+  /blog/2014/03/28/windows-mpich2
+
+  /blog/2013/12/20/Minimum-Rank-Solutions
+
+  /blog/2013/10/22/Compressive-Sensing
+
+  /blog/2013/08/12/a-contrario-starting
+
+  /blog/2013/08/06/notepad-replace-notepad
+
+  /blog/2013/08/05/feedly
+
+  /blog/2013/08/03/Github-page-build-failure
+
+  /blog/2013/08/02/new-post
+
+  /blog/2013/07/31/pandoc
+
+  /blog/2013/07/31/jekyll
+
+  /blog/2013/07/31/github
