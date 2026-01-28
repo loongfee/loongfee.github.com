@@ -22,7 +22,6 @@
     - { title: "ProductHunt", url: "https://www.producthunt.com/" }
     - { title: "LINUX DO", url: "https://linux.do/" }
     - { title: "V2EX", url: "https://www.v2ex.com/go/share" }
-    - { title: "周刊", url: "https://www.fre123.com/weekly" }
 
 - title: "MySite"
   links:
@@ -154,16 +153,14 @@
 
 - title: "AI"
   links:
-    - { title: "ChatGPT", url: "https://chat.openai.com/chat" }
-    - { title: "共享GPT", url: "https://www.opkfc.com/list" }
-    - { title: "Gemini", url: "https://gemini.google.com/" }
     - { title: "NotebookLM", url: "https://notebooklm.google.com/" }
     - { title: "Google AI", url: "https://aistudio.google.com/prompts/new_chat" }
-    - { title: "GPT-4o", url: "https://chatgpt.com/?model=gpt-4o" }
-    - { title: "GPT-4oMini", url: "https://gpt4omini.app/" }
+    - { title: "ChatGPT", url: "https://chat.openai.com/chat" }
+    - { title: "QWen", url: "https://chat.qwen.ai/" }
+    - { title: "Grok", url: "https://grok.com/" }
+    - { title: "Gemini", url: "https://gemini.google.com/" }
     - { title: "Claude", url: "https://claude.ai/chats" }
     - { title: "Arena", url: "https://lmarena.ai/" }
-    - { title: "Slack", url: "https://gpt-18.slack.com/ssb/redirect" }
     - { title: "GPT-4o", url: "https://gpt4o.so/zh-CN" }
     - { title: "Coze", url: "https://www.coze.com/home" }
     - { title: "Poe", url: "https://poe.com/" }
