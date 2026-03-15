@@ -158,6 +158,8 @@
     - { title: "ChatGPT", url: "https://chat.openai.com/chat" }
     - { title: "QWen", url: "https://chat.qwen.ai/" }
     - { title: "Grok", url: "https://grok.com/" }
+    - { title: "DeepSeek", url: "https://chat.deepseek.com/" }
+    - { title: "MiniMax", url: "https://agent.minimax.io/" }
     - { title: "Gemini", url: "https://gemini.google.com/" }
     - { title: "Claude", url: "https://claude.ai/chats" }
     - { title: "Arena", url: "https://lmarena.ai/" }
