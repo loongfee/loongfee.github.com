@@ -200,14 +200,11 @@
     - { title: "ResearchRabbit", url: "https://researchrabbitapp.com/" }
     - { title: "InCites", url: "https://jcr.incites.thomsonreuters.com/JCRJournalHomeAction.action" }
     - { title: "EI", url: "http://www.engineeringvillage.com/" }
-    - { title: "Library", url: "http://lib.irsa.ac.cn:8080" }
-    - { title: "IR", url: "http://ir.radi.ac.cn/" }
     - { title: "LAS", url: "http://www.las.ac.cn/" }
     - { title: "arXiv", url: "https://arxiv.org/" }
     - { title: "TGRS", url: "http://mc.manuscriptcentral.com/tgrs" }
     - { title: "RSE", url: "https://ees.elsevier.com/rse/default.asp" }
     - { title: "ISPRS", url: "https://www.journals.elsevier.com/isprs-journal-of-photogrammetry-and-remote-sensing" }
-    - { title: "remotesensing", url: "http://www.mdpi.com/journal/remotesensing" }
     - { title: "crossref", url: "https://search.crossref.org/" }
     - { title: "zbib", url: "https://zbib.org/" }
     - { title: "科技报告", url: "https://www.nstrs.cn/" }
@@ -241,6 +238,7 @@
     - { title: "CollinsCN", url: "https://www.collinsdictionary.com/zh/dictionary/english-thesaurus" }
     - { title: "Dict", url: "http://dict.cn/" }
     - { title: "Google Translate", url: "https://translate.google.com" }
+    - { title: "kagi Translate", url: "https://translate.kagi.com/" }
     - { title: "比较", url: "https://wikidiff.com/" }
     - { title: "万词王", url: "https://wantwords.thunlp.org/" }
     - { title: "百度翻译", url: "http://fanyi.baidu.com/" }
