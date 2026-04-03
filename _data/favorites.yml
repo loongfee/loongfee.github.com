@@ -49,15 +49,15 @@
 
 - title: "Tools"
   links:
-    - { title: "22.Do", url: "https://22.do/" }
-    - { title: "dub短链", url: "https://dub.co/" }
+    - { title: "tm临时邮", url: "https://mail.tm/zh/" }
+    - { title: "2925无限邮", url: "https://2925.com/" }
     - { title: "同步剪切板", url: "https://gcopy.rutron.net/zh" }
+    - { title: "网页转MD", url: "https://defuddle.md/" }
+    - { title: "isup.me", url: "http://www.downforeveryoneorjustme.com/" }
     - { title: "IPTV", url: "https://www.foodieguide.com/iptvsearch/hoteliptv.php" }
-    - { title: "GitHub加速", url: "https://moeyy.cn/gh-proxy/" }
     - { title: "IT Tools", url: "https://zz.ittools.cc/" }
     - { title: "AI人性化", url: "https://humanize.im/zh-CN" }
     - { title: "ProcessOn", url: "https://www.processon.com" }
-    - { title: "isup.me", url: "http://www.downforeveryoneorjustme.com/" }
     - { title: "Excalidraw", url: "https://excalidraw.com/" }
     - { title: "AI贴纸", url: "https://stickerbaker.com/" }
     - { title: "Cleanpng", url: "https://www.cleanpng.com/" }
@@ -76,9 +76,7 @@
     - { title: "Coggle", url: "https://coggle.it/" }
     - { title: "my-mind", url: "http://my-mind.github.io/" }
     - { title: "百度脑图", url: "http://naotu.baidu.com/" }
-    - { title: "Kuler", url: "https://color.adobe.com" }
     - { title: "Getcolor", url: "https://www.bejson.com/ui/getcolor/" }
-    - { title: "Piknik", url: "http://color.aurlien.net/" }
     - { title: "Material Palette", url: "http://www.materialpalette.com/" }
     - { title: "Colormind", url: "http://colormind.io/" }
     - { title: "Colorhunt", url: "https://colorhunt.co/" }
@@ -124,6 +122,7 @@
     - { title: "开搜AI", url: "https://kaisouai.com/" }
     - { title: "Phind", url: "https://www.phind.com/search?home=true" }
     - { title: "Perplexity", url: "https://www.perplexity.ai/" }
+    - { title: "Ai2", url: "https://openscilm.allen.ai/" }
     - { title: "Kimi", url: "https://kimi.moonshot.cn/" }
     - { title: "Andi", url: "https://andisearch.com/" }
     - { title: "bing", url: "https://www.bing.com/?/ai" }
@@ -158,6 +157,7 @@
     - { title: "ChatGPT", url: "https://chat.openai.com/chat" }
     - { title: "QWen", url: "https://chat.qwen.ai/" }
     - { title: "Grok", url: "https://grok.com/" }
+    - { title: "豆包", url: "https://www.doubao.com/chat/" }
     - { title: "DeepSeek", url: "https://chat.deepseek.com/" }
     - { title: "MiniMax", url: "https://agent.minimax.io/" }
     - { title: "Gemini", url: "https://gemini.google.com/" }
