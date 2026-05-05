@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="robots" content="noindex">
+  <!-- 核心：HTML 级 Meta 重定向，0秒延迟 -->
+  <meta http-equiv="refresh" content="0; url=/favorite/favorite/index.html">
+  <title>跳转中...</title>
+  <!-- 核心：JS 级重定向 (使用 replace 避免破坏浏览器的"返回"按钮逻辑) -->
+  <script>
+    window.location.replace("/favorite/favorite/index.html");
+  </script>
+</head>
+<body>
+  <p>正在跳转到收藏夹，请稍候...</p>
+  <p>如果没有自动跳转，请 <a href="/favorite/favorite/index.html">点击这里</a>。</p>
+</body>
+</html>
